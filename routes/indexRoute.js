@@ -19,11 +19,13 @@ router.get('/', (req, res)=> {
     res.render('index')
 })
 
-router.post('/upload', uploadMiddleware.single('ImageFile'), (req, res)=>{
-    console.log(req.body)
-    console.log(req.file)
+router.post('/upload', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 'ImageFil'}]), (req, res)=>{
+    //console.log(req.body)
+    console.log(req.files['ImageFil'])
     return res.redirect('/')
 })
+
+
 
 
 
