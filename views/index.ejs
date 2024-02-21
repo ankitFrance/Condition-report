@@ -275,44 +275,96 @@
             <!---------------------------------------------------------------------------------->
             <div class="step-form" id="step2">
               <h2 style="text-align: center; color: navy;"> OBJECT IDENTIFICATION  </h2>
+
+            <h5 style="font-weight: bold;"> Identifiers:</h5>
+
             <div class="form-row row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">field 1</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="">
+
+               <div class="form-group col-md-3">
+                 <input type="email" class="form-control" id="inputEmail4" placeholder="Identification Number">
+               </div>
+
+              <div class="form-group col-md-9">
+                <div class="form-row row">
+
+                  <div class="col-md-3">
+                    <label  class="col-form-label" for="datepicker">Date of Acquisition:</label>
+                  </div>
+
+                  <div class="col-md-3">
+                    <input type="date" id="datepicker" name="datepicker" class="form-control">
+                  </div>
+
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">field 2</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="">
-              </div>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">field 3</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="inputAddress2">field 4</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="">
-            </div>
+
+            <h5 style="font-weight: bold;"> Tags:</h5>
+
             <div class="form-row row">
-              <div class="form-group col-md-2">
-                <label for="inputCity">field 5</label>
-                <input type="text" class="form-control" id="inputCity">
+
+              <div class="form-group col-md-3">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Name of asset">
               </div>
-              <div class="form-group col-md-2">
-                <label for="inputState">field 7</label>
-                <select id="inputState" class="form-control">
-                  <option selected></option>
-                  <option>...</option>
-                </select>
+
+              <div class="form-group col-md-3">
+               <input type="text" class="form-control" id="inputPassword4" placeholder="Title">
               </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">field 6</label>
-                <input type="text" class="form-control" id="inputZip">
+              
+              <div class="form-group col-md-3">
+               <input type="text" class="form-control" id="inputPassword4" placeholder="Heading">
               </div>
+
             </div>
-            <div class="form-group">
-          
+
+            <h5 style="font-weight: bold;"> Creation Details :</h5>
+
+            <div class="form-row row">
+
+              <div class="form-group col-md-3">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Author / Creator">
+              </div>
+
+              <div class="form-group col-md-3">
+               <input type="text" class="form-control" id="inputPassword4" placeholder="Origin">
+              </div>
+              
+              <div class="form-group col-md-6">
+                <div class="form-row row">
+
+                  <div class="col-md-3">
+                    <label  class="col-form-label" for="datepicker">Date of Creation:</label>
+                  </div>
+
+                  <div class="col-md-3">
+                    <input type="date" id="datepicker" name="datepicker" class="form-control">
+                  </div>
+
+                </div>
+              </div>
+
             </div>
+
+           
+            <hr>
+            <div class="form-row row" style="margin-top: 8px;">
+
+              <div class="form-group col-md-3">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Ownership">
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Protection">
+              </div>
+
+            </div>
+
+
+            <div class="form-group col-md-6" style="margin-top: 8px;">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Summary of its importance"></textarea>
+            </div>
+
+            
             <div>
               <button type="button" class="btn btn-secondary prev">Previous</button>
               <button type="button" class="btn btn-success next">Next</button>
@@ -321,46 +373,101 @@
             <!----------------------------------------------------------------------------------->
             <div class="step-form" id="step3">
               <h2 style="text-align: center; color: navy;"> OBJECT DESCRIPTION  </h2>
+
+              <h5 style="font-weight: bold;"> Nature :</h5>
+              <div class="form-row row">
+  
+                <div class="form-group col-md-2">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Material">
+                </div>
+
+                <div class="form-group col-md-2">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Structure">
+                </div>
+
+                <div class="form-group col-md-2">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Surface">
+                </div>
+
+                <div class="form-group col-md-2">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="History ">
+                </div>
+ 
+             </div>
+
+             <div class="form-row row">
+
+              <div class="form-group col-md-2">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Technique">
+              </div>
+
+              <div class="form-group col-md-2">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Weight">
+              </div>
+
+              <div class="form-group col-md-2">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Constituent elements">
+              </div>
+
+              <div class="form-group col-md-2" id="two">
+                <label for="inputState" class="col-form-label">Number of elements</label>
+              </div>
+              <div class="form-group col-md-1">
+                <select id="inputState" class="form-control">
+                  <option selected>1</option>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+              </div>
+           </div>
+
+           <div class="form-row row">
+  
+            <div class="form-group col-md-2">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Height">
+            </div>
+
+            <div class="form-group col-md-2">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Length">
+            </div>
+
+            <div class="form-group col-md-2">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Width">
+            </div>
+
+         </div>
+
+         <hr>
+         <div class="form-row row" style="margin-top: 8px;">
+
+           <div class="form-group col-md-6">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Intallation notes"></textarea>
+           </div>
+
+           <div class="form-group col-md-6">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Artist Installation guide"></textarea>
+           </div>
+
+           <div class="form-group col-md-6">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Object Creation Description"></textarea>
+           </div>
+          
+  
+        </div>
         
-              <div class="form-row row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">field 1</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="">
+        <hr>
+
+        <h6 style="margin-top: 8px;"> Upload photo/Video</h6>
+        
+        
+                <div class="form-row row">
+                  <div class="form-group col-md-6">
+                <div class="input-group">
+                  <input type="file" class="form-control" id="inputGroupFile02">
+                  <label class="input-group-text" for="inputGroupFile02">Upload</label>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">field 2</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputAddress">field 3</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="">
-              </div>
-              <div class="form-group">
-                <label for="inputAddress2">field 4</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="">
-              </div>
-              <div class="form-row row">
-                <div class="form-group col-md-2">
-                  <label for="inputCity">field 5</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="inputState">field 7</label>
-                  <select id="inputState" class="form-control">
-                    <option selected></option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="inputZip">field 6</label>
-                  <input type="text" class="form-control" id="inputZip">
                 </div>
               </div>
-              <div class="form-group">
-            
-              </div>
-         
         
             <div>
               <button type="button" class="btn btn-secondary prev">Previous</button>
