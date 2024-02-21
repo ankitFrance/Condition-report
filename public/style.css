@@ -4,8 +4,10 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	height: 100%;
 	margin: 0;
+  min-height: 100vh;
+  
   }
 
 
@@ -14,6 +16,7 @@ body {
  
   padding: 20px;
   width: 100%; 
+  vertical-align: middle !important;
   
  
   /* max-width: 400px;  */
@@ -50,6 +53,8 @@ border-radius: 10px; /* Adjust the value for the roundness of the border */
 box-shadow: 2px 8px 16px rgba(0.2, 0, 0, 0.3); /* Adjust the values for the shadow effect */
 margin-top: -10px; /* Adjust the value to lift it up or down */
 padding: 20px; /* Adjust the padding as needed */
-background-color:beige
+background-color:beige;
+
+
 
 }

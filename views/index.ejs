@@ -15,7 +15,10 @@
   
 
     <div class="container">
-        <form id="registrationForm">
+
+      
+
+        <form id="registrationForm" action="/upload" method="post" enctype="multipart/form-data" >
         <!------->
         <div class="progress" style="height: 25px;">
           <div class="progress-bar progress-bar-striped bg-success" id="changeWidth" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -460,12 +463,10 @@
         <h6 style="margin-top: 8px;"> Upload photo/Video</h6>
         
         
-                <div class="form-row row">
-                  <div class="form-group col-md-6">
-                <div class="input-group">
-                  <input type="file" class="form-control" id="inputGroupFile02">
-                  <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                </div>
+              <div class="form-row row ">
+                <div class="form-group col-md-6">
+                  <input type="file" name="ImageFile" class="form-control" id="inputGroupFile02">
+                  
                 </div>
               </div>
         
@@ -562,8 +563,7 @@
                 <!------------------------------------------------------------------------------------->
         
         </form>
-        
-        
+      
         
         </div>
 
@@ -602,12 +602,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    /*
     document.getElementById('registrationForm').addEventListener('submit', function (e) {
         e.preventDefault(); 
        
         alert('Form submitted!');
     });
-
+    */
 
     function updateProgressBar() {
         var progressBarWidth = progresStep * 20;

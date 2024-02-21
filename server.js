@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-//const router = require('./routes/indexRoute');
+
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static('public'));               // for css
+app.use(express.urlencoded({extended: false}))   //help to use the form data
 
 app.use('/', require('./routes/indexRoute'))
+
 
 
 
