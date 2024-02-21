@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="style.css">
    
 </head>
@@ -453,7 +454,11 @@
         
               <div class="form-row row ">
                 <div class="form-group col-md-6">
-                  <input type="file" name="ImageFile" class="form-control" id="inputGroupFile02">
+                  <input type="file" name="ImageFile" class="form-control" id="inputGroupFile02" onchange="displayUploadMessage()">
+                </div>
+
+                <div class="tick-container" id="tickcontainer1" style="display: none;">
+                  &#10004; <!-- This is the HTML entity for a checkmark symbol -->
                 </div>
               </div>
         
@@ -505,7 +510,11 @@
         
                 <div class="form-row row ">
                   <div class="form-group col-md-6">
-                    <input type="file" name="ImageFil" class="form-control" id="inputGroupFile02">
+                    <input type="file" name="ImageFil" class="form-control" id="inputGroup" onchange="displayUploadMessage()">
+                  </div>
+
+                  <div class="tick-container" id="tickcontainer2" style="display: none;">
+                    &#10004; <!-- This is the HTML entity for a checkmark symbol -->
                   </div>
                 </div>
                 
@@ -598,6 +607,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.progress-bar').style.width = progressBarWidth + '%';
     }
 });
+
+function displayUploadMessage() {
+  
+ // document.querySelector('.tick-container').style.display = 'block';
+ document.getElementById('tickcontainer1').style.display = 'block';
+ 
+
+
+}
 
 </script>
 
