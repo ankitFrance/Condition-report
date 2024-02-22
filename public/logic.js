@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    
     var currentStep = 1;
     var progresStep = 0;
 
@@ -22,11 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    document.getElementById('registrationForm').addEventListener('submit', function (e) {
-        e.preventDefault(); 
-       
-        alert('Form submitted!');
-    });
 
 
     function updateProgressBar() {
@@ -35,4 +32,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function displayUploadMessage() {
+  
+ // document.querySelector('.tick-container').style.display = 'block';
+ document.getElementById('tickcontainer1').style.display = 'block';
+ 
 
+
+}
+
+
+//******************************************************************************** 
+const i18n = {
+
+    en: {
+      field1: 'Name',
+     
+    },
+    fr: {
+      field1: 'Nom'
+     
+    },
+  
+  };
+
+  
+  function changeLanguage() {
+    const selectedLanguage = document.getElementById('languageSelect').value;
+    document.getElementById('name').placeholder = i18n[selectedLanguage].field1;
+    
+  }
+
+  // Initialize placeholders with default language 
+  changeLanguage();
