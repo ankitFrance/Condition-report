@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
     
@@ -43,21 +45,8 @@ function displayUploadMessage() {
 
 
 //******************************************************************************** 
-const i18n = {
 
-    en: {
-      field1: 'Name',
-      field2: 'Role'
-     
-    },
-    fr: {
-      field1: 'Nom',
-      field2: 'Rôle'
-     
-    },
-  
-  };
-
+ 
   
   function changeLanguage() {
     const selectedLanguage = document.getElementById('languageSelect').value;
@@ -68,3 +57,5 @@ const i18n = {
 
   // Initialize placeholders with default language 
   changeLanguage();
+
+ 
