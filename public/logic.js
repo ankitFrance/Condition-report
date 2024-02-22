@@ -47,10 +47,12 @@ const i18n = {
 
     en: {
       field1: 'Name',
+      field2: 'Role'
      
     },
     fr: {
-      field1: 'Nom'
+      field1: 'Nom',
+      field2: 'Rôle'
      
     },
   
@@ -60,6 +62,7 @@ const i18n = {
   function changeLanguage() {
     const selectedLanguage = document.getElementById('languageSelect').value;
     document.getElementById('name').placeholder = i18n[selectedLanguage].field1;
+    document.getElementById('role').placeholder = i18n[selectedLanguage].field2;
     
   }
 
