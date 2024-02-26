@@ -65,7 +65,7 @@
           <div class="form-group row" style="margin-top: 8px;">
             <label for="datepicker" class="col-md-2 col-form-label">Date of Inspection:</label>
             <div class="col-md-2">
-              <input type="date" id="datepicker" name="datepicker" class="form-control">
+              <input type="date" id="datepicker" name="date_of_inspection" class="form-control">
             </div>
           </div>
           
@@ -75,7 +75,7 @@
               <label for="inputState" class="col-form-label">Tools</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control" name="tools">
                 <option selected>xyz</option>
                 <option>Tool1</option>
                 <option>Tool2</option>
@@ -86,7 +86,7 @@
               <label for="inputState" class="col-form-label">Methods</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control" name="methods">
                 <option selected>xyz</option>
                 <option>Method 1</option>
                 <option>Method 2</option>
@@ -96,11 +96,11 @@
           
           
         <div class="form-group col-md-6" style="margin-top: 8px;">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Purpose of Condition Report"></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Purpose of Condition Report" name="purpose_of_condition_report"></textarea>
         </div>
         
         <div class="form-group col-md-3" style="margin-top: 8px;">
-         <input type="text" class="form-control" id="inputPassword4" placeholder="Name of Client">
+         <input type="text" class="form-control" id="inputPassword4" placeholder="Name of Client" name="name_of_client">
         </div>
              
         
@@ -117,31 +117,31 @@
         <div class="form-row row">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Height">
+            <input type="text" class="form-control" id="inputEmail4" placeholder="Height" name="height">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Examination Center">
+           <input type="text" class="form-control" id="inputPassword4" placeholder="Examination Center" name="examination_center">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Platform">
+           <input type="text" class="form-control" id="inputPassword4" placeholder="Platform" name="platform">
           </div>
           <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="inputPassword4" placeholder="Behind Glasses">
+            <input type="text" class="form-control" id="inputPassword4" placeholder="Behind Glasses" name="behind_glass">
            </div>
         </div>
         
         <div class="form-row row">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Quantity">
+            <input type="text" class="form-control" id="inputEmail4" placeholder="Quantity"  name="quantity">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Quality">
+           <input type="text" class="form-control" id="inputPassword4" placeholder="Quality" name="quality">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Nature">
+           <input type="text" class="form-control" id="inputPassword4" placeholder="Nature" name="nature">
           </div>
         </div>
         
@@ -151,19 +151,19 @@
             <legend class="col-form-label col-md-2 pt-0" style="font-weight: bold;">Assets Used :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckDefault" name="ruler" >
                 <label class="form-check-label" for="flexCheckDefault">Ruler</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckChecked" name="microscope" >
                 <label class="form-check-label" for="flexCheckChecked">Microscope</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
+                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckChecked2" checked name="camera">
                 <label class="form-check-label" for="flexCheckChecked2">Camera</label>
               </div>
             </div>
@@ -176,13 +176,13 @@
             <legend class="col-form-label col-md-2 pt-0" style="font-weight: bold;">Protection :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckDefault" name="gloves">
                 <label class="form-check-label" for="flexCheckDefault">Gloves</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckChecked" name="clothing">
                 <label class="form-check-label" for="flexCheckChecked">Clothing</label>
               </div>
             </div>
@@ -204,7 +204,7 @@
             <legend class="col-form-label col-md-3 pt-0" style="font-weight: bold;">Reliability of collected data :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <input class="form-check-input" type="radio" name="reliability" id="gridRadios1" value="Not Available" checked>
                 <label class="form-check-label" for="gridRadios1">
                   Not Available
                 </label>
@@ -212,7 +212,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Incomplete">
                 <label class="form-check-label" for="gridRadios2">
                   Incomplete
                 </label>
@@ -220,7 +220,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Exhaustive">
                 <label class="form-check-label" for="gridRadios3">
                   Exhaustive
                 </label>
@@ -243,19 +243,19 @@
                 <!---->
                 <div class="form-row row">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Person Present Name">
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Person Present Name" name="person_present_name">
                   </div>
                   
                   
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="inputPassword4" placeholder="Person Present Role">
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Person Present Role" name="person_present_role">
                   </div>
                 </div>
                 
                 <div class="form-row row">
                 <div class="form-group col-md-3">
                   <label for="inputState">Duration of Assesment</label>
-                  <select id="inputState" class="form-control">
+                  <select id="inputState" class="form-control" name="duration_of_assessment">
                     <option selected>1 hour</option>
                     <option>1 hour to 2 hours</option>
                     <option>2 hours to 3 hours </option>
@@ -264,7 +264,7 @@
                 
                 <div class="form-group col-md-3">
                   <label for="inputPassword4">Inaccessibility of part of asset</label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Inaccessibility of part of asset">
+                  <input type="text" class="form-control" id="inputPassword4" placeholder="Inaccessibility of part of asset" name="inaccessibility">
                 </div>
                 </div>
                 <!---->
