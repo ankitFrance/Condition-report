@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer  = require('multer')
+const Report = require('../model/report')
+
 
 
 const storage = multer.diskStorage({
@@ -19,8 +21,30 @@ router.get('/', (req, res)=> {
     res.render('index')
 })
 
-router.post('/upload', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 'ImageFil'}]), (req, res)=>{
-    //console.log(req.body)
+
+
+
+router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 'ImageFil'}]), async(req, res)=>{
+   
+  const formData = req.body;
+
+  const ReportForm = new Report({
+
+    Reporting_Information : {
+
+      Name: formData.name,
+      Role: formData.role,
+      
+    }
+   
+   
+  });
+  console.log(formData.name)
+  await ReportForm.save();
+
+
+
+
     console.log(req.files['ImageFil'])
     return res.redirect('/')
 })
