@@ -88,6 +88,132 @@ const reportSchema = new mongoose.Schema({
         Inaccessibility:{
             type: String
         }, 
+    }, 
+
+
+    Object_identification: {
+
+        Identification_no: {
+            type: Number
+        },
+        Date_of_acquisition: {
+            type: Date
+        }, 
+        Name_of_asset: {
+            type: String
+        },
+        Title: {
+            type: String
+        }, 
+        Heading: {
+            type: String
+        }, 
+        Author: {
+            type: String
+        }, 
+        Origin : {
+            type: String
+        },
+        Date_of_creation : {
+            type: Date
+        }, 
+        Ownership: {
+            type: String 
+        }, 
+        Protection:{
+            type: String
+        }, 
+        Summary:{
+            type: String
+        }, 
+        
+    }, 
+
+    Object_description: {
+
+        Material: {
+            type: String
+        },
+        Structure : {
+            type: String
+        }, 
+        Surface: {
+            type: String
+        },
+        History: {
+            type: String
+        }, 
+        Technique: {
+            type: String
+        }, 
+        Weight: {
+            type: String
+        }, 
+        Constituent_elements : {
+            type: String
+        },
+        No_of_elements : {
+            type: Number
+        }, 
+        Heights: {
+            type: String 
+        }, 
+        Length :{
+            type: String
+        }, 
+        Width:{
+            type: String
+        }, 
+        Installation_notes:{
+            type: String
+        }, 
+        Artist_installation_guide:{
+            type: String
+        }, 
+        Object_creation_description:{
+            type: String
+        }, 
+        
+    }, 
+
+    Object_environment: {
+
+        Environment: {
+            type: String
+        },
+        Effect : {
+            type: String
+        }, 
+       
+        
+    }, 
+
+    Conditions_description: {
+
+        Info_observed: {
+            type: String
+        },
+        Report_change : {
+            type: String
+        }, 
+       
+        
+    },
+
+    Diagnostic_and_recommendations: {
+
+        Descriptive_diagnosis: {
+            type: String
+        },
+        Recommendations : {
+            type: String
+        }, 
+
+        Investigations : {
+            type: String
+        }
+       
+        
     }
       
    

@@ -291,18 +291,18 @@
             <div class="form-row row">
 
                <div class="form-group col-md-3">
-                 <input type="email" class="form-control" id="inputEmail4" placeholder="Identification Number">
+                 <input type="text" class="form-control" id="inputEmail4" name="identification_no" placeholder="Identification Number">
                </div>
 
               <div class="form-group col-md-9">
                 <div class="form-row row">
 
                   <div class="col-md-3">
-                    <label  class="col-form-label" for="datepicker">Date of Acquisition:</label>
+                    <label  class="col-form-label" for="datepicker"  >Date of Acquisition:</label>
                   </div>
 
                   <div class="col-md-3">
-                    <input type="date" id="datepicker" name="datepicker" class="form-control">
+                    <input type="date" id="datepicker" name="date_of_acquisition" class="form-control">
                   </div>
 
                 </div>
@@ -315,15 +315,15 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Name of asset">
+                <input type="text" class="form-control" id="inputEmail4" name="name_of_asset" placeholder="Name of asset" >
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="inputPassword4" placeholder="Title">
+               <input type="text" class="form-control" id="inputPassword4" name="title" placeholder="Title">
               </div>
               
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="inputPassword4" placeholder="Heading">
+               <input type="text" class="form-control" id="inputPassword4" name="heading" placeholder="Heading">
               </div>
 
             </div>
@@ -333,11 +333,11 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Author / Creator">
+                <input type="text" class="form-control" id="inputEmail4" name="author" placeholder="Author / Creator">
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="inputPassword4" placeholder="Origin">
+               <input type="text" class="form-control" id="inputPassword4" name="origin" placeholder="Origin">
               </div>
               
               <div class="form-group col-md-6">
@@ -348,7 +348,7 @@
                   </div>
 
                   <div class="col-md-3">
-                    <input type="date" id="datepicker" name="datepicker" class="form-control">
+                    <input type="date" id="datepicker" name="date_of_creation" class="form-control">
                   </div>
 
                 </div>
@@ -361,18 +361,18 @@
             <div class="form-row row" style="margin-top: 8px;">
 
               <div class="form-group col-md-3">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Ownership">
+                <input type="text" class="form-control" id="inputEmail4" name="ownership" placeholder="Ownership">
               </div>
 
               <div class="form-group col-md-3">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Protection">
+                <input type="text" class="form-control" id="inputEmail4" name="protection" placeholder="Protection">
               </div>
 
             </div>
 
 
             <div class="form-group col-md-6" style="margin-top: 8px;">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Summary of its importance"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="summary" placeholder="Summary of its importance"></textarea>
             </div>
 
             
@@ -392,19 +392,19 @@
               <div class="form-row row">
   
                 <div class="form-group col-md-2">
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Material">
+                  <input type="text" class="form-control" id="inputEmail4" name="material" placeholder="Material">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Structure">
+                  <input type="text" class="form-control" id="inputEmail4" name="structure" placeholder="Structure">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Surface">
+                  <input type="text" class="form-control" id="inputEmail4" name="surface" placeholder="Surface">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="History ">
+                  <input type="text" class="form-control" id="inputEmail4" name="history" placeholder="History ">
                 </div>
  
              </div>
@@ -412,23 +412,23 @@
              <div class="form-row row">
 
               <div class="form-group col-md-2">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Technique">
+                <input type="text" class="form-control" name="technique" id="inputEmail4" placeholder="Technique">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Weight">
+                <input type="text" class="form-control"  name="weight" id="inputEmail4" placeholder="Weight">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Constituent elements">
+                <input type="text" class="form-control" id="contituent_elements" placeholder="Constituent elements">
               </div>
 
               <div class="form-group col-md-2" id="two">
                 <label for="inputState" class="col-form-label">Number of elements</label>
               </div>
               <div class="form-group col-md-1">
-                <select id="inputState" class="form-control">
-                  <option selected>1</option>
+                <select id="inputState" class="form-control" name="no_of_elements">
+                  <option selected>xyz</option>
                   <option>1</option>
                   <option>2</option>
                 </select>
@@ -439,15 +439,15 @@
           <div class="form-row row">
   
             <div class="form-group col-md-2">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Height">
+              <input type="text" class="form-control" id="inputEmail4" name="heights"  placeholder="Heights">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Length">
+              <input type="text" class="form-control" id="inputEmail4" name="length" placeholder="Length">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Width">
+              <input type="text" class="form-control" id="inputEmail4" name="width" placeholder="Width">
             </div>
 
           </div>
@@ -456,15 +456,15 @@
          <div class="form-row row" style="margin-top: 8px;">
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Intallation notes"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="installation_notes" placeholder="Intallation notes"></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Artist Installation guide"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="artist_installation_guide" placeholder="Artist Installation guide"></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Object Creation Description"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name = "object_creation_description" placeholder="Object Creation Description"></textarea>
            </div>
           
          </div>
@@ -499,13 +499,13 @@
 
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Environment in which item is held"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="environment" rows="4" placeholder="Environment in which item is held"></textarea>
                 </div>
               </div>
         
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Effect of environment on object"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="effect" rows="4" placeholder="Effect of environment on object"></textarea>
                 </div>
               </div>
         
@@ -522,14 +522,14 @@
         
                 <div class="form-row row">
                   <div class="form-group col-md-6" style="margin-top: 8px;">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Information observed concerning current state of item including conservation history "></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="info_observed" rows="4" placeholder="Information observed concerning current state of item including conservation history "></textarea>
                   </div>
                 </div>
         
                 <h6 style="margin-top: 8px;"> Condition changed from previous ? </h6>
         
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Please report the change (repair, treatment) "></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="report_change" rows="4" placeholder="Please report the change (repair, treatment) "></textarea>
                 </div>
         
                 <h6 style="margin-top: 8px;"> Damaged Observed ?  Please upload a photo</h6>
@@ -560,17 +560,17 @@
               
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Descriptive diagnosis of reason for detrioration / Other changes in condition"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descriptive_diagnosis" placeholder="Descriptive diagnosis of reason for detrioration / Other changes in condition"></textarea>
                 </div>
              
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Recommendations for further care and/or conservation:"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="recommendations" placeholder="Recommendations for further care and/or conservation:"></textarea>
                 </div>
               </div>
         
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Further scientific, historical, technical or other investigation or analysis"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="investigations" placeholder="Further scientific, historical, technical or other investigation or analysis"></textarea>
                 </div>
               </div>
                      
