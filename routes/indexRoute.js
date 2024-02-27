@@ -128,7 +128,8 @@ router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 
   await ReportForm.save();
 
   console.log(req.files['ImageFil'])
-  return res.redirect('/')
+  //return res.redirect('/')
+ return  res.render('feedback.ejs')
 })
 
 
