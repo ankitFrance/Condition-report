@@ -46,7 +46,7 @@
         <!---------------------------------------- FORM 1 ------------------------------------------>
         
         <div class="step-form active" id="step1">
-          <h2 style="text-align: center; color: navy;"> REPORTING INFORMATION </h2>
+          <h2 style="text-align: center; color: navy;" id="heading1"> REPORTING INFORMATION </h2>
 
           <div class="form-row row">
             <div class="form-group col-md-3">
@@ -58,7 +58,7 @@
             </div>
             
             <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="Qualification" name="qualification" placeholder="Qualification">
+             <input type="text" class="form-control" id="Qualification" name="qualification" placeholder="">
             </div>
           </div>
           
@@ -96,11 +96,11 @@
           
           
         <div class="form-group col-md-6" style="margin-top: 8px;">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Purpose of Condition Report" name="purpose_of_condition_report"></textarea>
+          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="Purpose of Condition Report" name="purpose_of_condition_report"></textarea>
         </div>
         
         <div class="form-group col-md-3" style="margin-top: 8px;">
-         <input type="text" class="form-control" id="inputPassword4" placeholder="Name of Client" name="name_of_client">
+         <input type="text" class="form-control" id="name_of_client" placeholder="Name of Client" name="name_of_client">
         </div>
              
         
@@ -117,31 +117,31 @@
         <div class="form-row row">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="inputEmail4" placeholder="Height" name="height">
+            <input type="text" class="form-control" id="height" placeholder="Height" name="height">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Examination Center" name="examination_center">
+           <input type="text" class="form-control" id="examination_center" placeholder="Examination Center" name="examination_center">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Platform" name="platform">
+           <input type="text" class="form-control" id="platform" placeholder="Platform" name="platform">
           </div>
           <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="inputPassword4" placeholder="Behind Glasses" name="behind_glass">
+            <input type="text" class="form-control" id="behind_glass" placeholder="Behind Glasses" name="behind_glass">
            </div>
         </div>
         
         <div class="form-row row">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="inputEmail4" placeholder="Quantity"  name="quantity">
+            <input type="text" class="form-control" id="quantity" placeholder="Quantity"  name="quantity">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Quality" name="quality">
+           <input type="text" class="form-control" id="quality" placeholder="Quality" name="quality">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="inputPassword4" placeholder="Nature" name="nature">
+           <input type="text" class="form-control" id="nature" placeholder="Nature" name="nature">
           </div>
         </div>
         
@@ -243,12 +243,12 @@
                 <!---->
                 <div class="form-row row">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Person Present Name" name="person_present_name">
+                    <input type="text" class="form-control" id="person_present_name" placeholder="Person Present Name" name="person_present_name">
                   </div>
                   
                   
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="inputPassword4" placeholder="Person Present Role" name="person_present_role">
+                    <input type="text" class="form-control" id="person_present_role" placeholder="Person Present Role" name="person_present_role">
                   </div>
                 </div>
                 
@@ -264,7 +264,7 @@
                 
                 <div class="form-group col-md-3">
                   <label for="inputPassword4">Inaccessibility of part of asset</label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Inaccessibility of part of asset" name="inaccessibility">
+                  <input type="text" class="form-control" id="inaccessibility" placeholder="Inaccessibility of part of asset" name="inaccessibility">
                 </div>
                 </div>
                 <!---->
@@ -284,14 +284,14 @@
             <!---------------------------------------- FORM 2 ---------------------------------------->
             <div class="step-form" id="step2">
 
-              <h2 style="text-align: center; color: navy;"> OBJECT IDENTIFICATION  </h2>
+              <h2 style="text-align: center; color: navy;" id="heading2"> OBJECT IDENTIFICATION  </h2>
 
             <h5 style="font-weight: bold;"> Identifiers:</h5>
 
             <div class="form-row row">
 
                <div class="form-group col-md-3">
-                 <input type="text" class="form-control" id="inputEmail4" name="identification_no" placeholder="Identification Number">
+                 <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="Identification Number">
                </div>
 
               <div class="form-group col-md-9">
@@ -315,15 +315,15 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="inputEmail4" name="name_of_asset" placeholder="Name of asset" >
+                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="Name of asset" >
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="inputPassword4" name="title" placeholder="Title">
+               <input type="text" class="form-control" id="title" name="title" placeholder="Title">
               </div>
               
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="inputPassword4" name="heading" placeholder="Heading">
+               <input type="text" class="form-control" id="heading" name="heading" placeholder="Heading">
               </div>
 
             </div>
@@ -333,11 +333,11 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="inputEmail4" name="author" placeholder="Author / Creator">
+                <input type="text" class="form-control" id="author" name="author" placeholder="Author / Creator">
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="inputPassword4" name="origin" placeholder="Origin">
+               <input type="text" class="form-control" id="origin" name="origin" placeholder="Origin">
               </div>
               
               <div class="form-group col-md-6">
@@ -361,18 +361,18 @@
             <div class="form-row row" style="margin-top: 8px;">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="inputEmail4" name="ownership" placeholder="Ownership">
+                <input type="text" class="form-control" id="ownership" name="ownership" placeholder="Ownership">
               </div>
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="inputEmail4" name="protection" placeholder="Protection">
+                <input type="text" class="form-control" id="protection" name="protection" placeholder="Protection">
               </div>
 
             </div>
 
 
             <div class="form-group col-md-6" style="margin-top: 8px;">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="summary" placeholder="Summary of its importance"></textarea>
+              <textarea class="form-control" id="summary" rows="2" name="summary" placeholder="Summary of its importance"></textarea>
             </div>
 
             
@@ -385,26 +385,26 @@
             <!-----------------------------------------FORM 3 ---------------------------------------------------->
             <div class="step-form" id="step3">
 
-              <h2 style="text-align: center; color: navy;"> OBJECT DESCRIPTION  </h2>
+              <h2 style="text-align: center; color: navy;" id="heading3"> OBJECT DESCRIPTION  </h2>
 
               <h5 style="font-weight: bold;"> Nature :</h5>
 
               <div class="form-row row">
   
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="inputEmail4" name="material" placeholder="Material">
+                  <input type="text" class="form-control" id="material" name="material" placeholder="Material">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="inputEmail4" name="structure" placeholder="Structure">
+                  <input type="text" class="form-control" id="structure" name="structure" placeholder="Structure">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="inputEmail4" name="surface" placeholder="Surface">
+                  <input type="text" class="form-control" id="surface" name="surface" placeholder="Surface">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="inputEmail4" name="history" placeholder="History ">
+                  <input type="text" class="form-control" id="history" name="history" placeholder="History ">
                 </div>
  
              </div>
@@ -412,15 +412,15 @@
              <div class="form-row row">
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control" name="technique" id="inputEmail4" placeholder="Technique">
+                <input type="text" class="form-control" name="technique" id="technique" placeholder="Technique">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control"  name="weight" id="inputEmail4" placeholder="Weight">
+                <input type="text" class="form-control"  name="weight" id="weight" placeholder="Weight">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control" id="contituent_elements" placeholder="Constituent elements">
+                <input type="text" class="form-control" id="contituent_elements"  placeholder="Constituent elements">
               </div>
 
               <div class="form-group col-md-2" id="two">
@@ -439,15 +439,15 @@
           <div class="form-row row">
   
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="inputEmail4" name="heights"  placeholder="Heights">
+              <input type="text" class="form-control" id="heights" name="heights"  placeholder="Heights">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="inputEmail4" name="length" placeholder="Length">
+              <input type="text" class="form-control" id="length" name="length" placeholder="Length">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="inputEmail4" name="width" placeholder="Width">
+              <input type="text" class="form-control" id="width" name="width" placeholder="Width">
             </div>
 
           </div>
@@ -456,15 +456,15 @@
          <div class="form-row row" style="margin-top: 8px;">
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="installation_notes" placeholder="Intallation notes"></textarea>
+            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder="Intallation notes"></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="artist_installation_guide" placeholder="Artist Installation guide"></textarea>
+            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide" placeholder="Artist Installation guide"></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name = "object_creation_description" placeholder="Object Creation Description"></textarea>
+            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder="Object Creation Description"></textarea>
            </div>
           
          </div>
@@ -476,7 +476,7 @@
         
               <div class="form-row row ">
                 <div class="form-group col-md-6">
-                  <input type="file" name="ImageFile" class="form-control" id="inputGroupFile02" onchange="displayUploadMessage()">
+                  <input type="file" name="ImageFile" class="form-control" id="inputGroupFile02" onchange="displayUploadMessage('tickcontainer1')">
                 </div>
 
                 <div class="tick-container" id="tickcontainer1" style="display: none;">
@@ -495,17 +495,17 @@
         
             <div class="step-form" id="step4">
 
-              <h2 style="text-align: center; color: navy;">  OBJECT ENVIRONMENT </h2>
+              <h2 style="text-align: center; color: navy;" id="heading4">  OBJECT ENVIRONMENT </h2>
 
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" name="environment" rows="4" placeholder="Environment in which item is held"></textarea>
+                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder="Environment in which item is held"></textarea>
                 </div>
               </div>
         
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" name="effect" rows="4" placeholder="Effect of environment on object"></textarea>
+                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder="Effect of environment on object"></textarea>
                 </div>
               </div>
         
@@ -518,25 +518,25 @@
               <!-------------------------------------- FORM 5---------------------------------------->
               <div class="step-form" id="step5">
 
-                <h2 style="text-align: center; color: navy;">  CONDITIONS DESCRIPTION (OBEJCT) </h2>
+                <h2 style="text-align: center; color: navy;" id="heading5">  CONDITIONS DESCRIPTION (OBEJCT) </h2>
         
                 <div class="form-row row">
                   <div class="form-group col-md-6" style="margin-top: 8px;">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="info_observed" rows="4" placeholder="Information observed concerning current state of item including conservation history "></textarea>
+                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder="Information observed concerning current state of item including conservation history "></textarea>
                   </div>
                 </div>
         
                 <h6 style="margin-top: 8px;"> Condition changed from previous ? </h6>
         
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" name="report_change" rows="4" placeholder="Please report the change (repair, treatment) "></textarea>
+                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder="Please report the change (repair, treatment) "></textarea>
                 </div>
         
                 <h6 style="margin-top: 8px;"> Damaged Observed ?  Please upload a photo</h6>
         
                 <div class="form-row row ">
                   <div class="form-group col-md-6">
-                    <input type="file" name="ImageFil" class="form-control" id="inputGroup" onchange="displayUploadMessage()">
+                    <input type="file" name="ImageFil" class="form-control" id="inputGroup" onchange="displayUploadMessage('tickcontainer2')">
                   </div>
 
                   <div class="tick-container" id="tickcontainer2" style="display: none;">
@@ -556,21 +556,21 @@
 
             <div class="step-form" id="step6">
 
-              <h2 style="text-align: center; color: navy;"> DIAGNOSTIC AND RECOMMENDATIONS  </h2>
+              <h2 style="text-align: center; color: navy;" id="heading6"> DIAGNOSTIC AND RECOMMENDATIONS  </h2>
               
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descriptive_diagnosis" placeholder="Descriptive diagnosis of reason for detrioration / Other changes in condition"></textarea>
+                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder="Descriptive diagnosis of reason for detrioration / Other changes in condition"></textarea>
                 </div>
              
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="recommendations" placeholder="Recommendations for further care and/or conservation:"></textarea>
+                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder="Recommendations for further care and/or conservation:"></textarea>
                 </div>
               </div>
         
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="investigations" placeholder="Further scientific, historical, technical or other investigation or analysis"></textarea>
+                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder="Further scientific, historical, technical or other investigation or analysis"></textarea>
                 </div>
               </div>
                      
