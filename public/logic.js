@@ -123,4 +123,23 @@ function displayUploadMessage(containerID) {
   // Initialize placeholders with default language 
   changeLanguage();
 
+
+
+
+
+
+
+  function record(){
+
+    var recognition = new webkitSpeechRecognition();
+    recognition.lang = "fr-FR";
+    recognition.onresult = function(event){
+
+        document.getElementById('purpose_of_condition_report').value = event.results[0][0].transcript;
+    }
+    recognition.start();
+
+
+  }
+
  
