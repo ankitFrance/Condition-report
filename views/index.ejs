@@ -58,21 +58,21 @@
             </div>
             
             <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="Qualification" name="qualification" placeholder="">
+             <input type="text" class="form-control" id="institution" name="institution" placeholder="">
             </div>
           </div>
           
           <div class="form-group row" style="margin-top: 8px;">
-            <label for="datepicker" class="col-md-2 col-form-label">Date of Inspection:</label>
+            <label for="datepicker" id="date_of_inspections" class="col-md-2 col-form-label">Date of Inspection:</label>
             <div class="col-md-2">
-              <input type="date" id="datepicker" name="date_of_inspection" class="form-control">
+              <input type="date" id="" name="date_of_inspection" class="form-control">
             </div>
           </div>
           
         
           <div class="form-row row" style="margin-top: 8px;">
-            <div class="form-group col-md-1" id="one">
-              <label for="inputState" class="col-form-label">Tools</label>
+            <div class="form-group col-md-1" >
+              <label for="inputState" id="tools" class="col-form-label">Tools</label>
             </div>
             <div class="form-group col-md-2">
               <select id="inputState" class="form-control" name="tools">
@@ -82,8 +82,8 @@
               </select>
             </div>
             
-            <div class="form-group col-md-1" id="two">
-              <label for="inputState" class="col-form-label">Methods</label>
+            <div class="form-group col-md-1" >
+              <label for="inputState" id="methods" class="col-form-label">Methods</label>
             </div>
             <div class="form-group col-md-2">
               <select id="inputState" class="form-control" name="methods">
@@ -98,7 +98,7 @@
       <div class="form-row row"  >
 
         <div class="form-group col-md-6" style="margin-top: 8px; ">
-          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="Purpose of Condition Report" name="purpose_of_condition_report" ></textarea>
+          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="" name="purpose_of_condition_report" ></textarea>
         </div>
 
         <div class="form-group col-md-1" style=" display: flex; align-items: center; justify-content: center;">
@@ -110,14 +110,14 @@
      
 
         <div class="form-group col-md-3" style="margin-top: 8px;">
-         <input type="text" class="form-control" id="name_of_client" placeholder="Name of Client" name="name_of_client">
+         <input type="text" class="form-control" id="name_of_client" placeholder="" name="name_of_client">
         </div>
              
         
         <div class="accordion" id="accordionExample" style="margin-top: 8px;">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="accordion-button collapsed bg-warning" id="working_conditions" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 WORKING CONDITIONS UNDER WHICH REPORT IS CREATED 
               </button>
             </h2>
@@ -127,31 +127,31 @@
         <div class="form-row row">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="height" placeholder="Height" name="height">
+            <input type="text" class="form-control" id="height" placeholder="" name="height">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="examination_center" placeholder="Examination Center" name="examination_center">
+           <input type="text" class="form-control" id="examination_center" placeholder="" name="examination_center">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="platform" placeholder="Platform" name="platform">
+           <input type="text" class="form-control" id="platform" placeholder="" name="platform">
           </div>
           <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="behind_glass" placeholder="Behind Glasses" name="behind_glass">
+            <input type="text" class="form-control" id="behind_glass" placeholder="" name="behind_glass">
            </div>
         </div>
         
         <div class="form-row row">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="quantity" placeholder="Quantity"  name="quantity">
+            <input type="text" class="form-control" id="quantity" placeholder=""  name="quantity">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="quality" placeholder="Quality" name="quality">
+           <input type="text" class="form-control" id="quality" placeholder="" name="quality">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="nature" placeholder="Nature" name="nature">
+           <input type="text" class="form-control" id="nature" placeholder="" name="nature">
           </div>
         </div>
         
@@ -161,19 +161,19 @@
             <legend class="col-form-label col-md-2 pt-0" style="font-weight: bold;">Assets Used :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckDefault" name="ruler" >
+                <input class="form-check-input" type="checkbox" value="Yes" id="ruler" name="ruler" >
                 <label class="form-check-label" for="flexCheckDefault">Ruler</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckChecked" name="microscope" >
+                <input class="form-check-input" type="checkbox" value="Yes" id="microscope" name="microscope" >
                 <label class="form-check-label" for="flexCheckChecked">Microscope</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckChecked2" checked name="camera">
+                <input class="form-check-input" type="checkbox" value="Yes" id="camera" checked name="camera">
                 <label class="form-check-label" for="flexCheckChecked2">Camera</label>
               </div>
             </div>
@@ -186,13 +186,13 @@
             <legend class="col-form-label col-md-2 pt-0" style="font-weight: bold;">Protection :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckDefault" name="gloves">
+                <input class="form-check-input" type="checkbox" value="Yes" id="gloves" name="gloves">
                 <label class="form-check-label" for="flexCheckDefault">Gloves</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="flexCheckChecked" name="clothing">
+                <input class="form-check-input" type="checkbox" value="Yes" id="clothing" name="clothing">
                 <label class="form-check-label" for="flexCheckChecked">Clothing</label>
               </div>
             </div>
@@ -211,27 +211,27 @@
         
         <fieldset class="form-group" style="margin-top: 8px;">
           <div class="row">
-            <legend class="col-form-label col-md-3 pt-0" style="font-weight: bold;">Reliability of collected data :-</legend>
+            <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data" style="font-weight: bold;">Reliability of collected data :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="reliability" id="gridRadios1" value="Not Available" checked>
-                <label class="form-check-label" for="gridRadios1">
+                <input class="form-check-input" type="radio" name="reliability"  value="Not Available" checked>
+                <label class="form-check-label" for="gridRadios1" id="Not_Available">
                   Not Available
                 </label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Incomplete">
-                <label class="form-check-label" for="gridRadios2">
+                <input class="form-check-input" type="radio" name="gridRadios"  value="Incomplete">
+                <label class="form-check-label" for="gridRadios2" id="Incomplete">
                   Incomplete
                 </label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Exhaustive">
-                <label class="form-check-label" for="gridRadios3">
+                <input class="form-check-input" type="radio" name="gridRadios"  value="Exhaustive">
+                <label class="form-check-label" for="gridRadios3" id="Exhaustive">
                   Exhaustive
                 </label>
               </div>
@@ -243,7 +243,7 @@
         <div class="accordion" id="accordionExampl" style="margin-top: 8px;">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThre">
-              <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="false" aria-controls="collapseThree">
+              <button class="accordion-button collapsed bg-warning" id="additional_details" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="false" aria-controls="collapseThree">
             ADDITIONAL DETAILS (OPTIONAL)
               </button>
             </h2>
@@ -253,19 +253,19 @@
                 <!---->
                 <div class="form-row row">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_name" placeholder="Person Present Name" name="person_present_name">
+                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name">
                   </div>
                   
                   
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_role" placeholder="Person Present Role" name="person_present_role">
+                    <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role">
                   </div>
                 </div>
                 
                 <div class="form-row row">
                 <div class="form-group col-md-3">
                   <label for="inputState">Duration of Assesment</label>
-                  <select id="inputState" class="form-control" name="duration_of_assessment">
+                  <select id="duration_of_assessment" class="form-control" name="duration_of_assessment">
                     <option selected>1 hour</option>
                     <option>1 hour to 2 hours</option>
                     <option>2 hours to 3 hours </option>
@@ -274,7 +274,7 @@
                 
                 <div class="form-group col-md-3">
                   <label for="inputPassword4">Inaccessibility of part of asset</label>
-                  <input type="text" class="form-control" id="inaccessibility" placeholder="Inaccessibility of part of asset" name="inaccessibility">
+                  <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility">
                 </div>
                 </div>
                 <!---->
@@ -301,7 +301,7 @@
             <div class="form-row row">
 
                <div class="form-group col-md-3">
-                 <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="Identification Number">
+                 <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
                </div>
 
               <div class="form-group col-md-9">
@@ -312,7 +312,7 @@
                   </div>
 
                   <div class="col-md-3">
-                    <input type="date" id="datepicker" name="date_of_acquisition" class="form-control">
+                    <input type="date" id="date_of_acquisition" name="date_of_acquisition" class="form-control">
                   </div>
 
                 </div>
@@ -325,15 +325,15 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="Name of asset" >
+                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="" >
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+               <input type="text" class="form-control" id="title" name="title" placeholder="">
               </div>
               
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="heading" name="heading" placeholder="Heading">
+               <input type="text" class="form-control" id="heading" name="heading" placeholder="">
               </div>
 
             </div>
@@ -343,11 +343,11 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="author" name="author" placeholder="Author / Creator">
+                <input type="text" class="form-control" id="author" name="author" placeholder="">
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="origin" name="origin" placeholder="Origin">
+               <input type="text" class="form-control" id="origin" name="origin" placeholder="">
               </div>
               
               <div class="form-group col-md-6">
@@ -358,7 +358,7 @@
                   </div>
 
                   <div class="col-md-3">
-                    <input type="date" id="datepicker" name="date_of_creation" class="form-control">
+                    <input type="date" id="date_of_creation" name="date_of_creation" class="form-control">
                   </div>
 
                 </div>
@@ -371,18 +371,18 @@
             <div class="form-row row" style="margin-top: 8px;">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="ownership" name="ownership" placeholder="Ownership">
+                <input type="text" class="form-control" id="ownership" name="ownership" placeholder="">
               </div>
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="protection" name="protection" placeholder="Protection">
+                <input type="text" class="form-control" id="protection" name="protection" placeholder="">
               </div>
 
             </div>
 
 
             <div class="form-group col-md-6" style="margin-top: 8px;">
-              <textarea class="form-control" id="summary" rows="2" name="summary" placeholder="Summary of its importance"></textarea>
+              <textarea class="form-control" id="summary" rows="2" name="summary" placeholder=""></textarea>
             </div>
 
             
@@ -402,19 +402,19 @@
               <div class="form-row row">
   
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="material" name="material" placeholder="Material">
+                  <input type="text" class="form-control" id="material" name="material" placeholder="">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="structure" name="structure" placeholder="Structure">
+                  <input type="text" class="form-control" id="structure" name="structure" placeholder="">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="surface" name="surface" placeholder="Surface">
+                  <input type="text" class="form-control" id="surface" name="surface" placeholder="">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="history" name="history" placeholder="History ">
+                  <input type="text" class="form-control" id="history" name="history" placeholder="">
                 </div>
  
              </div>
@@ -422,22 +422,22 @@
              <div class="form-row row">
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control" name="technique" id="technique" placeholder="Technique">
+                <input type="text" class="form-control" name="technique" id="technique" placeholder="">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control"  name="weight" id="weight" placeholder="Weight">
+                <input type="text" class="form-control"  name="weight" id="weight" placeholder="">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control" id="contituent_elements"  placeholder="Constituent elements">
+                <input type="text" class="form-control"  name="contituent_elements" id="contituent_elements" placeholder="">
               </div>
 
               <div class="form-group col-md-2" id="two">
                 <label for="inputState" class="col-form-label">Number of elements</label>
               </div>
               <div class="form-group col-md-1">
-                <select id="inputState" class="form-control" name="no_of_elements">
+                <select id="no_of_elements" class="form-control" name="no_of_elements">
                   <option selected>xyz</option>
                   <option>1</option>
                   <option>2</option>
@@ -449,15 +449,15 @@
           <div class="form-row row">
   
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="heights" name="heights"  placeholder="Heights">
+              <input type="text" class="form-control" id="heights" name="heights"  placeholder="">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="length" name="length" placeholder="Length">
+              <input type="text" class="form-control" id="length" name="length" placeholder="">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="width" name="width" placeholder="Width">
+              <input type="text" class="form-control" id="width" name="width" placeholder="">
             </div>
 
           </div>
@@ -466,15 +466,15 @@
          <div class="form-row row" style="margin-top: 8px;">
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder="Intallation notes"></textarea>
+            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder=""></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide" placeholder="Artist Installation guide"></textarea>
+            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide" placeholder=""></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder="Object Creation Description"></textarea>
+            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder=""></textarea>
            </div>
           
          </div>
@@ -509,13 +509,13 @@
 
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder="Environment in which item is held"></textarea>
+                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder=""></textarea>
                 </div>
               </div>
         
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder="Effect of environment on object"></textarea>
+                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""></textarea>
                 </div>
               </div>
         
@@ -532,14 +532,14 @@
         
                 <div class="form-row row">
                   <div class="form-group col-md-6" style="margin-top: 8px;">
-                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder="Information observed concerning current state of item including conservation history "></textarea>
+                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
                   </div>
                 </div>
         
                 <h6 style="margin-top: 8px;"> Condition changed from previous ? </h6>
         
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder="Please report the change (repair, treatment) "></textarea>
+                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" "></textarea>
                 </div>
         
                 <h6 style="margin-top: 8px;"> Damaged Observed ?  Please upload a photo</h6>
@@ -570,17 +570,17 @@
               
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder="Descriptive diagnosis of reason for detrioration / Other changes in condition"></textarea>
+                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder=""></textarea>
                 </div>
              
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder="Recommendations for further care and/or conservation:"></textarea>
+                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder=""></textarea>
                 </div>
               </div>
         
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
-                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder="Further scientific, historical, technical or other investigation or analysis"></textarea>
+                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""></textarea>
                 </div>
               </div>
                      

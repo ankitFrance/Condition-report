@@ -11,7 +11,7 @@ const reportSchema = new mongoose.Schema({
         Role: {
             type: String
         }, 
-        Qualification: {
+        Institution: {
             type: String
         },
         Date_of_inspection: {

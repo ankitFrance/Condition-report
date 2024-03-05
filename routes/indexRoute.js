@@ -34,7 +34,7 @@ router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 
 
       Name: formData.name,
       Role: formData.role,
-      Qualification: formData.qualification,
+      Institution: formData.institution,
       Date_of_inspection: formData.date_of_inspection,
       Tools: formData.tools,
       Methods: formData.methods, 
