@@ -172,6 +172,8 @@ function displayUploadMessage(containerID) {
     
 
     // Display the summary in the designated div
-    document.getElementById('summaryOfForm').innerHTML = summaryText;
+    document.getElementById('summaryDiv').innerHTML = summaryText;
 
+    let summaryModal = new bootstrap.Modal(document.getElementById('summaryModal'));
+    summaryModal.show();
 }
