@@ -22,6 +22,10 @@ db.on('error', ()=>{
 db.once( 'open', ()=>{
     console.log('connected sucessfully')
 });
+
+
+
+
 // ***********************************DATABASE CONNECTION END ********************************************
 
 app.listen(5000, () => {

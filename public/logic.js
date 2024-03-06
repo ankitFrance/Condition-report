@@ -1,5 +1,7 @@
 
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
     
@@ -157,3 +159,19 @@ function displayUploadMessage(containerID) {
   }
 
  
+
+  function viewSummary() {
+
+
+    // Get values from the form
+    var name = document.getElementById('name').value;
+
+    var role = document.getElementById('role').value;
+
+    var summaryText = "<h5> Name: " + name + "</h5>";
+    
+
+    // Display the summary in the designated div
+    document.getElementById('summaryOfForm').innerHTML = summaryText;
+
+}
