@@ -16,13 +16,33 @@ const storage = multer.diskStorage({
   
   const uploadMiddleware = multer({ storage })                            //middleware
 
-
+/*
 router.get('/', (req, res)=> {
-    res.render('index')
+   
+    res.render('index' )
+
 })
+*/
 
 
+router.get('/', (req, res) => {
+  const parsedorcidName = req.query.orcidName;
+  const parsedorcidEmploymentRoleTitle = req.query.orcidEmploymentRoleTitle;
+  const parsedorcidEmploymentInstitution = req.query.orcidEmploymentInstitution
+  const parsedgoogleUsername = req.query.googleUsername
+  const parsednormalUserEmail=  req.query.email
+ 
+ 
+  res.render('index', {
+    parsedorcidName: parsedorcidName,
+    parsedorcidEmploymentRoleTitle: parsedorcidEmploymentRoleTitle,
+    parsedorcidEmploymentInstitution :  parsedorcidEmploymentInstitution,
+    parsedgoogleUsername : parsedgoogleUsername, 
+    parsednormalUserEmail : parsednormalUserEmail,
+  });
+ 
 
+});
 
 router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 'ImageFil'}]), async(req, res)=>{
    

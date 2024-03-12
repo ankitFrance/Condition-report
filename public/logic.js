@@ -54,8 +54,8 @@ function displayUploadMessage(containerID) {
   function changeLanguage() {
 
     const selectedLanguage = document.getElementById('languageSelect').value;
-    document.getElementById('name').placeholder = i18n[selectedLanguage].Name;
-    document.getElementById('role').placeholder = i18n[selectedLanguage].Role;
+    document.getElementById('nameretrived').textContent = i18n[selectedLanguage].Name;
+    document.getElementById('roleretrived').textContent = i18n[selectedLanguage].Role;
     document.getElementById('institution').placeholder = i18n[selectedLanguage].Institution;
     document.getElementById('date_of_inspections').textContent = i18n[selectedLanguage].Date_of_inspection;
     document.getElementById('tools').textContent = i18n[selectedLanguage].Tools;
