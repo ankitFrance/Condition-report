@@ -47,7 +47,7 @@
         <!---------------------------------------- FORM 1 ------------------------------------------>
         
         <div class="step-form active" id="step1">
-          <h2 style="text-align: center; color: navy;" id="heading1"> REPORTING INFORMATION </h2>
+          <h2 style="text-align: center; color: navy;" id="reporting_info_heading"> REPORTING INFORMATION </h2>
 
           <div class="form-row row">
             <div class="form-group col-md-1" >
@@ -70,19 +70,19 @@
           </div>
           
           <div class="form-group row" style="margin-top: 8px;">
-            <label for="datepicker" id="date_of_inspections" class="col-md-2 col-form-label">Date of Inspection:</label>
+            <label for="datepicker" id="date_of_inspection" class="col-md-2 col-form-label">Date of Inspection:</label>
             <div class="col-md-2">
-              <input type="date" id="doi" name="date_of_inspection" class="form-control">
+              <input type="date" id="doi" name="doi" class="form-control">
             </div>
           </div>
           
         
           <div class="form-row row" style="margin-top: 8px;">
             <div class="form-group col-md-1" >
-              <label for="inputState" id="tools" class="col-form-label">Tools</label>
+              <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="inputState" class="form-control" name="tools">
+              <select id="tools" class="form-control" name="tools">
                 <option selected>xyz</option>
                 <option>Tool1</option>
                 <option>Tool2</option>
@@ -90,10 +90,10 @@
             </div>
             
             <div class="form-group col-md-1" >
-              <label for="inputState" id="methods" class="col-form-label">Methods</label>
+              <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="inputState" class="form-control" name="methods">
+              <select id="methods" class="form-control" name="methods">
                 <option selected>xyz</option>
                 <option>Method 1</option>
                 <option>Method 2</option>
@@ -165,23 +165,23 @@
         
          <fieldset class="form-group">
           <div class="row">
-            <legend class="col-form-label col-md-2 pt-0" style="font-weight: bold;">Assets Used :-</legend>
+            <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">Assets Used :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" value="Yes" id="ruler" name="ruler" >
-                <label class="form-check-label" for="flexCheckDefault">Ruler</label>
+                <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" value="Yes" id="microscope" name="microscope" >
-                <label class="form-check-label" for="flexCheckChecked">Microscope</label>
+                <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" value="Yes" id="camera" checked name="camera">
-                <label class="form-check-label" for="flexCheckChecked2">Camera</label>
+                <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
               </div>
             </div>
           </div>
@@ -190,17 +190,17 @@
         
         <fieldset class="form-group">
           <div class="row">
-            <legend class="col-form-label col-md-2 pt-0" style="font-weight: bold;">Protection :-</legend>
+            <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">Protection :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" value="Yes" id="gloves" name="gloves">
-                <label class="form-check-label" for="flexCheckDefault">Gloves</label>
+                <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" value="Yes" id="clothing" name="clothing">
-                <label class="form-check-label" for="flexCheckChecked">Clothing</label>
+                <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
               </div>
             </div>
           
@@ -221,24 +221,24 @@
             <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data" style="font-weight: bold;">Reliability of collected data :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="reliability"  value="Not Available" checked>
-                <label class="form-check-label" for="gridRadios1" id="Not_Available">
+                <input class="form-check-input" type="radio" name="not_available"  value="Not Available" checked>
+                <label class="form-check-label" for="gridRadios1" id="not_available">
                   Not Available
                 </label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios"  value="Incomplete">
-                <label class="form-check-label" for="gridRadios2" id="Incomplete">
+                <input class="form-check-input" type="radio" name="incomplete"  value="Incomplete">
+                <label class="form-check-label" for="gridRadios2" id="incomplete">
                   Incomplete
                 </label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gridRadios"  value="Exhaustive">
-                <label class="form-check-label" for="gridRadios3" id="Exhaustive">
+                <input class="form-check-input" type="radio" name="exhaustive"  value="Exhaustive">
+                <label class="form-check-label" for="gridRadios3" id="exhaustive">
                   Exhaustive
                 </label>
               </div>
@@ -271,7 +271,7 @@
                 
                 <div class="form-row row">
                 <div class="form-group col-md-3">
-                  <label for="inputState">Duration of Assesment</label>
+                  <label for="inputState" id="duration_of_assessmentLabel">Duration of Assesment</label>
                   <select id="duration_of_assessment" class="form-control" name="duration_of_assessment">
                     <option selected>1 hour</option>
                     <option>1 hour to 2 hours</option>
@@ -280,7 +280,7 @@
                 </div>
                 
                 <div class="form-group col-md-3">
-                  <label for="inputPassword4">Inaccessibility of part of asset</label>
+                 
                   <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility">
                 </div>
                 </div>
@@ -301,7 +301,7 @@
             <!---------------------------------------- FORM 2 ---------------------------------------->
             <div class="step-form" id="step2">
 
-              <h2 style="text-align: center; color: navy;" id="heading2"> OBJECT IDENTIFICATION  </h2>
+              <h2 style="text-align: center; color: navy;" id="obj_identification_heading"> OBJECT IDENTIFICATION  </h2>
 
             <h5 style="font-weight: bold;"> Identifiers:</h5>
 
@@ -317,7 +317,7 @@
                 <div class="form-row row">
 
                   <div class="col-md-3">
-                    <label  class="col-form-label" for="datepicker"  >Date of Acquisition:</label>
+                    <label  class="col-form-label" for="datepicker" id="doaLabel"  >Date of Acquisition:</label>
                   </div>
 
                   <div class="col-md-3">
@@ -369,7 +369,7 @@
                 <div class="form-row row">
 
                   <div class="col-md-3">
-                    <label  class="col-form-label" for="datepicker">Date of Creation:</label>
+                    <label  class="col-form-label" for="datepicker" id="docLabel">Date of Creation:</label>
                   </div>
 
                   <div class="col-md-3">
@@ -410,7 +410,7 @@
             <!-----------------------------------------FORM 3 ---------------------------------------------------->
             <div class="step-form" id="step3">
 
-              <h2 style="text-align: center; color: navy;" id="heading3"> OBJECT DESCRIPTION  </h2>
+              <h2 style="text-align: center; color: navy;" id="obj_desc_heading"> OBJECT DESCRIPTION  </h2>
 
               <h5 style="font-weight: bold;"> Nature :</h5>
 
@@ -449,7 +449,7 @@
               </div>
 
               <div class="form-group col-md-2" id="two">
-                <label for="inputState" class="col-form-label">Number of elements</label>
+                <label for="inputState" class="col-form-label" id="noeLabel">Number of elements</label>
               </div>
               <div class="form-group col-md-1">
                 <select id="no_of_elements" class="form-control" name="no_of_elements">
@@ -496,7 +496,7 @@
         
         <hr>
 
-        <h6 style="margin-top: 8px;"> Upload photo/Video</h6>
+        <h6 style="margin-top: 8px;" id="normal_upload"> Upload photo/Video</h6>
         
         
               <div class="form-row row ">
@@ -520,7 +520,7 @@
         
             <div class="step-form" id="step4">
 
-              <h2 style="text-align: center; color: navy;" id="heading4">  OBJECT ENVIRONMENT </h2>
+              <h2 style="text-align: center; color: navy;" id="obj_env_heading">  OBJECT ENVIRONMENT </h2>
 
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">
@@ -543,7 +543,7 @@
               <!-------------------------------------- FORM 5---------------------------------------->
               <div class="step-form" id="step5">
 
-                <h2 style="text-align: center; color: navy;" id="heading5">  CONDITIONS DESCRIPTION (OBEJCT) </h2>
+                <h2 style="text-align: center; color: navy;" id="cond_desc_heading">  CONDITIONS DESCRIPTION (OBEJCT) </h2>
         
                 <div class="form-row row">
                   <div class="form-group col-md-6" style="margin-top: 8px;">
@@ -551,13 +551,13 @@
                   </div>
                 </div>
         
-                <h6 style="margin-top: 8px;"> Condition changed from previous ? </h6>
+                <h6 style="margin-top: 8px;" id="Cc_label"> Condition changed from previous ? </h6>
         
                 <div class="form-group col-md-6" style="margin-top: 8px;">
                   <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" "></textarea>
                 </div>
         
-                <h6 style="margin-top: 8px;"> Damaged Observed ?  Please upload a photo</h6>
+                <h6 style="margin-top: 8px;" id="damaged_upload"> Damaged Observed ?  Please upload a photo</h6>
         
                 <div class="form-row row ">
                   <div class="form-group col-md-6">
@@ -581,7 +581,7 @@
 
             <div class="step-form" id="step6">
 
-              <h2 style="text-align: center; color: navy;" id="heading6"> DIAGNOSTIC AND RECOMMENDATIONS  </h2>
+              <h2 style="text-align: center; color: navy;" id="diag_recc_heading"> DIAGNOSTIC AND RECOMMENDATIONS  </h2>
               
               <div class="form-row row">
                 <div class="form-group col-md-6" style="margin-top: 8px;">

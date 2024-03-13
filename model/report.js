@@ -26,15 +26,11 @@ const reportSchema = new mongoose.Schema({
         Purpose_of_condition_report : {
             type: String
         },
-        Purpose_of_condition_report : {
-            type: String
-        }, 
+       
         Name_of_client: {
             type: String 
         }, 
-        Reliability:{
-            type: String
-        }, 
+      
         Height:{
             type: String
         }, 
@@ -153,7 +149,7 @@ const reportSchema = new mongoose.Schema({
             type: String
         },
         No_of_elements : {
-            type: Number
+            type: String
         }, 
         Heights: {
             type: String 
