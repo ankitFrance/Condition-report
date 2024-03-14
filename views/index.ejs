@@ -63,7 +63,10 @@
             <div class="form-group col-md-3">
              <input type="text" class="form-control" id="role" name="role" placeholder="" >
             </div>
-            
+
+            <div class="form-group col-md-1" >
+              <label for="inputState" id="institutionretrieved" class="col-form-label">Institution</label>
+            </div>
             <div class="form-group col-md-3">
              <input type="text" class="form-control" id="institution" name="institution" placeholder="">
             </div>
@@ -168,19 +171,19 @@
             <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">Assets Used :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="ruler" name="ruler" >
+                <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler" >
                 <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="microscope" name="microscope" >
+                <input class="form-check-input" type="checkbox" value="" id="microscope" name="microscope" >
                 <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="camera" checked name="camera">
+                <input class="form-check-input" type="checkbox" value="" id="camera" checked name="camera">
                 <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
               </div>
             </div>
@@ -193,13 +196,13 @@
             <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">Protection :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="gloves" name="gloves">
+                <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves">
                 <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="Yes" id="clothing" name="clothing">
+                <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing">
                 <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
               </div>
             </div>
@@ -598,29 +601,27 @@
                   <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""></textarea>
                 </div>
               </div>
-                     
+                
+              <div>
+                <h6>Please verify details before submit </h6W>
+              </div>
                  
               <div>
                 <button type="button" class="btn btn-secondary prev">Previous</button>
-                <button type="submit" class="btn btn-dark">Submit</button>
-                <button type="button" class="btn btn-primary" style="float: right;" onclick="viewSummary()" >View Summary</button>
+             
+                <button type="button" class="btn btn-primary"  onclick="viewSummary()" >Verify</button>
               </div>
 
             </div>
               <!------------------------------------------------------------------------------------->
-        
-              <!------------------------------------------------------------------------------------->
-        
-        </form>
+                <!--MODAL-->
 
-
-        <!--MODAL-->
-
-        <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel" aria-hidden="true">
+        <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel" aria-hidden="true" >
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="summaryModalLabel">Summary</h5>
+              <div class="modal-header" style="background-color: black; color: white;">
+               
+                <h5 class="modal-title" id="summaryModalLabel"><strong>VERIFICATION OF DETAILS ENTERED</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -629,16 +630,27 @@
                 <div id="summaryDiv"></div>
                        <!--DATA WILL BE APPENDED HERE-->   
                </div>
-              </div>
+             
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                 
+                <button type="button" class="btn btn-secondary" id="button_close" onclick="closeModal()" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-dark" style="float: right;">Submit</button>
+               
               </div>
             </div>
-          </div>
+            </div>
         </div>
+      
 
         <!--MODAL-->
 
+              <!------------------------------------------------------------------------------------->
+        
+        </form>
+
+
+       
   
 
         
@@ -657,6 +669,11 @@
       document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
       document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
       document.getElementById('institution').value = parsedorcidEmploymentInstitution;
+
+     
+      
+      
+
      
     </script>
 
