@@ -149,7 +149,8 @@ router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 
 
   console.log(req.files['ImageFil'])
   //return res.redirect('/')
-  return  res.render('feedback.ejs')
+  return  res.render('feedback.ejs',   {formData})
+ 
 })
 
 
