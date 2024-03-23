@@ -10,7 +10,9 @@ const storage = multer.diskStorage({
       return cb(null, './uploads')
     },
     filename: function (req, file, cb) {
-      return cb(null, `${Date.now()}-${file.originalname}`)
+      const a = req.body;
+      //return cb(null, `${Date.now()}-${file.originalname}`)
+     return cb(null, `${a.name}-${file.originalname}`)
     }
   })
   
@@ -44,7 +46,7 @@ router.get('/', (req, res) => {
 
 });
 
-router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 'ImageFil'}]), async(req, res)=>{
+router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)=>{
    
   const formData = req.body;
 
@@ -147,7 +149,7 @@ router.post('/feedback', uploadMiddleware.fields([{ name: 'ImageFile'}, { name: 
   console.log(formData)
   await ReportForm.save();
 
-  console.log(req.files['ImageFil'])
+  console.log(req.files)
   //return res.redirect('/')
   return  res.render('feedback.ejs',   {formData})
  

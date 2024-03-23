@@ -1,8 +1,8 @@
 
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
+
+ 
 
     
     var currentStep = 1;
@@ -36,23 +36,94 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+// **************** Request to fetch the JSON file **** ***********************
+
+  fetch('F5702.json')
+   .then(response => {
+    // Check if the response is successful
+    if (!response.ok) {
+       console.log('Network response was not ok');
+    }
+    // Parse the JSON data
+    return response.json();
+  })
+  .then(ErosData => {
+    // Log the JSON data to the console
+    console.log(ErosData);
+    document.getElementById('title').value = ErosData.title
+    document.getElementById('author').value = ErosData.author
+    document.getElementById('date_of_creation').value = ErosData.dtfrom
+    document.getElementById('width').value = ErosData.width
+    document.getElementById('heights').value = ErosData.height
+
+    
+   
+ })
+  .catch(error => {
+    console.error('There was a problem fetching the JSON file:', error);
+ });
+
+
+// ****************END OF Request to fetch the JSON file******************
  
 });
 
 //******************************************************************************** 
 
-function displayUploadMessage(containerID) {
-  
-  document.getElementById(containerID).style.display = 'block';
+function displayUploadMessage() {
+  const filesUploaded = document.getElementById('inputGroupFile02').files;
+  const previewContainer = document.getElementById('previewContainer');
+  previewContainer.innerHTML = '';
  
+
+  for (let i = 0; i < filesUploaded.length; i++) {
+    const file = filesUploaded[i];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      //*****DIV INSIDE WHICH ELEMENTS ARE THERE ********/
+      const previewItem = document.createElement('div');
+      previewItem.classList.add('preview-item');
+
+       //******************IMAGE ************************/
+      const previewImage = document.createElement('img');
+      previewImage.classList.add('preview-image');
+      previewImage.src = e.target.result;
+      previewItem.appendChild(previewImage);
+
+        
+       //******************FILE NAME *******************/
+      const fileNameText = document.createElement('p');
+      fileNameText.classList.add('file-name');
+      fileNameText.innerText = file.name;
+      previewItem.appendChild(fileNameText);
+
+      //******************TEXT FIELD *******************/
+      const inputField = document.createElement('input');
+      inputField.setAttribute('type', 'text');
+      inputField.classList.add('caption');
+      inputField.setAttribute('placeholder', 'Enter caption here');
+      previewItem.appendChild(inputField);
+
+  
+
+      previewContainer.appendChild(previewItem);
+
+      // Add event listener for hovering
+     
+    };
+    reader.readAsDataURL(file);
+    
+  }
 }
 
 //******************************************************************************** 
 
 function viewSummary() {
 
-  
-  const name = document.getElementById('name').value;              // Fs means = for summary
+  // FOR SLIDE 1
+  const name = document.getElementById('name').value;             
   const role = document.getElementById('role').value;
   const institution = document.getElementById('institution').value;
   const doi = document.getElementById('doi').value;
@@ -76,7 +147,40 @@ function viewSummary() {
   const person_present_role = document.getElementById('person_present_role').value;
   const duration_of_assessment = document.getElementById('duration_of_assessment').value;
   const inaccessibility = document.getElementById('inaccessibility').value;
+
+  // FOR SLIDE 2
+  const identification_no  = document.getElementById('identification_no').value;
+  const date_of_acquisition = document.getElementById('date_of_acquisition').value;
+  const name_of_asset = document.getElementById('name_of_asset').value;
+  const title = document.getElementById('title').value;
+  const heading = document.getElementById('heading').value;
+  const author = document.getElementById('author').value;
+  const origin = document.getElementById('origin').value;
+  const date_of_creation = document.getElementById('date_of_creation').value;
+  const ownership = document.getElementById('ownership').value;
+  const protection = document.getElementById('protection').value;
+  const summary = document.getElementById('summary').value;
+
+  // FOR SLIDE 3
+  const material = document.getElementById('material').value;
+  const structure = document.getElementById('structure').value;
+  const surface = document.getElementById('surface').value;
+  const history = document.getElementById('history').value;
+  const technique = document.getElementById('technique').value;
+  const weight = document.getElementById('weight').value;
+  const contituent_elements = document.getElementById('contituent_elements').value;
+  const no_of_elements = document.getElementById('no_of_elements').value;
+  const heights = document.getElementById('heights').value;
+  const length = document.getElementById('length').value;
+  const width = document.getElementById('width').value;
+  const installation_notes = document.getElementById('installation_notes').value;
+  const artist_installation_guide = document.getElementById('artist_installation_guide').value;
+  const object_creation_description = document.getElementById('object_creation_description').value;
   
+   // FOR SLIDE 4
+  const environment = document.getElementById('environment').value;
+  const effect= document.getElementById('effect').value;
+ 
 
   var summaryText = `
   <div style="position: relative;">
@@ -118,6 +222,19 @@ function viewSummary() {
   </h5> 
   <hr style="border-color: darkblue; margin-top: 0;">
   </div>
+  <p><strong> Identification Number:</strong> ${identification_no} </p>
+  <p><strong> Date of Acquisition:</strong> ${date_of_acquisition} </p>
+  <p><strong> Name of Asset:</strong> ${name_of_asset} </p>
+  <p><strong> Title:</strong> ${title} </p>
+  <p><strong> Heading:</strong> ${heading} </p>
+  <p><strong> Authors:</strong> ${author} </p>
+  <p><strong> Origin:</strong> ${origin} </p>
+  <p><strong> Date of creation :</strong> ${date_of_creation} </p>
+  <p><strong> Ownership:</strong> ${ownership} </p>
+  <p><strong> Protection:</strong> ${protection} </p>
+  <p><strong> Summary:</strong> ${summary} </p>
+  
+
 
   <div style="position: relative;">
   <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
@@ -127,6 +244,21 @@ function viewSummary() {
   <hr style="border-color: darkblue; margin-top: 0;">
   </div>
 
+  <p><strong> Material:</strong> ${material} </p>
+  <p><strong> Structure:</strong> ${structure} </p>
+  <p><strong> Surface:</strong> ${surface} </p>
+  <p><strong> History:</strong> ${history} </p>
+  <p><strong> Technique:</strong> ${technique} </p>
+  <p><strong> Weight:</strong> ${weight} </p>
+  <p><strong> Constituent Elements:</strong> ${contituent_elements} </p>
+  <p><strong> Number of elements :</strong> ${no_of_elements} </p>
+  <p><strong> Height:</strong> ${heights} </p>
+  <p><strong> Length:</strong> ${length} </p>
+  <p><strong> Width:</strong> ${width} </p>
+  <p><strong> Installation Notes:</strong> ${installation_notes} </p>
+  <p><strong> Artist installation guide:</strong> ${artist_installation_guide} </p>
+  <p><strong> Object creation description:</strong> ${object_creation_description} </p>
+
   <div style="position: relative;">
   <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
   OBJECT ENVIRONMENT
@@ -134,6 +266,10 @@ function viewSummary() {
   </h5> 
   <hr style="border-color: darkblue; margin-top: 0;">
   </div>
+
+  <p><strong> Environment in which item is held:</strong> ${environment} </p>
+  <p><strong> Effect of Environment on object:</strong> ${effect} </p>
+  
 
   <div style="position: relative;">
   <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
@@ -153,22 +289,23 @@ function viewSummary() {
 `;
 
 
+
   document.getElementById('summaryDiv').innerHTML = summaryText;
 
   let summaryModal = new bootstrap.Modal(document.getElementById('summaryModal'));
   summaryModal.show();
 }
 
-
-
+//******************************************************************************** 
 
 function closeModal() {
   $('#summaryModal').modal('hide');
  
 }
 
+//******************************************************************************** 
   
-  function changeLanguage() {
+function changeLanguage() {
 
     const selectedLanguage = document.getElementById('languageSelect').value;
 
@@ -286,22 +423,15 @@ function closeModal() {
       document.getElementById('damaged_upload').innerText = i18n[selectedLanguage].damaged_upload_text; 
 
     
-     
-
-    
   }
 
  
-changeLanguage();   // Initialize placeholders with default language 
+changeLanguage();   // Initialize placeholders with default language  //calling of function
 
 
+//******************************************************************************** 
 
-
-
-
-
-
-  function record(){
+function record(){
 
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "fr-FR";
@@ -310,15 +440,13 @@ changeLanguage();   // Initialize placeholders with default language
         document.getElementById('purpose_of_condition_report').value = event.results[0][0].transcript;
     }
     recognition.start();
+ }
 
-
-  }
-
+//******************************************************************************** 
  
 
 
-
-
+//******************************************************************************** 
 
 function getTodayDate() {
   const today = new Date();
@@ -332,4 +460,6 @@ function getTodayDate() {
 document.getElementById('doi').value = getTodayDate();
 
 
+
+//******************************************************************************** 
 

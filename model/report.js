@@ -90,7 +90,7 @@ const reportSchema = new mongoose.Schema({
     Object_identification: {
 
         Identification_no: {
-            type: Number
+            type: String
         },
         Date_of_acquisition: {
             type: Date
