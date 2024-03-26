@@ -44,6 +44,13 @@
 
 
         <!---------------------------------------- FORM 1 ------------------------------------------>
+
+        <div id="hiddenDiv" style="display: none; visibility: hidden;">
+          <input style="display: none; visibility: hidden;" id="mongoidGoogle" type="text" name="mongoidGoogle">
+          <input style="display: none; visibility: hidden;" id="mongoidOrcid" type="text" name="mongoidOrcid">
+          <input style="display: none; visibility: hidden;" id="mongoidNormalUser" type="text" name="mongoidNormalUser">
+
+        </div>
         
         <div class="step-form active" id="step1">
           <h2 style="text-align: center; color: navy;" id="reporting_info_heading"> REPORTING INFORMATION </h2>
@@ -676,12 +683,19 @@
     var parsedorcidEmploymentInstitution = '<%=parsedorcidEmploymentInstitution %>'
     var parsedgoogleUsername = '<%=parsedgoogleUsername %>'
     var parsednormalUserEmail = '<%=parsednormalUserEmail %>'
+    var parsedgoogleMongoDBid = '<%=parsedgoogleMongoDBid%>'
+    var parsedorcidMongoDBid = '<%=parsedorcidMongoDBid%>'
+    var parsedNormalUserMongoDBid = '<%=parsedNormalUserMongoDBid%>'
     
       // Set values in the form fields
+      document.getElementById('mongoidGoogle').value = parsedgoogleMongoDBid;
+      document.getElementById('mongoidOrcid').value = parsedorcidMongoDBid;
+      document.getElementById('mongoidNormalUser').value = parsedNormalUserMongoDBid;
+     
       document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
       document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
       document.getElementById('institution').value = parsedorcidEmploymentInstitution;
-
+     
      
     </script>
 

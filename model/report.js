@@ -1,7 +1,17 @@
 const  mongoose  = require("mongoose");
 
 const reportSchema = new mongoose.Schema({
-
+    mongoIdStore: {
+        GoogleUserMongoID :{
+            type: String
+        }, 
+        OrcidUserMongoID : {
+            type: String
+        },
+        NormalUserMongoID : {
+            type: String
+        }
+      },
 
     Reporting_Information: {
 

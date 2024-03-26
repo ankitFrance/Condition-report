@@ -13,7 +13,8 @@ app.use('/', require('./routes/indexRoute'))
 
 
 // ***********************************DATABASE CONNECTION********************************************
-mongoose.connect("mongodb://127.0.0.1:27017/ConstatDetat", {useNewUrlParser: true});
+//mongoose.connect("mongodb://127.0.0.1:27017/ConstatDetat", {useNewUrlParser: true});
+mongoose.connect("mongodb://127.0.0.1:27017/GestDeUtil", {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', ()=>{
     console.log('something went wrong')

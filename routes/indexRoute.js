@@ -33,7 +33,9 @@ router.get('/', (req, res) => {
   const parsedorcidEmploymentInstitution = req.query.orcidEmploymentInstitution
   const parsedgoogleUsername = req.query.googleUsername
   const parsednormalUserEmail=  req.query.email
- 
+  const parsedgoogleMongoDBid = req.query.googleMongoDBid
+  const parsedorcidMongoDBid = req.query.orcidMongoID
+  const parsedNormalUserMongoDBid = req.query.NormalUserMongoDBid
  
   res.render('index', {
     parsedorcidName: parsedorcidName,
@@ -41,6 +43,9 @@ router.get('/', (req, res) => {
     parsedorcidEmploymentInstitution :  parsedorcidEmploymentInstitution,
     parsedgoogleUsername : parsedgoogleUsername, 
     parsednormalUserEmail : parsednormalUserEmail,
+    parsedgoogleMongoDBid : parsedgoogleMongoDBid,
+    parsedorcidMongoDBid: parsedorcidMongoDBid,
+    parsedNormalUserMongoDBid: parsedNormalUserMongoDBid
   });
  
 
@@ -51,6 +56,12 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   const formData = req.body;
 
   const ReportForm = new Report({
+
+    mongoIdStore: {
+      GoogleUserMongoID : formData.mongoidGoogle,
+      OrcidUserMongoID : formData.mongoidOrcid,
+      NormalUserMongoID : formData.mongoidNormalUser
+    },
 
     Reporting_Information : {
 
