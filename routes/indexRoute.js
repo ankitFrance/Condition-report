@@ -2,29 +2,25 @@ const express = require('express');
 const router = express.Router();
 const multer  = require('multer')
 const Report = require('../model/report')
-
+const fs = require('fs');
+const path = require('path');
 
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       return cb(null, './uploads')
     },
+    /*
     filename: function (req, file, cb) {
       const a = req.body;
-      //return cb(null, `${Date.now()}-${file.originalname}`)
-     return cb(null, `${a.name}-${file.originalname}`)
+      return cb(null, `${a.name}-${file.originalname}`)
     }
+    */
   })
   
   const uploadMiddleware = multer({ storage })                            //middleware
 
-/*
-router.get('/', (req, res)=> {
-   
-    res.render('index' )
 
-})
-*/
 
 
 router.get('/', (req, res) => {
@@ -152,23 +148,25 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
       Investigations : formData.investigations,
     
     }
-
-
-   
    
   });
+
+
   console.log(formData)
-  await ReportForm.save();
+  const savedReport = await ReportForm.save();
+  const mongoDBIDofConstatEtat = savedReport._id.toString(); 
+
+  req.files.forEach(file => {
+
+    const filename = `${mongoDBIDofConstatEtat}-${file.originalname}`;
+    fs.renameSync(file.path, path.join(file.destination, filename));
+   
+});
 
   console.log(req.files)
-  //return res.redirect('/')
   return  res.render('feedback.ejs',   {formData})
  
 })
-
-
-
-
 
 
 module.exports = router; 
