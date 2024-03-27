@@ -1,3 +1,7 @@
+
+
+
+
 const express = require('express');
 const router = express.Router();
 const multer  = require('multer')
@@ -156,12 +160,16 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   const savedReport = await ReportForm.save();
   const mongoDBIDofConstatEtat = savedReport._id.toString(); 
 
-  req.files.forEach(file => {
+  const folderPath = path.join('./uploads', mongoDBIDofConstatEtat);
+    if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath);
+    }
 
-    const filename = `${mongoDBIDofConstatEtat}-${file.originalname}`;
-    fs.renameSync(file.path, path.join(file.destination, filename));
-   
-});
+    req.files.forEach(file => {
+      const filename = `${file.originalname}`;
+      const filePath = path.join(folderPath, filename);
+      fs.renameSync(file.path, filePath);
+  });
 
   console.log(req.files)
   return  res.render('feedback.ejs',   {formData})
@@ -170,3 +178,9 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
 
 
 module.exports = router; 
+
+
+
+
+
+
