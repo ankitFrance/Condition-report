@@ -220,7 +220,16 @@ const reportSchema = new mongoose.Schema({
         }
        
         
+    }, 
+
+    submissionTimestamp: {
+        type: Date,
+        default: Date.now // Set default value to current date and time
     }
+
+   
+
+
       
    
 })
