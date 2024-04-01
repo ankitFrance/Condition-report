@@ -38,149 +38,23 @@
     <div class="row">
       <div class="col-md-6">
         <div>
-  <p><strong> Name:</strong> <%= formData.name %> </p>
-  <p><strong> Role:</strong> <%= formData.role %> </p>
-  <p><strong> Institution:</strong> <%= formData.institution %> </p>
-  <p><strong> Date of Inspection:</strong> <%= formData.doi %> </p>
-  <p><strong> Tools:</strong> <%= formData.tools %> </p>
-  <p><strong> Methods:</strong> <%= formData.methods %> </p>
-  <p><strong> Purpose of Condition Report:</strong> <%= formData.purpose_of_condition_report %> </p>
-  <p><strong> Name of Client :</strong> <%= formData.name_of_client %> </p>
-  <p><strong> Height:</strong> <%= formData.height %> </p>
-  <p><strong> Examination center:</strong> <%= formData.examination_center %> </p>
+  <p><strong> Name:</strong> <%= reportDocument.Reporting_Information.Name %> </p>
+  <p><strong> Role:</strong> <%= reportDocument.Reporting_Information.Role %> </p>
+  <p><strong> Institution:</strong> <%= reportDocument.Reporting_Information.Institution %> </p>
+ 
   
 </div>
 </div>
 <div class="col-md-6">
   <div>
-  <p><strong> Platform:</strong> <%= formData.platform %> </p>
-  <p><strong> Behind glass:</strong> <%= formData.behind_glass %> </p>
-  <p><strong> Quantity:</strong> <%= formData.quantity %> </p>
-  <p><strong> Quality:</strong> <%= formData.quality %> </p>
-  <p><strong> Nature:</strong> <%= formData.nature %> </p>
-  <p><strong> Camera ?:</strong> <%= formData.camera %> </p>
-  <p><strong> Person Present name:</strong> <%= formData.person_present_name %> </p>
-  <p><strong> Person Present Role:</strong> <%= formData.person_present_role %> </p>
-  <p><strong> Duration of assessment:</strong> <%= formData.duration_of_assessment %> </p>
-  <p><strong> Inaccessibility of part of Asset:</strong> <%= formData.inaccessibility %> </p>
+  
 
 </div>
 </div>
 </div>
 </div>
 
-<div style="position: relative; text-align: center;" >
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    OBJECT IDENTIFICATION
-     
-    </h5> 
-  
-    </div>
-    <div class="container" style="background-color: white;"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div>
-    <p><strong> Identification Number:</strong> <%= formData.identification_no %> </p>
-    <p><strong> Date of Acquisition:</strong> <%= formData.date_of_acquisition %> </p>
-    <p><strong> Name of Asset:</strong> <%= formData.name_of_asset %> </p>
-    <p><strong> Title:</strong> <%= formData.title %> </p>
-    <p><strong> Heading:</strong> <%= formData.heading %></p>
-    <p><strong> Authors:</strong><%= formData.author %> </p>
-  </div>
-</div>
-<div class="col-md-6">
-  <div>
-    <p><strong> Origin:</strong> <%= formData.origin %> </p>
-    <p><strong> Date of creation :</strong> <%= formData.date_of_creation %> </p>
-    <p><strong> Ownership:</strong> <%= formData.ownership %> </p>
-    <p><strong> Protection:</strong> <%= formData.protection %> </p>
-    <p><strong> Summary:</strong> <%= formData.summary %> </p>
-  </div>
-</div>
-</div>
-</div>
-  
-  
-<div style="position: relative; text-align: center;" >
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    OBJECT DESCRIPTION 
-    
-    </h5> 
-   
-    </div>
 
-    <div class="container" style="background-color: white;"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div>
-    <p><strong> Material:</strong> <%= formData.material %> </p>
-    <p><strong> Structure:</strong> <%= formData.structure %> </p>
-   <p><strong> Surface:</strong> <%= formData.surface %> </p>
-   <p><strong> History:</strong> <%= formData.history %> </p>
-   <p><strong> Technique:</strong> <%= formData.technique %> </p>
-   <p><strong> Weight:</strong> <%= formData.weight %> </p>
-   <p><strong> Constituent Elements:</strong> <%= formData.contituent_elements %> </p>
-  </div>
-</div>
-<div class="col-md-6">
-  <div>
-   <p><strong> Number of elements :</strong> <%= formData.no_of_elements %> </p>
-   <p><strong> Height:</strong> <%= formData.heights %> </p>
-   <p><strong> Length:</strong> <%= formData.length %> </p>
-   <p><strong> Width:</strong> <%= formData.width %> </p>
-   <p><strong> Installation Notes:</strong> <%= formData.installation_notes %> </p>
-   <p><strong> Artist installation guide:</strong><%= formData.artist_installation_guide %> </p>
-   <p><strong> Object creation description:</strong> <%= formData.object_creation_description %> </p>
-  </div>
-</div>
-</div>
-</div>
-  
-<div style="position: relative; text-align: center;" >
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    OBJECT ENVIRONMENT
-     
-    </h5> 
-   
-    </div>
-    <div class="container" style="background-color: white;"> 
-      <div class="row">
-      <p><strong> Environment in which item is held:</strong> <%= formData.environment %> </p>
-      <p><strong> Effect of environment on object:</strong> <%= formData.effect %> </p>
-     </div>
-    </div>
-    
-    
-  
-     <div style="position: relative; text-align: center;" >
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    CONDITIONS DESCRIPTION (OBJECT)
-      
-    </h5> 
-   
-    </div>
-
-    <div class="container" style="background-color: white;"> 
-      <div class="row">
-      <p><strong> Information observed concerning current state of item including conservation history :</strong> <%= formData.info_observed %> </p>
-      <p><strong> Please report the change (repair, treatment):</strong> <%= formData.report_change %> </p>
-     </div>
-    </div>
-  
-     <div style="position: relative; text-align: center;" >
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    DIAGNOSTIC AND RECOMMENDATIONS
-      
-    </h5> 
-   
-    </div>
-    <div class="container" style="background-color: white;"> 
-      <div class="row">
-      <p><strong> Descriptive diagnosis of reason for detrioration :</strong> <%= formData.descriptive_diagnosis %> </p>
-      <p><strong> Recommendation for further care:</strong> <%= formData.recommendations %> </p>
-      <p><strong> Further scientific investigation:</strong> <%= formData.investigations %> </p>
-     </div>
-    </div>
 
   </div>
 
@@ -204,7 +78,7 @@
    // jsConfetti.addConfetti()
    /*
    function downloadPDF() {
-   var parsedFormData = JSON.parse('<%- JSON.stringify(formData) %>');
+   
    console.log(parsedFormData);
 
    const htmlContentforPDF = `

@@ -158,8 +158,10 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   });
 
 
-  console.log(formData)
+  //console.log(formData)
   const savedReport = await ReportForm.save();
+  const reportDocument = await Report.findById(savedReport._id);
+  console.log('hiiiiiiiiiiiiiiiiiiiiiiiiii', reportDocument)
   const mongoDBIDofConstatEtat = savedReport._id.toString(); 
 
   const folderPath = path.join('./uploads', mongoDBIDofConstatEtat);
@@ -174,7 +176,7 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   });
 
   console.log(req.files)
-  return  res.render('feedback.ejs',   {formData})
+  return  res.render('feedback.ejs',   {reportDocument})
  
 })
 
