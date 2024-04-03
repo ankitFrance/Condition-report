@@ -41,20 +41,146 @@
   <p><strong> Name:</strong> <%= reportDocument.Reporting_Information.Name %> </p>
   <p><strong> Role:</strong> <%= reportDocument.Reporting_Information.Role %> </p>
   <p><strong> Institution:</strong> <%= reportDocument.Reporting_Information.Institution %> </p>
- 
+  <p><strong> Date of Inspection:</strong> <%= reportDocument.Reporting_Information.Date_of_inspection %> </p>
+  <p><strong> Tools:</strong> <%= reportDocument.Reporting_Information.Tools %> </p>
+  <p><strong> Methods:</strong> <%= reportDocument.Reporting_Information.Methods %> </p>
+  <p><strong> Purpose of Condition Report:</strong> <%= reportDocument.Reporting_Information.Purpose_of_condition_report %> </p>
+  <p><strong> Name of Client :</strong> <%= reportDocument.Reporting_Information.Name_of_client %> </p>
+  <p><strong> Height:</strong> <%= reportDocument.Reporting_Information.Height %> </p>
+  <p><strong> Examination center:</strong> <%= reportDocument.Reporting_Information.Examination_center %> </p>
   
 </div>
 </div>
 <div class="col-md-6">
   <div>
+  <p><strong> Platform:</strong> <%= reportDocument.Reporting_Information.Platform %> </p>
+  <p><strong> Behind glass:</strong> <%= reportDocument.Reporting_Information.Behind_glass %> </p>
+  <p><strong> Quantity:</strong> <%= reportDocument.Reporting_Information.Quantity %> </p>
+  <p><strong> Quality:</strong> <%= reportDocument.Reporting_Information.Quality %> </p>
+  <p><strong> Nature:</strong> <%= reportDocument.Reporting_Information.Nature %> </p>
+  <p><strong> Camera ?:</strong> <%= reportDocument.Reporting_Information.Camera %> </p>
+  <p><strong> Person Present name:</strong> <%= reportDocument.Reporting_Information.Person_present_name %> </p>
+  <p><strong> Person Present Role:</strong> <%= reportDocument.Reporting_Information.Person_present_role %> </p>
+  <p><strong> Duration of assessment:</strong> <%= reportDocument.Reporting_Information.Duration_of_assessment %> </p>
+  <p><strong> Inaccessibility of part of Asset:</strong> <%= reportDocument.Reporting_Information.Inaccessibility %> </p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div style="position: relative; text-align: center;" >
+    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
+    OBJECT IDENTIFICATION
+     
+    </h5> 
   
+    </div>
+    <div class="container" style="background-color: white;"> 
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+    <p><strong> Identification Number:</strong> <%= reportDocument.Object_identification.Identification_no %> </p>
+    <p><strong> Date of Acquisition:</strong> <%= reportDocument.Object_identification.Date_of_acquisition %> </p>
+    <p><strong> Name of Asset:</strong> <%= reportDocument.Object_identification.Name_of_asset %> </p>
+    <p><strong> Title:</strong> <%= reportDocument.Object_identification.Title %> </p>
+    <p><strong> Heading:</strong> <%= reportDocument.Object_identification.Heading %></p>
+    <p><strong> Authors:</strong><%= reportDocument.Object_identification.Author %> </p>
+  </div>
+</div>
+<div class="col-md-6">
+  <div>
+    <p><strong> Origin:</strong> <%= reportDocument.Object_identification.Origin %> </p>
+    <p><strong> Date of creation :</strong> <%= reportDocument.Object_identification.Date_of_creation %> </p>
+    <p><strong> Ownership:</strong> <%= reportDocument.Object_identification.Ownership %> </p>
+    <p><strong> Protection:</strong> <%= reportDocument.Object_identification.Protection %> </p>
+    <p><strong> Summary:</strong> <%= reportDocument.Object_identification.Summary %> </p>
+  </div>
+</div>
+</div>
+</div>
+  
+  
+<div style="position: relative; text-align: center;" >
+    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
+    OBJECT DESCRIPTION 
+    
+    </h5> 
+   
+    </div>
 
+    <div class="container" style="background-color: white;"> 
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+    <p><strong> Material:</strong> <%= reportDocument.Object_description.Material %> </p>
+    <p><strong> Structure:</strong> <%= reportDocument.Object_description.Structure %> </p>
+   <p><strong> Surface:</strong> <%= reportDocument.Object_description.Surface %> </p>
+   <p><strong> History:</strong> <%= reportDocument.Object_description.History %> </p>
+   <p><strong> Technique:</strong> <%= reportDocument.Object_description.Technique %> </p>
+   <p><strong> Weight:</strong> <%= reportDocument.Object_description.Weight %> </p>
+   <p><strong> Constituent Elements:</strong> <%= reportDocument.Object_description.Constituent_elements %> </p>
+  </div>
+</div>
+<div class="col-md-6">
+  <div>
+   <p><strong> Number of elements :</strong> <%= reportDocument.Object_description.No_of_elements %> </p>
+   <p><strong> Height:</strong> <%= reportDocument.Object_description.Heights %> </p>
+   <p><strong> Length:</strong> <%= reportDocument.Object_description.Length %> </p>
+   <p><strong> Width:</strong> <%= reportDocument.Object_description.Width   %> </p>
+   <p><strong> Installation Notes:</strong> <%= reportDocument.Object_description.Installation_notes %> </p>
+   <p><strong> Artist installation guide:</strong><%= reportDocument.Object_description.Artist_installation_guide %> </p>
+   <p><strong> Object creation description:</strong> <%= reportDocument.Object_description.Object_creation_description %> </p>
+  </div>
 </div>
 </div>
 </div>
-</div>
+  
+<div style="position: relative; text-align: center;" >
+    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
+    OBJECT ENVIRONMENT
+     
+    </h5> 
+   
+    </div>
+    <div class="container" style="background-color: white;"> 
+      <div class="row">
+      <p><strong> Environment in which item is held:</strong> <%= reportDocument.Object_environment.Environment %> </p>
+      <p><strong> Effect of environment on object:</strong> <%= reportDocument.Object_environment.Effect %> </p>
+     </div>
+    </div>
+    
+    
+  
+     <div style="position: relative; text-align: center;" >
+    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
+    CONDITIONS DESCRIPTION (OBJECT)
+      
+    </h5> 
+   
+    </div>
 
-
+    <div class="container" style="background-color: white;"> 
+      <div class="row">
+      <p><strong> Information observed concerning current state of item including conservation history :</strong> <%= reportDocument.Conditions_description.Info_observed %> </p>
+      <p><strong> Please report the change (repair, treatment):</strong> <%= reportDocument.Conditions_description.Report_change %> </p>
+     </div>
+    </div>
+  
+     <div style="position: relative; text-align: center;" >
+    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
+    DIAGNOSTIC AND RECOMMENDATIONS
+      
+    </h5> 
+   
+    </div>
+    <div class="container" style="background-color: white;"> 
+      <div class="row">
+      <p><strong> Descriptive diagnosis of reason for detrioration :</strong> <%= reportDocument.Diagnostic_and_recommendations.Descriptive_diagnosis %> </p>
+      <p><strong> Recommendation for further care:</strong> <%= reportDocument.Diagnostic_and_recommendations.Recommendations %> </p>
+      <p><strong> Further scientific investigation:</strong> <%= reportDocument.Diagnostic_and_recommendations.Investigations %> </p>
+     </div>
+    </div>
 
   </div>
 
