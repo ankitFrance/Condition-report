@@ -1,7 +1,3 @@
-
-
-
-
 const express = require('express');
 const router = express.Router();
 const multer  = require('multer')
@@ -158,10 +154,9 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   });
 
 
-  //console.log(formData)
+  
   const savedReport = await ReportForm.save();
   const reportDocument = await Report.findById(savedReport._id);
-  console.log('hiiiiiiiiiiiiiiiiiiiiiiiiii', reportDocument)
   const mongoDBIDofConstatEtat = savedReport._id.toString(); 
 
   const folderPath = path.join('./uploads', mongoDBIDofConstatEtat);
@@ -175,7 +170,7 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
       fs.renameSync(file.path, filePath);
   });
 
-  console.log(req.files)
+  //console.log(req.files)
   return  res.render('feedback.ejs',   {reportDocument})
  
 })

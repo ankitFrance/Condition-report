@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   .then(ErosData => {
     // Log the JSON data to the console
-    console.log(ErosData);
+   // console.log(ErosData);
     document.getElementById('title').value = ErosData.title
     document.getElementById('author').value = ErosData.author
     document.getElementById('date_of_creation').value = ErosData.dtfrom
@@ -71,13 +71,18 @@ document.addEventListener('DOMContentLoaded', function () {
 //******************************************************************************** 
 
 function displayUploadMessage() {
-  const filesUploaded = document.getElementById('inputGroupFile02').files;
+  let filesUploaded = document.getElementById('inputGroupFile02').files;
+  console.log(filesUploaded)
   const previewContainer = document.getElementById('previewContainer');
-  previewContainer.innerHTML = '';
+  //previewContainer.innerHTML = '';
+
+ 
  
 
   for (let i = 0; i < filesUploaded.length; i++) {
     const file = filesUploaded[i];
+   
+    
     const reader = new FileReader();
 
     reader.onload = function(e) {
@@ -106,16 +111,57 @@ function displayUploadMessage() {
       inputField.setAttribute('placeholder', 'Enter caption here');
       previewItem.appendChild(inputField);
 
-  
+      //***************DELETE BUTTON****************** */
+       
+       const deleteButton = document.createElement('button');
+       deleteButton.innerText = 'Delete';
+       deleteButton.classList.add('delete-button');
+       deleteButton.addEventListener('click', function() {
 
+       previewContainer.removeChild(previewItem);
+
+        removeFromFilesUploaded(file);
+        
+
+        
+       });
+
+      previewItem.appendChild(deleteButton);
+
+      //************************************************ */
       previewContainer.appendChild(previewItem);
 
-      // Add event listener for hovering
-     
-    };
-    reader.readAsDataURL(file);
+      };
+
+      reader.readAsDataURL(file);
     
   }
+
+  //////////////////////////////////////////////////////////////////
+  
+
+function removeFromFilesUploaded(fileToRemove) {
+  const updatedFiles = [];
+  for (let i = 0; i < filesUploaded.length; i++) {
+      if (filesUploaded[i] !== fileToRemove) {
+          updatedFiles.push(filesUploaded[i]);
+      }
+  }
+
+  filesUploaded = updatedFiles;
+  console.log('Updated filesUploaded:', filesUploaded);
+
+  const a = document.getElementById('inputGroupFile02').value;
+  console.log(a)
+  
+ }
+
+
+
+ 
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
 }
 
 //******************************************************************************** 
