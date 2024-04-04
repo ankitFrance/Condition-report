@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-  
-   
 </head>
+
 <body style="background-color: #E8E9EB;">
   
 
@@ -18,206 +18,208 @@
     <button class="btn btn-primary" onclick="printPage()">
         <i class="fas fa-print"></i> Print
     </button>
-</div>
+  </div>
+
+<!------------------------------------------------------------------------------------------------------------------------------->
    
 <div class="container">
 
 
-
-
+<!--**********************************************REPORTING INFORMATION******************************************************-->
 
    <div style="position: relative; text-align: center;" >
+
     <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
       REPORTING INFORMATION 
-     
     </h5> 
    
-    </div>
+  </div>
      
   <div class="container" style="background-color: white;"> 
-    <div class="row">
-      <div class="col-md-6">
-        <div>
-  <p><strong> Name:</strong> <%= reportDocument.Reporting_Information.Name %> </p>
-  <p><strong> Role:</strong> <%= reportDocument.Reporting_Information.Role %> </p>
-  <p><strong> Institution:</strong> <%= reportDocument.Reporting_Information.Institution %> </p>
-  <p><strong> Date of Inspection:</strong> <%= reportDocument.Reporting_Information.Date_of_inspection %> </p>
-  <p><strong> Tools:</strong> <%= reportDocument.Reporting_Information.Tools %> </p>
-  <p><strong> Methods:</strong> <%= reportDocument.Reporting_Information.Methods %> </p>
-  <p><strong> Purpose of Condition Report:</strong> <%= reportDocument.Reporting_Information.Purpose_of_condition_report %> </p>
-  <p><strong> Name of Client :</strong> <%= reportDocument.Reporting_Information.Name_of_client %> </p>
-  <p><strong> Height:</strong> <%= reportDocument.Reporting_Information.Height %> </p>
-  <p><strong> Examination center:</strong> <%= reportDocument.Reporting_Information.Examination_center %> </p>
-  
-</div>
-</div>
-<div class="col-md-6">
-  <div>
-  <p><strong> Platform:</strong> <%= reportDocument.Reporting_Information.Platform %> </p>
-  <p><strong> Behind glass:</strong> <%= reportDocument.Reporting_Information.Behind_glass %> </p>
-  <p><strong> Quantity:</strong> <%= reportDocument.Reporting_Information.Quantity %> </p>
-  <p><strong> Quality:</strong> <%= reportDocument.Reporting_Information.Quality %> </p>
-  <p><strong> Nature:</strong> <%= reportDocument.Reporting_Information.Nature %> </p>
-  <p><strong> Camera ?:</strong> <%= reportDocument.Reporting_Information.Camera %> </p>
-  <p><strong> Person Present name:</strong> <%= reportDocument.Reporting_Information.Person_present_name %> </p>
-  <p><strong> Person Present Role:</strong> <%= reportDocument.Reporting_Information.Person_present_role %> </p>
-  <p><strong> Duration of assessment:</strong> <%= reportDocument.Reporting_Information.Duration_of_assessment %> </p>
-  <p><strong> Inaccessibility of part of Asset:</strong> <%= reportDocument.Reporting_Information.Inaccessibility %> </p>
 
-</div>
-</div>
-</div>
-</div>
+    <% if (reportDocument.Reporting_Information) { %>
+      <div class="row">
+        <% let count = 0; %>
+        <% Object.entries(reportDocument.Reporting_Information).forEach(([key, value]) => { %>
+          <% if (value) { %>
+            <% if (count < 7) { %>
+              <div class="col-md-6">
+                <p><strong><%= key %>:</strong> <%= value %></p>
+              </div>
+            <% } else { %>
+              <div class="col-md-6">
+                <p><strong><%= key %>:</strong> <%= value %></p>
+              </div>
+            <% } %>
+            <% count++; %>
+          <% } %>
+        <% }) %>
+      </div>
+    <% } %>
 
-<div style="position: relative; text-align: center;" >
+  </div>
+
+<!--**********************************************OBJECT IDENTIFICATION******************************************************-->
+
+ <div style="position: relative; text-align: center;" >
+
     <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
     OBJECT IDENTIFICATION
-     
     </h5> 
   
-    </div>
+ </div>
+
     <div class="container" style="background-color: white;"> 
+
+    <% if (reportDocument.Object_identification) { %>
       <div class="row">
-        <div class="col-md-6">
-          <div>
-    <p><strong> Identification Number:</strong> <%= reportDocument.Object_identification.Identification_no %> </p>
-    <p><strong> Date of Acquisition:</strong> <%= reportDocument.Object_identification.Date_of_acquisition %> </p>
-    <p><strong> Name of Asset:</strong> <%= reportDocument.Object_identification.Name_of_asset %> </p>
-    <p><strong> Title:</strong> <%= reportDocument.Object_identification.Title %> </p>
-    <p><strong> Heading:</strong> <%= reportDocument.Object_identification.Heading %></p>
-    <p><strong> Authors:</strong><%= reportDocument.Object_identification.Author %> </p>
-  </div>
-</div>
-<div class="col-md-6">
-  <div>
-    <p><strong> Origin:</strong> <%= reportDocument.Object_identification.Origin %> </p>
-    <p><strong> Date of creation :</strong> <%= reportDocument.Object_identification.Date_of_creation %> </p>
-    <p><strong> Ownership:</strong> <%= reportDocument.Object_identification.Ownership %> </p>
-    <p><strong> Protection:</strong> <%= reportDocument.Object_identification.Protection %> </p>
-    <p><strong> Summary:</strong> <%= reportDocument.Object_identification.Summary %> </p>
-  </div>
-</div>
-</div>
-</div>
+        <% let count = 0; %>
+        <% Object.entries(reportDocument.Object_identification).forEach(([key, value]) => { %>
+          <% if (value) { %>
+            <% if (count < 7) { %>
+              <div class="col-md-6">
+                <p><strong><%= key %>:</strong> <%= value %></p>
+              </div>
+            <% } else { %>
+              <div class="col-md-6">
+                <p><strong><%= key %>:</strong> <%= value %></p>
+              </div>
+            <% } %>
+            <% count++; %>
+          <% } %>
+        <% }) %>
+      </div>
+    <% } %>
   
+    </div>
   
-<div style="position: relative; text-align: center;" >
+<!--**********************************************OBJECT DESCRIPTION******************************************************-->
+  
+  <div style="position: relative; text-align: center;" >
+
     <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
     OBJECT DESCRIPTION 
-    
     </h5> 
+   
+  </div>
+
+    <div class="container" style="background-color: white;"> 
+
+      <% if (reportDocument.Object_description) { %>
+        <div class="row">
+          <% let count = 0; %>
+          <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+            <% if (value) { %>
+              <% if (count < 7) { %>
+                <div class="col-md-6">
+                  <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
+              <% } else { %>
+                <div class="col-md-6">
+                  <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
+              <% } %>
+              <% count++; %>
+            <% } %>
+          <% }) %>
+        </div>
+      <% } %>
    
     </div>
 
-    <div class="container" style="background-color: white;"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div>
-    <p><strong> Material:</strong> <%= reportDocument.Object_description.Material %> </p>
-    <p><strong> Structure:</strong> <%= reportDocument.Object_description.Structure %> </p>
-   <p><strong> Surface:</strong> <%= reportDocument.Object_description.Surface %> </p>
-   <p><strong> History:</strong> <%= reportDocument.Object_description.History %> </p>
-   <p><strong> Technique:</strong> <%= reportDocument.Object_description.Technique %> </p>
-   <p><strong> Weight:</strong> <%= reportDocument.Object_description.Weight %> </p>
-   <p><strong> Constituent Elements:</strong> <%= reportDocument.Object_description.Constituent_elements %> </p>
-  </div>
-</div>
-<div class="col-md-6">
-  <div>
-   <p><strong> Number of elements :</strong> <%= reportDocument.Object_description.No_of_elements %> </p>
-   <p><strong> Height:</strong> <%= reportDocument.Object_description.Heights %> </p>
-   <p><strong> Length:</strong> <%= reportDocument.Object_description.Length %> </p>
-   <p><strong> Width:</strong> <%= reportDocument.Object_description.Width   %> </p>
-   <p><strong> Installation Notes:</strong> <%= reportDocument.Object_description.Installation_notes %> </p>
-   <p><strong> Artist installation guide:</strong><%= reportDocument.Object_description.Artist_installation_guide %> </p>
-   <p><strong> Object creation description:</strong> <%= reportDocument.Object_description.Object_creation_description %> </p>
-  </div>
-</div>
-</div>
-</div>
-  
+<!--**********************************************OBJECT ENVIRONMENT**************************************************-->
+
 <div style="position: relative; text-align: center;" >
+
     <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
     OBJECT ENVIRONMENT
-     
     </h5> 
    
-    </div>
+</div>
     <div class="container" style="background-color: white;"> 
-      <div class="row">
-      <p><strong> Environment in which item is held:</strong> <%= reportDocument.Object_environment.Environment %> </p>
-      <p><strong> Effect of environment on object:</strong> <%= reportDocument.Object_environment.Effect %> </p>
-     </div>
+     
+
+      <% if (reportDocument.Object_environment) { %>
+        <div class="row">
+              <!-- Iterate over each property of Reporting_Information and display only if value is not empty -->
+              <% Object.entries(reportDocument.Object_environment).forEach(([key, value]) => { %>
+                  <% if (value) { %>
+                      <p><strong><%= key %>:</strong> <%= value %></p>
+                  <% } %>
+              <% }) %>
+            </div>
+      <% } %>
+      
+     
     </div>
     
-    
+ <!--*************************************************CONDITION DESCRIPTION**************************************************-->   
   
-     <div style="position: relative; text-align: center;" >
+    <div style="position: relative; text-align: center;" >
+
     <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
     CONDITIONS DESCRIPTION (OBJECT)
-      
     </h5> 
    
     </div>
 
     <div class="container" style="background-color: white;"> 
-      <div class="row">
-      <p><strong> Information observed concerning current state of item including conservation history :</strong> <%= reportDocument.Conditions_description.Info_observed %> </p>
-      <p><strong> Please report the change (repair, treatment):</strong> <%= reportDocument.Conditions_description.Report_change %> </p>
-     </div>
+
+      <% if (reportDocument.Conditions_description) { %>
+        <div class="row">
+              <!-- Iterate over each property of Reporting_Information and display only if value is not empty -->
+              <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+                  <% if (value) { %>
+                      <p><strong><%= key %>:</strong> <%= value %></p>
+                  <% } %>
+              <% }) %>
+            </div>
+      <% } %>
+
     </div>
-  
+
+
+ <!--**********************************************DIAGNOSTIC AND RECOMMENDATION***********************************************--> 
+
      <div style="position: relative; text-align: center;" >
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    DIAGNOSTIC AND RECOMMENDATIONS
-      
-    </h5> 
+
+        <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
+         DIAGNOSTIC AND RECOMMENDATIONS
+       </h5> 
    
     </div>
+
     <div class="container" style="background-color: white;"> 
-      <div class="row">
-      <p><strong> Descriptive diagnosis of reason for detrioration :</strong> <%= reportDocument.Diagnostic_and_recommendations.Descriptive_diagnosis %> </p>
-      <p><strong> Recommendation for further care:</strong> <%= reportDocument.Diagnostic_and_recommendations.Recommendations %> </p>
-      <p><strong> Further scientific investigation:</strong> <%= reportDocument.Diagnostic_and_recommendations.Investigations %> </p>
-     </div>
+
+      <% if (reportDocument.Diagnostic_and_recommendations) { %>
+        <div class="row">
+              <!-- Iterate over each property of Reporting_Information and display only if value is not empty -->
+              <% Object.entries(reportDocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
+                  <% if (value) { %>
+                      <p><strong><%= key %>:</strong> <%= value %></p>
+                  <% } %>
+              <% }) %>
+            </div>
+      <% } %>
+
     </div>
+ <!--***************************************************************************************************************************-->
 
   </div>
 
-
-
-   <!---->
+ <!------------------------------------------------------------------------------------------------------------------------------->
    
 
 
 
-   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
    <script>
    
    function printPage() {
         window.print();
     }
  
-
-    //const jsConfetti = new JSConfetti()
-   // jsConfetti.addConfetti()
-   /*
-   function downloadPDF() {
-   
-   console.log(parsedFormData);
-
-   const htmlContentforPDF = `
-   <img src="Logo_Espadon.jpg" style="display: block; margin: 30px auto 30px auto; width: 150px; height: 90px;">
-   <h2 style="text-align: center; text-decoration: underline;">CONSTAT D'ETAT</h2>
-        <p>Name: ${parsedFormData.name}</p>
-        <p>Role: ${parsedFormData.role}</p>
-        <p>Instituio: ${parsedFormData.institution}</p>
-    `;
-
-    html2pdf().from(htmlContentforPDF).save();
-  }
-  */
    </script>
 <script  src="logic.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -225,5 +227,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>
+
+<!------------------------------------------------------------------------------------------------------------------------------->
