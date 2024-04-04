@@ -50,6 +50,7 @@ router.get('/', (req, res) => {
 router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)=>{
    
   const formData = req.body;
+  console.log(formData)
 
   const ReportForm = new Report({
 

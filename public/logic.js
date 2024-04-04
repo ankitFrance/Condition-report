@@ -69,104 +69,98 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //******************************************************************************** 
+let uploadedFiles = []; // Define an array to store uploaded files with their captions and names
 
 function displayUploadMessage() {
   let filesUploaded = document.getElementById('inputGroupFile02').files;
-  console.log(filesUploaded)
   const previewContainer = document.getElementById('previewContainer');
-  //previewContainer.innerHTML = '';
-
- 
- 
+  // Clear previous previews
+  previewContainer.innerHTML = '';
 
   for (let i = 0; i < filesUploaded.length; i++) {
     const file = filesUploaded[i];
-   
-    
     const reader = new FileReader();
 
     reader.onload = function(e) {
-
       //*****DIV INSIDE WHICH ELEMENTS ARE THERE ********/
       const previewItem = document.createElement('div');
       previewItem.classList.add('preview-item');
 
-       //******************IMAGE ************************/
+      //******************IMAGE ************************/
       const previewImage = document.createElement('img');
       previewImage.classList.add('preview-image');
       previewImage.src = e.target.result;
       previewItem.appendChild(previewImage);
 
-        
-       //******************FILE NAME *******************/
+      //******************FILE NAME *******************/
       const fileNameText = document.createElement('p');
       fileNameText.classList.add('file-name');
       fileNameText.innerText = file.name;
       previewItem.appendChild(fileNameText);
 
       //******************TEXT FIELD *******************/
-      const inputField = document.createElement('input');
-      inputField.setAttribute('type', 'text');
-      inputField.classList.add('caption');
-      inputField.setAttribute('placeholder', 'Enter caption here');
-      previewItem.appendChild(inputField);
+      const inputFieldCaption = document.createElement('input');
+      inputFieldCaption.setAttribute('type', 'text');
+      inputFieldCaption.classList.add('caption');
+      inputFieldCaption.setAttribute('placeholder', 'Enter caption here');
+      inputFieldCaption.addEventListener('input', function() {
+        updateCaption(file.name, inputFieldCaption.value);
+      });
+      previewItem.appendChild(inputFieldCaption);
 
-      //***************DELETE BUTTON****************** */
-       
-       const deleteButton = document.createElement('button');
-       deleteButton.innerText = 'Delete';
-       deleteButton.classList.add('delete-button');
-       deleteButton.addEventListener('click', function() {
-
-       previewContainer.removeChild(previewItem);
-
-        removeFromFilesUploaded(file);
-        
-
-        
-       });
-
-      previewItem.appendChild(deleteButton);
-
-      //************************************************ */
+//************************************************ */
       previewContainer.appendChild(previewItem);
 
-      };
+      // Push the uploaded file into the array
+      uploadedFiles.push({
+        image: e.target.result,
+        caption: '',
+        fileName: file.name
+      });
+    };
 
-      reader.readAsDataURL(file);
-    
+    reader.readAsDataURL(file);
   }
+}
 
-  //////////////////////////////////////////////////////////////////
-  
-
-function removeFromFilesUploaded(fileToRemove) {
-  const updatedFiles = [];
-  for (let i = 0; i < filesUploaded.length; i++) {
-      if (filesUploaded[i] !== fileToRemove) {
-          updatedFiles.push(filesUploaded[i]);
-      }
-  }
-
-  filesUploaded = updatedFiles;
-  console.log('Updated filesUploaded:', filesUploaded);
-
-  const a = document.getElementById('inputGroupFile02').value;
-  console.log(a)
-  
- }
-
-
-
- 
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
+function updateCaption(fileName, newCaption) {
+  uploadedFiles.forEach(upload => {
+    if (upload.fileName === fileName) {
+      upload.caption = newCaption;
+    }
+  });
+ // console.log(uploadedFiles);
 }
 
 //******************************************************************************** 
 
 function viewSummary() {
+
+  // FOR UPLOADING 
+  let images = [];
+  let captions = [];
+  let fileNames = [];
+  
+  uploadedFiles.forEach(upload => {
+    images.push(upload.image);
+    captions.push(upload.caption);
+    fileNames.push(upload.fileName);
+  });
+
+  console.log("Images:", images);
+  console.log("Captions:", captions);
+  console.log("File Names:", fileNames);
+
+  var imagesHTML = '';
+
+  for (let i = 0; i < images.length; i++) {
+    imagesHTML += `
+      <img src="${images[i]}" style="width: 400px; height: 400px;">
+      <p>${captions[i]}</p>
+      <p>${fileNames[i]}</p>
+    `;
+  }
+
 
   // FOR SLIDE 1
   const name = document.getElementById('name').value;             
@@ -222,6 +216,7 @@ function viewSummary() {
   const installation_notes = document.getElementById('installation_notes').value;
   const artist_installation_guide = document.getElementById('artist_installation_guide').value;
   const object_creation_description = document.getElementById('object_creation_description').value;
+  
   
    // FOR SLIDE 4
   const environment = document.getElementById('environment').value;
@@ -304,6 +299,10 @@ function viewSummary() {
   <p><strong> Installation Notes:</strong> ${installation_notes} </p>
   <p><strong> Artist installation guide:</strong> ${artist_installation_guide} </p>
   <p><strong> Object creation description:</strong> ${object_creation_description} </p>
+  <div>
+  ${imagesHTML}
+  </div>
+  
 
   <div style="position: relative;">
   <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
