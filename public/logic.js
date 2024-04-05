@@ -137,14 +137,6 @@ function updateCaption(fileName, newCaption) {
 
 
 
-
-
-
-
-
-
-
-
 function viewSummary() {
 
   // FOR UPLOADING 

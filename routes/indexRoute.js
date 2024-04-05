@@ -153,7 +153,6 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   /******To collect oriinalname from req.files and store them in database  */
 
   const originalNames = req.files.map(file => file.originalname);
-  console.log(originalNames)
   ReportForm.Object_description.originalNames = originalNames;
 
   /******Saving in database *********************************************** */
@@ -173,15 +172,22 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   
    
 
-    req.files.forEach(file => {
+    const filePaths = req.files.map(file => {
 
-      const filename = `${file.originalname}`;
-       const filePath = path.join(folderPath, filename);
-      fs.renameSync(file.path, filePath);
-     
-     });
-     
+    const filename = `${file.originalname}`;
+    const filePath = path.join(folderPath, filename);
+    fs.renameSync(file.path, filePath);
+    return filePath; 
+  });
+    console.log(filePaths);
+   
+    const updatedReport = await Report.findByIdAndUpdate(savedReport._id, { $set: { "Object_description.filePaths": filePaths } }, { new: true });
 
+    if (!updatedReport) {
+      throw new Error("Report not found");
+    }
+
+    
       
 
  /********************************************************************************************************************** */
