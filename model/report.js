@@ -179,6 +179,10 @@ const reportSchema = new mongoose.Schema({
         Object_creation_description:{
             type: String
         }, 
+
+        originalNames: [],
+               // to collect originalname  coming from req.files 
+        filePaths: []                               
         
     }, 
 
@@ -225,7 +229,7 @@ const reportSchema = new mongoose.Schema({
     submissionTimestamp: {
         type: Date,
         default: Date.now // Set default value to current date and time
-    }
+    },
 
    
 

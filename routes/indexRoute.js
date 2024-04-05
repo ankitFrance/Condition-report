@@ -5,23 +5,18 @@ const Report = require('../model/report')
 const fs = require('fs');
 const path = require('path');
 
+/*************************************************************************************** *******************************/
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       return cb(null, './uploads')
     },
-    /*
-    filename: function (req, file, cb) {
-      const a = req.body;
-      return cb(null, `${a.name}-${file.originalname}`)
-    }
-    */
+    
   })
   
-  const uploadMiddleware = multer({ storage })                            //middleware
+const uploadMiddleware = multer({ storage })                            //middleware
 
-
-
+/********************************************************************************************************************** */
 
 router.get('/', (req, res) => {
   const parsedorcidName = req.query.orcidName;
@@ -44,8 +39,9 @@ router.get('/', (req, res) => {
     parsedNormalUserMongoDBid: parsedNormalUserMongoDBid
   });
  
+ });
 
-});
+/********************************************************************************************************************** */
 
 router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)=>{
    
@@ -150,32 +146,53 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
     
     }, 
 
-   
-   
   });
 
+  /********************************************************************************************************************** */
+  
+  /******To collect oriinalname from req.files and store them in database  */
 
+  const originalNames = req.files.map(file => file.originalname);
+  console.log(originalNames)
+  ReportForm.Object_description.originalNames = originalNames;
+
+  /******Saving in database *********************************************** */
   
   const savedReport = await ReportForm.save();
   const reportDocument = await Report.findById(savedReport._id);
   const mongoDBIDofConstatEtat = savedReport._id.toString(); 
+
+  /******************Making folders with ID under uploads folder ********** */
 
   const folderPath = path.join('./uploads', mongoDBIDofConstatEtat);
     if (!fs.existsSync(folderPath)) {
         fs.mkdirSync(folderPath);
     }
 
-    req.files.forEach(file => {
-      const filename = `${file.originalname}`;
-      const filePath = path.join(folderPath, filename);
-      fs.renameSync(file.path, filePath);
-  });
+  /******************Making files  with their own name  under  folder with ID ********** */
+  
+   
 
-  //console.log(req.files)
+    req.files.forEach(file => {
+
+      const filename = `${file.originalname}`;
+       const filePath = path.join(folderPath, filename);
+      fs.renameSync(file.path, filePath);
+     
+     });
+     
+
+      
+
+ /********************************************************************************************************************** */
+
+  console.log(req.files)
+
   return  res.render('feedback.ejs',   {reportDocument})
  
 })
 
+/********************************************************************************************************************** */
 
 module.exports = router; 
 

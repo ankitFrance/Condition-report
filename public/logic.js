@@ -134,6 +134,17 @@ function updateCaption(fileName, newCaption) {
 
 //******************************************************************************** 
 
+
+
+
+
+
+
+
+
+
+
+
 function viewSummary() {
 
   // FOR UPLOADING 
@@ -147,9 +158,9 @@ function viewSummary() {
     fileNames.push(upload.fileName);
   });
 
-  console.log("Images:", images);
-  console.log("Captions:", captions);
-  console.log("File Names:", fileNames);
+  //console.log("Images:", images);
+  //console.log("Captions:", captions);
+  //console.log("File Names:", fileNames);
 
   var imagesHTML = '';
 
