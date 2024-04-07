@@ -105,25 +105,32 @@
 
     <div class="container" style="background-color: white;"> 
 
-      <% if (reportDocument.Object_description) { %>
-        <div class="row">
-          <% let count = 0; %>
-          <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-            <% if (value) { %>
-              <% if (count < 7) { %>
-                <div class="col-md-6">
+      <% if (reportDocument.Object_description && reportDocument.Object_description.images && reportDocument.Object_description.images.length > 0) { %>
+        <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+          <% if (value) { %>
+              <div class="col-md-6">
                   <p><strong><%= key %>:</strong> <%= value %></p>
-                </div>
-              <% } else { %>
-                <div class="col-md-6">
-                  <p><strong><%= key %>:</strong> <%= value %></p>
-                </div>
-              <% } %>
-              <% count++; %>
-            <% } %>
-          <% }) %>
-        </div>
-      <% } %>
+              </div>
+          <% } %>
+        <% }) %>
+        <% reportDocument.Object_description.images.forEach(image => { %>
+            <img src="<%= image %>" alt="Image" class="img-fluid">
+        <% }) %>
+
+    <% } else { %>
+        <!-- Display the content of Object_description -->
+        <% if (reportDocument.Object_description) { %>
+            <div class="row">
+                <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+                    <% if (value) { %>
+                        <div class="col-md-6">
+                            <p><strong><%= key %>:</strong> <%= value %></p>
+                        </div>
+                    <% } %>
+                <% }) %>
+            </div>
+        <% } %>
+    <% } %>
    
     </div>
 

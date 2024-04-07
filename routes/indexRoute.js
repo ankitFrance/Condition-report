@@ -47,6 +47,9 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
    
   const formData = req.body;
   console.log(formData)
+  const captions = JSON.parse(formData.captions);
+  const images = JSON.parse(formData.images);
+ 
 
   const ReportForm = new Report({
 
@@ -120,6 +123,7 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
       Installation_notes : formData.installation_notes,
       Artist_installation_guide : formData.artist_installation_guide,
       Object_creation_description : formData.object_creation_description,
+
   
      
      } , 
@@ -154,6 +158,15 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
 
   const originalNames = req.files.map(file => file.originalname);
   ReportForm.Object_description.originalNames = originalNames;
+
+/******To collect captions from hidden field made inside viewSummary() function  and store them in database  */
+
+  ReportForm.Object_description.captions = captions;
+
+  
+/******To collect images src from hidden field made inside viewSummary() function  and store them in database  */
+
+  ReportForm.Object_description.images = images;
 
   /******Saving in database *********************************************** */
   

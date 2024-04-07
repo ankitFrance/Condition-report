@@ -180,9 +180,15 @@ const reportSchema = new mongoose.Schema({
             type: String
         }, 
 
-        originalNames: [],
-               // to collect originalname  coming from req.files 
-        filePaths: []                               
+        originalNames: [],     // to collect originalname  coming from req.files 
+              
+        filePaths: []  ,     // after making new path and updating database 
+        
+        captions: [], 
+
+        images: []
+        
+        
         
     }, 
 
