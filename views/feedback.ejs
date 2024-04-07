@@ -107,30 +107,30 @@
 
       <% if (reportDocument.Object_description && reportDocument.Object_description.images && reportDocument.Object_description.images.length > 0) { %>
         <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-          <% if (value) { %>
-              <div class="col-md-6">
-                  <p><strong><%= key %>:</strong> <%= value %></p>
-              </div>
+          <% if ( key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
+            <div class="col-md-6">
+              <p><strong><%= key %>:</strong> <%= value %></p>
+            </div>
           <% } %>
         <% }) %>
         <% reportDocument.Object_description.images.forEach(image => { %>
-            <img src="<%= image %>" alt="Image" class="img-fluid">
+          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
         <% }) %>
-
-    <% } else { %>
+      
+      <% } else { %>
         <!-- Display the content of Object_description -->
         <% if (reportDocument.Object_description) { %>
-            <div class="row">
-                <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-                    <% if (value) { %>
-                        <div class="col-md-6">
-                            <p><strong><%= key %>:</strong> <%= value %></p>
-                        </div>
-                    <% } %>
-                <% }) %>
-            </div>
+          <div class="row">
+            <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+              <% if (key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
+                <div class="col-md-6">
+                  <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-    <% } %>
+      <% } %>
    
     </div>
 
