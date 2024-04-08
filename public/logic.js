@@ -195,6 +195,7 @@ var imagesHTML = '';
 
 for (let i = 0; i < images.length; i++) {
   imagesHTML += `
+  
     <img src="${images[i]}" style="width: 400px; height: 400px;">
     <p>${captions[i]}</p>
     <p>${fileNames[i]}</p>
