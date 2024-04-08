@@ -11,6 +11,10 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       return cb(null, './uploads')
     },
+    filename: function (req, file, cb) {
+      
+      return  cb(null, `${Date.now()}-${file.originalname}`)
+    }
     
   })
   
@@ -43,12 +47,19 @@ router.get('/', (req, res) => {
 
 /********************************************************************************************************************** */
 
-router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)=>{
+router.post('/feedback', uploadMiddleware.fields([
+  { name: 'ImageFile', maxCount: 5 },
+  { name: 'ImageFile2', maxCount: 5 }
+]), async(req, res)=>{
    
   const formData = req.body;
-  console.log(formData)
+  //console.log(formData)
   const captions = JSON.parse(formData.captions);
   const images = JSON.parse(formData.images);
+  const originalNames = JSON.parse(formData.fileNames);
+  const captions2 = JSON.parse(formData.captions2);
+  const images2 = JSON.parse(formData.images2);
+  const originalNames2 = JSON.parse(formData.fileNames2);
  
 
   const ReportForm = new Report({
@@ -154,19 +165,31 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
 
   /********************************************************************************************************************** */
   
-  /******To collect oriinalname from req.files and store them in database  */
+  /******To collect oriinalname from hidden field made inside viewSummary() function and store them in database  */
 
-  const originalNames = req.files.map(file => file.originalname);
   ReportForm.Object_description.originalNames = originalNames;
+
+   /******To collect oriinalname from hidden field made inside viewSummary2() function and store them in database  */
+
+  ReportForm.Conditions_description.originalNames2 = originalNames2;
+
 
 /******To collect captions from hidden field made inside viewSummary() function  and store them in database  */
 
   ReportForm.Object_description.captions = captions;
 
+  /******To collect captions from hidden field made inside viewSummary2() function  and store them in database  */
+
+  ReportForm.Conditions_description.captions2 = captions2;
+
   
 /******To collect images src from hidden field made inside viewSummary() function  and store them in database  */
 
   ReportForm.Object_description.images = images;
+
+/******To collect images src from hidden field made inside viewSummary2() function  and store them in database  */
+
+  ReportForm.Conditions_description.images2 = images2;
 
   /******Saving in database *********************************************** */
   
@@ -174,34 +197,7 @@ router.post('/feedback', uploadMiddleware.array('ImageFile', 5), async(req, res)
   const reportDocument = await Report.findById(savedReport._id);
   const mongoDBIDofConstatEtat = savedReport._id.toString(); 
 
-  /******************Making folders with ID under uploads folder ********** */
-
-  const folderPath = path.join('./uploads', mongoDBIDofConstatEtat);
-    if (!fs.existsSync(folderPath)) {
-        fs.mkdirSync(folderPath);
-    }
-
-  /******************Making files  with their own name  under  folder with ID ********** */
-  
-   
-
-    const filePaths = req.files.map(file => {
-
-    const filename = `${file.originalname}`;
-    const filePath = path.join(folderPath, filename);
-    fs.renameSync(file.path, filePath);
-    return filePath; 
-  });
-    console.log(filePaths);
-   
-    const updatedReport = await Report.findByIdAndUpdate(savedReport._id, { $set: { "Object_description.filePaths": filePaths } }, { new: true });
-
-    if (!updatedReport) {
-      throw new Error("Report not found");
-    }
-
-    
-      
+ 
 
  /********************************************************************************************************************** */
 

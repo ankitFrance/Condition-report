@@ -81,11 +81,14 @@ fetch('F5702.json')
 //**********************************************************************************************************************************
 let uploadedFiles = []; // Define an array to store uploaded files with their captions and names
 
+
 function displayUploadMessage() {
+
 let filesUploaded = document.getElementById('inputGroupFile02').files;
 const previewContainer = document.getElementById('previewContainer');
-// Clear previous previews
-previewContainer.innerHTML = '';
+
+
+previewContainer.innerHTML = '';  // Clear previous previews
 
 for (let i = 0; i < filesUploaded.length; i++) {
   const file = filesUploaded[i];
@@ -143,7 +146,95 @@ uploadedFiles.forEach(upload => {
 // console.log(uploadedFiles);
 }
 
-//*******************************************************************************************************************************
+//************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//**********************************************************************************************************************************
+let uploadedFiles2 = []; // Define an array to store uploaded files with their captions and names
+
+
+function displayUploadMessage2() {
+
+let filesUploaded2 = document.getElementById('inputGroupFile04').files;
+const previewContainer2 = document.getElementById('previewContainer1');
+
+
+previewContainer2.innerHTML = '';  // Clear previous previews
+
+for (let i = 0; i < filesUploaded2.length; i++) {
+  const file = filesUploaded2[i];
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    //*****DIV INSIDE WHICH ELEMENTS ARE THERE ********/
+    const previewItem = document.createElement('div');
+    previewItem.classList.add('preview-item');
+
+    //******************IMAGE ************************/
+    const previewImage = document.createElement('img');
+    previewImage.classList.add('preview-image');
+    previewImage.src = e.target.result;
+    previewItem.appendChild(previewImage);
+
+    //******************FILE NAME *******************/
+    const fileNameText = document.createElement('p');
+    fileNameText.classList.add('file-name');
+    fileNameText.innerText = file.name;
+    previewItem.appendChild(fileNameText);
+
+    //******************TEXT FIELD *******************/
+    const inputFieldCaption = document.createElement('input');
+    inputFieldCaption.setAttribute('type', 'text');
+    inputFieldCaption.classList.add('caption');
+    inputFieldCaption.setAttribute('placeholder', 'Enter caption here');
+    inputFieldCaption.addEventListener('input', function() {
+      updateCaption2(file.name, inputFieldCaption.value);
+    });
+    previewItem.appendChild(inputFieldCaption);
+
+//************************************************ */
+    previewContainer2.appendChild(previewItem);
+
+//************************************************ */
+    // Push the uploaded file into the array
+    uploadedFiles2.push({
+      image: e.target.result,
+      caption: '',
+      fileName: file.name
+    });
+
+    };
+    reader.readAsDataURL(file);
+  }}
+
+  function updateCaption2(fileName, newCaption) {
+    uploadedFiles2.forEach(upload => {
+      if (upload.fileName === fileName) {
+        upload.caption = newCaption;
+      }
+    });
+    // console.log(uploadedFiles);
+    }
+
+
+
+//**********************************************************************************************************************************************
+
+
+
+
 
 
 
@@ -160,7 +251,7 @@ uploadedFiles.forEach(upload => {
 
 function viewSummary() {
 
-//***********FOR UPLOADING **************
+//***********FOR UPLOADING (First) **************
 let images = [];
 let captions = [];
 let fileNames = [];
@@ -172,6 +263,7 @@ uploadedFiles.forEach(upload => {
 });
 
 const form = document.getElementById('registrationForm');
+
 const captionsInput = document.createElement('input');
 captionsInput.type = 'hidden';
 captionsInput.style.display = 'none';
@@ -187,9 +279,19 @@ imagesInput.style.visibility = 'hidden';
 imagesInput.name = 'images';
 imagesInput.value = JSON.stringify(images);
 form.appendChild(imagesInput);
-//console.log("Images:", images);
-//console.log("Captions:", captions);
-//console.log("File Names:", fileNames);
+
+const fileNamesInput = document.createElement('input');
+fileNamesInput.type = 'hidden';
+fileNamesInput.style.display = 'none';
+fileNamesInput.style.visibility = 'hidden';
+fileNamesInput.name = 'fileNames';
+fileNamesInput.value = JSON.stringify(fileNames);
+form.appendChild(fileNamesInput);
+
+
+console.log("Images:", images);
+console.log("Captions:", captions);
+console.log("File Names:", fileNames);
 
 var imagesHTML = '';
 
@@ -201,6 +303,60 @@ for (let i = 0; i < images.length; i++) {
     <p>${fileNames[i]}</p>
   `;
 }
+
+//************************ **************
+
+
+
+//***********FOR UPLOADING (First) **************
+let images2 = [];
+let captions2 = [];
+let fileNames2 = [];
+
+uploadedFiles2.forEach(upload => {
+  images2.push(upload.image);
+  captions2.push(upload.caption);
+  fileNames2.push(upload.fileName);
+});
+
+const form2 = document.getElementById('registrationForm');
+
+const captionsInput2 = document.createElement('input');
+captionsInput2.type = 'hidden';
+captionsInput2.style.display = 'none';
+captionsInput2.style.visibility = 'hidden';
+captionsInput2.name = 'captions2';
+captionsInput2.value = JSON.stringify(captions2);
+form2.appendChild(captionsInput2);
+
+const imagesInput2 = document.createElement('input');
+imagesInput2.type = 'hidden';
+imagesInput2.style.display = 'none';
+imagesInput2.style.visibility = 'hidden';
+imagesInput2.name = 'images2';
+imagesInput2.value = JSON.stringify(images2);
+form2.appendChild(imagesInput2);
+
+const fileNamesInput2 = document.createElement('input');
+fileNamesInput2.type = 'hidden';
+fileNamesInput2.style.display = 'none';
+fileNamesInput2.style.visibility = 'hidden';
+fileNamesInput2.name = 'fileNames2';
+fileNamesInput2.value = JSON.stringify(fileNames2);
+form2.appendChild(fileNamesInput2);
+
+var imagesHTML2 = '';
+  
+for (let i = 0; i < images2.length; i++) {     
+  imagesHTML2 += `
+  
+    <img src="${images2[i]}" style="width: 400px; height: 400px;">
+    <p>${captions2[i]}</p>
+    <p>${fileNames2[i]}</p>
+  `;
+}
+
+
 
 //************************ **************
 
@@ -263,6 +419,17 @@ const object_creation_description = document.getElementById('object_creation_des
  // FOR SLIDE 4
 const environment = document.getElementById('environment').value;
 const effect= document.getElementById('effect').value;
+
+// FOR SLIDE 5
+
+const info_observed = document.getElementById('info_observed').value;
+const report_change = document.getElementById('report_change').value;
+
+// FOR SLIDE 6
+
+const descriptive_diagnosis = document.getElementById('descriptive_diagnosis').value;
+const recommendations = document.getElementById('recommendations').value;
+const investigations = document.getElementById('investigations').value;
 
 
 var summaryText = `
@@ -366,6 +533,12 @@ CONDITIONS DESCRIPTION (OBEJCT)
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
 
+<p><strong> Information observed concerning current state of item :</strong> ${info_observed} </p>
+<p><strong> Please report the change (repair, treatment):</strong> ${report_change} </p>
+<div>
+${imagesHTML2}
+</div>
+
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
 DIAGNOSTIC AND RECOMMENDATIONS
@@ -373,6 +546,13 @@ DIAGNOSTIC AND RECOMMENDATIONS
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
+
+
+
+<p><strong> Descriptive diagnosis of reason for deterioration :</strong> ${descriptive_diagnosis} </p>
+<p><strong> Recommendations for further care and / or conservation:</strong> ${recommendations} </p>
+<p><strong> Further scientific, historical, technical or other investigation or analysis:</strong> ${investigations} </p>
+
 `;
 
 

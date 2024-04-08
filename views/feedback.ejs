@@ -121,13 +121,13 @@
         <!-- Display the content of Object_description -->
         <% if (reportDocument.Object_description) { %>
           <div class="row">
+
             <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-              <% if (key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
-                <div class="col-md-6">
+              <% if (value) { %>
                   <p><strong><%= key %>:</strong> <%= value %></p>
-                </div>
               <% } %>
             <% }) %>
+
           </div>
         <% } %>
       <% } %>
@@ -172,15 +172,31 @@
 
     <div class="container" style="background-color: white;"> 
 
-      <% if (reportDocument.Conditions_description) { %>
-        <div class="row">
-              <!-- Iterate over each property of Reporting_Information and display only if value is not empty -->
-              <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
-                  <% if (value) { %>
-                      <p><strong><%= key %>:</strong> <%= value %></p>
-                  <% } %>
-              <% }) %>
+      <% if (reportDocument.Conditions_description && reportDocument.Conditions_description.images2 && reportDocument.Conditions_description.images2.length > 0) { %>
+        <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+          <% if ( key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
+            <div class="col-md-6">
+              <p><strong><%= key %>:</strong> <%= value %></p>
             </div>
+          <% } %>
+        <% }) %>
+        <% reportDocument.Conditions_description.images2.forEach(image => { %>
+          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
+        <% }) %>
+      
+      <% } else { %>
+        <!-- Display the content of Object_description -->
+        <% if (reportDocument.Conditions_description) { %>
+          <div class="row">
+
+            <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+              <% if (value) { %>
+                  <p><strong><%= key %>:</strong> <%= value %></p>
+              <% } %>
+            <% }) %>
+            
+          </div>
+        <% } %>
       <% } %>
 
     </div>
