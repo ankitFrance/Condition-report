@@ -11,10 +11,12 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       return cb(null, './uploads')
     },
+    /*
     filename: function (req, file, cb) {
       
       return  cb(null, `${Date.now()}-${file.originalname}`)
     }
+    */
     
   })
   
@@ -191,11 +193,41 @@ router.post('/feedback', uploadMiddleware.fields([
 
   ReportForm.Conditions_description.images2 = images2;
 
+
+
+
   /******Saving in database *********************************************** */
   
   const savedReport = await ReportForm.save();
   const reportDocument = await Report.findById(savedReport._id);
   const mongoDBIDofConstatEtat = savedReport._id.toString(); 
+
+
+
+/************************************FILE AND FOLDER SAVING ************************************************* */
+
+// Create directory if it doesn't exist
+const folderPath = path.join(__dirname, '..', 'uploads', mongoDBIDofConstatEtat);
+if (!fs.existsSync(folderPath)) {
+  fs.mkdirSync(folderPath);
+}
+
+// Move files to the newly created directory
+const moveFiles = (files, destination) => {
+  files.forEach(file => {
+   
+    const oldPath = path.join(__dirname, '..', 'uploads', file.filename);
+    const newPath = path.join(destination, file.originalname);
+    fs.renameSync(oldPath, newPath);
+    
+  });
+  
+};
+
+moveFiles(req.files['ImageFile'], folderPath);
+moveFiles(req.files['ImageFile2'], folderPath);
+
+/*********************************************************************************************************** */
 
  
 
