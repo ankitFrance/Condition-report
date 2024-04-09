@@ -16,8 +16,8 @@ const storage = multer.diskStorage({
       
       return  cb(null, `${Date.now()}-${file.originalname}`)
     }
-    */
     
+    */
   })
   
 const uploadMiddleware = multer({ storage })                            //middleware
@@ -215,12 +215,19 @@ if (!fs.existsSync(folderPath)) {
 // Move files to the newly created directory
 const moveFiles = (files, destination) => {
   const newPaths = []; // Array to store new paths
+
+  if (!Array.isArray(files)) {     // to handle case when only one fileUpload field is uploaded , not another
+    files = [files];
+  }
+
+
   files.forEach(file => {
-   
+    if (file) { // Check if file is defined
     const oldPath = path.join(__dirname, '..', 'uploads', file.filename);
     const newPath = path.join(destination, file.originalname);
     fs.renameSync(oldPath, newPath);
     newPaths.push(newPath); // Push the new path to the array
+    }
   });
 
   return newPaths; // Return the array of new paths
@@ -229,8 +236,8 @@ const moveFiles = (files, destination) => {
 const newPaths1 = moveFiles(req.files['ImageFile'], folderPath);
 const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
 
-console.log('a', newPaths1); // Array containing the new paths from ImageFile
-console.log('b', newPaths2); // Array containing the new paths from ImageFile2
+//console.log('a', newPaths1); // Array containing the new paths from ImageFile
+//console.log('b', newPaths2); // Array containing the new paths from ImageFile2
 
 
 
@@ -246,7 +253,7 @@ const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
 
  /********************************************************************************************************************** */
 
-  //console.log(req.files)
+  console.log(req.files)
 
   return  res.render('feedback.ejs',   {reportDocument})
  
