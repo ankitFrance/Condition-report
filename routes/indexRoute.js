@@ -4,6 +4,8 @@ const multer  = require('multer')
 const Report = require('../model/report')
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 /*************************************************************************************** *******************************/
 
@@ -33,6 +35,7 @@ router.get('/', (req, res) => {
   const parsedgoogleMongoDBid = req.query.googleMongoDBid
   const parsedorcidMongoDBid = req.query.orcidMongoID
   const parsedNormalUserMongoDBid = req.query.NormalUserMongoDBid
+  const mongoDBDatabaseIDObject = new ObjectId();
  
   res.render('index', {
     parsedorcidName: parsedorcidName,
@@ -42,29 +45,37 @@ router.get('/', (req, res) => {
     parsednormalUserEmail : parsednormalUserEmail,
     parsedgoogleMongoDBid : parsedgoogleMongoDBid,
     parsedorcidMongoDBid: parsedorcidMongoDBid,
-    parsedNormalUserMongoDBid: parsedNormalUserMongoDBid
+    parsedNormalUserMongoDBid: parsedNormalUserMongoDBid, 
+    mongoDBDatabaseIDString: mongoDBDatabaseIDObject.toString()
   });
  
  });
 
 /********************************************************************************************************************** */
 
-router.post('/feedback', uploadMiddleware.fields([
+router.post('/feedback/:id', uploadMiddleware.fields([
   { name: 'ImageFile', maxCount: 5 },
   { name: 'ImageFile2', maxCount: 5 }
 ]), async(req, res)=>{
    
   const formData = req.body;
-  //console.log(formData)
+  console.log(formData)
   const captions = JSON.parse(formData.captions);
   const images = JSON.parse(formData.images);
   const originalNames = JSON.parse(formData.fileNames);
   const captions2 = JSON.parse(formData.captions2);
   const images2 = JSON.parse(formData.images2);
   const originalNames2 = JSON.parse(formData.fileNames2);
- 
+  const mongDBStr = formData.mongoDBDatabaseIDString
+
+  
+   // Convert mongDBStr to ObjectID
+   const mongDBObj = new mongoose.Types.ObjectId(mongDBStr);
+
 
   const ReportForm = new Report({
+
+    _id: mongDBObj, // Setting custom _id
 
     mongoIdStore: {
       GoogleUserMongoID : formData.mongoidGoogle,
@@ -204,7 +215,7 @@ router.post('/feedback', uploadMiddleware.fields([
 
 
 
-/************************************FILE AND FOLDER SAVING ************************************************* */
+/************************************FILE AND FOLDER SAVING ****************************** */
 
 // Create directory if it doesn't exist
 const folderPath = path.join(__dirname, '..', 'uploads', mongoDBIDofConstatEtat);
@@ -241,7 +252,7 @@ const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
 
 
 
-/*********************************************************************************************************** */
+/********************************************************************************************* */
 
 const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
   $set: {
@@ -253,7 +264,7 @@ const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
 
  /********************************************************************************************************************** */
 
-  console.log(req.files)
+ //console.log(req.files)
 
   return  res.render('feedback.ejs',   {reportDocument})
  

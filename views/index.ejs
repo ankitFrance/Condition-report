@@ -34,7 +34,7 @@
       </div>
 
 
-    <form id="registrationForm" action="/feedback" method="post" enctype="multipart/form-data" >
+    <form id="registrationForm" action="/feedback/<%=mongoDBDatabaseIDString%>" method="post" enctype="multipart/form-data" >
 
         <!----Progress bar --->
         <div class="progress" style="height: 25px;">
@@ -49,6 +49,7 @@
           <input style="display: none; visibility: hidden;" id="mongoidGoogle" type="text" name="mongoidGoogle">
           <input style="display: none; visibility: hidden;" id="mongoidOrcid" type="text" name="mongoidOrcid">
           <input style="display: none; visibility: hidden;" id="mongoidNormalUser" type="text" name="mongoidNormalUser">
+          <input style="display: none; visibility: hidden;" id="mongoDBDatabaseIDString" type="text" name="mongoDBDatabaseIDString">
 
         </div>
         
@@ -688,6 +689,7 @@
     var parsedgoogleMongoDBid = '<%=parsedgoogleMongoDBid%>'
     var parsedorcidMongoDBid = '<%=parsedorcidMongoDBid%>'
     var parsedNormalUserMongoDBid = '<%=parsedNormalUserMongoDBid%>'
+    var mongoDBDatabaseIDString = '<%=mongoDBDatabaseIDString%>'
     
       // Set values in the form fields
       document.getElementById('mongoidGoogle').value = parsedgoogleMongoDBid;
@@ -697,6 +699,8 @@
       document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
       document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
       document.getElementById('institution').value = parsedorcidEmploymentInstitution;
+
+      document.getElementById('mongoDBDatabaseIDString').value = mongoDBDatabaseIDString;
      
      
     </script>
