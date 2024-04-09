@@ -212,13 +212,13 @@ const reportSchema = new mongoose.Schema({
         Report_change : {
             type: String
         }, 
-        captions2: [], 
+        captions: [], 
 
-        originalNames2: [],
+        originalNames: [],
 
-        images2: [],
+        images: [],
 
-        filePaths2: []  ,
+        filePaths: []  ,
        
         
     },

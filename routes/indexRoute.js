@@ -173,7 +173,7 @@ router.post('/feedback', uploadMiddleware.fields([
 
    /******To collect oriinalname from hidden field made inside viewSummary2() function and store them in database  */
 
-  ReportForm.Conditions_description.originalNames2 = originalNames2;
+  ReportForm.Conditions_description.originalNames = originalNames2;
 
 
 /******To collect captions from hidden field made inside viewSummary() function  and store them in database  */
@@ -182,7 +182,7 @@ router.post('/feedback', uploadMiddleware.fields([
 
   /******To collect captions from hidden field made inside viewSummary2() function  and store them in database  */
 
-  ReportForm.Conditions_description.captions2 = captions2;
+  ReportForm.Conditions_description.captions = captions2;
 
   
 /******To collect images src from hidden field made inside viewSummary() function  and store them in database  */
@@ -191,7 +191,7 @@ router.post('/feedback', uploadMiddleware.fields([
 
 /******To collect images src from hidden field made inside viewSummary2() function  and store them in database  */
 
-  ReportForm.Conditions_description.images2 = images2;
+  ReportForm.Conditions_description.images = images2;
 
 
 
@@ -246,7 +246,7 @@ const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
 const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
   $set: {
     "Object_description.filePaths": newPaths1,
-    "Conditions_description.filePaths2": newPaths2
+    "Conditions_description.filePaths": newPaths2
   }
 });
  
