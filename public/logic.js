@@ -115,6 +115,7 @@ for (let i = 0; i < filesUploaded.length; i++) {
     //******************TEXT FIELD *******************/
     const inputFieldCaption = document.createElement('input');
     inputFieldCaption.setAttribute('type', 'text');
+    inputFieldCaption.classList.add('form-control'); 
     inputFieldCaption.classList.add('caption');
     inputFieldCaption.setAttribute('placeholder', 'Enter caption here');
     inputFieldCaption.addEventListener('input', function() {
@@ -127,6 +128,8 @@ for (let i = 0; i < filesUploaded.length; i++) {
      
       const deleteButton = document.createElement('button');
       deleteButton.innerText = 'Delete';
+      deleteButton.classList.add('btn', 'btn-danger'); 
+      deleteButton.setAttribute('type', 'button'); 
       deleteButton.addEventListener('click', function() {
         deleteFile(file.name);
         previewContainer.removeChild(previewItem);
@@ -251,6 +254,7 @@ for (let i = 0; i < filesUploaded2.length; i++) {
     //******************TEXT FIELD *******************/
     const inputFieldCaption = document.createElement('input');
     inputFieldCaption.setAttribute('type', 'text');
+    inputFieldCaption.classList.add('form-control'); 
     inputFieldCaption.classList.add('caption');
     inputFieldCaption.setAttribute('placeholder', 'Enter caption here');
     inputFieldCaption.addEventListener('input', function() {
@@ -263,6 +267,8 @@ for (let i = 0; i < filesUploaded2.length; i++) {
      
         const deleteButton2 = document.createElement('button');
         deleteButton2.innerText = 'Delete';
+        deleteButton2.classList.add('btn', 'btn-danger'); 
+        deleteButton2.setAttribute('type', 'button'); 
         deleteButton2.addEventListener('click', function() {
           deleteFile2(file.name);
           previewContainer2.removeChild(previewItem);
