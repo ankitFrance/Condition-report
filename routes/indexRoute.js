@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
   const parsedgoogleMongoDBid = req.query.googleMongoDBid
   const parsedorcidMongoDBid = req.query.orcidMongoID
   const parsedNormalUserMongoDBid = req.query.NormalUserMongoDBid
-  const mongoDBDatabaseIDObject = new ObjectId();
+  //const mongoDBDatabaseIDObject = new ObjectId();
  
   res.render('index', {
     parsedorcidName: parsedorcidName,
@@ -46,36 +46,92 @@ router.get('/', (req, res) => {
     parsedgoogleMongoDBid : parsedgoogleMongoDBid,
     parsedorcidMongoDBid: parsedorcidMongoDBid,
     parsedNormalUserMongoDBid: parsedNormalUserMongoDBid, 
-    mongoDBDatabaseIDString: mongoDBDatabaseIDObject.toString()
+    //mongoDBDatabaseIDString: mongoDBDatabaseIDObject.toString()
   });
  
  });
 
-/********************************************************************************************************************** */
 
-router.post('/feedback/:id', uploadMiddleware.fields([
+
+
+
+
+
+
+
+
+ /**************************************************************************************************************************************** */
+
+
+
+
+
+ 
+
+ router.get('/report/:id', async (req, res) => {
+
+  const collectIDfromURL = req.params.id; 
+  
+  
+   if (!mongoose.isValidObjectId(collectIDfromURL)) {
+    return res.status(400).send('Invalid ID');
+  }
+  
+    try {
+        
+        const Constatdocument = await Report.findById(collectIDfromURL);
+        if (!Constatdocument) {
+            
+            console.log('no record found coming from indexRoute.js ')
+        }
+       
+        res.render('ConstatReportPerUser.ejs', { Constatdocument });
+
+    } catch (error) {
+        
+        console.error('Error from indexRoute.js :', error);
+        
+    }
+
+ })
+
+
+ 
+
+
+
+
+
+
+
+
+/************************************************************************************************************************************ */
+
+router.post('/feedback', uploadMiddleware.fields([
   { name: 'ImageFile', maxCount: 5 },
   { name: 'ImageFile2', maxCount: 5 }
 ]), async(req, res)=>{
    
   const formData = req.body;
-  console.log(formData)
+  //console.log(formData)
   const captions = JSON.parse(formData.captions);
   const images = JSON.parse(formData.images);
   const originalNames = JSON.parse(formData.fileNames);
   const captions2 = JSON.parse(formData.captions2);
   const images2 = JSON.parse(formData.images2);
   const originalNames2 = JSON.parse(formData.fileNames2);
-  const mongDBStr = formData.mongoDBDatabaseIDString
+  //const mongDBStr = formData.mongoDBDatabaseIDString
 
   
    // Convert mongDBStr to ObjectID
-   const mongDBObj = new mongoose.Types.ObjectId(mongDBStr);
+   //const mongDBObj = new mongoose.Types.ObjectId(mongDBStr);
+
+
 
 
   const ReportForm = new Report({
 
-    _id: mongDBObj, // Setting custom _id
+  //  _id: mongDBObj, // Setting custom _id
 
     mongoIdStore: {
       GoogleUserMongoID : formData.mongoidGoogle,

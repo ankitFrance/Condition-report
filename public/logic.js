@@ -85,6 +85,7 @@ let uploadedFiles = []; // Define an array to store uploaded files with their ca
 function displayUploadMessage() {
 
 let filesUploaded = document.getElementById('inputGroupFile02').files;
+console.log(filesUploaded)
 const previewContainer = document.getElementById('previewContainer');
 
 
@@ -121,6 +122,18 @@ for (let i = 0; i < filesUploaded.length; i++) {
     });
     previewItem.appendChild(inputFieldCaption);
 
+    //******DELETE BUTTON****************************** */
+
+     
+      const deleteButton = document.createElement('button');
+      deleteButton.innerText = 'Delete';
+      deleteButton.addEventListener('click', function() {
+        deleteFile(file.name);
+        previewContainer.removeChild(previewItem);
+      });
+      previewItem.appendChild(deleteButton);
+
+
 //************************************************ */
     previewContainer.appendChild(previewItem);
 
@@ -143,8 +156,49 @@ uploadedFiles.forEach(upload => {
     upload.caption = newCaption;
   }
 });
-// console.log(uploadedFiles);
+ //console.log(uploadedFiles);
 }
+
+/*********************************************** */
+function deleteFile(fileName) {
+  uploadedFiles = uploadedFiles.filter(file => file.fileName !== fileName);
+   //console.log('when deleted' , uploadedFiles);
+   
+// Clear the input element value
+const inputElement = document.getElementById('inputGroupFile02');
+inputElement.value = null; 
+
+// Update the files uploaded in the input element based on the updated uploadedFiles array
+const updatedFiles = new DataTransfer();
+uploadedFiles.forEach(file => {
+  const blob = dataURItoBlob(file.image);
+  const fileItem = new File([blob], file.fileName);
+  updatedFiles.items.add(fileItem);
+});
+inputElement.files = updatedFiles.files;
+
+//console.log('when deleted', uploadedFiles);
+}
+
+function dataURItoBlob(dataURI) {
+// Convert base64 to raw binary data held in a string
+const byteString = atob(dataURI.split(',')[1]);
+
+// Separate the mime component
+const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+// Write the bytes of the string to an ArrayBuffer
+const ab = new ArrayBuffer(byteString.length);
+const ia = new Uint8Array(ab);
+for (let i = 0; i < byteString.length; i++) {
+  ia[i] = byteString.charCodeAt(i);
+}
+
+// Create a Blob
+return new Blob([ab], { type: mimeString });
+
+}
+
 
 //************************************************************************************************************************************************
 
@@ -204,6 +258,20 @@ for (let i = 0; i < filesUploaded2.length; i++) {
     });
     previewItem.appendChild(inputFieldCaption);
 
+        //******DELETE BUTTON****************************** */
+
+     
+        const deleteButton2 = document.createElement('button');
+        deleteButton2.innerText = 'Delete';
+        deleteButton2.addEventListener('click', function() {
+          deleteFile2(file.name);
+          previewContainer2.removeChild(previewItem);
+        });
+        previewItem.appendChild(deleteButton2);
+  
+  
+  //************************************************ */
+
 //************************************************ */
     previewContainer2.appendChild(previewItem);
 
@@ -228,6 +296,47 @@ for (let i = 0; i < filesUploaded2.length; i++) {
     // console.log(uploadedFiles);
     }
 
+    /*************************************** */
+
+    function deleteFile2(fileName) {
+      uploadedFiles2 = uploadedFiles2.filter(file => file.fileName !== fileName);
+       //console.log('when deleted' , uploadedFiles);
+       
+    // Clear the input element value
+    const inputElement = document.getElementById('inputGroupFile04');
+    inputElement.value = null; 
+    
+    // Update the files uploaded in the input element based on the updated uploadedFiles array
+    const updatedFiles2 = new DataTransfer();
+    uploadedFiles2.forEach(file => {
+      const blob = dataURItoBlob(file.image);
+      const fileItem = new File([blob], file.fileName);
+      updatedFiles2.items.add(fileItem);
+    });
+    inputElement.files = updatedFiles2.files;
+    
+    //console.log('when deleted', uploadedFiles);
+    }
+    
+    function dataURItoBlob(dataURI) {
+    // Convert base64 to raw binary data held in a string
+    const byteString = atob(dataURI.split(',')[1]);
+    
+    // Separate the mime component
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    
+    // Write the bytes of the string to an ArrayBuffer
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    
+    // Create a Blob
+    return new Blob([ab], { type: mimeString });
+    
+    }
+    
 
 
 //**********************************************************************************************************************************************
@@ -308,7 +417,7 @@ for (let i = 0; i < images.length; i++) {
 
 
 
-//***********FOR UPLOADING (First) **************
+//***********FOR UPLOADING (Second) **************
 let images2 = [];
 let captions2 = [];
 let fileNames2 = [];
