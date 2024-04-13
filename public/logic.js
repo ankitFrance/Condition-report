@@ -34,31 +34,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-// **************** Request to fetch the JSON file **** ***********************
+// **************** Request to fetch the JSON URL **** ***********************
+document.getElementById('FetchJSON').addEventListener('click', function() {
+  // Get the identification number from the input field
+  var identificationNumber = document.getElementById('identification_no').value;
 
-fetch('F5702.json')
- .then(response => {
-  // Check if the response is successful
-  if (!response.ok) {
-     console.log('Network response was not ok');
-  }
-  // Parse the JSON data
-  return response.json();
-})
-.then(ErosData => {
-  // Log the JSON data to the console
- // console.log(ErosData);
-  document.getElementById('title').value = ErosData.title
-  document.getElementById('author').value = ErosData.author
-  document.getElementById('date_of_creation').value = ErosData.dtfrom
-  document.getElementById('width').value = ErosData.width
-  document.getElementById('heights').value = ErosData.height
+  // Construct the URL with the identification number surrounded by %22
+  //var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2r[…]re=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
+  var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2rmf/records?where=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
 
-  
- 
-})
-.catch(error => {
-  console.error('There was a problem fetching the JSON file:', error);
+  // Send a request to the constructed URL
+  fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+          // Log the response to the console
+          console.log(data);
+      })
+      .catch(error => {
+          console.error('Error fetching data:', error);
+      });
 });
 
 // ****************END OF Request to fetch the JSON file******************
