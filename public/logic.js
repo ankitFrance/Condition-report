@@ -36,18 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // **************** Request to fetch the JSON URL **** ***********************
 document.getElementById('FetchJSON').addEventListener('click', function() {
-  // Get the identification number from the input field
+
   var identificationNumber = document.getElementById('identification_no').value;
 
-  // Construct the URL with the identification number surrounded by %22
+
   //var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2r[…]re=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
   var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2rmf/records?where=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
 
-  // Send a request to the constructed URL
+
   fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-          // Log the response to the console
+          
           console.log(data);
       })
       .catch(error => {

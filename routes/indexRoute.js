@@ -120,18 +120,17 @@ router.post('/feedback', uploadMiddleware.fields([
   const captions2 = JSON.parse(formData.captions2);
   const images2 = JSON.parse(formData.images2);
   const originalNames2 = JSON.parse(formData.fileNames2);
-  //const mongDBStr = formData.mongoDBDatabaseIDString
+  
+
 
   
-   // Convert mongDBStr to ObjectID
-   //const mongDBObj = new mongoose.Types.ObjectId(mongDBStr);
 
 
 
 
   const ReportForm = new Report({
 
-  //  _id: mongDBObj, // Setting custom _id
+ 
 
     mongoIdStore: {
       GoogleUserMongoID : formData.mongoidGoogle,
