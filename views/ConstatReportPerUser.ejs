@@ -101,21 +101,18 @@
     <div class="container" style="background-color: white;"> 
 
 
+    
       <% if (Constatdocument.Object_description) { %>
         <div class="row">
           <% let count = 0; %>
           <% Object.entries(Constatdocument.Object_description).forEach(([key, value]) => { %>
-            <% if (value) { %>
-              <% if (count < 7) { %>
+            <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
+              <% if (!(Array.isArray(value) && value.length === 0)) { %>
                 <div class="col-md-6">
                   <p><strong><%= key %>:</strong> <%= value %></p>
                 </div>
-              <% } else { %>
-                <div class="col-md-6">
-                  <p><strong><%= key %>:</strong> <%= value %></p>
-                </div>
+                <% count++; %>
               <% } %>
-              <% count++; %>
             <% } %>
           <% }) %>
         </div>
@@ -162,27 +159,23 @@
 
     <div class="container" style="background-color: white;"> 
 
+
      
       <% if (Constatdocument.Conditions_description) { %>
         <div class="row">
           <% let count = 0; %>
           <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
-            <% if (value) { %>
-              <% if (count < 7) { %>
+            <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
+              <% if (!(Array.isArray(value) && value.length === 0)) { %>
                 <div class="col-md-6">
                   <p><strong><%= key %>:</strong> <%= value %></p>
                 </div>
-              <% } else { %>
-                <div class="col-md-6">
-                  <p><strong><%= key %>:</strong> <%= value %></p>
-                </div>
+                <% count++; %>
               <% } %>
-              <% count++; %>
             <% } %>
           <% }) %>
         </div>
       <% } %>
-
 
 
 
