@@ -100,33 +100,28 @@
 
     <div class="container" style="background-color: white;"> 
 
-      <% if (Constatdocument.Object_description && Constatdocument.Object_description.images && Constatdocument.Object_description.images.length > 0) { %>
-        <% Object.entries(Constatdocument.Object_description).forEach(([key, value]) => { %>
-          <% if ( key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
-            <div class="col-md-6">
-              <p><strong><%= key %>:</strong> <%= value %></p>
-            </div>
-          <% } %>
-        <% }) %>
-        <% Constatdocument.Object_description.images.forEach(image => { %>
-          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
-        <% }) %>
-      
-      <% } else { %>
-        <!-- Display the content of Object_description -->
-        <% if (Constatdocument.Object_description) { %>
-          <div class="row">
 
-            <% Object.entries(Constatdocument.Object_description).forEach(([key, value]) => { %>
-              <% if (value) { %>
+      <% if (Constatdocument.Object_description) { %>
+        <div class="row">
+          <% let count = 0; %>
+          <% Object.entries(Constatdocument.Object_description).forEach(([key, value]) => { %>
+            <% if (value) { %>
+              <% if (count < 7) { %>
+                <div class="col-md-6">
                   <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
+              <% } else { %>
+                <div class="col-md-6">
+                  <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
               <% } %>
-            <% }) %>
-
-          </div>
-        <% } %>
+              <% count++; %>
+            <% } %>
+          <% }) %>
+        </div>
       <% } %>
    
+
     </div>
 
 <!--**********************************************OBJECT ENVIRONMENT**************************************************-->
@@ -167,32 +162,29 @@
 
     <div class="container" style="background-color: white;"> 
 
-      <% if (Constatdocument.Conditions_description && Constatdocument.Conditions_description.images && Constatdocument.Conditions_description.images.length > 0) { %>
-        <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
-          <% if ( key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
-            <div class="col-md-6">
-              <p><strong><%= key %>:</strong> <%= value %></p>
-            </div>
-          <% } %>
-        <% }) %>
-        <% Constatdocument.Conditions_description.images.forEach(image => { %>
-          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
-        <% }) %>
-      
-      <% } else { %>
-        <!-- Display the content of Object_description -->
-        <% if (Constatdocument.Conditions_description) { %>
-          <div class="row">
-
-            <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
-              <% if (value) { %>
+     
+      <% if (Constatdocument.Conditions_description) { %>
+        <div class="row">
+          <% let count = 0; %>
+          <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
+            <% if (value) { %>
+              <% if (count < 7) { %>
+                <div class="col-md-6">
                   <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
+              <% } else { %>
+                <div class="col-md-6">
+                  <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
               <% } %>
-            <% }) %>
-            
-          </div>
-        <% } %>
+              <% count++; %>
+            <% } %>
+          <% }) %>
+        </div>
       <% } %>
+
+
+
 
     </div>
 

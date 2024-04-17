@@ -253,11 +253,11 @@ router.post('/feedback', uploadMiddleware.fields([
   
 /******To collect images src from hidden field made inside viewSummary() function  and store them in database  */
 
-  ReportForm.Object_description.images = images;
+  //ReportForm.Object_description.images = images;
 
 /******To collect images src from hidden field made inside viewSummary2() function  and store them in database  */
 
-  ReportForm.Conditions_description.images = images2;
+  //ReportForm.Conditions_description.images = images2;
 
 
 
@@ -302,26 +302,26 @@ const moveFiles = (files, destination) => {
 const newPaths1 = moveFiles(req.files['ImageFile'], folderPath);
 const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
 
-//console.log('a', newPaths1); // Array containing the new paths from ImageFile
-//console.log('b', newPaths2); // Array containing the new paths from ImageFile2
+
+
 
 
 
 /********************************************************************************************* */
-
+/*
 const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
   $set: {
     "Object_description.filePaths": newPaths1,
     "Conditions_description.filePaths": newPaths2
   }
 });
- 
+*/
 
  /********************************************************************************************************************** */
 
  //console.log(req.files)
 
-  return  res.render('feedback.ejs',   {reportDocument})
+  return  res.render('feedback.ejs',   {reportDocument, images, images2})
  
 })
 

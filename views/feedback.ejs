@@ -105,32 +105,38 @@
 
     <div class="container" style="background-color: white;"> 
 
-      <% if (reportDocument.Object_description && reportDocument.Object_description.images && reportDocument.Object_description.images.length > 0) { %>
-        <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-          <% if ( key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
-            <div class="col-md-6">
-              <p><strong><%= key %>:</strong> <%= value %></p>
-            </div>
-          <% } %>
-        <% }) %>
-        <% reportDocument.Object_description.images.forEach(image => { %>
-          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
-        <% }) %>
-      
-      <% } else { %>
-        <!-- Display the content of Object_description -->
-        <% if (reportDocument.Object_description) { %>
-          <div class="row">
 
-            <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-              <% if (value) { %>
-                  <p><strong><%= key %>:</strong> <%= value %></p>
-              <% } %>
-            <% }) %>
 
+
+    <% if (reportDocument.Object_description) { %>
+  <div class="row">
+    <% let count = 0; %>
+    <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
+        <% if (!(Array.isArray(value) && value.length === 0)) { %>
+          <div class="col-md-6">
+            <p><strong><%= key %>:</strong> <%= value %></p>
           </div>
+          <% count++; %>
         <% } %>
       <% } %>
+    <% }) %>
+  </div>
+  <% if (images && images.length > 0) { %>
+    <div class="row">
+      <div class="col-md-6">
+        <% images.forEach(image => { %>
+          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
+        <% }) %>
+      </div>
+    </div>
+  <% } %>
+<% } %>
+
+      
+      
+  
+
    
     </div>
 
@@ -172,32 +178,39 @@
 
     <div class="container" style="background-color: white;"> 
 
-      <% if (reportDocument.Conditions_description && reportDocument.Conditions_description.images && reportDocument.Conditions_description.images.length > 0) { %>
-        <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
-          <% if ( key !== 'filePaths'  && !(Array.isArray(value) && value.length === 0)) { %>
-            <div class="col-md-6">
-              <p><strong><%= key %>:</strong> <%= value %></p>
-            </div>
-          <% } %>
-        <% }) %>
-        <% reportDocument.Conditions_description.images.forEach(image => { %>
-          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
-        <% }) %>
-      
-      <% } else { %>
-        <!-- Display the content of Object_description -->
-        <% if (reportDocument.Conditions_description) { %>
-          <div class="row">
+     
 
-            <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
-              <% if (value) { %>
+
+    
+      <% if (reportDocument.Conditions_description) { %>
+        <div class="row">
+          <% let count = 0; %>
+          <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+            <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
+              <% if (!(Array.isArray(value) && value.length === 0)) { %>
+                <div class="col-md-6">
                   <p><strong><%= key %>:</strong> <%= value %></p>
+                </div>
+                <% count++; %>
               <% } %>
-            <% }) %>
-            
+            <% } %>
+          <% }) %>
+        </div>
+        <% if (images2 && images2.length > 0) { %>
+          <div class="row">
+            <div class="col-md-6">
+              <% images2.forEach(image => { %>
+                <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
+              <% }) %>
+            </div>
           </div>
         <% } %>
       <% } %>
+      
+      
+
+
+    
 
     </div>
 

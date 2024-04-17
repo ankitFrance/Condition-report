@@ -182,11 +182,11 @@ const reportSchema = new mongoose.Schema({
 
         originalNames: [],     // to collect originalname  coming from req.files 
               
-        filePaths: []  ,     // after making new path and updating database 
+        //filePaths: []  ,     // after making new path and updating database 
         
         captions: [], 
 
-        images: []
+        //images: []
         
         
         
@@ -216,9 +216,9 @@ const reportSchema = new mongoose.Schema({
 
         originalNames: [],
 
-        images: [],
+        //images: [],
 
-        filePaths: []  ,
+        //filePaths: []  ,
        
         
     },
