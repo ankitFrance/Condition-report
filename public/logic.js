@@ -34,8 +34,23 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-// **************** Request to fetch the JSON URL **** ***********************
-document.getElementById('FetchJSON').addEventListener('click', function() {
+});
+
+
+
+
+
+
+
+
+
+//**************************************************************************************************************************************** */
+
+
+
+
+//Request to fetch the JSON URL
+document.getElementById('FetchEROS').addEventListener('click', function() {
 
   var identificationNumber = document.getElementById('identification_no').value;
 
@@ -49,19 +64,20 @@ document.getElementById('FetchJSON').addEventListener('click', function() {
       .then(data => {
           
           console.log(data);
+
+          var artiste = document.getElementById('author');
+          artiste.value = data.results[0].artiste;
+          
+          var titre_ou_designation = document.getElementById('title');
+          titre_ou_designation.value = data.results[0].titre_ou_designation;
+
       })
       .catch(error => {
           console.error('Error fetching data:', error);
       });
 });
 
-// ****************END OF Request to fetch the JSON file******************
-
-});
-
-
-//**************************************************************************************************************************************** */
-
+// END OF Request to fetch the JSON file
 
 
 
@@ -73,6 +89,69 @@ document.getElementById('FetchJSON').addEventListener('click', function() {
 
 
 //**********************************************************************************************************************************
+
+
+
+
+
+
+
+//**************************************************************************************************************************************** */
+
+
+
+
+//Request to fetch the JSON URL
+document.getElementById('FetchJOCONDE').addEventListener('click', function() {
+
+  var identificationNumber = document.getElementById('identification_no').value;
+
+
+  
+  var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/base-joconde-extrait/records?select=*&where=reference%20like%20%22'+ encodeURIComponent(identificationNumber) +'%22';
+
+
+  fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+          
+          console.log(data);
+
+          var artiste = document.getElementById('author');
+          artiste.value = data.results[0].auteur;
+          
+          var titre_ou_designation = document.getElementById('title');
+          titre_ou_designation.value = data.results[0].titre;
+
+          
+
+      })
+      .catch(error => {
+          console.error('Error fetching data:', error);
+      });
+});
+
+// END OF Request to fetch the JSON file
+
+
+
+
+
+
+
+
+
+
+//**********************************************************************************************************************************
+
+
+
+
+
+
+
+
+//************************************************************************************************************************************************* */
 let uploadedFiles = []; // Define an array to store uploaded files with their captions and names
 
 
