@@ -13,18 +13,20 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       return cb(null, './uploads')
     },
-    /*
-    filename: function (req, file, cb) {
-      
-      return  cb(null, `${Date.now()}-${file.originalname}`)
-    }
-    
-    */
-  })
+    })
   
-const uploadMiddleware = multer({ storage })                            //middleware
+const uploadMiddleware = multer({ storage, limits: {   //middleware
+  fieldNameSize: 100, 
+  fieldSize: 25 * 1024 * 1024           
+} })                            
 
 /********************************************************************************************************************** */
+
+
+
+
+
+
 
 router.get('/', (req, res) => {
   const parsedorcidName = req.query.orcidName;
@@ -35,7 +37,7 @@ router.get('/', (req, res) => {
   const parsedgoogleMongoDBid = req.query.googleMongoDBid
   const parsedorcidMongoDBid = req.query.orcidMongoID
   const parsedNormalUserMongoDBid = req.query.NormalUserMongoDBid
-  //const mongoDBDatabaseIDObject = new ObjectId();
+  
  
   res.render('index', {
     parsedorcidName: parsedorcidName,
@@ -46,7 +48,7 @@ router.get('/', (req, res) => {
     parsedgoogleMongoDBid : parsedgoogleMongoDBid,
     parsedorcidMongoDBid: parsedorcidMongoDBid,
     parsedNormalUserMongoDBid: parsedNormalUserMongoDBid, 
-    //mongoDBDatabaseIDString: mongoDBDatabaseIDObject.toString()
+   
   });
  
  });
@@ -231,7 +233,7 @@ router.post('/feedback', uploadMiddleware.fields([
 
   });
 
-  /********************************************************************************************************************** */
+  /**************************************************************************************/
   
   /******To collect oriinalname from hidden field made inside viewSummary() function and store them in database  */
 
@@ -262,7 +264,7 @@ router.post('/feedback', uploadMiddleware.fields([
 
 
 
-  /******Saving in database *********************************************** */
+  /*********************Saving in database *********************************************** */
   
   const savedReport = await ReportForm.save();
   const reportDocument = await Report.findById(savedReport._id);
@@ -308,16 +310,16 @@ const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
 
 
 /********************************************************************************************* */
-/*
+
 const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
   $set: {
     "Object_description.filePaths": newPaths1,
     "Conditions_description.filePaths": newPaths2
   }
 });
-*/
 
- /********************************************************************************************************************** */
+
+ /******************************************************************************************** */
 
  //console.log(req.files)
 
@@ -325,7 +327,7 @@ const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
  
 })
 
-/********************************************************************************************************************** */
+/************************************************************************************************************************************ */
 
 module.exports = router; 
 

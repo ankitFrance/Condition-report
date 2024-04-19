@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//Request to fetch the JSON URL
+
 document.getElementById('FetchEROS').addEventListener('click', function() {
 
   var identificationNumber = document.getElementById('identification_no').value;
@@ -77,7 +77,7 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
       });
 });
 
-// END OF Request to fetch the JSON file
+
 
 
 
@@ -101,7 +101,7 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
 
 
 
-//Request to fetch the JSON URL
+
 document.getElementById('FetchJOCONDE').addEventListener('click', function() {
 
   var identificationNumber = document.getElementById('identification_no').value;
@@ -131,7 +131,7 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
       });
 });
 
-// END OF Request to fetch the JSON file
+
 
 
 
