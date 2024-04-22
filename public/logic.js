@@ -437,7 +437,7 @@ for (let i = 0; i < filesUploaded2.length; i++) {
 
 //*********************************************************************************************************************************************
 
-function viewSummary() {
+function viewSummary(formId) {
 
 //***********FOR UPLOADING (First) **************
 let images = [];
@@ -450,7 +450,8 @@ uploadedFiles.forEach(upload => {
   fileNames.push(upload.fileName);
 });
 
-const form = document.getElementById('registrationForm');
+const form = document.getElementById(formId);
+console.log(form)
 
 const captionsInput = document.createElement('input');
 captionsInput.type = 'hidden';
@@ -507,7 +508,7 @@ uploadedFiles2.forEach(upload => {
   fileNames2.push(upload.fileName);
 });
 
-const form2 = document.getElementById('registrationForm');
+const form2 = document.getElementById(formId);
 
 const captionsInput2 = document.createElement('input');
 captionsInput2.type = 'hidden';

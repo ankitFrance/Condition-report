@@ -8,7 +8,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
   
    
 </head>
@@ -34,7 +34,7 @@
       </div>
 
 
-    <form id="registrationForm" action="/feedback" method="post" enctype="multipart/form-data" >
+    <form id="UpdateForm" action="/updateSuccessful/<%= report._id %>" method="post" enctype="multipart/form-data" >
 
         <!----Progress bar --->
         <div class="progress" style="height: 25px;">
@@ -45,13 +45,7 @@
 
         <!---------------------------------------- FORM 1 ------------------------------------------>
 
-        <div id="hiddenDiv" style="display: none; visibility: hidden;">
-          <input style="display: none; visibility: hidden;" id="mongoidGoogle" type="text" name="mongoidGoogle">
-          <input style="display: none; visibility: hidden;" id="mongoidOrcid" type="text" name="mongoidOrcid">
-          <input style="display: none; visibility: hidden;" id="mongoidNormalUser" type="text" name="mongoidNormalUser">
-         
-
-        </div>
+        
         
         <div class="step-form active" id="step1">
           <h2 style="text-align: center; color: navy;" id="reporting_info_heading"> REPORTING INFORMATION </h2>
@@ -61,21 +55,21 @@
               <label for="inputState" id="nameretrived" class="col-form-label">Name</label>
             </div>
             <div class="form-group col-md-3">
-             <input  type="text" class="form-control" id="name" name="name" placeholder="" >
+             <input  type="text" class="form-control" id="name" name="name" placeholder=""  >
             </div>
 
             <div class="form-group col-md-1" >
               <label for="inputState" id="roleretrived" class="col-form-label">Role</label>
             </div>
             <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="role" name="role" placeholder="" >
+             <input type="text" class="form-control" id="role" name="role" placeholder=""   >
             </div>
 
             <div class="form-group col-md-1" >
               <label for="inputState" id="institutionretrieved" class="col-form-label">Institution</label>
             </div>
             <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="institution" name="institution" placeholder="">
+             <input type="text" class="form-control" id="institution" name="institution" placeholder="" >
             </div>
           </div>
           
@@ -92,10 +86,10 @@
               <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="tools" class="form-control" name="tools">
+              <select id="tools" class="form-control" name="tools" >
                 <option selected>xyz</option>
                 <option>Tool1</option>
-                <option>Tool2</option>
+                <option >Tool2</option>
               </select>
             </div>
             
@@ -103,7 +97,7 @@
               <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="methods" class="form-control" name="methods">
+              <select id="methods" class="form-control" name="methods" >
                 <option selected>xyz</option>
                 <option>Method 1</option>
                 <option>Method 2</option>
@@ -115,7 +109,7 @@
       <div class="form-row row" style="padding: 5px 0;" >
 
         <div class="form-group col-md-6">
-          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="" name="purpose_of_condition_report" ></textarea>
+          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="" name="purpose_of_condition_report"></textarea>
         </div>
 
         <div class="form-group col-md-1" style=" display: flex; align-items: center; justify-content: center;">
@@ -127,7 +121,7 @@
      
 
         <div class="form-group col-md-3" style="padding: 5px 0;">
-         <input type="text" class="form-control" id="name_of_client" placeholder="" name="name_of_client">
+         <input type="text" class="form-control" id="name_of_client" placeholder="" name="name_of_client" value="<%= report.Reporting_Information.Name_of_client %>">
         </div>
              
         
@@ -178,19 +172,19 @@
             <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">Assets Used :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler" >
+                <input class="form-check-input" type="checkbox"  id="ruler" name="ruler" >
                 <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="microscope" name="microscope" >
+                <input class="form-check-input" type="checkbox"  id="microscope" name="microscope" >
                 <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="camera" checked name="camera">
+                <input class="form-check-input" type="checkbox"  id="camera" checked name="camera">
                 <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
               </div>
             </div>
@@ -203,13 +197,13 @@
             <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">Protection :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves">
+                <input class="form-check-input" type="checkbox"  id="gloves" name="gloves">
                 <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing">
+                <input class="form-check-input" type="checkbox"  id="clothing" name="clothing">
                 <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
               </div>
             </div>
@@ -270,12 +264,12 @@
                 <!---->
                 <div class="form-row row" style="padding: 10px 0 0 0;">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name">
+                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name" >
                   </div>
                   
                   
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role">
+                    <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role" >
                   </div>
                 </div>
                 
@@ -283,7 +277,7 @@
                 <div class="form-group col-md-3">
                   <label for="inputState" id="duration_of_assessmentLabel">Duration of Assesment</label>
                   <select id="duration_of_assessment" class="form-control" name="duration_of_assessment">
-                    <option selected>1 hour</option>
+                    <option selected >1 hour</option>
                     <option>1 hour to 2 hours</option>
                     <option>2 hours to 3 hours </option>
                   </select>
@@ -635,7 +629,7 @@
               <div style="padding: 10px 0 0 0;">
                 <button type="button" class="btn btn-secondary prev">Previous</button>
              
-                <button type="button" class="btn btn-primary"  onclick="viewSummary('registrationForm')" >Verify</button>
+                <button type="button" class="btn btn-primary"  onclick="viewSummary('UpdateForm')">Verify</button>
               </div>
 
             </div>
@@ -663,7 +657,7 @@
 
                  
                 <button type="button" class="btn btn-secondary" id="button_close" onclick="closeModal()" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark" style="float: right;">Submit</button>
+                <button type="submit" class="btn btn-dark" style="float: right;">Update</button>
                
               </div>
             </div>
@@ -683,35 +677,11 @@
 
 
 
-    <script>
-      
-      // Get values from URL parameters
-    var parsedorcidName = '<%= parsedorcidName %>';
-    var parsedorcidEmploymentRoleTitle = '<%= parsedorcidEmploymentRoleTitle %>';
-    var parsedorcidEmploymentInstitution = '<%=parsedorcidEmploymentInstitution %>'
-    var parsedorcidEmploymentInstitution = '<%=parsedorcidEmploymentInstitution %>'
-    var parsedgoogleUsername = '<%=parsedgoogleUsername %>'
-    var parsednormalUserEmail = '<%=parsednormalUserEmail %>'
-    var parsedgoogleMongoDBid = '<%=parsedgoogleMongoDBid%>'
-    var parsedorcidMongoDBid = '<%=parsedorcidMongoDBid%>'
-    var parsedNormalUserMongoDBid = '<%=parsedNormalUserMongoDBid%>'
-    
-    
-      // Set values in the form fields
-      document.getElementById('mongoidGoogle').value = parsedgoogleMongoDBid;
-      document.getElementById('mongoidOrcid').value = parsedorcidMongoDBid;
-      document.getElementById('mongoidNormalUser').value = parsedNormalUserMongoDBid;
-     
-      document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
-      document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
-      document.getElementById('institution').value = parsedorcidEmploymentInstitution;
-
-     
-    </script>
+   
 
 
-<script  src="language.js"></script>
-<script  src="logic.js"></script>
+<script  src="/language.js"></script>
+<script  src="/logic.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

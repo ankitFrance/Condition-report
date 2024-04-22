@@ -46,6 +46,7 @@ to {
 .accordion-button {
   padding: 0.375rem 0.75rem; 
 }
+
 #registrationForm{
 
 border-radius: 10px; /* Adjust the value for the roundness of the border */
@@ -97,3 +98,15 @@ text-align: center;
   width: 100px;
  
 }
+
+#UpdateForm{
+
+  border-radius: 10px; /* Adjust the value for the roundness of the border */
+  box-shadow: 2px 8px 16px rgba(0.2, 0, 0, 0.3); /* Adjust the values for the shadow effect */
+  margin-top: -10px; /* Adjust the value to lift it up or down */
+  padding: 20px; /* Adjust the padding as needed */
+  background-color:beige;
+  
+  
+  
+  }

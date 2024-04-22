@@ -68,7 +68,76 @@ router.get('/', (req, res) => {
 
 
 
+
+ /***************************************************************************************************************************************************** */
+
+
+
+
+ router.get('/Update/:id', async (req, res) => {
+  try {
+    
+    const report = await Report.findById(req.params.id);
+
+    if (!report) {
+
+      console.error('error in update route ', error);
+
+    }
+    console.log(report)
+    res.render('updatepage.ejs', { report: report });
+
+  } catch (error) {
+
+    console.error('error in update route ', error);
+   
+  }
+});
+
+
+
+ /***************************************************************************************************************************************************** */
+
+
+ router.post('/updateSuccessful/:id', uploadMiddleware.fields([
+  { name: 'ImageFile', maxCount: 5 },
+  { name: 'ImageFile2', maxCount: 5 }
+]), async (req, res) => {
+
+  try {
+    const reportId = req.params.id;
+    const updatedData = req.body; 
+    console.log('updateddddddd', updatedData)
+  
+    const updateObject = {
+      Reporting_Information: {
+
+         Name_of_client: updatedData.name_of_client,
+       
+           
+     }};
+
+
+    const updatedReport = await Report.findByIdAndUpdate(reportId, updateObject, { new: true });
+
+    if (!updatedReport) {
+      return res.status(404).json({ error: 'Report not found' });
+    }
+
+
+    res.send('successful')
+  } catch (error) {
+    console.error('Error updating report:', error);
+    
+  }
+});
  
+
+
+
+
+ /************************************************************************************************************************************************/
+  
 
  router.get('/report/:id', async (req, res) => {
 
