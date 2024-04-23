@@ -1,40 +1,71 @@
-
-//*********************************************************************************************************************************** */
-
 document.addEventListener('DOMContentLoaded', function () {
-
   var currentStep = 1;
   var progresStep = 0;
 
+ 
   document.querySelectorAll('.next').forEach(function (nextButton) {
       nextButton.addEventListener('click', function () {
           document.getElementById('step' + currentStep).classList.remove('active');
           currentStep++;
           progresStep++;
           document.getElementById('step' + currentStep).classList.add('active');
-          updateProgressBar();
+          console.log('when clicked next',currentStep)
+          updateProgressBarNormal();
+
       });
   });
 
+ 
   document.querySelectorAll('.prev').forEach(function (prevButton) {
       prevButton.addEventListener('click', function () {
           document.getElementById('step' + currentStep).classList.remove('active');
           currentStep--;
           progresStep--;
           document.getElementById('step' + currentStep).classList.add('active');
-          updateProgressBar();
+          console.log('when clicked previous',currentStep)
+          updateProgressBarNormal();
       });
   });
 
+ 
+  document.getElementById('summaryDiv').addEventListener('click', function (event) {
+      if (event.target && event.target.matches('i.fas.fa-pencil-alt')) {
+          var pencilId = event.target.id;
+          var stepNumber = parseInt(pencilId.replace('pencil', ''));
+          showFormStep(stepNumber);
+         
+      }
+  });
 
 
-  function updateProgressBar() {
+  function showFormStep(stepNumber) {
+      
+      document.querySelectorAll('.step-form').forEach(function (step) {
+          step.classList.remove('active');
+      });
+
+     
+      document.getElementById('step' + stepNumber).classList.add('active');
+     
+      updateProgressBar(stepNumber - 1);
+      currentStep = stepNumber;
+      progresStep = currentStep - 1;
+      
+
+  }
+
+  
+  function updateProgressBar(progresStep) {
       var progressBarWidth = progresStep * 20;
       document.querySelector('.progress-bar').style.width = progressBarWidth + '%';
   }
 
-
+  function updateProgressBarNormal() {
+    var progressBarWidth = progresStep * 20;
+    document.querySelector('.progress-bar').style.width = progressBarWidth + '%';
+}
 });
+
 
 
 
@@ -625,7 +656,7 @@ var summaryText = `
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
   REPORTING INFORMATION 
-  <i class="fas fa-pencil-alt" style="float: right;"></i>
+  <i id="pencil1" class="fas fa-pencil-alt" style="float: right;"></i>
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
@@ -657,7 +688,7 @@ var summaryText = `
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
 OBJECT IDENTIFICATION
-  <i class="fas fa-pencil-alt" style="float: right;"></i>
+  <i id="pencil2" class="fas fa-pencil-alt" style="float: right;"></i>
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
@@ -678,7 +709,7 @@ OBJECT IDENTIFICATION
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
 OBJECT DESCRIPTION 
-  <i class="fas fa-pencil-alt" style="float: right;"></i>
+  <i id="pencil3" class="fas fa-pencil-alt" style="float: right;"></i>
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
@@ -705,7 +736,7 @@ ${imagesHTML}
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
 OBJECT ENVIRONMENT
-  <i class="fas fa-pencil-alt" style="float: right;"></i>
+  <i id="pencil4" class="fas fa-pencil-alt" style="float: right;"></i>
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
@@ -717,7 +748,7 @@ OBJECT ENVIRONMENT
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
 CONDITIONS DESCRIPTION (OBEJCT)
-  <i class="fas fa-pencil-alt" style="float: right;"></i>
+  <i id="pencil5" class="fas fa-pencil-alt" style="float: right;"></i>
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
@@ -731,7 +762,7 @@ ${imagesHTML2}
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
 DIAGNOSTIC AND RECOMMENDATIONS
-  <i class="fas fa-pencil-alt" style="float: right;"></i>
+  <i id="pencil6" class="fas fa-pencil-alt" style="float: right;"></i>
 </h5> 
 <hr style="border-color: darkblue; margin-top: 0;">
 </div>
