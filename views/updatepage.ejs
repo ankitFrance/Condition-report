@@ -55,21 +55,21 @@
               <label for="inputState" id="nameretrived" class="col-form-label">Name</label>
             </div>
             <div class="form-group col-md-3">
-             <input  type="text" class="form-control" id="name" name="name" placeholder=""  >
+             <input  type="text" class="form-control" id="name" name="name" placeholder="" value="<%= report.Reporting_Information.Name %>"  >
             </div>
 
             <div class="form-group col-md-1" >
               <label for="inputState" id="roleretrived" class="col-form-label">Role</label>
             </div>
             <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="role" name="role" placeholder=""   >
+             <input type="text" class="form-control" id="role" name="role" placeholder="" value="<%= report.Reporting_Information.Role %>"  >
             </div>
 
             <div class="form-group col-md-1" >
               <label for="inputState" id="institutionretrieved" class="col-form-label">Institution</label>
             </div>
             <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="institution" name="institution" placeholder="" >
+             <input type="text" class="form-control" id="institution" name="institution" placeholder="" value="<%= report.Reporting_Information.Institution %>" >
             </div>
           </div>
           
@@ -109,7 +109,7 @@
       <div class="form-row row" style="padding: 5px 0;" >
 
         <div class="form-group col-md-6">
-          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="" name="purpose_of_condition_report"></textarea>
+          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="" name="purpose_of_condition_report" value="<%= report.Reporting_Information.Purpose_of_condition_report %>"></textarea>
         </div>
 
         <div class="form-group col-md-1" style=" display: flex; align-items: center; justify-content: center;">
@@ -138,31 +138,31 @@
         <div class="form-row row" style="padding: 10px 0 0 0;">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="height" placeholder="" name="height">
+            <input type="text" class="form-control" id="height" placeholder="" name="height" value="<%= report.Reporting_Information.Height %>">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="examination_center" placeholder="" name="examination_center">
+           <input type="text" class="form-control" id="examination_center" placeholder="" name="examination_center" value="<%= report.Reporting_Information.Examination_center %>">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="platform" placeholder="" name="platform">
+           <input type="text" class="form-control" id="platform" placeholder="" name="platform" value="<%= report.Reporting_Information.Platform %>">
           </div>
           <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="behind_glass" placeholder="" name="behind_glass">
+            <input type="text" class="form-control" id="behind_glass" placeholder="" name="behind_glass" value="<%= report.Reporting_Information.Behind_glass %>">
            </div>
         </div>
         
         <div class="form-row row" style="padding: 10px 0 0 0;">
           <div class="form-group col-md-2">
           <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="quantity" placeholder=""  name="quantity">
+            <input type="text" class="form-control" id="quantity" placeholder=""  name="quantity" value="<%= report.Reporting_Information.Quantity %>">
           </div>
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="quality" placeholder="" name="quality">
+           <input type="text" class="form-control" id="quality" placeholder="" name="quality" value="<%= report.Reporting_Information.Quality %>">
           </div>
           
           <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="nature" placeholder="" name="nature">
+           <input type="text" class="form-control" id="nature" placeholder="" name="nature" value="<%= report.Reporting_Information.Nature %>">
           </div>
         </div>
         
@@ -264,12 +264,12 @@
                 <!---->
                 <div class="form-row row" style="padding: 10px 0 0 0;">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name" >
+                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name" value="<%= report.Reporting_Information.Person_present_name %>" >
                   </div>
                   
                   
-                  <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role" >
+                  <div class="form-group col-md-3"> 
+                    <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role" value="<%= report.Reporting_Information.Person_present_role %>" >
                   </div>
                 </div>
                 
@@ -285,7 +285,7 @@
                 
                 <div class="form-group col-md-3">
                  
-                  <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility">
+                  <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility" value="<%= report.Reporting_Information.Inaccessibility %>">
                 </div>
                 </div>
                 <!---->
@@ -312,7 +312,7 @@
             <div class="form-row row" style="padding: 5px 0;">
 
                 <div class="form-group col-md-3">
-                  <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
+                  <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="" value="<%= report.Object_identification.Identification_no %>">
                 </div>
 
                 <div class="form-group col-md-2">
@@ -345,7 +345,7 @@
             <div class="form-row row" style="padding: 5px 0;">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="" >
+                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="" value="<%= report.Object_identification.Name_of_asset %>" >
               </div>
 
               <div class="form-group col-md-1" >
@@ -353,11 +353,11 @@
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="title" name="title" placeholder="">
+               <input type="text" class="form-control" id="title" name="title" placeholder="" value="<%= report.Object_identification.Title %>">
               </div>
               
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="heading" name="heading" placeholder="">
+               <input type="text" class="form-control" id="heading" name="heading" placeholder="" value="<%= report.Object_identification.Heading %>">
               </div>
 
             </div>
@@ -371,11 +371,11 @@
               </div>
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="author" name="author" placeholder="">
+                <input type="text" class="form-control" id="author" name="author" placeholder="" value="<%= report.Object_identification.Author %>">
               </div>
 
               <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="origin" name="origin" placeholder="">
+               <input type="text" class="form-control" id="origin" name="origin" placeholder="" value="<%= report.Object_identification.Origin %>">
               </div>
             </div>
 
@@ -400,18 +400,18 @@
             <div class="form-row row">
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="ownership" name="ownership" placeholder="">
+                <input type="text" class="form-control" id="ownership" name="ownership" placeholder="" value="<%= report.Object_identification.Ownership %>">
               </div>
 
               <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="protection" name="protection" placeholder="">
+                <input type="text" class="form-control" id="protection" name="protection" placeholder="" value="<%= report.Object_identification.Protection %>">
               </div>
 
             </div>
 
 
             <div class="form-group col-md-6" style="padding: 5px 0;">
-              <textarea class="form-control" id="summary" rows="2" name="summary" placeholder=""></textarea>
+              <textarea class="form-control" id="summary" rows="2" name="summary" placeholder="" value="<%= report.Object_identification.Summary %>"></textarea>
             </div>
 
             
@@ -431,19 +431,19 @@
               <div class="form-row row" style="padding: 5px 0;">
   
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="material" name="material" placeholder="">
+                  <input type="text" class="form-control" id="material" name="material" placeholder="" value="<%= report.Object_description.Material %>">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="structure" name="structure" placeholder="">
+                  <input type="text" class="form-control" id="structure" name="structure" placeholder="" value="<%= report.Object_description.Structure %>">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="surface" name="surface" placeholder="">
+                  <input type="text" class="form-control" id="surface" name="surface" placeholder="" value="<%= report.Object_description.Surface %>">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="history" name="history" placeholder="">
+                  <input type="text" class="form-control" id="history" name="history" placeholder="" value="<%= report.Object_description.History %>">
                 </div>
  
              </div>
@@ -451,15 +451,15 @@
              <div class="form-row row" style="padding: 5px 0;">
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control" name="technique" id="technique" placeholder="">
+                <input type="text" class="form-control" name="technique" id="technique" placeholder="" value="<%= report.Object_description.Technique %>">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control"  name="weight" id="weight" placeholder="">
+                <input type="text" class="form-control"  name="weight" id="weight" placeholder="" value="<%= report.Object_description.Weight %>">
               </div>
 
               <div class="form-group col-md-2">
-                <input type="text" class="form-control"  name="contituent_elements" id="contituent_elements" placeholder="">
+                <input type="text" class="form-control"  name="contituent_elements" id="contituent_elements" placeholder="" value="<%= report.Object_description.Constituent_elements %>">
               </div>
 
               <div class="form-group col-md-2" id="two">
@@ -482,7 +482,7 @@
             </div>
   
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="heights" name="heights"  placeholder="">
+              <input type="text" class="form-control" id="heights" name="heights"  placeholder="" value="<%= report.Object_description.Heights %>">
             </div>
 
 
@@ -491,11 +491,11 @@
             </div>
 
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="width" name="width" placeholder="">
+              <input type="text" class="form-control" id="width" name="width" placeholder="" value="<%= report.Object_description.Width %>">
             </div>
 
             <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="length" name="length" placeholder="">
+              <input type="text" class="form-control" id="length" name="length" placeholder="" value="<%= report.Object_description.Length %>">
             </div>
 
           </div>
@@ -504,15 +504,15 @@
          <div class="form-row row" >
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder=""></textarea>
+            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder="" value="<%= report.Object_description.Installation_notes %>"></textarea>
            </div>
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide" placeholder=""></textarea>
+            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide" placeholder="" value="<%= report.Object_description.Artist_installation_guide %>"></textarea>
            </div>
 
            <div class="form-group col-md-6" style="margin-top: 10px;">
-            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder=""></textarea>
+            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder="" value="<%= report.Object_description.Object_creation_description %>"></textarea>
            </div>
           
          </div>
@@ -549,13 +549,13 @@
 
               <div class="form-row row" style="padding: 5px 0;">
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder=""></textarea>
+                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder="" value="<%= report.Object_environment.Environment %>"></textarea>
                 </div>
               </div>
         
               <div class="form-row row" style="padding: 5px 0;">
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""></textarea>
+                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder="" value="<%= report.Object_environment.Effect %>"></textarea>
                 </div>
               </div>
         
@@ -572,14 +572,14 @@
         
                 <div class="form-row row" style="padding: 5px 0;">
                   <div class="form-group col-md-6" >
-                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
+                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" " value="<%= report.Conditions_description.Info_observed %>"></textarea>
                   </div>
                 </div>
         
                 <h6  id="Cc_label" style="padding: 5px 0;"> Condition changed from previous ? </h6>
         
                 <div class="form-group col-md-6">
-                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" "></textarea>
+                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" " value="<%= report.Conditions_description.Report_change %>"></textarea>
                 </div>
         
                 <h6  id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ?  Please upload a photo</h6>
@@ -610,17 +610,17 @@
               
               <div class="form-row row" style="padding: 5px 0;">
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder=""></textarea>
+                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder="" value="<%= report.Diagnostic_and_recommendations.Descriptive_diagnosis %>" ></textarea>
                 </div>
              
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder=""></textarea>
+                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder="" value="<%= report.Diagnostic_and_recommendations.Recommendations %>"></textarea>
                 </div>
               </div>
         
               <div class="form-row row" style="padding: 5px 0;" >
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""></textarea>
+                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder="" > <%= report.Diagnostic_and_recommendations.Investigations %> </textarea>
                 </div>
               </div>
                 

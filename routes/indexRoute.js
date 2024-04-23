@@ -110,12 +110,82 @@ router.get('/', (req, res) => {
     console.log('updateddddddd', updatedData)
   
     const updateObject = {
+
+     
       Reporting_Information: {
 
-         Name_of_client: updatedData.name_of_client,
+         Name : updatedData.name,
+         Role : updatedData.role,
+         Institution : updatedData.institution,
+         Purpose_of_condition_report : updatedData.purpose_of_condition_report,
+         Name_of_client : updatedData.name_of_client,
+         Height : updatedData.height,
+         Examination_center : updatedData.examination_center,
+         Platform : updatedData.platform,
+         Behind_glass : updatedData.behind_glass,
+         Quantity : updatedData.quantity,
+         Quality : updatedData.quality,
+         Nature : updatedData.nature,
+         Person_present_name : updatedData.person_present_name,
+         Person_present_role : updatedData.person_present_role,
+         Inaccessibility : updatedData.inaccessibility,
+
+         }, 
+
+      Object_identification : {
+
+         Identification_no : updatedData.identification_no,
+         Name_of_asset : updatedData.name_of_asset,
+         Title : updatedData.title,
+         Heading : updatedData.heading,
+         Author : updatedData.author,
+         Origin : updatedData.origin,
+         Ownership : updatedData.ownership,
+         Protection : updatedData.protection,
+         Summary : updatedData.summary,
+        
+      }, 
+
+      Object_description : {
+         Material : updatedData.material,
+         Structure : updatedData.structure,
+         Surface : updatedData.surface,
+         History :  updatedData.history,
+         Technique : updatedData.technique,
+         Weight : updatedData.weight,
+         Constituent_elements : updatedData.contituent_elements,
+         Heights :  updatedData.heights,
+         Length : updatedData.length,
+         Width : updatedData.width,
+         Installation_notes : updatedData.installation_notes,
+         Artist_installation_guide : updatedData.artist_installation_guide,
+         Object_creation_description : updatedData.object_creation_description,
+      },
+
+      Object_environment : {
+
+         Environment : updatedData.environment,
+         Effect : updatedData.effect,
+        
+      },
+
+      Conditions_description : {
+
+        Info_observed : updatedData.info_observed,
+        Report_change : updatedData.report_change,
        
-           
-     }};
+      },
+
+      Diagnostic_and_recommendations : {
+
+        Descriptive_diagnosis : updatedData.descriptive_diagnosis,
+        Recommendations : updatedData.recommendations,
+        Investigations : updatedData.investigations,
+       
+      }
+
+
+    };
 
 
     const updatedReport = await Report.findByIdAndUpdate(reportId, updateObject, { new: true });
