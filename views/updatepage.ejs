@@ -87,9 +87,9 @@
             </div>
             <div class="form-group col-md-2">
               <select id="tools" class="form-control" name="tools" >
-                <option selected>xyz</option>
-                <option>Tool1</option>
-                <option >Tool2</option>
+                <option <% if (!report.Reporting_Information.Tools === 'No tool selected') { %> selected <% } %> >No tool selected</option>
+                <option <% if (report.Reporting_Information.Tools === 'Tool1') { %> selected <% } %> >Tool1</option>
+                <option <% if (report.Reporting_Information.Tools === 'Tool2') { %> selected <% } %> >Tool2</option>
               </select>
             </div>
             
@@ -98,9 +98,9 @@
             </div>
             <div class="form-group col-md-2">
               <select id="methods" class="form-control" name="methods" >
-                <option selected>xyz</option>
-                <option>Method 1</option>
-                <option>Method 2</option>
+                <option <% if (!report.Reporting_Information.Methods === 'No method selected') { %> selected <% } %> >No method selected</option>
+                <option <% if (report.Reporting_Information.Methods === 'Method 1') { %> selected <% } %> >Method 1</option>
+                <option <% if (report.Reporting_Information.Methods === 'Method 2') { %> selected <% } %> >Method 2</option>
               </select>
             </div>
           </div>
@@ -504,7 +504,7 @@
          <div class="form-row row" >
 
            <div class="form-group col-md-6">
-            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder=""> <%= report.Object_description.Installation_notes %>  </textarea>
+            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder=""><%= report.Object_description.Installation_notes %></textarea>
            </div>
 
            <div class="form-group col-md-6">
@@ -512,7 +512,7 @@
            </div>
 
            <div class="form-group col-md-6" style="margin-top: 10px;">
-            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder=""> <%= report.Object_description.Object_creation_description %> </textarea>
+            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder=""><%= report.Object_description.Object_creation_description %></textarea>
            </div>
           
          </div>
@@ -549,13 +549,13 @@
 
               <div class="form-row row" style="padding: 5px 0;">
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder="" > <%= report.Object_environment.Environment %> </textarea>
+                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder=""><%= report.Object_environment.Environment %></textarea>
                 </div>
               </div>
         
               <div class="form-row row" style="padding: 5px 0;">
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder="" > <%= report.Object_environment.Effect %> </textarea>
+                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""><%= report.Object_environment.Effect %></textarea>
                 </div>
               </div>
         
@@ -572,14 +572,14 @@
         
                 <div class="form-row row" style="padding: 5px 0;">
                   <div class="form-group col-md-6" >
-                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" " > <%= report.Conditions_description.Info_observed %> </textarea>
+                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=""><%= report.Conditions_description.Info_observed %></textarea>
                   </div>
                 </div>
         
                 <h6  id="Cc_label" style="padding: 5px 0;"> Condition changed from previous ? </h6>
         
                 <div class="form-group col-md-6">
-                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" " > <%= report.Conditions_description.Report_change %> </textarea>
+                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=""><%= report.Conditions_description.Report_change %></textarea>
                 </div>
         
                 <h6  id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ?  Please upload a photo</h6>
@@ -610,17 +610,17 @@
               
               <div class="form-row row" style="padding: 5px 0;">
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder="" ><%= report.Diagnostic_and_recommendations.Descriptive_diagnosis %></textarea>
+                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder=""><%= report.Diagnostic_and_recommendations.Descriptive_diagnosis %></textarea>
                 </div>
              
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder="" > <%= report.Diagnostic_and_recommendations.Recommendations %> </textarea>
+                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder=""><%= report.Diagnostic_and_recommendations.Recommendations %></textarea>
                 </div>
               </div>
         
               <div class="form-row row" style="padding: 5px 0;" >
                 <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder="" > <%= report.Diagnostic_and_recommendations.Investigations %> </textarea>
+                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""><%= report.Diagnostic_and_recommendations.Investigations %></textarea>
                 </div>
               </div>
                 
