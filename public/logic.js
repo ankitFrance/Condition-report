@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
           currentStep++;
           progresStep++;
           document.getElementById('step' + currentStep).classList.add('active');
-          console.log('when clicked next',currentStep)
+          //console.log('when clicked next',currentStep)
           updateProgressBarNormal();
 
       });
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
           currentStep--;
           progresStep--;
           document.getElementById('step' + currentStep).classList.add('active');
-          console.log('when clicked previous',currentStep)
+          //console.log('when clicked previous',currentStep)
           updateProgressBarNormal();
       });
   });
@@ -102,6 +102,14 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
           var titre_ou_designation = document.getElementById('title');
           titre_ou_designation.value = data.results[0].titre_ou_designation;
 
+          var hauteur_ou_diametre_mm = document.getElementById('heights');
+          hauteur_ou_diametre_mm.value = data.results[0].hauteur_ou_diametre_mm;
+
+          var largeur_ou_diametre_mm= document.getElementById('width');
+          largeur_ou_diametre_mm.value = data.results[0].largeur_ou_diametre_mm;
+
+
+
       })
       .catch(error => {
           console.error('Error fetching data:', error);
@@ -153,6 +161,12 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
           
           var titre_ou_designation = document.getElementById('title');
           titre_ou_designation.value = data.results[0].titre;
+
+          var Hauteur = document.getElementById('heights');
+          Hauteur.value = data.results[0].mesures.split(';')[0].trim();
+
+          var Largeur = document.getElementById('width');
+          Largeur.value = data.results[0].mesures.split(';')[1].trim();
 
           
 
