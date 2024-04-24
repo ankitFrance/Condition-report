@@ -64,23 +64,23 @@ const reportSchema = new mongoose.Schema({
         }, 
         Ruler:{
             type: String, 
-            default: 'no'
+            default : 'No',
         }, 
         Microscope:{
             type: String, 
-            default: 'no'
+            default : 'No',
         }, 
         Camera:{
             type: String,
-            default: 'no'
+            default : 'No',
         }, 
         Gloves:{
             type: String,
-            default: 'no'
+            default : 'No',
         }, 
         Clothing:{
             type: String,
-            default: 'no'
+            default : 'No',
         }, 
         Person_present_name:{
             type: String

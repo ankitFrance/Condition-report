@@ -172,19 +172,19 @@
             <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">Assets Used :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  id="ruler" name="ruler" >
+                <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler" <%= report.Reporting_Information.Ruler === 'Yes' ? 'checked' : '' %> >
                 <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  id="microscope" name="microscope" >
+                <input class="form-check-input" type="checkbox" value="" id="microscope"  name="microscope" <%= report.Reporting_Information.Microscope === 'Yes' ? 'checked' : '' %> >
                 <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  id="camera" checked name="camera">
+                <input class="form-check-input" type="checkbox" value="" id="camera"  name="camera" <%= report.Reporting_Information.Camera === 'Yes' ? 'checked' : '' %>>
                 <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
               </div>
             </div>
@@ -197,13 +197,13 @@
             <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">Protection :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  id="gloves" name="gloves">
+                <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves" <%= report.Reporting_Information.Gloves === 'Yes' ? 'checked' : '' %> >
                 <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  id="clothing" name="clothing">
+                <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing" <%= report.Reporting_Information.Clothing === 'Yes' ? 'checked' : '' %>>
                 <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
               </div>
             </div>
@@ -329,11 +329,23 @@
 
           
                   <div class="col-md-2">
-                    <label  class="col-form-label" for="datepicker" id="doaLabel"  >Date of Acquisition:</label>
+                    <label  class="col-form-label" for="datepicker" id="doaLabel">Date of Acquisition:</label>
                   </div>
+                  
+                  <% 
+                  if (report.Object_identification.Date_of_acquisition === null) {
+                  var Date_of_acquisition = "dd/mm/yyyy";
+                  } else {
+                  // report.Object_identification.Date_of_acquisition contains the date string from the database
+                  var dateFromDatabase = new Date(report.Object_identification.Date_of_acquisition);
+                  
+                  // Format the date as yyyy-mm-dd
+                  var Date_of_acquisition = dateFromDatabase.toISOString().split('T')[0];
+                  }
+                  %>
 
                   <div class="col-md-3">
-                    <input type="date" id="date_of_acquisition" name="date_of_acquisition" class="form-control">
+                    <input type="date" id="date_of_acquisition" name="date_of_acquisition" class="form-control" value="<%= Date_of_acquisition %>">
                   </div>
 
                
@@ -386,8 +398,21 @@
                     <label  class="col-form-label" for="datepicker" id="docLabel">Date of Creation:</label>
                   </div>
 
+                  
+                  <% 
+                  if (report.Object_identification.Date_of_creation === null) {
+                  var Date_of_creation = "dd/mm/yyyy";
+                  } else {
+                  // report.Object_identification.Date_of_acquisition contains the date string from the database
+                  var dateFromDB = new Date(report.Object_identification.Date_of_creation);
+                  
+                  // Format the date as yyyy-mm-dd
+                  var Date_of_creation = dateFromDB.toISOString().split('T')[0];
+                  }
+                  %>
+
                   <div class="col-md-3">
-                    <input type="date" id="date_of_creation" name="date_of_creation" class="form-control">
+                    <input type="date" id="date_of_creation" name="date_of_creation" class="form-control" value="<%= Date_of_creation %>">
                   </div>
 
                 </div>
