@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       updateProgressBar(stepNumber - 1);
       currentStep = stepNumber;
       progresStep = currentStep - 1;
+      $('#summaryModal').modal('hide');
       
 
   }
