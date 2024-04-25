@@ -1028,4 +1028,13 @@ document.getElementById('doi').value = getTodayDate();
 
 
 
-//*********************************************************************************************************************************
+//*********************************************************************************************************************************  function updateCheckboxValue(checkbox, idFetch) {
+  function updateCheckboxValue(checkbox, idFetch) {
+    var checkboxValueField = document.getElementById(idFetch);
+    if (checkbox.checked) {
+        checkboxValueField.value = "Yes";
+    } 
+    else {
+        checkboxValueField.value = ""; 
+    }
+}
