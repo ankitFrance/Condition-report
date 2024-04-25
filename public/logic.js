@@ -599,7 +599,15 @@ for (let i = 0; i < images2.length; i++) {
 const name = document.getElementById('name').value;             
 const role = document.getElementById('role').value;
 const institution = document.getElementById('institution').value;
-const doi = document.getElementById('doi').value;
+let doi;
+let doii;
+if (formId === 'registrationForm') {
+   doi = document.getElementById('doi').value;
+  // Do something with the doi variable for register form
+} else if (formId === 'UpdateForm') {
+   doii = document.getElementById('doii').value;
+  // Do something with the doii variable for update form
+}
 const tools = document.getElementById('tools').value;
 const methods = document.getElementById('methods').value;
 const purpose_of_condition_report = document.getElementById('purpose_of_condition_report').value;
@@ -678,7 +686,18 @@ var summaryText = `
 <p><strong> Name:</strong> ${name} </p>
 <p><strong> Role:</strong> ${role} </p>
 <p><strong> Institution:</strong> ${institution} </p>
-<p><strong> Date of Inspection:</strong> ${doi} </p>
+`;
+
+if (doi) {
+  summaryText += `<p><strong> Date of Inspection:</strong> ${doi} </p>`;
+}
+
+if (doii) {
+  summaryText += `<p><strong> Date of Inspection:</strong> ${doii} </p>`;
+}
+
+summaryText += `
+
 <p><strong> Tools:</strong> ${tools} </p>
 <p><strong> Methods:</strong> ${methods} </p>
 <p><strong> Purpose of Condition Report:</strong> ${purpose_of_condition_report} </p>

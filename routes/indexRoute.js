@@ -117,6 +117,7 @@ router.get('/', (req, res) => {
          Name : updatedData.name,
          Role : updatedData.role,
          Institution : updatedData.institution,
+         Date_of_inspection : updatedData.doii,
          Tools : updatedData.tools,
          Methods : updatedData.methods,
          Purpose_of_condition_report : updatedData.purpose_of_condition_report,
