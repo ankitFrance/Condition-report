@@ -80,12 +80,19 @@ const reportSchema = new mongoose.Schema({
         }, 
         Clothing:{
             type: String,
-           
+        }, 
+
+        Reliability_collected_data:{
+            type: String,
+        }, 
+
+        Cmnt_reliabilty :{
+            type: String,
         }, 
         Person_present_during_inspection:{
             type: String
         }, 
-        Person_present_role:{
+        Contact_person_inspection:{
             type: String
         }, 
         Duration_of_assessment:{

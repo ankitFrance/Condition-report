@@ -23,13 +23,13 @@ var i18n = {
     Gloves: 'Gloves',
     Clothing: 'Clothing',
     Person_Present_during_inspection: 'Person Present during the inspection',
-    Person_Present_Role: 'Person Present Role',
     Duration_of_assessment : 'Duration of assessment',
     Inaccessibility_of_part_of_Asset: 'Inaccessibility of part of Asset',
     working_conditions: 'WORKING CONDTIONS UNDER WHICH REPORT IS CREATED ',
     additional_details: 'ADDITIONAL DETAILS (OPTIONAL)',
     assets_used :'Assets Used:',
     protection :'Protection:',
+    Reliability_collected_dataLegend : 'Reliability of collected data',
 
 
     Identification_Number: 'Identification Number',
@@ -117,13 +117,13 @@ var i18n = {
     Gloves: 'Gants',
     Clothing: 'Vêtements',
     Person_Present_during_inspection: `personne présente lors de l'inspection`,
-    Person_Present_Role: "Nom de l'interlocuteur présent",
     Duration_of_assessment : `Durée de l'évaluation`,
     Inaccessibility_of_part_of_Asset: `Partie(s) inaccessible(s)`,
     working_conditions: 'CONDITIONS DE TRAVAIL',
     additional_details: 'PRÉCISION SUPPLÉMENTAIRE (OPTIONNNEL)',
     assets_used :'Actifs utilisés:',
     protection :'Protection:',
+    Reliability_collected_dataLegend : 'Fiabilité des données collectées',
 
 
     Identification_Number: `Numéro d'identification`,

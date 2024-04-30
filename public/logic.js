@@ -624,8 +624,10 @@ const microscope = document.getElementById('microscope').value;
 const camera = document.getElementById('camera').value;
 const gloves = document.getElementById('gloves').value;
 const clothing = document.getElementById('clothing').value;
+const reliability_collected_data = document.querySelector('input[name="reliability_collected_data"]:checked').value;
 const person_present_during_inspection = document.getElementById('person_present_during_inspection').value;
-const person_present_role = document.getElementById('person_present_role').value;
+const contact_person_inspection = document.getElementById('contact_person_inspection').value;
+const cmnt_reliabilty = document.getElementById('cmnt_reliabilty').value;
 const duration_of_assessment = document.getElementById('duration_of_assessment').value;
 const inaccessibility = document.getElementById('inaccessibility').value;
 
@@ -714,10 +716,16 @@ summaryText += `
 <p><strong> Camera ?:</strong> ${camera} </p>
 <p><strong> Gloves ?:</strong> ${gloves} </p>
 <p><strong> Clothing ?:</strong> ${clothing} </p>
+<p><strong> Reliability of collected data ?:</strong> ${reliability_collected_data} </p>
+<p><strong> Comment on reliability of data:</strong> ${cmnt_reliabilty} </p>
 <p><strong> Person Present during inspection :</strong> ${person_present_during_inspection} </p>
-<p><strong> Person Present Role:</strong> ${person_present_role} </p>
+<p><strong> Contact person for the  inspection :</strong> ${contact_person_inspection} </p>
 <p><strong> Duration of assessment:</strong> ${duration_of_assessment} </p>
 <p><strong> Inaccessibility of part of Asset:</strong> ${inaccessibility} </p>
+
+
+
+
 
 <div style="position: relative;">
 <h5 style="color: white; background-color: green; padding: 10px; margin-bottom: 0;"> 
@@ -875,7 +883,6 @@ function changeLanguage() {
   document.getElementById('glovesLabel').innerText = i18n[selectedLanguage].Gloves;
   document.getElementById('clothingLabel').innerText = i18n[selectedLanguage].Clothing;
   document.getElementById('person_present_during_inspection').placeholder = i18n[selectedLanguage].Person_Present_during_inspection;
-  document.getElementById('person_present_role').placeholder = i18n[selectedLanguage].Person_Present_Role;
   document.getElementById('duration_of_assessment').placeholder = i18n[selectedLanguage].Duration_of_assessment;
   document.getElementById('inaccessibility').placeholder = i18n[selectedLanguage].Inaccessibility_of_part_of_Asset;
   document.getElementById('working_conditions').innerText = i18n[selectedLanguage].working_conditions;
@@ -883,6 +890,8 @@ function changeLanguage() {
   document.getElementById('reporting_info_heading').innerText = i18n[selectedLanguage].heading_Reporting_info;
   document.getElementById('assets_used_legend').innerText = i18n[selectedLanguage].assets_used;
   document.getElementById('protection_Legend').innerText = i18n[selectedLanguage].protection;
+  document.getElementById('reliability_collect_data_label').innerText = i18n[selectedLanguage].Reliability_collected_dataLegend;
+
 
    //***************************************** FOR SLIDE 2 *****************************************************
 

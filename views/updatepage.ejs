@@ -77,10 +77,10 @@
           if (report.Reporting_Information.Date_of_inspection === null) {
           var Date_of_inspection = "dd/mm/yyyy";
           } else {
-          // report.Object_identification.Date_of_acquisition contains the date string from the database
+        
           var dateFromDatabase = new Date(report.Reporting_Information.Date_of_inspection);
           
-          // Format the date as yyyy-mm-dd
+         
           var Date_of_inspection = dateFromDatabase.toISOString().split('T')[0];
           }
           %>
@@ -149,7 +149,7 @@
         <!---->
         <div class="form-row row" style="padding: 10px 0 0 0;">
           <div class="form-group col-md-2">
-          <!--  <label for="inputEmail4">Name</label>  -->
+         
             <input type="text" class="form-control" id="height" placeholder="" name="height" value="<%= report.Reporting_Information.Height %>">
           </div>
           <div class="form-group col-md-2">
@@ -166,7 +166,7 @@
         
         <div class="form-row row" style="padding: 10px 0 0 0;">
           <div class="form-group col-md-2">
-          <!--  <label for="inputEmail4">Name</label>  -->
+       
             <input type="text" class="form-control" id="quantity" placeholder=""  name="quantity" value="<%= report.Reporting_Information.Quantity %>">
           </div>
           <div class="form-group col-md-2">
@@ -223,7 +223,7 @@
           </div>
         </fieldset>
         
-        <!---->
+        
         </div>
         </div>
         </div>
@@ -232,38 +232,41 @@
         
         
         
+     
+
         <fieldset class="form-group" style="padding: 10px 0 0 0;">
           <div class="row">
-            <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data" style="font-weight: bold;">Reliability of collected data :-</legend>
+            <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data_label" style="font-weight: bold;">
+              Reliability of collected data :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="not_available"  value="Not Available" checked>
+                <input class="form-check-input" type="radio" name="reliability_collected_data" value="Not Available" <%= report.Reporting_Information.Reliability_collected_data === 'Not Available' ? 'checked' : '' %>>
                 <label class="form-check-label" for="gridRadios1" id="not_available">
                   Not Available
                 </label>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="incomplete"  value="Incomplete">
+                <input class="form-check-input" type="radio" name="reliability_collected_data" value="Incomplete" <%= report.Reporting_Information.Reliability_collected_data === 'Incomplete' ? 'checked' : '' %>>
                 <label class="form-check-label" for="gridRadios2" id="incomplete">
-                  Incomplete
-                </label>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exhaustive"  value="Exhaustive">
-                <label class="form-check-label" for="gridRadios3" id="exhaustive">
-                  Exhaustive
+                  Incomplete / Exhaustive
                 </label>
               </div>
             </div>
           </div>
         </fieldset>
+
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="cmnt_reliabilty" name="cmnt_reliabilty" placeholder="Comment for reliabilty" value="<%= report.Reporting_Information.Cmnt_reliabilty %>">
+        </div>
+
+
+
+        
         
           
-        <div class="accordion" id="accordionExampl">
+        <div class="accordion" id="accordionExampl" style="padding: 10px 0 0 0;">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThre">
               <button class="accordion-button collapsed bg-info" id="additional_details" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="false" aria-controls="collapseThree" style="padding: 13px;">
@@ -280,8 +283,8 @@
                   </div>
                   
                   
-                  <div class="form-group col-md-3"> 
-                    <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role" value="<%= report.Reporting_Information.Person_present_role %>" >
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="contact_person_inspection" placeholder="Contact persons for inspection" name="contact_person_inspection" value="<%= report.Reporting_Information.Contact_person_inspection %>">
                   </div>
                 </div>
                 

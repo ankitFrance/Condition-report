@@ -134,8 +134,10 @@ router.get('/', (req, res) => {
          Camera : updatedData.camera,
          Gloves :  updatedData.gloves,
          Clothing : updatedData.clothing,
+         Reliability_collected_data : updatedData.reliability_collected_data,
+         Cmnt_reliabilty : updatedData.cmnt_reliabilty, 
          Person_present_during_inspection : updatedData.person_present_during_inspection,
-         Person_present_role : updatedData.person_present_role,
+         Contact_person_inspection : updatedData.contact_person_inspection, 
          Inaccessibility : updatedData.inaccessibility,
 
          }, 
@@ -264,7 +266,7 @@ router.post('/feedback', uploadMiddleware.fields([
 ]), async(req, res)=>{
    
   const formData = req.body;
-  //console.log(formData)
+  console.log('data is cominggggggggggg', formData)
   const captions = JSON.parse(formData.captions);
   const images = JSON.parse(formData.images);
   const originalNames = JSON.parse(formData.fileNames);
@@ -312,8 +314,10 @@ router.post('/feedback', uploadMiddleware.fields([
       Camera: formData.camera, 
       Gloves: formData.gloves, 
       Clothing: formData.clothing, 
+      Reliability_collected_data : formData.reliability_collected_data , 
+      Cmnt_reliabilty : formData.cmnt_reliabilty , 
       Person_present_during_inspection: formData.person_present_during_inspection,
-      Person_present_role: formData.person_present_role,
+      Contact_person_inspection : formData.contact_person_inspection, 
       Duration_of_assessment: formData.duration_of_assessment,
       Inaccessibility: formData.inaccessibility
 
