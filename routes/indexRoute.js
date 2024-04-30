@@ -138,6 +138,7 @@ router.get('/', (req, res) => {
          Cmnt_reliabilty : updatedData.cmnt_reliabilty, 
          Person_present_during_inspection : updatedData.person_present_during_inspection,
          Contact_person_inspection : updatedData.contact_person_inspection, 
+         Duration_of_assessment : updatedData.duration_of_assessment,
          Inaccessibility : updatedData.inaccessibility,
 
          }, 

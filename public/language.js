@@ -22,11 +22,20 @@ var i18n = {
     Camera: 'Camera',
     Gloves: 'Gloves',
     Clothing: 'Clothing',
-    Person_Present_during_inspection: 'Person Present during the inspection',
-    Duration_of_assessment : 'Duration of assessment',
-    Inaccessibility_of_part_of_Asset: 'Inaccessibility of part of Asset',
+
+    Reliability_collected_dataLegend : 'Reliability of collected data',
+    Cmnt_reliabilty : 'Comment on reliability of data', 
+    Not_available : 'Not Available',
+    Incomplete : 'Incomplete/Exhaustive', 
+
+    Additional_details: 'ADDITIONAL DETAILS (OPTIONAL)',
+    Person_present_during_inspection: 'Person(s) present during the inspection',
+    Contact_person_inspection : 'Contact persons for the inspection',
+    Duration_of_assessment : 'Time used to complete the survey.',
+    Inaccessibility: 'Inaccessibility of parts of Asset',
+    
+
     working_conditions: 'WORKING CONDTIONS UNDER WHICH REPORT IS CREATED ',
-    additional_details: 'ADDITIONAL DETAILS (OPTIONAL)',
     assets_used :'Assets Used:',
     protection :'Protection:',
     Reliability_collected_dataLegend : 'Reliability of collected data',
@@ -95,6 +104,24 @@ var i18n = {
     damaged_upload_text: 'Damaged Observed ?  Please upload a photo'
    
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   fr: {
     Name: "Nom de l'auteur",
     Role: 'Fonction',
@@ -116,14 +143,26 @@ var i18n = {
     Camera: 'Appareil photo',
     Gloves: 'Gants',
     Clothing: 'Vêtements',
-    Person_Present_during_inspection: `personne présente lors de l'inspection`,
+
+    Reliability_collected_dataLegend : 'Fiabilité des données collectées',
+    Cmnt_reliabilty : 'Commentaire sur la fiabilité des données', 
+    Not_available : 'Pas disponible',
+    Incomplete : 'Incomplet/exhaustif', 
+
+    Additional_details: 'PRÉCISION SUPPLÉMENTAIRE (OPTIONNNEL)',
+    Person_present_during_inspection: `Personne(s) présente(s) lors de l'inspection`,
+    Contact_person_inspection : `Personnes de contact pour l'inspection`,
     Duration_of_assessment : `Durée de l'évaluation`,
-    Inaccessibility_of_part_of_Asset: `Partie(s) inaccessible(s)`,
+    Inaccessibility: `Partie(s) inaccessible(s)`,
+
     working_conditions: 'CONDITIONS DE TRAVAIL',
-    additional_details: 'PRÉCISION SUPPLÉMENTAIRE (OPTIONNNEL)',
     assets_used :'Actifs utilisés:',
     protection :'Protection:',
     Reliability_collected_dataLegend : 'Fiabilité des données collectées',
+
+
+
+
 
 
     Identification_Number: `Numéro d'identification`,

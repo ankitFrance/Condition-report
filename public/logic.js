@@ -625,11 +625,12 @@ const camera = document.getElementById('camera').value;
 const gloves = document.getElementById('gloves').value;
 const clothing = document.getElementById('clothing').value;
 const reliability_collected_data = document.querySelector('input[name="reliability_collected_data"]:checked').value;
+const cmnt_reliabilty = document.getElementById('cmnt_reliabilty').value;
 const person_present_during_inspection = document.getElementById('person_present_during_inspection').value;
 const contact_person_inspection = document.getElementById('contact_person_inspection').value;
-const cmnt_reliabilty = document.getElementById('cmnt_reliabilty').value;
 const duration_of_assessment = document.getElementById('duration_of_assessment').value;
 const inaccessibility = document.getElementById('inaccessibility').value;
+
 
 // FOR SLIDE 2
 const identification_no  = document.getElementById('identification_no').value;
@@ -718,10 +719,10 @@ summaryText += `
 <p><strong> Clothing ?:</strong> ${clothing} </p>
 <p><strong> Reliability of collected data ?:</strong> ${reliability_collected_data} </p>
 <p><strong> Comment on reliability of data:</strong> ${cmnt_reliabilty} </p>
-<p><strong> Person Present during inspection :</strong> ${person_present_during_inspection} </p>
-<p><strong> Contact person for the  inspection :</strong> ${contact_person_inspection} </p>
-<p><strong> Duration of assessment:</strong> ${duration_of_assessment} </p>
-<p><strong> Inaccessibility of part of Asset:</strong> ${inaccessibility} </p>
+<p><strong> Person(s) present during the inspection :</strong> ${person_present_during_inspection} </p>
+<p><strong> Contact persons for the inspection :</strong> ${contact_person_inspection} </p>
+<p><strong> Time used to complete the survey:</strong> ${duration_of_assessment} </p>
+<p><strong> Inaccessibility of parts of Asset:</strong> ${inaccessibility} </p>
 
 
 
@@ -883,15 +884,21 @@ function changeLanguage() {
   document.getElementById('glovesLabel').innerText = i18n[selectedLanguage].Gloves;
   document.getElementById('clothingLabel').innerText = i18n[selectedLanguage].Clothing;
   document.getElementById('person_present_during_inspection').placeholder = i18n[selectedLanguage].Person_Present_during_inspection;
-  document.getElementById('duration_of_assessment').placeholder = i18n[selectedLanguage].Duration_of_assessment;
-  document.getElementById('inaccessibility').placeholder = i18n[selectedLanguage].Inaccessibility_of_part_of_Asset;
   document.getElementById('working_conditions').innerText = i18n[selectedLanguage].working_conditions;
-  document.getElementById('additional_details').innerText = i18n[selectedLanguage].additional_details;
   document.getElementById('reporting_info_heading').innerText = i18n[selectedLanguage].heading_Reporting_info;
   document.getElementById('assets_used_legend').innerText = i18n[selectedLanguage].assets_used;
   document.getElementById('protection_Legend').innerText = i18n[selectedLanguage].protection;
+  
   document.getElementById('reliability_collect_data_label').innerText = i18n[selectedLanguage].Reliability_collected_dataLegend;
+  document.getElementById('not_available').innerText = i18n[selectedLanguage].Not_available;
+  document.getElementById('incomplete').innerText = i18n[selectedLanguage].Incomplete;
+  document.getElementById('cmnt_reliabilty').placeholder = i18n[selectedLanguage].Cmnt_reliabilty;
 
+  document.getElementById('additional_details').innerText = i18n[selectedLanguage].Additional_details;
+  document.getElementById('person_present_during_inspection').placeholder = i18n[selectedLanguage].Person_present_during_inspection;
+  document.getElementById('contact_person_inspection').placeholder = i18n[selectedLanguage].Contact_person_inspection;
+  document.getElementById('duration_of_assessment').placeholder = i18n[selectedLanguage].Duration_of_assessment;
+  document.getElementById('inaccessibility').placeholder = i18n[selectedLanguage].Inaccessibility;
 
    //***************************************** FOR SLIDE 2 *****************************************************
 
