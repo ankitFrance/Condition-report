@@ -22,7 +22,7 @@ var i18n = {
     Camera: 'Camera',
     Gloves: 'Gloves',
     Clothing: 'Clothing',
-    Person_Present_Name: 'Person Present Name',
+    Person_Present_during_inspection: 'Person Present during the inspection',
     Person_Present_Role: 'Person Present Role',
     Duration_of_assessment : 'Duration of assessment',
     Inaccessibility_of_part_of_Asset: 'Inaccessibility of part of Asset',
@@ -116,7 +116,7 @@ var i18n = {
     Camera: 'Appareil photo',
     Gloves: 'Gants',
     Clothing: 'Vêtements',
-    Person_Present_Name: 'Nom de la personne présente',
+    Person_Present_during_inspection: `personne présente lors de l'inspection`,
     Person_Present_Role: "Nom de l'interlocuteur présent",
     Duration_of_assessment : `Durée de l'évaluation`,
     Inaccessibility_of_part_of_Asset: `Partie(s) inaccessible(s)`,
@@ -192,6 +192,3 @@ var i18n = {
 }
 
 };
-
-
-

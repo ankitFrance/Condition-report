@@ -98,21 +98,21 @@
               <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="tools" class="form-control" name="tools" >
-                <option <% if (!report.Reporting_Information.Tools === 'No tool selected') { %> selected <% } %> >No tool selected</option>
-                <option <% if (report.Reporting_Information.Tools === 'Tool1') { %> selected <% } %> >Tool1</option>
-                <option <% if (report.Reporting_Information.Tools === 'Tool2') { %> selected <% } %> >Tool2</option>
-              </select>
+              <select id="tools" class="form-control" name="tools">
+                <option value="" <% if (!report.Reporting_Information.Tools) { %> selected <% } %> >Select value</option>
+                <option value="Tool1" <% if (report.Reporting_Information.Tools === 'Tool1') { %> selected <% } %> >Tool1</option>
+                <option value="Tool2" <% if (report.Reporting_Information.Tools === 'Tool2') { %> selected <% } %> >Tool2</option>
+            </select>
             </div>
             
             <div class="form-group col-md-1" >
               <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
             </div>
             <div class="form-group col-md-2">
-              <select id="methods" class="form-control" name="methods" >
-                <option <% if (!report.Reporting_Information.Methods === 'No method selected') { %> selected <% } %> >No method selected</option>
-                <option <% if (report.Reporting_Information.Methods === 'Method 1') { %> selected <% } %> >Method 1</option>
-                <option <% if (report.Reporting_Information.Methods === 'Method 2') { %> selected <% } %> >Method 2</option>
+              <select id="methods" class="form-control" name="methods">
+                <option value="" <% if (!report.Reporting_Information.Methods) { %> selected <% } %> >Select value</option>
+                <option value="Method1" <% if (report.Reporting_Information.Methods === 'Method1') { %> selected <% } %> >Method1</option>
+                <option value="Method2" <% if (report.Reporting_Information.Methods === 'Method2') { %> selected <% } %>>Method2</option>
               </select>
             </div>
           </div>
@@ -276,7 +276,7 @@
                 <!---->
                 <div class="form-row row" style="padding: 10px 0 0 0;">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name" value="<%= report.Reporting_Information.Person_present_name %>" >
+                    <input type="text" class="form-control" id="person_present_during_inspection" placeholder="" name="person_present_during_inspection" value="<%= report.Reporting_Information.Person_present_during_inspection %>">
                   </div>
                   
                   
@@ -286,14 +286,9 @@
                 </div>
                 
                 <div class="form-row row" style="padding: 10px 0 0 0;">
-                <div class="form-group col-md-3">
-                  <label for="inputState" id="duration_of_assessmentLabel">Duration of Assesment</label>
-                  <select id="duration_of_assessment" class="form-control" name="duration_of_assessment">
-                    <option selected >1 hour</option>
-                    <option>1 hour to 2 hours</option>
-                    <option>2 hours to 3 hours </option>
-                  </select>
-                </div>
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="duration_of_assessment" placeholder="" name="duration_of_assessment" value="<%= report.Reporting_Information.Duration_of_assessment %>">
+                  </div>
                 
                 <div class="form-group col-md-3">
                  

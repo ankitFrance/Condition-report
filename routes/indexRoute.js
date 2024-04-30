@@ -134,7 +134,7 @@ router.get('/', (req, res) => {
          Camera : updatedData.camera,
          Gloves :  updatedData.gloves,
          Clothing : updatedData.clothing,
-         Person_present_name : updatedData.person_present_name,
+         Person_present_during_inspection : updatedData.person_present_during_inspection,
          Person_present_role : updatedData.person_present_role,
          Inaccessibility : updatedData.inaccessibility,
 
@@ -312,7 +312,7 @@ router.post('/feedback', uploadMiddleware.fields([
       Camera: formData.camera, 
       Gloves: formData.gloves, 
       Clothing: formData.clothing, 
-      Person_present_name: formData.person_present_name,
+      Person_present_during_inspection: formData.person_present_during_inspection,
       Person_present_role: formData.person_present_role,
       Duration_of_assessment: formData.duration_of_assessment,
       Inaccessibility: formData.inaccessibility

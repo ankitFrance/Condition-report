@@ -82,7 +82,7 @@ const reportSchema = new mongoose.Schema({
             type: String,
            
         }, 
-        Person_present_name:{
+        Person_present_during_inspection:{
             type: String
         }, 
         Person_present_role:{

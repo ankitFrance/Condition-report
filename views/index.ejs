@@ -3,235 +3,252 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-  
-   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+
+
 </head>
 
 <body>
 
 
 
-  
 
-    <div class="container">
 
-      <div class="form-row row">
+  <div class="container">
+
+    <div class="form-row row">
       <div class="col-md-2">
         <label for="languageSelect">Select Language:</label>
         <div class="input-group mb-3">
-            <select class="form-select" id="languageSelect" onchange="changeLanguage()">
-                <option value="en"> English  </span></option>
-                <option value="fr">Français</option>
+          <select class="form-select" id="languageSelect" onchange="changeLanguage()">
+            <option value="en"> English </span></option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <form id="registrationForm" action="/feedback" method="post" enctype="multipart/form-data">
+
+      <!----Progress bar --->
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar progress-bar-striped bg-success" id="changeWidth" role="progressbar" style="width: 0%;"
+          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <!------->
+
+
+      <!---------------------------------------- FORM 1 ------------------------------------------>
+
+      <div id="hiddenDiv" style="display: none; visibility: hidden;">
+        <input style="display: none; visibility: hidden;" id="mongoidGoogle" type="text" name="mongoidGoogle">
+        <input style="display: none; visibility: hidden;" id="mongoidOrcid" type="text" name="mongoidOrcid">
+        <input style="display: none; visibility: hidden;" id="mongoidNormalUser" type="text" name="mongoidNormalUser">
+
+
+      </div>
+
+      <div class="step-form active" id="step1">
+        <h2 style="text-align: center; color: navy;" id="reporting_info_heading"> REPORTING INFORMATION </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-1">
+            <label for="inputState" id="nameretrived" class="col-form-label">Name</label>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="">
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="inputState" id="roleretrived" class="col-form-label">Role</label>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="role" name="role" placeholder="">
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="inputState" id="institutionretrieved" class="col-form-label">Institution</label>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="institution" name="institution" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group row" style="padding: 5px 0;">
+          <label for="datepicker" id="date_of_inspection" class="col-md-2 col-form-label">Date of Inspection:</label>
+          <div class="col-md-2">
+            <input type="date" id="doi" name="doi" class="form-control">
+          </div>
+        </div>
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-1">
+            <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="tools" class="form-control" name="tools">
+              <option value="" selected>Select value</option>
+              <option value="Tool1">Tool1</option>
+              <option value="Tool2">Tool2</option>
+          </select>
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="methods" class="form-control" name="methods">
+              <option value="" selected>Select value</option>
+              <option value="Method1">Method1</option>
+              <option value="Method2">Method2</option>
             </select>
-        </div>
-      </div>
-      </div>
-
-
-    <form id="registrationForm" action="/feedback" method="post" enctype="multipart/form-data" >
-
-        <!----Progress bar --->
-        <div class="progress" style="height: 25px;">
-          <div class="progress-bar progress-bar-striped bg-success" id="changeWidth" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <!------->
-
-
-        <!---------------------------------------- FORM 1 ------------------------------------------>
-
-        <div id="hiddenDiv" style="display: none; visibility: hidden;">
-          <input style="display: none; visibility: hidden;" id="mongoidGoogle" type="text" name="mongoidGoogle">
-          <input style="display: none; visibility: hidden;" id="mongoidOrcid" type="text" name="mongoidOrcid">
-          <input style="display: none; visibility: hidden;" id="mongoidNormalUser" type="text" name="mongoidNormalUser">
-         
-
-        </div>
-        
-        <div class="step-form active" id="step1">
-          <h2 style="text-align: center; color: navy;" id="reporting_info_heading"> REPORTING INFORMATION </h2>
-
-          <div class="form-row row" style="padding: 5px 0;">
-            <div class="form-group col-md-1" >
-              <label for="inputState" id="nameretrived" class="col-form-label">Name</label>
-            </div>
-            <div class="form-group col-md-3">
-             <input  type="text" class="form-control" id="name" name="name" placeholder="" >
-            </div>
-
-            <div class="form-group col-md-1" >
-              <label for="inputState" id="roleretrived" class="col-form-label">Role</label>
-            </div>
-            <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="role" name="role" placeholder="" >
-            </div>
-
-            <div class="form-group col-md-1" >
-              <label for="inputState" id="institutionretrieved" class="col-form-label">Institution</label>
-            </div>
-            <div class="form-group col-md-3">
-             <input type="text" class="form-control" id="institution" name="institution" placeholder="">
-            </div>
           </div>
-          
-          <div class="form-group row" style="padding: 5px 0;">
-            <label for="datepicker" id="date_of_inspection" class="col-md-2 col-form-label">Date of Inspection:</label>
-            <div class="col-md-2">
-              <input type="date" id="doi" name="doi" class="form-control">
-            </div>
-          </div>
-          
-        
-          <div class="form-row row" style="padding: 5px 0;">
-            <div class="form-group col-md-1" >
-              <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
-            </div>
-            <div class="form-group col-md-2">
-              <select id="tools" class="form-control" name="tools">
-                <option>No tool selected</option>
-                <option>Tool1</option>
-                <option>Tool2</option>
-              </select>
-            </div>
-            
-            <div class="form-group col-md-1" >
-              <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
-            </div>
-            <div class="form-group col-md-2">
-              <select id="methods" class="form-control" name="methods">
-                <option>No method selected</option>
-                <option>Method 1</option>
-                <option>Method 2</option>
-              </select>
-            </div>
-          </div>
-          
-          
-      <div class="form-row row" style="padding: 5px 0;" >
-
-        <div class="form-group col-md-6">
-          <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder="" name="purpose_of_condition_report" ></textarea>
         </div>
 
-        <div class="form-group col-md-1" style=" display: flex; align-items: center; justify-content: center;">
-          <i class="fa-solid fa-microphone" onclick="record()"></i>
-         </div>
-      </div>   
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder=""
+              name="purpose_of_condition_report"></textarea>
+          </div>
+
+          <div class="form-group col-md-1" style=" display: flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-microphone" onclick="record()"></i>
+          </div>
+        </div>
 
 
-     
+
 
         <div class="form-group col-md-3" style="padding: 5px 0;">
-         <input type="text" class="form-control" id="name_of_client" placeholder="" name="name_of_client">
+          <input type="text" class="form-control" id="name_of_client" placeholder="" name="name_of_client">
         </div>
-             
-        
+
+
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed bg-info" id="working_conditions" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="padding: 13px;">
-                WORKING CONDITIONS UNDER WHICH REPORT IS CREATED 
+              <button class="accordion-button collapsed bg-info" id="working_conditions" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                aria-controls="collapseThree" style="padding: 13px;">
+                WORKING CONDITIONS UNDER WHICH REPORT IS CREATED
               </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
               <div class="accordion-body">
-        <!---->
-        <div class="form-row row" style="padding: 10px 0 0 0;">
-          <div class="form-group col-md-2">
-          <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="height" placeholder="" name="height">
+                <!---->
+                <div class="form-row row" style="padding: 10px 0 0 0;">
+                  <div class="form-group col-md-2">
+                    <!--  <label for="inputEmail4">Name</label>  -->
+                    <input type="text" class="form-control" id="height" placeholder="" name="height">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="examination_center" placeholder=""
+                      name="examination_center">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="platform" placeholder="" name="platform">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="behind_glass" placeholder="" name="behind_glass">
+                  </div>
+                </div>
+
+                <div class="form-row row" style="padding: 10px 0 0 0;">
+                  <div class="form-group col-md-2">
+                    <!--  <label for="inputEmail4">Name</label>  -->
+                    <input type="text" class="form-control" id="quantity" placeholder="" name="quantity">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="quality" placeholder="" name="quality">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="nature" placeholder="" name="nature">
+                  </div>
+                </div>
+
+
+                <fieldset class="form-group" style="padding: 10px 0 0 0;">
+                  <div class="row">
+                    <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">
+                      Assets Used :-</legend>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler"
+                          onchange="updateCheckboxValue(this, 'ruler')">
+                        <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="microscope" name="microscope"
+                          onchange="updateCheckboxValue(this, 'microscope')">
+                        <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="camera" name="camera"
+                          onchange="updateCheckboxValue(this, 'camera')">
+                        <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+
+                <fieldset class="form-group" style="padding: 10px 0 0 0;">
+                  <div class="row">
+                    <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">
+                      Protection :-</legend>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves"
+                          onchange="updateCheckboxValue(this, 'gloves')">
+                        <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing"
+                          onchange="updateCheckboxValue(this, 'clothing')">
+                        <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </fieldset>
+
+                <!---->
+              </div>
+            </div>
           </div>
-          <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="examination_center" placeholder="" name="examination_center">
-          </div>
-          
-          <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="platform" placeholder="" name="platform">
-          </div>
-          <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="behind_glass" placeholder="" name="behind_glass">
-           </div>
         </div>
-        
-        <div class="form-row row" style="padding: 10px 0 0 0;">
-          <div class="form-group col-md-2">
-          <!--  <label for="inputEmail4">Name</label>  -->
-            <input type="text" class="form-control" id="quantity" placeholder=""  name="quantity">
-          </div>
-          <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="quality" placeholder="" name="quality">
-          </div>
-          
-          <div class="form-group col-md-2">
-           <input type="text" class="form-control" id="nature" placeholder="" name="nature">
-          </div>
-        </div>
-        
-        
-         <fieldset class="form-group" style="padding: 10px 0 0 0;">
-          <div class="row">
-            <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">Assets Used :-</legend>
-            <div class="col-md-2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler" onchange="updateCheckboxValue(this, 'ruler')" >
-                <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="microscope" name="microscope" onchange="updateCheckboxValue(this, 'microscope')" >
-                <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="camera"  name="camera" onchange="updateCheckboxValue(this, 'camera')">
-                <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        
-        
+
+
+
+
         <fieldset class="form-group" style="padding: 10px 0 0 0;">
           <div class="row">
-            <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">Protection :-</legend>
+            <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data" style="font-weight: bold;">
+              Reliability of collected data :-</legend>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves" onchange="updateCheckboxValue(this, 'gloves')">
-                <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing" onchange="updateCheckboxValue(this, 'clothing')">
-                <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
-              </div>
-            </div>
-          
-          </div>
-        </fieldset>
-        
-        <!---->
-        </div>
-        </div>
-        </div>
-        </div>
-        
-        
-        
-        
-        <fieldset class="form-group" style="padding: 10px 0 0 0;">
-          <div class="row">
-            <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data" style="font-weight: bold;">Reliability of collected data :-</legend>
-            <div class="col-md-2">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="not_available"  value="Not Available" checked>
+                <input class="form-check-input" type="radio" name="not_available" value="Not Available" checked>
                 <label class="form-check-label" for="gridRadios1" id="not_available">
                   Not Available
                 </label>
@@ -239,7 +256,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="incomplete"  value="Incomplete">
+                <input class="form-check-input" type="radio" name="incomplete" value="Incomplete">
                 <label class="form-check-label" for="gridRadios2" id="incomplete">
                   Incomplete
                 </label>
@@ -247,7 +264,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exhaustive"  value="Exhaustive">
+                <input class="form-check-input" type="radio" name="exhaustive" value="Exhaustive">
                 <label class="form-check-label" for="gridRadios3" id="exhaustive">
                   Exhaustive
                 </label>
@@ -255,437 +272,443 @@
             </div>
           </div>
         </fieldset>
-        
-          
+
+
         <div class="accordion" id="accordionExampl">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThre">
-              <button class="accordion-button collapsed bg-info" id="additional_details" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="false" aria-controls="collapseThree" style="padding: 13px;">
-            ADDITIONAL DETAILS (OPTIONAL)
+              <button class="accordion-button collapsed bg-info" id="additional_details" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="false"
+                aria-controls="collapseThree" style="padding: 13px;">
+                ADDITIONAL DETAILS (OPTIONAL)
               </button>
             </h2>
-            <div id="collapseThre" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div id="collapseThre" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                
+
                 <!---->
                 <div class="form-row row" style="padding: 10px 0 0 0;">
                   <div class="form-group col-md-3">
-                    <input type="text" class="form-control" id="person_present_name" placeholder="" name="person_present_name">
+                    <input type="text" class="form-control" id="person_present_during_inspection" placeholder="" name="person_present_during_inspection">
                   </div>
-                  
-                  
+
+
                   <div class="form-group col-md-3">
                     <input type="text" class="form-control" id="person_present_role" placeholder="" name="person_present_role">
                   </div>
                 </div>
-                
+
                 <div class="form-row row" style="padding: 10px 0 0 0;">
-                <div class="form-group col-md-3">
-                  <label for="inputState" id="duration_of_assessmentLabel">Duration of Assesment</label>
-                  <select id="duration_of_assessment" class="form-control" name="duration_of_assessment">
-                    <option selected>1 hour</option>
-                    <option>1 hour to 2 hours</option>
-                    <option>2 hours to 3 hours </option>
-                  </select>
-                </div>
-                
-                <div class="form-group col-md-3">
-                 
-                  <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility">
-                </div>
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="duration_of_assessment" placeholder="" name="duration_of_assessment">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility">
+                  </div>
                 </div>
                 <!---->
-        
+
               </div>
             </div>
           </div>
         </div>
-        
-          <div style="padding: 10px 0 0 0;">
-            <button type="button" class="btn btn-success next">Next</button>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-success next">Next</button>
         </div>
-        </div>
+      </div>
 
 
 
-            <!---------------------------------------- FORM 2 ---------------------------------------->
-            <div class="step-form" id="step2">
+      <!---------------------------------------- FORM 2 ---------------------------------------->
+      <div class="step-form" id="step2">
 
-              <h2 style="text-align: center; color: navy;" id="obj_identification_heading"> OBJECT IDENTIFICATION  </h2>
-
-       
-
-            <div class="form-row row" style="padding: 5px 0;">
-
-                <div class="form-group col-md-3">
-                  <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
-                </div>
-
-                <div class="form-group col-md-2">
-                  <button type="button" class="btn btn-primary" id="FetchEROS">Fetch EROS</button>
-                </div>
-
-                <div class="form-group col-md-2">
-                  <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch Joconde</button>
-                </div>
-
-            </div>
-
-            <div class="form-row row" style="padding: 5px 0;">
-
-          
-                  <div class="col-md-2">
-                    <label  class="col-form-label" for="datepicker" id="doaLabel"  >Date of Acquisition:</label>
-                  </div>
-
-                  <div class="col-md-3">
-                    <input type="date" id="date_of_acquisition" name="date_of_acquisition" class="form-control">
-                  </div>
-
-               
-            
-            </div>
-
-     
-
-            <div class="form-row row" style="padding: 5px 0;">
-
-              <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="" >
-              </div>
-
-              <div class="form-group col-md-1" >
-                <label for="" id="" class="col-form-label">Title</label>
-              </div>
-
-              <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="title" name="title" placeholder="">
-              </div>
-              
-              <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="heading" name="heading" placeholder="">
-              </div>
-
-            </div>
-
-         
-
-            <div class="form-row row" style="padding: 5px 0;">
-
-              <div class="form-group col-md-2" >
-                <label for="" id="" class="col-form-label">Author/Creator</label>
-              </div>
-
-              <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="author" name="author" placeholder="">
-              </div>
-
-              <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="origin" name="origin" placeholder="">
-              </div>
-            </div>
-
-          
-                <div class="form-row row" style="padding: 5px 0;">
-
-                  <div class="col-md-2">
-                    <label  class="col-form-label" for="datepicker" id="docLabel">Date of Creation:</label>
-                  </div>
-
-                  <div class="col-md-3">
-                    <input type="date" id="date_of_creation" name="date_of_creation" class="form-control">
-                  </div>
-
-                </div>
-            
-
-           
-
-           
-            <hr>
-            <div class="form-row row">
-
-              <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="ownership" name="ownership" placeholder="">
-              </div>
-
-              <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="protection" name="protection" placeholder="">
-              </div>
-
-            </div>
+        <h2 style="text-align: center; color: navy;" id="obj_identification_heading"> OBJECT IDENTIFICATION </h2>
 
 
-            <div class="form-group col-md-6" style="padding: 5px 0;">
-              <textarea class="form-control" id="summary" rows="2" name="summary" placeholder=""></textarea>
-            </div>
 
-            
-            <div style="padding: 10px 0 0 0;">
-              <button type="button" class="btn btn-secondary prev">Previous</button>
-              <button type="button" class="btn btn-success next">Next</button>
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <button type="button" class="btn btn-primary" id="FetchEROS">Fetch EROS</button>
+          </div>
+
+          <div class="form-group col-md-2">
+            <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch Joconde</button>
           </div>
 
         </div>
-            <!-----------------------------------------FORM 3 ---------------------------------------------------->
-            <div class="step-form" id="step3">
 
-              <h2 style="text-align: center; color: navy;" id="obj_desc_heading"> OBJECT DESCRIPTION  </h2>
-
-              
-
-              <div class="form-row row" style="padding: 5px 0;">
-  
-                <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="material" name="material" placeholder="">
-                </div>
-
-                <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="structure" name="structure" placeholder="">
-                </div>
-
-                <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="surface" name="surface" placeholder="">
-                </div>
-
-                <div class="form-group col-md-2">
-                  <input type="text" class="form-control" id="history" name="history" placeholder="">
-                </div>
- 
-             </div>
-
-             <div class="form-row row" style="padding: 5px 0;">
-
-              <div class="form-group col-md-2">
-                <input type="text" class="form-control" name="technique" id="technique" placeholder="">
-              </div>
-
-              <div class="form-group col-md-2">
-                <input type="text" class="form-control"  name="weight" id="weight" placeholder="">
-              </div>
-
-              <div class="form-group col-md-2">
-                <input type="text" class="form-control"  name="contituent_elements" id="contituent_elements" placeholder="">
-              </div>
-
-              <div class="form-group col-md-2" id="two">
-                <label for="inputState" class="col-form-label" id="noeLabel">Number of elements</label>
-              </div>
-              <div class="form-group col-md-1">
-                <select id="no_of_elements" class="form-control" name="no_of_elements">
-                  <option selected>xyz</option>
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div>
-
-           </div>
-
-          <div class="form-row row" style="padding: 5px 0;">
-
-            <div class="col-md-1">
-              <label  class="col-form-label" for="" id="">Height</label>
-            </div>
-  
-            <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="heights" name="heights"  placeholder="">
-            </div>
+        <div class="form-row row" style="padding: 5px 0;">
 
 
-            <div class="col-md-1">
-              <label  class="col-form-label" for="" id="">Width</label>
-            </div>
-
-            <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="width" name="width" placeholder="">
-            </div>
-
-            <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="length" name="length" placeholder="">
-            </div>
-
+          <div class="col-md-2">
+            <label class="col-form-label" for="datepicker" id="doaLabel">Date of Acquisition:</label>
           </div>
 
-         <hr>
-         <div class="form-row row" >
+          <div class="col-md-3">
+            <input type="date" id="date_of_acquisition" name="date_of_acquisition" class="form-control">
+          </div>
 
-           <div class="form-group col-md-6">
-            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes" placeholder=""></textarea>
-           </div>
 
-           <div class="form-group col-md-6">
-            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide" placeholder=""></textarea>
-           </div>
 
-           <div class="form-group col-md-6" style="margin-top: 10px;">
-            <textarea class="form-control" id="object_creation_description" rows="2" name = "object_creation_description" placeholder=""></textarea>
-           </div>
-          
-         </div>
-        
+        </div>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="">
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="" id="" class="col-form-label">Title</label>
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="title" name="title" placeholder="">
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="heading" name="heading" placeholder="">
+          </div>
+
+        </div>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-2">
+            <label for="" id="" class="col-form-label">Author/Creator</label>
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="author" name="author" placeholder="">
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="origin" name="origin" placeholder="">
+          </div>
+        </div>
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="col-md-2">
+            <label class="col-form-label" for="datepicker" id="docLabel">Date of Creation:</label>
+          </div>
+
+          <div class="col-md-3">
+            <input type="date" id="date_of_creation" name="date_of_creation" class="form-control">
+          </div>
+
+        </div>
+
+
+
+
+
+        <hr>
+        <div class="form-row row">
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="ownership" name="ownership" placeholder="">
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="protection" name="protection" placeholder="">
+          </div>
+
+        </div>
+
+
+        <div class="form-group col-md-6" style="padding: 5px 0;">
+          <textarea class="form-control" id="summary" rows="2" name="summary" placeholder=""></textarea>
+        </div>
+
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+
+      </div>
+      <!-----------------------------------------FORM 3 ---------------------------------------------------->
+      <div class="step-form" id="step3">
+
+        <h2 style="text-align: center; color: navy;" id="obj_desc_heading"> OBJECT DESCRIPTION </h2>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="material" name="material" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="structure" name="structure" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="surface" name="surface" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="history" name="history" placeholder="">
+          </div>
+
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="technique" id="technique" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="weight" id="weight" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="contituent_elements" id="contituent_elements" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2" id="two">
+            <label for="inputState" class="col-form-label" id="noeLabel">Number of elements</label>
+          </div>
+          <div class="form-group col-md-1">
+            <select id="no_of_elements" class="form-control" name="no_of_elements">
+              <option selected>xyz</option>
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="col-md-1">
+            <label class="col-form-label" for="" id="">Height</label>
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="heights" name="heights" placeholder="">
+          </div>
+
+
+          <div class="col-md-1">
+            <label class="col-form-label" for="" id="">Width</label>
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="width" name="width" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="length" name="length" placeholder="">
+          </div>
+
+        </div>
+
+        <hr>
+        <div class="form-row row">
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group col-md-6" style="margin-top: 10px;">
+            <textarea class="form-control" id="object_creation_description" rows="2" name="object_creation_description"
+              placeholder=""></textarea>
+          </div>
+
+        </div>
+
         <hr>
 
-        <h6  id="normal_upload"> Upload photo/Video</h6>
-        
-        
-              <div class="form-row row ">
-                <div class="form-group col-md-6">
-                  <input type="file" name="ImageFile" multiple class="form-control" id="inputGroupFile02" onchange="displayUploadMessage()">
-                </div>
+        <h6 id="normal_upload"> Upload photo/Video</h6>
 
-                <div id="previewContainer" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
-                   <!--preview will come here -->
-                </div>
 
-                
-              </div>
-        
-            <div style="padding: 10px 0 0 0;">
-              <button type="button" class="btn btn-secondary prev">Previous</button>
-              <button type="button" class="btn btn-success next">Next</button>
-            </div>
-
-        </div>
-        
-            <!------------------------------------------ FORM 4 ------------------------------------------->
-        
-            <div class="step-form" id="step4">
-
-              <h2 style="text-align: center; color: navy;" id="obj_env_heading">  OBJECT ENVIRONMENT </h2>
-
-              <div class="form-row row" style="padding: 5px 0;">
-                <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="environment" name="environment" rows="4" placeholder=""></textarea>
-                </div>
-              </div>
-        
-              <div class="form-row row" style="padding: 5px 0;">
-                <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""></textarea>
-                </div>
-              </div>
-        
-              <div style="padding: 10px 0 0 0;">
-                <button type="button" class="btn btn-secondary prev">Previous</button>
-                <button type="button" class="btn btn-success next">Next</button>
-              </div>
+        <div class="form-row row ">
+          <div class="form-group col-md-6">
+            <input type="file" name="ImageFile" multiple class="form-control" id="inputGroupFile02"
+              onchange="displayUploadMessage()">
           </div>
-        
-              <!-------------------------------------- FORM 5---------------------------------------->
-              <div class="step-form" id="step5">
 
-                <h2 style="text-align: center; color: navy;" id="cond_desc_heading">  CONDITIONS DESCRIPTION (OBEJCT) </h2>
-        
-                <div class="form-row row" style="padding: 5px 0;">
-                  <div class="form-group col-md-6" >
-                    <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
-                  </div>
-                </div>
-        
-                <h6  id="Cc_label" style="padding: 5px 0;"> Condition changed from previous ? </h6>
-        
-                <div class="form-group col-md-6">
-                  <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" "></textarea>
-                </div>
-        
-                <h6  id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ?  Please upload a photo</h6>
-        
-                <div class="form-row row">
-                  <div class="form-group col-md-6">
-                    <input type="file" name="ImageFile2" multiple class="form-control" id="inputGroupFile04" onchange="displayUploadMessage2()">
-                  </div>
+          <div id="previewContainer" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+            <!--preview will come here -->
+          </div>
 
-                  <div id="previewContainer1" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
-                    <!--preview will come here -->
-                 </div>
-                </div>
-                
-                 <div style="padding: 10px 0 0 0;">
-                   <button type="button" class="btn btn-secondary prev">Previous</button>
-                   <button type="button" class="btn btn-success next">Next</button>
-                 </div>
 
-              </div>
-           
-              
-            <!---------------------------------------- FORM 6--------------------------------------------->
-
-            <div class="step-form" id="step6">
-
-              <h2 style="text-align: center; color: navy;" id="diag_recc_heading"> DIAGNOSTIC AND RECOMMENDATIONS  </h2>
-              
-              <div class="form-row row" style="padding: 5px 0;">
-                <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis" placeholder=""></textarea>
-                </div>
-             
-                <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder=""></textarea>
-                </div>
-              </div>
-        
-              <div class="form-row row" style="padding: 5px 0;" >
-                <div class="form-group col-md-6" >
-                  <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""></textarea>
-                </div>
-              </div>
-                
-              
-                 
-              <div style="padding: 10px 0 0 0;">
-                <button type="button" class="btn btn-secondary prev">Previous</button>
-             
-                <button type="button" class="btn btn-primary"  onclick="viewSummary('registrationForm')" >Verify</button>
-              </div>
-
-            </div>
-              <!------------------------------------------------------------------------------------->
-                <!--MODAL-->
-
-        <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel" aria-hidden="true" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header" style="background-color: black; color: white;">
-               
-                <h5 class="modal-title" id="summaryModalLabel"><strong>VERIFICATION OF DETAILS ENTERED</strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div id="summaryDiv"></div>
-                       <!--DATA WILL BE APPENDED HERE-->   
-
-                      
-               </div>
-             
-              <div class="modal-footer">
-
-                 
-                <button type="button" class="btn btn-secondary" id="button_close" onclick="closeModal()" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark" style="float: right;">Submit</button>
-               
-              </div>
-            </div>
-            </div>
         </div>
-      
 
-        <!--MODAL-->
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
 
-              <!------------------------------------------------------------------------------------->
-        
-        </form>
-        
-    </div>
+      </div>
+
+      <!------------------------------------------ FORM 4 ------------------------------------------->
+
+      <div class="step-form" id="step4">
+
+        <h2 style="text-align: center; color: navy;" id="obj_env_heading"> OBJECT ENVIRONMENT </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="environment" name="environment" rows="4" placeholder=""></textarea>
+          </div>
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""></textarea>
+          </div>
+        </div>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+      </div>
+
+      <!-------------------------------------- FORM 5---------------------------------------->
+      <div class="step-form" id="step5">
+
+        <h2 style="text-align: center; color: navy;" id="cond_desc_heading"> CONDITIONS DESCRIPTION (OBEJCT) </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
+          </div>
+        </div>
+
+        <h6 id="Cc_label" style="padding: 5px 0;"> Condition changed from previous ? </h6>
+
+        <div class="form-group col-md-6">
+          <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" "></textarea>
+        </div>
+
+        <h6 id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ? Please upload a photo</h6>
+
+        <div class="form-row row">
+          <div class="form-group col-md-6">
+            <input type="file" name="ImageFile2" multiple class="form-control" id="inputGroupFile04"
+              onchange="displayUploadMessage2()">
+          </div>
+
+          <div id="previewContainer1" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+            <!--preview will come here -->
+          </div>
+        </div>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+
+      </div>
+
+
+      <!---------------------------------------- FORM 6--------------------------------------------->
+
+      <div class="step-form" id="step6">
+
+        <h2 style="text-align: center; color: navy;" id="diag_recc_heading"> DIAGNOSTIC AND RECOMMENDATIONS </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="recommendations" rows="4" name="recommendations"
+              placeholder=""></textarea>
+          </div>
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""></textarea>
+          </div>
+        </div>
+
+
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+
+          <button type="button" class="btn btn-primary" onclick="viewSummary('registrationForm')">Verify</button>
+        </div>
+
+      </div>
+      <!------------------------------------------------------------------------------------->
+      <!--MODAL-->
+
+      <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: black; color: white;">
+
+              <h5 class="modal-title" id="summaryModalLabel"><strong>VERIFICATION OF DETAILS ENTERED</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="summaryDiv"></div>
+              <!--DATA WILL BE APPENDED HERE-->
+
+
+            </div>
+
+            <div class="modal-footer">
+
+
+              <button type="button" class="btn btn-secondary" id="button_close" onclick="closeModal()"
+                data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-dark" style="float: right;">Submit</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--MODAL-->
+
+      <!------------------------------------------------------------------------------------->
+
+    </form>
+
+  </div>
 
 
 
 
 
-    <script>
-      
-      // Get values from URL parameters
+  <script>
+
+    // Get values from URL parameters
     var parsedorcidName = '<%= parsedorcidName %>';
     var parsedorcidEmploymentRoleTitle = '<%= parsedorcidEmploymentRoleTitle %>';
     var parsedorcidEmploymentInstitution = '<%=parsedorcidEmploymentInstitution %>'
@@ -695,33 +718,39 @@
     var parsedgoogleMongoDBid = '<%=parsedgoogleMongoDBid%>'
     var parsedorcidMongoDBid = '<%=parsedorcidMongoDBid%>'
     var parsedNormalUserMongoDBid = '<%=parsedNormalUserMongoDBid%>'
-    
-    
-      // Set values in the form fields
-      document.getElementById('mongoidGoogle').value = parsedgoogleMongoDBid;
-      document.getElementById('mongoidOrcid').value = parsedorcidMongoDBid;
-      document.getElementById('mongoidNormalUser').value = parsedNormalUserMongoDBid;
-     
-      document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
-      document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
-      document.getElementById('institution').value = parsedorcidEmploymentInstitution;
-
-     
-    </script>
 
 
-<script  src="language.js"></script>
-<script  src="logic.js"></script>
+    // Set values in the form fields
+    document.getElementById('mongoidGoogle').value = parsedgoogleMongoDBid;
+    document.getElementById('mongoidOrcid').value = parsedorcidMongoDBid;
+    document.getElementById('mongoidNormalUser').value = parsedNormalUserMongoDBid;
 
-<script>
-  
-</script>
+    document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
+    document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
+    document.getElementById('institution').value = parsedorcidEmploymentInstitution;
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  </script>
+
+
+  <script src="language.js"></script>
+  <script src="logic.js"></script>
+
+  <script>
+
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 
 

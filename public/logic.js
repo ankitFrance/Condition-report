@@ -624,7 +624,7 @@ const microscope = document.getElementById('microscope').value;
 const camera = document.getElementById('camera').value;
 const gloves = document.getElementById('gloves').value;
 const clothing = document.getElementById('clothing').value;
-const person_present_name = document.getElementById('person_present_name').value;
+const person_present_during_inspection = document.getElementById('person_present_during_inspection').value;
 const person_present_role = document.getElementById('person_present_role').value;
 const duration_of_assessment = document.getElementById('duration_of_assessment').value;
 const inaccessibility = document.getElementById('inaccessibility').value;
@@ -714,7 +714,7 @@ summaryText += `
 <p><strong> Camera ?:</strong> ${camera} </p>
 <p><strong> Gloves ?:</strong> ${gloves} </p>
 <p><strong> Clothing ?:</strong> ${clothing} </p>
-<p><strong> Person Present name:</strong> ${person_present_name} </p>
+<p><strong> Person Present during inspection :</strong> ${person_present_during_inspection} </p>
 <p><strong> Person Present Role:</strong> ${person_present_role} </p>
 <p><strong> Duration of assessment:</strong> ${duration_of_assessment} </p>
 <p><strong> Inaccessibility of part of Asset:</strong> ${inaccessibility} </p>
@@ -874,9 +874,9 @@ function changeLanguage() {
   document.getElementById('cameraLabel').innerText = i18n[selectedLanguage].Camera;
   document.getElementById('glovesLabel').innerText = i18n[selectedLanguage].Gloves;
   document.getElementById('clothingLabel').innerText = i18n[selectedLanguage].Clothing;
-  document.getElementById('person_present_name').placeholder = i18n[selectedLanguage].Person_Present_Name;
+  document.getElementById('person_present_during_inspection').placeholder = i18n[selectedLanguage].Person_Present_during_inspection;
   document.getElementById('person_present_role').placeholder = i18n[selectedLanguage].Person_Present_Role;
-  document.getElementById('duration_of_assessmentLabel').innerText = i18n[selectedLanguage].Duration_of_assessment;
+  document.getElementById('duration_of_assessment').placeholder = i18n[selectedLanguage].Duration_of_assessment;
   document.getElementById('inaccessibility').placeholder = i18n[selectedLanguage].Inaccessibility_of_part_of_Asset;
   document.getElementById('working_conditions').innerText = i18n[selectedLanguage].working_conditions;
   document.getElementById('additional_details').innerText = i18n[selectedLanguage].additional_details;

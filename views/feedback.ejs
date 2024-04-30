@@ -20,230 +20,147 @@
     </button>
   </div>
 
-<!------------------------------------------------------------------------------------------------------------------------------->
+<!--*****************************************************************************************************************************************-->
    
-<div class="container">
+<div class="container" style="background-color: white;">
 
 
-<!--**********************************************REPORTING INFORMATION******************************************************-->
+  <h1 style="text-align: center;">Condition Report</h1>
 
-   <div style="position: relative; text-align: center;" >
-
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-      REPORTING INFORMATION 
-    </h5> 
-   
-  </div>
-     
-  <div class="container" style="background-color: white;"> 
-
-    <% if (reportDocument.Reporting_Information) { %>
-      <div class="row">
-        <% let count = 0; %>
-        <% Object.entries(reportDocument.Reporting_Information).forEach(([key, value]) => { %>
-          <% if (value) { %>
-            <% if (count < 7) { %>
-              <div class="col-md-6">
-                <p><strong><%= key %>:</strong> <%= value %></p>
-              </div>
-            <% } else { %>
-              <div class="col-md-6">
-                <p><strong><%= key %>:</strong> <%= value %></p>
-              </div>
-            <% } %>
-            <% count++; %>
-          <% } %>
-        <% }) %>
-      </div>
-    <% } %>
-
-  </div>
-
-<!--**********************************************OBJECT IDENTIFICATION******************************************************-->
-
- <div style="position: relative; text-align: center;" >
-
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    OBJECT IDENTIFICATION
-    </h5> 
-  
- </div>
-
-    <div class="container" style="background-color: white;"> 
-
-    <% if (reportDocument.Object_identification) { %>
-      <div class="row">
-        <% let count = 0; %>
-        <% Object.entries(reportDocument.Object_identification).forEach(([key, value]) => { %>
-          <% if (value) { %>
-            <% if (count < 7) { %>
-              <div class="col-md-6">
-                <p><strong><%= key %>:</strong> <%= value %></p>
-              </div>
-            <% } else { %>
-              <div class="col-md-6">
-                <p><strong><%= key %>:</strong> <%= value %></p>
-              </div>
-            <% } %>
-            <% count++; %>
-          <% } %>
-        <% }) %>
-      </div>
-    <% } %>
-  
-    </div>
-  
-<!--**********************************************OBJECT DESCRIPTION******************************************************-->
-  
-  <div style="position: relative; text-align: center;" >
-
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    OBJECT DESCRIPTION 
-    </h5> 
-   
-  </div>
-
-    <div class="container" style="background-color: white;"> 
+ 
 
 
 
 
-    <% if (reportDocument.Object_description) { %>
-  <div class="row">
-    <% let count = 0; %>
-    <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
-        <% if (!(Array.isArray(value) && value.length === 0)) { %>
-          <div class="col-md-6">
-            <p><strong><%= key %>:</strong> <%= value %></p>
-          </div>
-          <% count++; %>
-        <% } %>
+<!--------------------- REPORTING INFORMATION---------------------------------------------------------------------------------------------->
+
+<% if (reportDocument.Reporting_Information && Object.values(reportDocument.Reporting_Information).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">REPORTING INFORMATION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(reportDocument.Reporting_Information).forEach(([key, value]) => { %>
+      <% if (value) { %>
+        <li><strong><%= key %>:</strong> <%= value %></li>
       <% } %>
     <% }) %>
-  </div>
-  <% if (images && images.length > 0) { %>
-    <div class="row">
-      <div class="col-md-6">
-        <% images.forEach(image => { %>
-          <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
-        <% }) %>
-      </div>
-    </div>
-  <% } %>
+  </ul>
 <% } %>
 
-      
-      
-  
 
-   
-    </div>
+<!------------------------------------------------------------------------------------------------------------------------------------------>   
+ 
+<!--------------------- OBJECT IDENTIFICATION---------------------------------------------------------------------------------------------->
 
-<!--**********************************************OBJECT ENVIRONMENT**************************************************-->
-
-<div style="position: relative; text-align: center;" >
-
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    OBJECT ENVIRONMENT
-    </h5> 
-   
-</div>
-    <div class="container" style="background-color: white;"> 
-     
-
-      <% if (reportDocument.Object_environment) { %>
-        <div class="row">
-              <!-- Iterate over each property of Reporting_Information and display only if value is not empty -->
-              <% Object.entries(reportDocument.Object_environment).forEach(([key, value]) => { %>
-                  <% if (value) { %>
-                      <p><strong><%= key %>:</strong> <%= value %></p>
-                  <% } %>
-              <% }) %>
-            </div>
+<% if (reportDocument.Object_identification && Object.values(reportDocument.Object_identification).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT IDENTIFICATION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(reportDocument.Object_identification).forEach(([key, value]) => { %>
+      <% if (value) { %>
+        <li><strong><%= key %>:</strong> <%= value %></li>
       <% } %>
-      
+    <% }) %>
+  </ul>
+<% } %>
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+<!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
+
+<% if (reportDocument.Object_description && Object.values(reportDocument.Object_description).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT DESCRIPTION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
      
-    </div>
-    
- <!--*************************************************CONDITION DESCRIPTION**************************************************-->   
-  
-    <div style="position: relative; text-align: center;" >
-
-    <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-    CONDITIONS DESCRIPTION (OBJECT)
-    </h5> 
-   
-    </div>
-
-    <div class="container" style="background-color: white;"> 
-
-     
-
-
-    
-      <% if (reportDocument.Conditions_description) { %>
-        <div class="row">
-          <% let count = 0; %>
-          <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
-            <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
-              <% if (!(Array.isArray(value) && value.length === 0)) { %>
-                <div class="col-md-6">
-                  <p><strong><%= key %>:</strong> <%= value %></p>
-                </div>
-                <% count++; %>
-              <% } %>
-            <% } %>
-          <% }) %>
-        </div>
-        <% if (images2 && images2.length > 0) { %>
-          <div class="row">
-            <div class="col-md-6">
-              <% images2.forEach(image => { %>
-                <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
-              <% }) %>
-            </div>
-          </div>
+      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
+        <% if (!(Array.isArray(value) && value.length === 0)) { %>
+           <li><strong><%= key %>:</strong> <%= value %></li>
         <% } %>
       <% } %>
-      
-      
-
-
-    
-
-    </div>
-
-
- <!--**********************************************DIAGNOSTIC AND RECOMMENDATION***********************************************--> 
-
-     <div style="position: relative; text-align: center;" >
-
-        <h5 style="color: yellow; background-color: purple; padding: 10px; margin-bottom: 0;"> 
-         DIAGNOSTIC AND RECOMMENDATIONS
-       </h5> 
    
+    <% }) %>
+  </ul>
+<% } %>
+
+<% if (images && images.length > 0) { %>
+  <div class="row">
+    <div class="col-md-6">
+      <% images.forEach(image => { %>
+        <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
+      <% }) %>
     </div>
-
-    <div class="container" style="background-color: white;"> 
-
-      <% if (reportDocument.Diagnostic_and_recommendations) { %>
-        <div class="row">
-              <!-- Iterate over each property of Reporting_Information and display only if value is not empty -->
-              <% Object.entries(reportDocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
-                  <% if (value) { %>
-                      <p><strong><%= key %>:</strong> <%= value %></p>
-                  <% } %>
-              <% }) %>
-            </div>
-      <% } %>
-
-    </div>
- <!--***************************************************************************************************************************-->
-
   </div>
+<% } %>
 
- <!------------------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+<!--------------------- OBJECT ENVIRONMENT---------------------------------------------------------------------------------------------->
+
+<% if (reportDocument.Object_environment && Object.values(reportDocument.Object_environment).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT ENVIRONMENT</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(reportDocument.Object_environment).forEach(([key, value]) => { %>
+      <% if (value) { %>
+        <li><strong><%= key %>:</strong> <%= value %></li>
+      <% } %>
+    <% }) %>
+  </ul>
+<% } %>
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+<!--------------------- CONDITION DESCRIPTION---------------------------------------------------------------------------------------------->
+
+
+<% if (reportDocument.Conditions_description && Object.values(reportDocument.Conditions_description).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">CONDITION DESCRIPTION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+     
+      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
+        <% if (!(Array.isArray(value) && value.length === 0)) { %>
+           <li><strong><%= key %>:</strong> <%= value %></li>
+        <% } %>
+      <% } %>
+   
+    <% }) %>
+  </ul>
+<% } %>
+
+<% if (images2 && images2.length > 0) { %>
+  <div class="row">
+    <div class="col-md-6">
+      <% images2.forEach(image => { %>
+        <img src="<%= image %>" alt="Image" class="img-fluid" style="height: 300px; width: 300px">
+      <% }) %>
+    </div>
+  </div>
+<% } %>
+
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+<!--------------------- DIAGNOSTIC AND RECOMMENDATION---------------------------------------------------------------------------------------------->
+
+<% if (reportDocument.Diagnostic_and_recommendations && Object.values(reportDocument.Diagnostic_and_recommendations).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(reportDocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
+      <% if (value) { %>
+        <li><strong><%= key %>:</strong> <%= value %></li>
+      <% } %>
+    <% }) %>
+  </ul>
+<% } %>
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+</div>
+
+<!--*****************************************************************************************************************************************-->
    
 
 
