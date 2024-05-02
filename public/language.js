@@ -40,7 +40,8 @@ var i18n = {
     protection :'Protection:',
     Reliability_collected_dataLegend : 'Reliability of collected data',
 
-
+    
+    Identification_noLabel : 'Identification Number',
     Identification_Number: 'Identification Number',
     Title: 'Title',
     Author: 'Author/Creator',
@@ -161,7 +162,7 @@ var i18n = {
 
 
 
-
+    Identification_noLabel : `Numéro d'identification`,
     Identification_Number: `Numéro d'identification`,
     Title: 'Titre',
     Author: 'Auteur/Créateur',

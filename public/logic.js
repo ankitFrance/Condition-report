@@ -109,11 +109,22 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
           var largeur_ou_diametre_mm= document.getElementById('width');
           largeur_ou_diametre_mm.value = data.results[0].largeur_ou_diametre_mm;
 
+          document.getElementById('successAlert').style.display = 'block';
+          // Hide success message after 2 seconds
+          setTimeout(function() {
+            document.getElementById('successAlert').style.display = 'none';
+          }, 2000);
+
 
 
       })
       .catch(error => {
           console.error('Error fetching data:', error);
+          document.getElementById('errorAlert').style.display = 'block';
+          // Hide error alert after 2 seconds
+          setTimeout(function() {
+            document.getElementById('errorAlert').style.display = 'none';
+          }, 3000);
       });
 });
 
@@ -898,6 +909,7 @@ function changeLanguage() {
 
   document.getElementById('identification_no').placeholder = i18n[selectedLanguage].Identification_Number;
   document.getElementById('doaLabel').innerText = i18n[selectedLanguage].Date_of_acqisation; //
+  document.getElementById('identification_noLabel').innerText = i18n[selectedLanguage].Identification_noLabel; //
   document.getElementById('title').placeholder = i18n[selectedLanguage].Title;
   document.getElementById('author').placeholder = i18n[selectedLanguage].Author;
   document.getElementById('docLabel').innerText = i18n[selectedLanguage].Date_of_creation; //

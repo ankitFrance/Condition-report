@@ -321,16 +321,25 @@
 
             <div class="form-row row" style="padding: 5px 0;">
 
+              
+                <div class="col-md-2">
+                  <label class="col-form-label" for="" id="identification_noLabel">Identification No.</label>
+                </div>
+
                 <div class="form-group col-md-3">
                   <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="" value="<%= report.Object_identification.Identification_no %>">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <button type="button" class="btn btn-primary" id="FetchEROS">Fetch EROS</button>
+                  <button type="button" class="btn btn-primary" id="FetchEROS">Fetch by EROS</button>
+                </div>
+
+                <div class="col-md-1">
+                  <p class="">or</p>
                 </div>
 
                 <div class="form-group col-md-2">
-                  <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch Joconde</button>
+                  <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch by Joconde</button>
                 </div>
 
             </div>

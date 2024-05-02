@@ -327,16 +327,33 @@
 
         <div class="form-row row" style="padding: 5px 0;">
 
+          <div class="col-md-2">
+            <label class="col-form-label" for="" id="identification_noLabel">Identification No.</label>
+          </div>
+
           <div class="form-group col-md-3">
             <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
           </div>
 
           <div class="form-group col-md-2">
-            <button type="button" class="btn btn-primary" id="FetchEROS">Fetch EROS</button>
+            <button type="button" class="btn btn-primary" id="FetchEROS">Fetch by EROS</button>
+          </div>
+
+          <div class="col-md-1">
+            <p class="">or</p>
           </div>
 
           <div class="form-group col-md-2">
-            <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch Joconde</button>
+            <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch by Joconde</button>
+          </div>
+
+          <div class="alert alert-danger alert-dismissible fade show" id="errorAlert" style="display: none;" role="alert">
+            Invalid Identification no. Please Enter valid one
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+          <div class="alert alert-success alert-dismissible fade show" id="successAlert" style="display: none;" role="alert">
+             Data fetched successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
 
         </div>
