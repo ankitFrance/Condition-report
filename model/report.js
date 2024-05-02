@@ -59,7 +59,10 @@ const reportSchema = new mongoose.Schema({
         Quality:{
             type: String
         }, 
-        Nature:{
+        Type:{
+            type: String
+        }, 
+        Support:{
             type: String
         }, 
         Ruler:{

@@ -629,13 +629,14 @@ const platform = document.getElementById('platform').value;
 const behind_glass = document.getElementById('behind_glass').value;
 const quantity = document.getElementById('quantity').value;
 const quality = document.getElementById('quality').value;
-const nature = document.getElementById('nature').value;
+const type = document.getElementById('type').value;
 const ruler = document.getElementById('ruler').value;
 const microscope = document.getElementById('microscope').value;
 const camera = document.getElementById('camera').value;
 const gloves = document.getElementById('gloves').value;
 const clothing = document.getElementById('clothing').value;
 const reliability_collected_data = document.querySelector('input[name="reliability_collected_data"]:checked').value;
+const support = document.querySelector('input[name="support"]:checked').value;
 const cmnt_reliabilty = document.getElementById('cmnt_reliabilty').value;
 const person_present_during_inspection = document.getElementById('person_present_during_inspection').value;
 const contact_person_inspection = document.getElementById('contact_person_inspection').value;
@@ -719,13 +720,14 @@ summaryText += `
 <p><strong> Behind glass:</strong> ${behind_glass} </p>
 <p><strong> Quantity:</strong> ${quantity} </p>
 <p><strong> Quality:</strong> ${quality} </p>
-<p><strong> Nature:</strong> ${nature} </p>
+<p><strong> Type:</strong> ${type} </p>
 <p><strong> Ruler ?:</strong> ${ruler} </p>
 <p><strong> Microscope ?:</strong> ${microscope} </p>
 <p><strong> Camera ?:</strong> ${camera} </p>
 <p><strong> Gloves ?:</strong> ${gloves} </p>
 <p><strong> Clothing ?:</strong> ${clothing} </p>
 <p><strong> Reliability of collected data ?:</strong> ${reliability_collected_data} </p>
+<p><strong> Support ?:</strong> ${support} </p>
 <p><strong> Comment on reliability of data:</strong> ${cmnt_reliabilty} </p>
 <p><strong> Person(s) present during the inspection :</strong> ${person_present_during_inspection} </p>
 <p><strong> Contact persons for the inspection :</strong> ${contact_person_inspection} </p>
@@ -882,7 +884,7 @@ function changeLanguage() {
   document.getElementById('behind_glass').placeholder = i18n[selectedLanguage].Behind_Mirror;
   document.getElementById('quantity').placeholder = i18n[selectedLanguage].Quantity;
   document.getElementById('quality').placeholder = i18n[selectedLanguage].Quality;
-  document.getElementById('nature').placeholder = i18n[selectedLanguage].Nature;
+  document.getElementById('type').placeholder = i18n[selectedLanguage].Type;
   document.getElementById('rulerLabel').innerText = i18n[selectedLanguage].Ruler;
   document.getElementById('microscopeLabel').innerText = i18n[selectedLanguage].Microscope;
   document.getElementById('cameraLabel').innerText = i18n[selectedLanguage].Camera;
