@@ -112,21 +112,15 @@ const reportSchema = new mongoose.Schema({
         Date_of_acquisition: {
             type: Date
         }, 
-        Name_of_asset: {
-            type: String
-        },
+       
         Title: {
             type: String
         }, 
-        Heading: {
-            type: String
-        }, 
+       
         Author: {
             type: String
         }, 
-        Origin : {
-            type: String
-        },
+       
         Date_of_creation : {
             type: Date
         }, 

@@ -366,11 +366,9 @@
 
             <div class="form-row row" style="padding: 5px 0;">
 
-              <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="name_of_asset" name="name_of_asset" placeholder="" value="<%= report.Object_identification.Name_of_asset %>" >
-              </div>
+              
 
-              <div class="form-group col-md-1" >
+              <div class="form-group col-md-2" >
                 <label for="" id="" class="col-form-label">Title</label>
               </div>
 
@@ -378,9 +376,7 @@
                <input type="text" class="form-control" id="title" name="title" placeholder="" value="<%= report.Object_identification.Title %>">
               </div>
               
-              <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="heading" name="heading" placeholder="" value="<%= report.Object_identification.Heading %>">
-              </div>
+             
 
             </div>
 
@@ -396,9 +392,7 @@
                 <input type="text" class="form-control" id="author" name="author" placeholder="" value="<%= report.Object_identification.Author %>">
               </div>
 
-              <div class="form-group col-md-3">
-               <input type="text" class="form-control" id="origin" name="origin" placeholder="" value="<%= report.Object_identification.Origin %>">
-              </div>
+           
             </div>
 
           
@@ -610,14 +604,18 @@
                     <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=""><%= report.Conditions_description.Info_observed %></textarea>
                   </div>
                 </div>
-        
-                <h6  id="Cc_label" style="padding: 5px 0;"> Condition changed from previous ? </h6>
+
+                <hr>
+                
+
+                <p id="Cc_label" style="padding: 5px 0; font-size: small; color: purple"> Please fill this if the condition of an item is known or suspected to have changed from an earlier or original state </p>
         
                 <div class="form-group col-md-6">
                   <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=""><%= report.Conditions_description.Report_change %></textarea>
                 </div>
         
-                <h6  id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ?  Please upload a photo</h6>
+                <hr>
+                <h6  id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ?  Please upload photos</h6>
         
                 <div class="form-row row">
                   <div class="form-group col-md-6">
@@ -652,6 +650,12 @@
                   <textarea class="form-control" id="recommendations" rows="4" name="recommendations" placeholder=""><%= report.Diagnostic_and_recommendations.Recommendations %></textarea>
                 </div>
               </div>
+
+              <hr>
+              <p style="font-size: small; color: purple;">
+                &nbsp;&nbsp;<i class="fas fa-info-circle"></i> <!-- Font Awesome circular info icon -->
+                (Optional) fill only if information necessary for an immediate diagnosis is not available
+              </p>
         
               <div class="form-row row" style="padding: 5px 0;" >
                 <div class="form-group col-md-6" >

@@ -42,13 +42,10 @@ var i18n = {
 
 
     Identification_Number: 'Identification Number',
-    Name_of_Asset: 'Name of Asset',
     Title: 'Title',
-    Heading: 'Heading',
     Author: 'Author/Creator',
-    Origin: 'Origin',
-    Ownership: 'Ownership',
-    Protection: 'Protection',
+    Ownership: 'Ownership even if unknown',
+    Protection: 'Protection information',
     Summary_of_its_importance: 'Summary of its importance',
     Date_of_acqisation: 'Date of Acquisation', 
     Date_of_creation: 'Date of Creation', 
@@ -78,7 +75,7 @@ var i18n = {
 
     Info_current_state: 'Information observed concerning current state of item including conservation history',
     Changes_report: 'Please report the change (repair, treatment)',
-    conditions_changed: ' Condition changed from previous? ',
+    conditions_changed: 'Please fill this if the condition of an item is known or suspected to have changed from an earlier or original state',
 
 
     Diagnosis: 'Descriptive diagnosis of reason for detrioration / Other changes in condition',
@@ -101,7 +98,7 @@ var i18n = {
     
     
     normal_upload_text: 'Upload photo/Video', 
-    damaged_upload_text: 'Damaged Observed ?  Please upload a photo'
+    damaged_upload_text: 'Damaged Observed ?  Please upload photos'
    
   },
 
@@ -166,13 +163,10 @@ var i18n = {
 
 
     Identification_Number: `Numéro d'identification`,
-    Name_of_Asset: 'Nom du bien',
     Title: 'Titre',
-    Heading: 'Autre intitulé',
     Author: 'Auteur/Créateur',
-    Origin: 'Origine',
-    Ownership: 'Propriété',
-    Protection: 'Protection',
+    Ownership: 'Propriété même si inconnu',
+    Protection: 'Informations sur les protections',
     Summary_of_its_importance: 'Intérêt patrimonial (résumé)',
     Date_of_acqisation: `Date de l'acquisition`, 
     Date_of_creation: 'Date de création', 
@@ -203,7 +197,7 @@ var i18n = {
 
     Info_current_state: `Informations observées concernant l'état actuel du bien y compris l'historique de sa conservation`,
     Changes_report: `Veuillez signaler le changement (réparation, traitement)`,
-    conditions_changed: ` L'état a changé par rapport au précédent ? `,
+    conditions_changed: ` Veuillez remplir ce champ si l'état d'un article est connu ou suspecté d'avoir changé par rapport à un état antérieur ou original. `,
 
     Diagnosis: `Diagnostic descriptif de la raison de la détérioration / Autres changements d'état`,
     Recommendations: `Recommandations pour des soins et/ou une conservation ultérieurs`,
@@ -227,7 +221,7 @@ var i18n = {
 
 
     normal_upload_text: 'Téléverser Photo/Video', 
-    damaged_upload_text: 'Dégradations observées ? Veuillez téléverser une photo'
+    damaged_upload_text: 'Dégradations observées ? Veuillez téléverser des photos'
 }
 
 };

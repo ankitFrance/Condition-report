@@ -635,11 +635,8 @@ const inaccessibility = document.getElementById('inaccessibility').value;
 // FOR SLIDE 2
 const identification_no  = document.getElementById('identification_no').value;
 const date_of_acquisition = document.getElementById('date_of_acquisition').value;
-const name_of_asset = document.getElementById('name_of_asset').value;
 const title = document.getElementById('title').value;
-const heading = document.getElementById('heading').value;
 const author = document.getElementById('author').value;
-const origin = document.getElementById('origin').value;
 const date_of_creation = document.getElementById('date_of_creation').value;
 const ownership = document.getElementById('ownership').value;
 const protection = document.getElementById('protection').value;
@@ -737,11 +734,8 @@ OBJECT IDENTIFICATION
 </div>
 <p><strong> Identification Number:</strong> ${identification_no} </p>
 <p><strong> Date of Acquisition:</strong> ${date_of_acquisition} </p>
-<p><strong> Name of Asset:</strong> ${name_of_asset} </p>
 <p><strong> Title:</strong> ${title} </p>
-<p><strong> Heading:</strong> ${heading} </p>
 <p><strong> Authors:</strong> ${author} </p>
-<p><strong> Origin:</strong> ${origin} </p>
 <p><strong> Date of creation :</strong> ${date_of_creation} </p>
 <p><strong> Ownership:</strong> ${ownership} </p>
 <p><strong> Protection:</strong> ${protection} </p>
@@ -904,11 +898,8 @@ function changeLanguage() {
 
   document.getElementById('identification_no').placeholder = i18n[selectedLanguage].Identification_Number;
   document.getElementById('doaLabel').innerText = i18n[selectedLanguage].Date_of_acqisation; //
-  document.getElementById('name_of_asset').placeholder = i18n[selectedLanguage].Name_of_Asset;
   document.getElementById('title').placeholder = i18n[selectedLanguage].Title;
-  document.getElementById('heading').placeholder = i18n[selectedLanguage].Heading;
   document.getElementById('author').placeholder = i18n[selectedLanguage].Author;
-  document.getElementById('origin').placeholder = i18n[selectedLanguage].Origin;
   document.getElementById('docLabel').innerText = i18n[selectedLanguage].Date_of_creation; //
   document.getElementById('ownership').placeholder = i18n[selectedLanguage].Ownership;
   document.getElementById('protection').placeholder = i18n[selectedLanguage].Protection;

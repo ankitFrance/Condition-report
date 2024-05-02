@@ -147,11 +147,8 @@ router.get('/', (req, res) => {
 
          Identification_no : updatedData.identification_no,
          Date_of_acquisition: updatedData.date_of_acquisition,
-         Name_of_asset : updatedData.name_of_asset,
          Title : updatedData.title,
-         Heading : updatedData.heading,
          Author : updatedData.author,
-         Origin : updatedData.origin,
          Date_of_creation : updatedData.date_of_creation,
          Ownership : updatedData.ownership,
          Protection : updatedData.protection,
@@ -328,11 +325,8 @@ router.post('/feedback', uploadMiddleware.fields([
       
       Identification_no : formData.identification_no,
       Date_of_acquisition : formData.date_of_acquisition,
-      Name_of_asset : formData.name_of_asset,
       Title : formData.title,
-      Heading : formData.heading,
       Author : formData.author,
-      Origin : formData.origin,
       Date_of_creation : formData.date_of_creation,
       Ownership : formData.ownership,
       Protection : formData.protection,
