@@ -110,7 +110,7 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
           largeur_ou_diametre_mm.value = data.results[0].largeur_ou_diametre_mm;
 
           document.getElementById('successAlert').style.display = 'block';
-          // Hide success message after 2 seconds
+          
           setTimeout(function() {
             document.getElementById('successAlert').style.display = 'none';
           }, 2000);
@@ -121,10 +121,22 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
       .catch(error => {
           console.error('Error fetching data:', error);
           document.getElementById('errorAlert').style.display = 'block';
-          // Hide error alert after 2 seconds
+
+          var artiste = document.getElementById('author');
+          artiste.value = '';
+          
+          var titre_ou_designation = document.getElementById('title');
+          titre_ou_designation.value = '';
+
+          var hauteur_ou_diametre_mm = document.getElementById('heights');
+          hauteur_ou_diametre_mm.value = '';
+
+          var largeur_ou_diametre_mm= document.getElementById('width');
+          largeur_ou_diametre_mm.value = '';
+          
           setTimeout(function() {
             document.getElementById('errorAlert').style.display = 'none';
-          }, 3000);
+          }, 2000);
       });
 });
 
@@ -175,16 +187,48 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
           titre_ou_designation.value = data.results[0].titre;
 
           var Hauteur = document.getElementById('heights');
-          Hauteur.value = data.results[0].mesures.split(';')[0].trim();
+          var mesureStringforHauteur = data.results[0].mesures; // "Hauteur 34 ; Largeur 24"
+          var hauteurValue = mesureStringforHauteur.split(';')[0].trim().split(' ')[1]; // "34"
+          Hauteur.value = hauteurValue; 
 
           var Largeur = document.getElementById('width');
-          Largeur.value = data.results[0].mesures.split(';')[1].trim();
+          var mesureStringforLargeur = data.results[0].mesures; // "Hauteur 34 ; Largeur 24"
+          var LargeurValue = mesureStringforLargeur.split(';')[1].trim().split(' ')[1]; // "34"
+          Largeur.value = LargeurValue; 
+
+          document.getElementById('successAlert').style.display = 'block';
+          
+          setTimeout(function() {
+            document.getElementById('successAlert').style.display = 'none';
+          }, 2000);
+         
 
           
 
       })
       .catch(error => {
           console.error('Error fetching data:', error);
+          document.getElementById('errorAlert').style.display = 'block';
+
+          var artiste = document.getElementById('author');
+          artiste.value = '';
+          
+          var titre_ou_designation = document.getElementById('title');
+          titre_ou_designation.value = '';
+
+          var Hauteur = document.getElementById('heights');
+          Hauteur.value = ''; 
+
+          var Largeur = document.getElementById('width');
+          Largeur.value = ''; 
+
+
+          
+          setTimeout(function() {
+            document.getElementById('errorAlert').style.display = 'none';
+          }, 2000);
+          
+
       });
 });
 
