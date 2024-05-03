@@ -712,9 +712,8 @@ const history = document.getElementById('history').value;
 const technique = document.getElementById('technique').value;
 const weight = document.getElementById('weight').value;
 const contituent_elements = document.getElementById('contituent_elements').value;
-const no_of_elements = document.getElementById('no_of_elements').value;
+const no_of_items = document.getElementById('no_of_items').value;
 const heights = document.getElementById('heights').value;
-const length = document.getElementById('length').value;
 const width = document.getElementById('width').value;
 const installation_notes = document.getElementById('installation_notes').value;
 const artist_installation_guide = document.getElementById('artist_installation_guide').value;
@@ -821,9 +820,8 @@ OBJECT DESCRIPTION
 <p><strong> Technique:</strong> ${technique} </p>
 <p><strong> Weight:</strong> ${weight} </p>
 <p><strong> Constituent Elements:</strong> ${contituent_elements} </p>
-<p><strong> Number of elements :</strong> ${no_of_elements} </p>
+<p><strong> Number of items :</strong> ${no_of_items} </p>
 <p><strong> Height:</strong> ${heights} </p>
-<p><strong> Length:</strong> ${length} </p>
 <p><strong> Width:</strong> ${width} </p>
 <p><strong> Installation Notes:</strong> ${installation_notes} </p>
 <p><strong> Artist installation guide:</strong> ${artist_installation_guide} </p>
@@ -979,9 +977,7 @@ function changeLanguage() {
   document.getElementById('technique').placeholder = i18n[selectedLanguage].Technique;
   document.getElementById('weight').placeholder = i18n[selectedLanguage].Weight;
   document.getElementById('contituent_elements').placeholder = i18n[selectedLanguage].Constituent_Elements;
-  document.getElementById('noeLabel').innerText = i18n[selectedLanguage].Date_of_creation; //
   document.getElementById('heights').placeholder = i18n[selectedLanguage].Heights;
-  document.getElementById('length').placeholder = i18n[selectedLanguage].Length;
   document.getElementById('width').placeholder = i18n[selectedLanguage].Width;
   document.getElementById('installation_notes').placeholder = i18n[selectedLanguage].Installation_Notes;
   document.getElementById('artist_installation_guide').placeholder = i18n[selectedLanguage].Artist_installation_guide;

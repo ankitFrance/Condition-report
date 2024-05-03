@@ -162,15 +162,13 @@ const reportSchema = new mongoose.Schema({
         Constituent_elements : {
             type: String
         },
-        No_of_elements : {
+        No_of_items : {
             type: String
         }, 
         Heights: {
             type: String 
         }, 
-        Length :{
-            type: String
-        }, 
+        
         Width:{
             type: String
         }, 

@@ -53,20 +53,19 @@ var i18n = {
 
 
 
-    Material: 'Material',
-    Structure: 'Structure',
-    Surface: 'Surface',
+    Material: 'Materials',
+    Structure: 'Structures',
+    Surface: 'Surfaces',
     History: 'History',
-    Technique: 'Technique',
+    Technique: 'Technique(s)',
     Weight: 'Weight',
     Constituent_Elements: 'Constituent Elements',
     Heights: 'Height',
-    Length: 'Length',
     Width: 'Width',
     Installation_Notes: 'Installation Notes',
     Artist_installation_guide: 'Artist installation guide',
     Oc_description: 'Object creation description',
-    noe : 'Number of elements', 
+   
 
 
 
@@ -174,20 +173,19 @@ var i18n = {
 
 
 
-    Material: 'Matériau',
-    Structure: 'Structure',
-    Surface: 'Surface',
+    Material: 'Matériaux',
+    Structure: 'Structures',
+    Surface: 'Surfaces',
     History: 'Histoire',
-    Technique: 'Technique',
+    Technique: 'Technique(s)',
     Weight: 'Poids',
     Constituent_Elements: 'Éléments constitutifs',
     Heights: 'Hauteur',
-    Length: 'Longueur',
     Width: 'Largeur',
     Installation_Notes: `Notes d'installation`,
     Artist_installation_guide: `Guide d'installation de l'artiste`,
     Oc_description: `Description de la création de l'objet`,
-    noe : `Nombre d'éléments`,
+  
 
 
 

@@ -539,16 +539,10 @@
                 <input type="text" class="form-control"  name="contituent_elements" id="contituent_elements" placeholder="" value="<%= report.Object_description.Constituent_elements %>">
               </div>
 
-              <div class="form-group col-md-2" id="two">
-                <label for="inputState" class="col-form-label" id="noeLabel">Number of elements</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="form-control" name="no_of_items" id="no_of_items" placeholder="Number of items" value="<%= report.Object_description.No_of_items %>">
               </div>
-              <div class="form-group col-md-1">
-                <select id="no_of_elements" class="form-control" name="no_of_elements">
-                  <option selected>xyz</option>
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div>
+    
 
            </div>
 
@@ -571,9 +565,7 @@
               <input type="text" class="form-control" id="width" name="width" placeholder="" value="<%= report.Object_description.Width %>">
             </div>
 
-            <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="length" name="length" placeholder="" value="<%= report.Object_description.Length %>">
-            </div>
+           
 
           </div>
 
