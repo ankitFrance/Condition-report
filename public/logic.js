@@ -89,7 +89,10 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
 
   //var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2r[…]re=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
   var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2rmf/records?where=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
-
+  var artiste = document.getElementById('author');
+  var titre_ou_designation = document.getElementById('title');
+  var hauteur_ou_diametre_mm = document.getElementById('heights');
+  var largeur_ou_diametre_mm= document.getElementById('width');
 
   fetch(apiUrl)
       .then(response => response.json())
@@ -97,16 +100,16 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
           
           console.log(data);
 
-          var artiste = document.getElementById('author');
+        
           artiste.value = data.results[0].artiste;
           
-          var titre_ou_designation = document.getElementById('title');
+         
           titre_ou_designation.value = data.results[0].titre_ou_designation;
 
-          var hauteur_ou_diametre_mm = document.getElementById('heights');
+        
           hauteur_ou_diametre_mm.value = data.results[0].hauteur_ou_diametre_mm;
 
-          var largeur_ou_diametre_mm= document.getElementById('width');
+        
           largeur_ou_diametre_mm.value = data.results[0].largeur_ou_diametre_mm;
 
           document.getElementById('successAlert').style.display = 'block';
@@ -122,16 +125,16 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
           console.error('Error fetching data:', error);
           document.getElementById('errorAlert').style.display = 'block';
 
-          var artiste = document.getElementById('author');
+        
           artiste.value = '';
           
-          var titre_ou_designation = document.getElementById('title');
+         
           titre_ou_designation.value = '';
 
-          var hauteur_ou_diametre_mm = document.getElementById('heights');
+        
           hauteur_ou_diametre_mm.value = '';
 
-          var largeur_ou_diametre_mm= document.getElementById('width');
+         
           largeur_ou_diametre_mm.value = '';
           
           setTimeout(function() {
@@ -172,7 +175,10 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
 
   
   var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/base-joconde-extrait/records?select=*&where=reference%20like%20%22'+ encodeURIComponent(identificationNumber) +'%22';
-
+  var artiste = document.getElementById('author');
+  var titre_ou_designation = document.getElementById('title');
+  var Hauteur = document.getElementById('heights');
+  var Largeur = document.getElementById('width');
 
   fetch(apiUrl)
       .then(response => response.json())
@@ -180,18 +186,18 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
           
           console.log(data);
 
-          var artiste = document.getElementById('author');
+          
           artiste.value = data.results[0].auteur;
           
-          var titre_ou_designation = document.getElementById('title');
+         
           titre_ou_designation.value = data.results[0].titre;
 
-          var Hauteur = document.getElementById('heights');
+          
           var mesureStringforHauteur = data.results[0].mesures; // "Hauteur 34 ; Largeur 24"
           var hauteurValue = mesureStringforHauteur.split(';')[0].trim().split(' ')[1]; // "34"
           Hauteur.value = hauteurValue; 
 
-          var Largeur = document.getElementById('width');
+         
           var mesureStringforLargeur = data.results[0].mesures; // "Hauteur 34 ; Largeur 24"
           var LargeurValue = mesureStringforLargeur.split(';')[1].trim().split(' ')[1]; // "34"
           Largeur.value = LargeurValue; 
@@ -210,16 +216,16 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
           console.error('Error fetching data:', error);
           document.getElementById('errorAlert').style.display = 'block';
 
-          var artiste = document.getElementById('author');
+         
           artiste.value = '';
           
-          var titre_ou_designation = document.getElementById('title');
+         
           titre_ou_designation.value = '';
 
-          var Hauteur = document.getElementById('heights');
+         
           Hauteur.value = ''; 
 
-          var Largeur = document.getElementById('width');
+         
           Largeur.value = ''; 
 
 
