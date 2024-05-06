@@ -27,33 +27,50 @@
 
     <!--**********************************************REPORTING INFORMATION******************************************************-->
 
- 
-   <% if (Constatdocument.Reporting_Information && Object.values(Constatdocument.Reporting_Information).some(value => value)) { %>
-     <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">REPORTING INFORMATION</h2>
-       <ul style="list-style-type: none;">
-         <% Object.entries(Constatdocument.Reporting_Information).forEach(([key, value]) => { %>
-          <% if (value) { %>
-          <li><strong><%= key %>:</strong> <%= value %></li>
+    <% if (Constatdocument.Reporting_Information && Object.values(Constatdocument.Reporting_Information).some(value => value)) { %>
+      <h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
+      <ul style="list-style-type: none;">
+        <% Object.entries(Constatdocument.Reporting_Information).forEach(([key, value]) => { %>
+          <% if (value && (key === 'Name' || key === 'Role' || key === 'Institution' || key === 'Date_of_inspection' || key === 'Tools' || key === 'Methods' || key === 'Purpose_of_condition_report' || key === 'Name_of_client' || key === 'Height' || key === 'Examination_center' || key === 'Platform' || key === 'Behind_glass' || key === 'Quantity' || key === 'Quality' || key === 'Type' || key === 'Support' || key === 'Ruler' ||  key === 'Microscope' || key === 'Camera' || key === 'Gloves' || key === 'Clothing' || key === 'Reliability_collected_data' ||  key === 'Cmnt_reliabilty' || key === 'Person_present_during_inspection' || key === 'Contact_person_inspection' || key === 'Duration_of_assessment' || key === 'Inaccessibility')) { %>
+            <li style="display: flex; flex-direction: column; align-items: center;">
+              <% const displayName = (key === 'Name') ? 'Name of Reporter' : (key === 'Role') ? 'Role of reporter' : (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
+             <li>
+                <strong><%= displayName %>:</strong> <%= value %>
+             </li>
+            </li>
           <% } %>
-         <% }) %>
-       </ul>
-   <% } %>
+        <% }) %>
+      </ul>
+    <% } %>
 
 
 
 <!--**********************************************OBJECT IDENTIFICATION******************************************************-->
 
-
-    <% if (Constatdocument.Object_identification && Object.values(Constatdocument.Object_identification).some(value => value)) { %>
-      <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT IDENTIFICATION</h2>
-      <ul style="list-style-type: none;">
-        <% Object.entries(Constatdocument.Object_identification).forEach(([key, value]) => { %>
-          <% if (value) { %>
-            <li><strong><%= key %>:</strong> <%= value %></li>
+<% if (Constatdocument.Object_identification && Object.values(Constatdocument.Object_identification).some(value => value)) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT IDENTIFICATION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(Constatdocument.Object_identification).forEach(([key, value]) => { %>
+      <% if (value && (key === 'Identification_no' || key === 'Date_of_acquisition' || key === 'Title' || key === 'Author' || key === 'Date_of_creation' || key === 'Ownership' || key === 'Protection' || (key === 'Summary' && value))) { %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <% const displayName = (key === 'Identification_no') ? 'Identification number' : (key === 'Date_of_acquisition') ? 'Date of Acquisition' : (key === 'Title') ? 'Title' : (key === 'Author') ? 'Author' : (key === 'Date_of_creation') ? 'Date of Creation' : (key === 'Ownership') ? 'Ownership' : (key === 'Protection') ? 'Protection information' : 'Summary';   %>
+          <% if (key === 'Summary') { %>
+            <strong><%= displayName %>:</strong> <textarea rows="4" cols="50"><%= value %></textarea>
+          <% } else { %>
+            <strong><%= displayName %>:</strong> <%= value %>
           <% } %>
-        <% }) %>
-      </ul>
-    <% } %>
+        </li>
+      <% } %>
+    <% }) %>
+  </ul>
+<% } %>
+
+
+
+
+
+
+
     
 
 <!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
