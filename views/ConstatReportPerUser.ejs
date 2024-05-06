@@ -47,15 +47,20 @@
 
 <!--**********************************************OBJECT IDENTIFICATION******************************************************-->
 
+
 <% if (Constatdocument.Object_identification && Object.values(Constatdocument.Object_identification).some(value => value)) { %>
   <h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT IDENTIFICATION</h2>
   <ul style="list-style-type: none;">
     <% Object.entries(Constatdocument.Object_identification).forEach(([key, value]) => { %>
       <% if (value && (key === 'Identification_no' || key === 'Date_of_acquisition' || key === 'Title' || key === 'Author' || key === 'Date_of_creation' || key === 'Ownership' || key === 'Protection' || (key === 'Summary' && value))) { %>
-        <li style="display: flex; flex-direction: column; align-items: center;">
+        <li>
           <% const displayName = (key === 'Identification_no') ? 'Identification number' : (key === 'Date_of_acquisition') ? 'Date of Acquisition' : (key === 'Title') ? 'Title' : (key === 'Author') ? 'Author' : (key === 'Date_of_creation') ? 'Date of Creation' : (key === 'Ownership') ? 'Ownership' : (key === 'Protection') ? 'Protection information' : 'Summary';   %>
           <% if (key === 'Summary') { %>
-            <strong><%= displayName %>:</strong> <textarea rows="4" cols="50"><%= value %></textarea>
+            <div style="text-align: center;">
+              <strong><%= displayName %>:</strong>
+              <br>
+              <textarea rows="4" cols="50"><%= value %></textarea>
+            </div>
           <% } else { %>
             <strong><%= displayName %>:</strong> <%= value %>
           <% } %>
@@ -64,6 +69,7 @@
     <% }) %>
   </ul>
 <% } %>
+
 
 
 
