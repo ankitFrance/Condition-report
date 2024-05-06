@@ -1,0 +1,66 @@
+
+
+<% if (Constatdocument.Conditions_description && Object.values(Constatdocument.Conditions_description).some(value => {
+  if (Array.isArray(value)) {
+    return value.length > 0; 
+  } else {
+    return value !== undefined && value !== null && value !== '';
+  }
+})) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">CONDITION DESCRIPTION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
+      <% if (Array.isArray(value) && value.length === 0) { %>
+        <% return; %> 
+      <% } %>
+      <% if (value !== undefined && value !== null && value !== '') { %>
+        <li><strong><%= key %>:</strong> <%= value %></li>
+      <% } %>
+    <% }) %>
+  </ul>
+<% } %>
+
+
+
+
+It checks if Constatdocument.Object_description exists and if it's truthy (i.e., not null, undefined, 0, false, or an empty string).
+If Constatdocument.Object_description exists and is truthy, it checks if any of its values satisfy a certain condition.
+The condition it checks is whether any of the values in Constatdocument.Object_description meet certain criteria:
+If the value is an array, it checks if the array has a length greater than 0.
+If the value is not an array, it checks if it's not undefined, null, or an empty string.
+If any value meets the criteria, it renders an <h2> HTML element with the text "OBJECT DESCRIPTION" and some inline styles for formatting.
+
+
+
+
+
+<% if (Constatdocument.Conditions_description && Object.values(Constatdocument.Conditions_description).some(value => {
+  if (Array.isArray(value)) {
+    return value.length > 0; 
+  } else {
+    return value !== undefined && value !== null && value !== '';
+  }
+})) { %>
+  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">CONDITION DESCRIPTION</h2>
+  <ul style="list-style-type: none;">
+  <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
+    <% if (Array.isArray(value) && value.length === 0) { %>
+      <% return; %> 
+    <% } %>
+    <% if (value !== undefined && value !== null && value !== '') { %>
+      <% if (key === 'Info_observed' || key === 'Report_change') { %>
+        <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <strong><%= displayName %>:</strong><br>
+          <textarea rows="5" cols="70"><%= value %></textarea>
+        </li>
+      <% } else { %>
+        <li>
+          <strong><%= key %>:</strong> <%= value %>
+        </li>
+      <% } %>
+    <% } %>
+  <% }) %>
+</ul>
+
+<% } %>

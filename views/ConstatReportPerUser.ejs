@@ -22,7 +22,7 @@
 
   <!------------------------------------------------------------------------------------------------------------------------------->
 
-  <div class="container">
+  <div class="container" style="background-color: #ffffff;">
 
 
     <!--**********************************************REPORTING INFORMATION******************************************************-->
@@ -59,72 +59,121 @@
 <!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
 
 
-<% if (Constatdocument.Object_description && Object.values(Constatdocument.Object_description).some(value => value)) { %>
+<% if (Constatdocument.Object_description && Object.values(Constatdocument.Object_description).some(value => {
+  if (Array.isArray(value)) {
+    return value.length > 0; 
+  } else {
+    return value !== undefined && value !== null && value !== '';
+  }
+})) { %>
   <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT DESCRIPTION</h2>
   <ul style="list-style-type: none;">
     <% Object.entries(Constatdocument.Object_description).forEach(([key, value]) => { %>
-     
-      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
-        <% if (!(Array.isArray(value) && value.length === 0)) { %>
-           <li><strong><%= key %>:</strong> <%= value %></li>
-        <% } %>
+      <% if (Array.isArray(value) && value.length === 0) { %>
+        <% return; %> 
       <% } %>
-   
+      <% if (value !== undefined && value !== null && value !== '') { %>
+        <li><strong><%= key %>:</strong> <%= value %></li>
+      <% } %>
     <% }) %>
   </ul>
 <% } %>
+
+
+
 
 
 <!--------------------- OBJECT ENVIRONMENT---------------------------------------------------------------------------------------------->
 
 
 <% if (Constatdocument.Object_environment && Object.values(Constatdocument.Object_environment).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT ENVIRONMENT</h2>
+  <h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT ENVIRONMENT</h2>
   <ul style="list-style-type: none;">
     <% Object.entries(Constatdocument.Object_environment).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <li><strong><%= key %>:</strong> <%= value %></li>
+      <% if (value && (key === 'Environment' || key === 'Effect')) { %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <% const displayName = (key === 'Environment') ? 'Environment in which item is held' : 'Effect of Environment on object';  %>
+          <strong><%= displayName %>:</strong><br>
+          <textarea rows="5" cols="70"><%= value %></textarea>
+        </li>
       <% } %>
     <% }) %>
   </ul>
 <% } %>
+
 
 
 <!--------------------- CONDITION DESCRIPTION---------------------------------------------------------------------------------------------->
 
 
-<% if (Constatdocument.Conditions_description && Object.values(Constatdocument.Conditions_description).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">CONDITION DESCRIPTION</h2>
+<% if (Constatdocument.Conditions_description && Object.values(Constatdocument.Conditions_description).some(value => {
+  if (Array.isArray(value)) {
+    return value.length > 0; 
+  } else {
+    return value !== undefined && value !== null && value !== '';
+  }
+})) { %>
+  <h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
   <ul style="list-style-type: none;">
-    <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
-     
-      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
-        <% if (!(Array.isArray(value) && value.length === 0)) { %>
-           <li><strong><%= key %>:</strong> <%= value %></li>
+    <% let hasPrintedPhotoSection = false; %>
+  <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
+    <% if (Array.isArray(value) && value.length === 0) { %>
+      <% return; %> 
+    <% } %>
+    <% if (value !== undefined && value !== null && value !== '') { %>
+      <% if (key === 'Info_observed' || key === 'Report_change') { %>
+        <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <strong><%= displayName %>:</strong><br>
+          <textarea rows="5" cols="70"><%= value %></textarea>
+        </li>
+      <% } else { %>
+        <% if (!hasPrintedPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPrintedPhotoSection = true; %>
         <% } %>
+        <li>
+           <strong><%= key %>:</strong> <%= value %>
+        </li>
       <% } %>
-   
-    <% }) %>
+    <% } %>
+  <% }) %>
   </ul>
+
 <% } %>
 
 
-<!--------------------- DIAGNOSTIC AND RECOMMENDATION---------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+<!--------------------- DIAGNOSTIC AND RECOMMENDATIONS---------------------------------------------------------------------------------------------->
+
+
+
 
 
 <% if (Constatdocument.Diagnostic_and_recommendations && Object.values(Constatdocument.Diagnostic_and_recommendations).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
+  <h2 style="border-bottom: 2px solid #03346F; color: black;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
   <ul style="list-style-type: none;">
     <% Object.entries(Constatdocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <li><strong><%= key %>:</strong> <%= value %></li>
+      <% if (value && (key === 'Descriptive_diagnosis' || key === 'Recommendations' || key === 'Investigations')) { %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <% const displayName = (key === 'Descriptive_diagnosis') ? 'Descriptive diagnosis of reason for detrioration / Other changes in condition' : (key === 'Recommendations') ? 'Recommendations for further care and/or conservation:' : 'Further scientific, historical, technical or other investigation or analysis'; %>
+          <strong><%= displayName %>:</strong><br>
+          <textarea rows="5" cols="70"><%= value %></textarea>
+        </li>
       <% } %>
     <% }) %>
   </ul>
 <% } %>
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------>  
+
+
+
 
 
   </div>
