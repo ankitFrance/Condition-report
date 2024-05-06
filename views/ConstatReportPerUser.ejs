@@ -82,7 +82,6 @@
 <!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
 
 
-
 <% if (Constatdocument.Object_description && Object.values(Constatdocument.Object_description).some(value => {
   if (Array.isArray(value)) {
     return value.length > 0; 
@@ -98,11 +97,17 @@
       <% return; %> 
     <% } %>
     <% if (value !== undefined && value !== null && value !== '') { %>
-      <% if (key === 'Material' || key === 'Structure' || key === 'Surface' || key === 'History' || key === 'Technique' || key === 'Weight' || key === 'Constituent_elements' || key === 'No_of_items' || key === 'Heights' || key === 'Width' || key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
-        <% const displayName = (key === 'Material') ? 'Material' : (key === 'Structure') ? 'Structure' : (key === 'Surface') ? 'Surface' : (key === 'History') ? 'History' : (key === 'Technique') ? 'Technique' : (key === 'Weight') ? 'Weight' : (key === 'Constituent_elements') ? 'Constituent elements' : (key === 'No_of_items') ? 'Number of items' : (key === 'Heights') ? 'Height' : (key === 'Width') ? 'Width': (key === 'Installation_notes') ? 'Installation Notes': (key === 'Artist_installation_guide') ? 'Artist installation guide' :  'Object creation description'; %>
+      <% if (key === 'Material' || key === 'Structure' || key === 'Surface' || key === 'History' || key === 'Technique' || key === 'Weight' || key === 'Constituent_elements' || key === 'No_of_items' || key === 'Heights' || key === 'Width') { %>
+        <% const displayName = (key === 'Material') ? 'Material' : (key === 'Structure') ? 'Structure' : (key === 'Surface') ? 'Surface' : (key === 'History') ? 'History' : (key === 'Technique') ? 'Technique' : (key === 'Weight') ? 'Weight' : (key === 'Constituent_elements') ? 'Constituent elements' : (key === 'No_of_items') ? 'Number of items' : (key === 'Heights') ? 'Height' : (key === 'Width') ? 'Width' : ''; %>
         <li>
           <strong><%= displayName %>:</strong> <%= value %>
         </li>
+      <% } else if (key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
+        <div style="text-align: center;">
+          <strong><%= key %>:</strong>
+          <br>
+          <textarea rows="4" cols="50"><%= value %></textarea>
+        </div>
       <% } else { %>
         <% if (!hasPhotoSection) { %>
           <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
@@ -115,7 +120,6 @@
     <% } %>
   <% }) %>
   </ul>
-
 <% } %>
 
 
