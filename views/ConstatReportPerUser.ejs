@@ -103,8 +103,13 @@
           <strong><%= displayName %>:</strong> <%= value %>
         </li>
       <% } else if (key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
+        <% const customNames = {
+          'Installation_notes': 'Installation Notes',
+          'Artist_installation_guide': 'Artist Installation Guide',
+          'Object_creation_description': 'Object Creation Description'
+        }; %>
         <div style="text-align: center;">
-          <strong><%= key %>:</strong>
+          <strong><%= customNames[key] %>:</strong>
           <br>
           <textarea rows="4" cols="50"><%= value %></textarea>
         </div>
@@ -121,6 +126,7 @@
   <% }) %>
   </ul>
 <% } %>
+
 
 
 
