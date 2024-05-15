@@ -471,8 +471,9 @@ const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
  /******************************************************************************************** */
 
  //console.log(req.files)
+ const ReportAfterUpdate = await Report.findById(savedReport._id);
 
-  return  res.render('feedback.ejs',   {reportDocument})
+  return  res.render('feedback.ejs',   {ReportAfterUpdate})
  
 })
 

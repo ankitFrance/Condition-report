@@ -36,10 +36,10 @@ let printedWorkingCondition = false;
 let printedAdditionalDetails = false;
 %>
 
-<% if (reportDocument.Reporting_Information && Object.values(reportDocument.Reporting_Information).some(value => value)) { %>
+<% if (ReportAfterUpdate.Reporting_Information && Object.values(ReportAfterUpdate.Reporting_Information).some(value => value)) { %>
 <h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
 <ul style="list-style-type: none;">
-  <% Object.entries(reportDocument.Reporting_Information).forEach(([key, value]) => { %>
+  <% Object.entries(ReportAfterUpdate.Reporting_Information).forEach(([key, value]) => { %>
     <% if (value) { %>
       <% if (['Name', 'Role', 'Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
         <% if (!printedBasicInfo) { %>
@@ -77,10 +77,10 @@ let printedAdditionalDetails = false;
 <!--**********************************************OBJECT IDENTIFICATION******************************************************-->
 
 
-<% if (reportDocument.Object_identification && Object.values(reportDocument.Object_identification).some(value => value)) { %>
+<% if (ReportAfterUpdate.Object_identification && Object.values(ReportAfterUpdate.Object_identification).some(value => value)) { %>
 <h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT IDENTIFICATION</h2>
 <ul style="list-style-type: none;">
-  <% Object.entries(reportDocument.Object_identification).forEach(([key, value]) => { %>
+  <% Object.entries(ReportAfterUpdate.Object_identification).forEach(([key, value]) => { %>
     <% if (value && (key === 'Identification_no' || key === 'Date_of_acquisition' || key === 'Title' || key === 'Author' || key === 'Date_of_creation' || key === 'Ownership' || key === 'Protection' || (key === 'Summary' && value))) { %>
       <li>
         <% const displayName = (key === 'Identification_no') ? 'Identification number' : (key === 'Date_of_acquisition') ? 'Date of Acquisition' : (key === 'Title') ? 'Title' : (key === 'Author') ? 'Author' : (key === 'Date_of_creation') ? 'Date of Creation' : (key === 'Ownership') ? 'Ownership' : (key === 'Protection') ? 'Protection information' : 'Summary of its importance';   %>
@@ -111,7 +111,7 @@ let printedAdditionalDetails = false;
 <!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
 
 
-<% if (reportDocument.Object_description && Object.values(reportDocument.Object_description).some(value => {
+<% if (ReportAfterUpdate.Object_description && Object.values(ReportAfterUpdate.Object_description).some(value => {
 if (Array.isArray(value)) {
   return value.length > 0; 
 } else {
@@ -121,7 +121,7 @@ if (Array.isArray(value)) {
 <h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
 <ul style="list-style-type: none;">
   <% let hasPhotoSection = false; %>
-<% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+<% Object.entries(ReportAfterUpdate.Object_description).forEach(([key, value]) => { %>
   <% if (Array.isArray(value) && value.length === 0) { %>
     <% return; %> 
   <% } %>
@@ -163,10 +163,10 @@ if (Array.isArray(value)) {
 <!--------------------- OBJECT ENVIRONMENT---------------------------------------------------------------------------------------------->
 
 
-<% if (reportDocument.Object_environment && Object.values(reportDocument.Object_environment).some(value => value)) { %>
+<% if (ReportAfterUpdate.Object_environment && Object.values(ReportAfterUpdate.Object_environment).some(value => value)) { %>
 <h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT ENVIRONMENT</h2>
 <ul style="list-style-type: none;">
-  <% Object.entries(reportDocument.Object_environment).forEach(([key, value]) => { %>
+  <% Object.entries(ReportAfterUpdate.Object_environment).forEach(([key, value]) => { %>
     <% if (value && (key === 'Environment' || key === 'Effect')) { %>
       <li style="display: flex; flex-direction: column; align-items: center;">
         <% const displayName = (key === 'Environment') ? 'Environment in which item is held' : 'Effect of Environment on object';  %>
@@ -183,7 +183,7 @@ if (Array.isArray(value)) {
 <!--------------------- CONDITION DESCRIPTION---------------------------------------------------------------------------------------------->
 
 
-<% if (reportDocument.Conditions_description && Object.values(reportDocument.Conditions_description).some(value => {
+<% if (ReportAfterUpdate.Conditions_description && Object.values(ReportAfterUpdate.Conditions_description).some(value => {
 if (Array.isArray(value)) {
   return value.length > 0; 
 } else {
@@ -193,7 +193,7 @@ if (Array.isArray(value)) {
 <h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
 <ul style="list-style-type: none;">
   <% let hasPrintedPhotoSection = false; %>
-<% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+<% Object.entries(ReportAfterUpdate.Conditions_description).forEach(([key, value]) => { %>
   <% if (Array.isArray(value) && value.length === 0) { %>
     <% return; %> 
   <% } %>
@@ -232,10 +232,10 @@ if (Array.isArray(value)) {
 
 
 
-<% if (reportDocument.Diagnostic_and_recommendations && Object.values(reportDocument.Diagnostic_and_recommendations).some(value => value)) { %>
+<% if (ReportAfterUpdate.Diagnostic_and_recommendations && Object.values(ReportAfterUpdate.Diagnostic_and_recommendations).some(value => value)) { %>
 <h2 style="border-bottom: 2px solid #03346F; color: black;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
 <ul style="list-style-type: none;">
-  <% Object.entries(reportDocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
+  <% Object.entries(ReportAfterUpdate.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
     <% if (value && (key === 'Descriptive_diagnosis' || key === 'Recommendations' || key === 'Investigations')) { %>
       <li style="display: flex; flex-direction: column; align-items: center;">
         <% const displayName = (key === 'Descriptive_diagnosis') ? 'Descriptive diagnosis of reason for detrioration / Other changes in condition' : (key === 'Recommendations') ? 'Recommendations for further care and/or conservation:' : 'Further scientific, historical, technical or other investigation or analysis'; %>
