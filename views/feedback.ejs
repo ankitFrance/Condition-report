@@ -22,64 +22,141 @@
 
 <!--*****************************************************************************************************************************************-->
    
-<div class="container" style="background-color: white;">
+<div class="container" style="background-color: #ffffff;">
 
 
-  <h1 style="text-align: center;">Condition Report</h1>
-
- 
+  <h1 style="text-align: center;  margin-bottom: 60px;">Condition Report</h1>
 
 
+  <!--**********************************************REPORTING INFORMATION******************************************************-->
 
-
-<!--------------------- REPORTING INFORMATION---------------------------------------------------------------------------------------------->
+  <%
+let printedBasicInfo = false;
+let printedWorkingCondition = false;
+let printedAdditionalDetails = false;
+%>
 
 <% if (reportDocument.Reporting_Information && Object.values(reportDocument.Reporting_Information).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">REPORTING INFORMATION</h2>
-  <ul style="list-style-type: none;">
-    <% Object.entries(reportDocument.Reporting_Information).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <li><strong><%= key %>:</strong> <%= value %></li>
+<h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
+<ul style="list-style-type: none;">
+  <% Object.entries(reportDocument.Reporting_Information).forEach(([key, value]) => { %>
+    <% if (value) { %>
+      <% if (['Name', 'Role', 'Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
+        <% if (!printedBasicInfo) { %>
+          <h4 style="text-decoration: underline; color: #03346F;" >Basic information</h4>
+         
+          <% printedBasicInfo = true; %>
+        <% } %>
+      <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Ruler', 'Microscope', 'Camera', 'Gloves', 'Clothing'].includes(key)) { %>
+        <% if (!printedWorkingCondition) { %>
+          <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
+         
+          <% printedWorkingCondition = true; %>
+        <% } %>
+      <% } else if (['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'].includes(key)) { %>
+        <% if (!printedAdditionalDetails) { %>
+          <h4 style="text-decoration: underline; color: #03346F;"> Additional details</h4>
+         
+          <% printedAdditionalDetails = true; %>
+        <% } %>
       <% } %>
-    <% }) %>
-  </ul>
+      <li style="display: flex; flex-direction: column; align-items: center;">
+        <% const displayName = (key === 'Name') ? 'Name of Reporter' : (key === 'Role') ? 'Role of reporter' : (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
+        <li>
+          <strong><%= displayName %>:</strong> <%= value %>
+        </li>
+      </li>
+    <% } %>
+  <% }) %>
+</ul>
 <% } %>
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------>   
- 
-<!--------------------- OBJECT IDENTIFICATION---------------------------------------------------------------------------------------------->
+
+
+<!--**********************************************OBJECT IDENTIFICATION******************************************************-->
+
 
 <% if (reportDocument.Object_identification && Object.values(reportDocument.Object_identification).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT IDENTIFICATION</h2>
-  <ul style="list-style-type: none;">
-    <% Object.entries(reportDocument.Object_identification).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <li><strong><%= key %>:</strong> <%= value %></li>
-      <% } %>
-    <% }) %>
-  </ul>
+<h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT IDENTIFICATION</h2>
+<ul style="list-style-type: none;">
+  <% Object.entries(reportDocument.Object_identification).forEach(([key, value]) => { %>
+    <% if (value && (key === 'Identification_no' || key === 'Date_of_acquisition' || key === 'Title' || key === 'Author' || key === 'Date_of_creation' || key === 'Ownership' || key === 'Protection' || (key === 'Summary' && value))) { %>
+      <li>
+        <% const displayName = (key === 'Identification_no') ? 'Identification number' : (key === 'Date_of_acquisition') ? 'Date of Acquisition' : (key === 'Title') ? 'Title' : (key === 'Author') ? 'Author' : (key === 'Date_of_creation') ? 'Date of Creation' : (key === 'Ownership') ? 'Ownership' : (key === 'Protection') ? 'Protection information' : 'Summary of its importance';   %>
+        <% if (key === 'Summary') { %>
+          <div style="text-align: center;">
+            <strong><%= displayName %>:</strong>
+            <br>
+            <textarea rows="5" cols="70"><%= value %></textarea>
+          </div>
+        <% } else { %>
+          <strong><%= displayName %>:</strong> <%= value %>
+        <% } %>
+      </li>
+    <% } %>
+  <% }) %>
+</ul>
 <% } %>
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+
+
+
+
+
+  
 
 <!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
 
-<% if (reportDocument.Object_description && Object.values(reportDocument.Object_description).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT DESCRIPTION</h2>
-  <ul style="list-style-type: none;">
-    <% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
-     
-      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
-        <% if (!(Array.isArray(value) && value.length === 0)) { %>
-           <li><strong><%= key %>:</strong> <%= value %></li>
-        <% } %>
+
+<% if (reportDocument.Object_description && Object.values(reportDocument.Object_description).some(value => {
+if (Array.isArray(value)) {
+  return value.length > 0; 
+} else {
+  return value !== undefined && value !== null && value !== '';
+}
+})) { %>
+<h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
+<ul style="list-style-type: none;">
+  <% let hasPhotoSection = false; %>
+<% Object.entries(reportDocument.Object_description).forEach(([key, value]) => { %>
+  <% if (Array.isArray(value) && value.length === 0) { %>
+    <% return; %> 
+  <% } %>
+  <% if (value !== undefined && value !== null && value !== '') { %>
+    <% if (key === 'Material' || key === 'Structure' || key === 'Surface' || key === 'History' || key === 'Technique' || key === 'Weight' || key === 'Constituent_elements' || key === 'No_of_items' || key === 'Heights' || key === 'Width') { %>
+      <% const displayName = (key === 'Material') ? 'Material' : (key === 'Structure') ? 'Structure' : (key === 'Surface') ? 'Surface' : (key === 'History') ? 'History' : (key === 'Technique') ? 'Technique' : (key === 'Weight') ? 'Weight' : (key === 'Constituent_elements') ? 'Constituent elements' : (key === 'No_of_items') ? 'Number of items' : (key === 'Heights') ? 'Height' : (key === 'Width') ? 'Width' : ''; %>
+      <li>
+        <strong><%= displayName %>:</strong> <%= value %>
+      </li>
+    <% } else if (key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
+      <% const customNames = {
+        'Installation_notes': 'Installation Notes',
+        'Artist_installation_guide': 'Artist Installation Guide',
+        'Object_creation_description': 'Object Creation Description'
+      }; %>
+      <div style="text-align: center;">
+        <strong><%= customNames[key] %>:</strong>
+        <br>
+        <textarea rows="5" cols="70"><%= value %></textarea>
+      </div>
+    <% } else { %>
+      <% if (!hasPhotoSection) { %>
+        <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+        <% hasPhotoSection = true; %>
       <% } %>
-   
-    <% }) %>
-  </ul>
+      <li>
+         <strong><%= key %>:</strong> <%= value %>
+      </li>
+    <% } %>
+  <% } %>
+<% }) %>
+</ul>
 <% } %>
+
+
 
 <% if (images && images.length > 0) { %>
   <div class="row">
@@ -91,41 +168,63 @@
   </div>
 <% } %>
 
-
-<!------------------------------------------------------------------------------------------------------------------------------------------>   
-
 <!--------------------- OBJECT ENVIRONMENT---------------------------------------------------------------------------------------------->
 
+
 <% if (reportDocument.Object_environment && Object.values(reportDocument.Object_environment).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">OBJECT ENVIRONMENT</h2>
-  <ul style="list-style-type: none;">
-    <% Object.entries(reportDocument.Object_environment).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <li><strong><%= key %>:</strong> <%= value %></li>
-      <% } %>
-    <% }) %>
-  </ul>
+<h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT ENVIRONMENT</h2>
+<ul style="list-style-type: none;">
+  <% Object.entries(reportDocument.Object_environment).forEach(([key, value]) => { %>
+    <% if (value && (key === 'Environment' || key === 'Effect')) { %>
+      <li style="display: flex; flex-direction: column; align-items: center;">
+        <% const displayName = (key === 'Environment') ? 'Environment in which item is held' : 'Effect of Environment on object';  %>
+        <strong><%= displayName %>:</strong><br>
+        <textarea rows="5" cols="70"><%= value %></textarea>
+      </li>
+    <% } %>
+  <% }) %>
+</ul>
 <% } %>
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------>   
 
 <!--------------------- CONDITION DESCRIPTION---------------------------------------------------------------------------------------------->
 
 
-<% if (reportDocument.Conditions_description && Object.values(reportDocument.Conditions_description).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">CONDITION DESCRIPTION</h2>
-  <ul style="list-style-type: none;">
-    <% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
-     
-      <% if (value !== undefined && value !== null && (value !== '' || (Array.isArray(value) && value.length > 0))) { %>
-        <% if (!(Array.isArray(value) && value.length === 0)) { %>
-           <li><strong><%= key %>:</strong> <%= value %></li>
-        <% } %>
+<% if (reportDocument.Conditions_description && Object.values(reportDocument.Conditions_description).some(value => {
+if (Array.isArray(value)) {
+  return value.length > 0; 
+} else {
+  return value !== undefined && value !== null && value !== '';
+}
+})) { %>
+<h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
+<ul style="list-style-type: none;">
+  <% let hasPrintedPhotoSection = false; %>
+<% Object.entries(reportDocument.Conditions_description).forEach(([key, value]) => { %>
+  <% if (Array.isArray(value) && value.length === 0) { %>
+    <% return; %> 
+  <% } %>
+  <% if (value !== undefined && value !== null && value !== '') { %>
+    <% if (key === 'Info_observed' || key === 'Report_change') { %>
+      <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
+      <li style="display: flex; flex-direction: column; align-items: center;">
+        <strong><%= displayName %>:</strong><br>
+        <textarea rows="5" cols="70"><%= value %></textarea>
+      </li>
+    <% } else { %>
+      <% if (!hasPrintedPhotoSection) { %>
+        <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+        <% hasPrintedPhotoSection = true; %>
       <% } %>
-   
-    <% }) %>
-  </ul>
+      <li>
+         <strong><%= key %>:</strong> <%= value %>
+      </li>
+    <% } %>
+  <% } %>
+<% }) %>
+</ul>
+
 <% } %>
 
 <% if (images2 && images2.length > 0) { %>
@@ -140,26 +239,37 @@
 
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------>   
 
-<!--------------------- DIAGNOSTIC AND RECOMMENDATION---------------------------------------------------------------------------------------------->
+
+
+<!--------------------- DIAGNOSTIC AND RECOMMENDATIONS---------------------------------------------------------------------------------------------->
+
+
+
+
 
 <% if (reportDocument.Diagnostic_and_recommendations && Object.values(reportDocument.Diagnostic_and_recommendations).some(value => value)) { %>
-  <h2 style="border-bottom: 2px solid #03346F; color: #03346F;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
-  <ul style="list-style-type: none;">
-    <% Object.entries(reportDocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <li><strong><%= key %>:</strong> <%= value %></li>
-      <% } %>
-    <% }) %>
-  </ul>
+<h2 style="border-bottom: 2px solid #03346F; color: black;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
+<ul style="list-style-type: none;">
+  <% Object.entries(reportDocument.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
+    <% if (value && (key === 'Descriptive_diagnosis' || key === 'Recommendations' || key === 'Investigations')) { %>
+      <li style="display: flex; flex-direction: column; align-items: center;">
+        <% const displayName = (key === 'Descriptive_diagnosis') ? 'Descriptive diagnosis of reason for detrioration / Other changes in condition' : (key === 'Recommendations') ? 'Recommendations for further care and/or conservation:' : 'Further scientific, historical, technical or other investigation or analysis'; %>
+        <strong><%= displayName %>:</strong><br>
+        <textarea rows="5" cols="70"><%= value %></textarea>
+      </li>
+    <% } %>
+  <% }) %>
+</ul>
 <% } %>
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------>   
+
+
+
+
 
 </div>
-
 <!--*****************************************************************************************************************************************-->
    
 

@@ -13,7 +13,7 @@ var i18n = {
     Height: 'Height',
     Examination_Center: 'Examination Distance',
     Platform: 'Structural framework (Scaffolding, Work Platform, etc.)',
-    Behind_Mirror: 'Behind Mirror',
+    Behind_Mirror: 'Under glass ? ',
     Quantity: 'Quantity',
     Quality: 'Quality',
     Type: 'Type',
