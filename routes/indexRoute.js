@@ -472,7 +472,7 @@ const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
 
  //console.log(req.files)
 
-  return  res.render('feedback.ejs',   {reportDocument, images, images2})
+  return  res.render('feedback.ejs',   {reportDocument})
  
 })
 
