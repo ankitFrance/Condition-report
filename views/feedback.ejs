@@ -112,50 +112,62 @@ let printedAdditionalDetails = false;
 
 
 <% if (ReportAfterUpdate.Object_description && Object.values(ReportAfterUpdate.Object_description).some(value => {
-if (Array.isArray(value)) {
-  return value.length > 0; 
-} else {
-  return value !== undefined && value !== null && value !== '';
-}
+  if (Array.isArray(value)) {
+    return value.length > 0; 
+  } else {
+    return value !== undefined && value !== null && value !== '';
+  }
 })) { %>
 <h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
 <ul style="list-style-type: none;">
   <% let hasPhotoSection = false; %>
-<% Object.entries(ReportAfterUpdate.Object_description).forEach(([key, value]) => { %>
-  <% if (Array.isArray(value) && value.length === 0) { %>
-    <% return; %> 
-  <% } %>
-  <% if (value !== undefined && value !== null && value !== '') { %>
-    <% if (key === 'Material' || key === 'Structure' || key === 'Surface' || key === 'History' || key === 'Technique' || key === 'Weight' || key === 'Constituent_elements' || key === 'No_of_items' || key === 'Heights' || key === 'Width') { %>
-      <% const displayName = (key === 'Material') ? 'Material' : (key === 'Structure') ? 'Structure' : (key === 'Surface') ? 'Surface' : (key === 'History') ? 'History' : (key === 'Technique') ? 'Technique' : (key === 'Weight') ? 'Weight' : (key === 'Constituent_elements') ? 'Constituent elements' : (key === 'No_of_items') ? 'Number of items' : (key === 'Heights') ? 'Height' : (key === 'Width') ? 'Width' : ''; %>
-      <li>
-        <strong><%= displayName %>:</strong> <%= value %>
-      </li>
-    <% } else if (key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
-      <% const customNames = {
-        'Installation_notes': 'Installation Notes',
-        'Artist_installation_guide': 'Artist Installation Guide',
-        'Object_creation_description': 'Object Creation Description'
-      }; %>
-      <div style="text-align: center;">
-        <strong><%= customNames[key] %>:</strong>
-        <br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
-      </div>
-    <% } else { %>
-      <% if (!hasPhotoSection) { %>
-        <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-        <% hasPhotoSection = true; %>
-      <% } %>
-      <li>
-         <strong><%= key %>:</strong> <%= value %>
-      </li>
+  <% Object.entries(ReportAfterUpdate.Object_description).forEach(([key, value]) => { %>
+    <% if (Array.isArray(value) && value.length === 0) { %>
+      <% return; %> 
     <% } %>
-  <% } %>
-<% }) %>
+    <% if (value !== undefined && value !== null && value !== '') { %>
+      <% if (key === 'Material' || key === 'Structure' || key === 'Surface' || key === 'History' || key === 'Technique' || key === 'Weight' || key === 'Constituent_elements' || key === 'No_of_items' || key === 'Heights' || key === 'Width') { %>
+        <% const displayName = (key === 'Material') ? 'Material' : (key === 'Structure') ? 'Structure' : (key === 'Surface') ? 'Surface' : (key === 'History') ? 'History' : (key === 'Technique') ? 'Technique' : (key === 'Weight') ? 'Weight' : (key === 'Constituent_elements') ? 'Constituent elements' : (key === 'No_of_items') ? 'Number of items' : (key === 'Heights') ? 'Height' : (key === 'Width') ? 'Width' : ''; %>
+        <li>
+          <strong><%= displayName %>:</strong> <%= value %>
+        </li>
+      <% } else if (key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
+        <% const customNames = {
+          'Installation_notes': 'Installation Notes',
+          'Artist_installation_guide': 'Artist Installation Guide',
+          'Object_creation_description': 'Object Creation Description'
+        }; %>
+        <div style="text-align: center;">
+          <strong><%= customNames[key] %>:</strong>
+          <br>
+          <textarea rows="5" cols="70"><%= value %></textarea>
+        </div>
+      <% } else if (key === 'filePaths') { %> 
+        <% if (!hasPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPhotoSection = true; %>
+        <% } %>
+        <li>
+          <strong>Images:</strong>
+          <ul style="list-style-type: none;"> 
+            <% value.forEach((filePath) => { %>
+              <li><img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" /></li> 
+            <% }) %>
+          </ul>
+        </li>
+      <% } else { %>
+        <% if (!hasPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPhotoSection = true; %>
+        <% } %>
+        <li>
+          <strong><%= key %>:</strong> <%= value %>
+        </li>
+      <% } %>
+    <% } %>
+  <% }) %>
 </ul>
 <% } %>
-
 
 
 
@@ -184,39 +196,51 @@ if (Array.isArray(value)) {
 
 
 <% if (ReportAfterUpdate.Conditions_description && Object.values(ReportAfterUpdate.Conditions_description).some(value => {
-if (Array.isArray(value)) {
-  return value.length > 0; 
-} else {
-  return value !== undefined && value !== null && value !== '';
-}
+  if (Array.isArray(value)) {
+    return value.length > 0; 
+  } else {
+    return value !== undefined && value !== null && value !== '';
+  }
 })) { %>
 <h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
 <ul style="list-style-type: none;">
   <% let hasPrintedPhotoSection = false; %>
-<% Object.entries(ReportAfterUpdate.Conditions_description).forEach(([key, value]) => { %>
-  <% if (Array.isArray(value) && value.length === 0) { %>
-    <% return; %> 
-  <% } %>
-  <% if (value !== undefined && value !== null && value !== '') { %>
-    <% if (key === 'Info_observed' || key === 'Report_change') { %>
-      <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
-      <li style="display: flex; flex-direction: column; align-items: center;">
-        <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
-      </li>
-    <% } else { %>
-      <% if (!hasPrintedPhotoSection) { %>
-        <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-        <% hasPrintedPhotoSection = true; %>
-      <% } %>
-      <li>
-         <strong><%= key %>:</strong> <%= value %>
-      </li>
+  <% Object.entries(ReportAfterUpdate.Conditions_description).forEach(([key, value]) => { %>
+    <% if (Array.isArray(value) && value.length === 0) { %>
+      <% return; %> 
     <% } %>
-  <% } %>
-<% }) %>
+    <% if (value !== undefined && value !== null && value !== '') { %>
+      <% if (key === 'Info_observed' || key === 'Report_change') { %>
+        <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <strong><%= displayName %>:</strong><br>
+          <textarea rows="5" cols="70"><%= value %></textarea>
+        </li>
+      <% } else if (key === 'filePaths') { %> 
+        <% if (!hasPrintedPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPrintedPhotoSection = true; %>
+        <% } %>
+        <li>
+          <strong>Images:</strong>
+          <ul style="list-style-type: none;"> 
+            <% value.forEach((filePath) => { %> 
+              <li><img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" /></li> 
+            <% }) %>
+          </ul>
+        </li>
+      <% } else { %>
+        <% if (!hasPrintedPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPrintedPhotoSection = true; %>
+        <% } %>
+        <li>
+          <strong><%= key %>:</strong> <%= value %>
+        </li>
+      <% } %>
+    <% } %>
+  <% }) %>
 </ul>
-
 <% } %>
 
 

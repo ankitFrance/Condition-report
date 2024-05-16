@@ -110,7 +110,6 @@
 
 <!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
 
-
 <% if (Constatdocument.Object_description && Object.values(Constatdocument.Object_description).some(value => {
   if (Array.isArray(value)) {
     return value.length > 0; 
@@ -118,9 +117,9 @@
     return value !== undefined && value !== null && value !== '';
   }
 })) { %>
-  <h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
-  <ul style="list-style-type: none;">
-    <% let hasPhotoSection = false; %>
+<h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
+<ul style="list-style-type: none;">
+  <% let hasPhotoSection = false; %>
   <% Object.entries(Constatdocument.Object_description).forEach(([key, value]) => { %>
     <% if (Array.isArray(value) && value.length === 0) { %>
       <% return; %> 
@@ -142,19 +141,35 @@
           <br>
           <textarea rows="5" cols="70"><%= value %></textarea>
         </div>
+      <% } else if (key === 'filePaths') { %> 
+        <% if (!hasPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPhotoSection = true; %>
+        <% } %>
+        <li>
+          <strong>Images:</strong>
+          <ul style="list-style-type: none;"> 
+            <% value.forEach((filePath) => { %>
+              <li><img src="/<%= filePath %>" alt="<%= filePath %>" height="300" width="300" /></li> 
+            <% }) %>
+          </ul>
+        </li>
       <% } else { %>
         <% if (!hasPhotoSection) { %>
           <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
           <% hasPhotoSection = true; %>
         <% } %>
         <li>
-           <strong><%= key %>:</strong> <%= value %>
+          <strong><%= key %>:</strong> <%= value %>
         </li>
       <% } %>
     <% } %>
   <% }) %>
-  </ul>
+</ul>
 <% } %>
+
+
+
 
 
 
@@ -190,9 +205,9 @@
     return value !== undefined && value !== null && value !== '';
   }
 })) { %>
-  <h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
-  <ul style="list-style-type: none;">
-    <% let hasPrintedPhotoSection = false; %>
+<h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
+<ul style="list-style-type: none;">
+  <% let hasPrintedPhotoSection = false; %>
   <% Object.entries(Constatdocument.Conditions_description).forEach(([key, value]) => { %>
     <% if (Array.isArray(value) && value.length === 0) { %>
       <% return; %> 
@@ -204,20 +219,36 @@
           <strong><%= displayName %>:</strong><br>
           <textarea rows="5" cols="70"><%= value %></textarea>
         </li>
+      <% } else if (key === 'filePaths') { %> 
+        <% if (!hasPrintedPhotoSection) { %>
+          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
+          <% hasPrintedPhotoSection = true; %>
+        <% } %>
+        <li>
+          <strong>Images:</strong>
+          <ul style="list-style-type: none;"> 
+            <% value.forEach((filePath) => { %> 
+              <li><img src="/<%= filePath %>" alt="<%= filePath %>" height="300" width="300" /></li> 
+            <% }) %>
+          </ul>
+        </li>
       <% } else { %>
         <% if (!hasPrintedPhotoSection) { %>
           <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
           <% hasPrintedPhotoSection = true; %>
         <% } %>
         <li>
-           <strong><%= key %>:</strong> <%= value %>
+          <strong><%= key %>:</strong> <%= value %>
         </li>
       <% } %>
     <% } %>
   <% }) %>
-  </ul>
-
+</ul>
 <% } %>
+
+
+
+
 
 
 

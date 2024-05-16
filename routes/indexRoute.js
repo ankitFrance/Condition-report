@@ -9,11 +9,21 @@ const ObjectId = mongoose.Types.ObjectId;
 
 /*************************************************************************************** *******************************/
 
-const storage = multer.diskStorage({
+const storage = multer.diskStorage(
+
+  
+  {
+    
     destination: function (req, file, cb) {
-      return cb(null, './uploads')
+      let dpath = __dirname.slice(2, -7); 
+      let hpath =  path.join(dpath, 'public', 'uploads');
+      // hpath  - Users\Light work\Desktop\Constat d'etat\public\uploads
+      let ab =  cb(null, hpath);
+      
+      return ab;
     },
-    })
+    }
+  )
   
 const uploadMiddleware = multer({ storage, limits: {   //middleware
   fieldNameSize: 100, 
@@ -424,13 +434,20 @@ router.post('/feedback', uploadMiddleware.fields([
 /************************************FILE AND FOLDER SAVING ****************************** */
 
 // Create directory if it doesn't exist
-const folderPath = path.join(__dirname, '..', 'uploads', mongoDBIDofConstatEtat);
+let dpath = __dirname.slice(0, -7);    // this is to remove last 7  char in dirname which  is routes/
+// dpath - C:\Users\Light work\Desktop\Constat d'etat
+const folderPath = path.join(dpath, 'public', 'uploads', mongoDBIDofConstatEtat);
 if (!fs.existsSync(folderPath)) {
   fs.mkdirSync(folderPath);
+  console.log('this is tetsting', __dirname);
 }
 
+
+
+
+
 // Move files to the newly created directory
-const moveFiles = (files, destination) => {
+const moveFiles = (files , destination) => {
   const newPaths = []; // Array to store new paths
 
   if (!Array.isArray(files)) {     // to handle case when only one fileUpload field is uploaded , not another
@@ -440,10 +457,15 @@ const moveFiles = (files, destination) => {
 
   files.forEach(file => {
     if (file) { // Check if file is defined
-    const oldPath = path.join(__dirname, '..', 'uploads', file.filename);
-    const newPath = path.join(destination, file.originalname);
+       
+    const oldPath = path.join(dpath,'public/uploads', file.filename);
+   
+    
+    const mypath = path.join('public/uploads', mongoDBIDofConstatEtat);
+    const dbPatch = path.join('uploads', mongoDBIDofConstatEtat,file.originalname )
+    const newPath = path.join(mypath, file.originalname);
     fs.renameSync(oldPath, newPath);
-    newPaths.push(newPath); // Push the new path to the array
+    newPaths.push(dbPatch); // Push the new path to the array
     }
   });
 
