@@ -121,7 +121,9 @@ let printedAdditionalDetails = false;
 <h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
 <ul style="list-style-type: none;">
   <% let hasPhotoSection = false; %>
+  <% let captions = ReportAfterUpdate.Object_description.captions || []; %> 
   <% Object.entries(ReportAfterUpdate.Object_description).forEach(([key, value]) => { %>
+    <% if (key === 'captions') { return; } %> 
     <% if (Array.isArray(value) && value.length === 0) { %>
       <% return; %> 
     <% } %>
@@ -150,8 +152,12 @@ let printedAdditionalDetails = false;
         <li>
           <strong>Images:</strong>
           <ul style="list-style-type: none;"> 
-            <% value.forEach((filePath) => { %>
-              <li><img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" /></li> 
+            <% value.forEach((filePath, index) => { %>
+              <li>
+                <img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
+                <br>
+                <%= captions[index] || '' %> 
+              </li> 
             <% }) %>
           </ul>
         </li>
@@ -168,7 +174,6 @@ let printedAdditionalDetails = false;
   <% }) %>
 </ul>
 <% } %>
-
 
 
 
@@ -205,7 +210,9 @@ let printedAdditionalDetails = false;
 <h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
 <ul style="list-style-type: none;">
   <% let hasPrintedPhotoSection = false; %>
+  <% let captions = ReportAfterUpdate.Conditions_description.captions || []; %> 
   <% Object.entries(ReportAfterUpdate.Conditions_description).forEach(([key, value]) => { %>
+    <% if (key === 'captions') { return; } %> 
     <% if (Array.isArray(value) && value.length === 0) { %>
       <% return; %> 
     <% } %>
@@ -224,8 +231,12 @@ let printedAdditionalDetails = false;
         <li>
           <strong>Images:</strong>
           <ul style="list-style-type: none;"> 
-            <% value.forEach((filePath) => { %> 
-              <li><img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" /></li> 
+            <% value.forEach((filePath, index) => { %> 
+              <li>
+                <img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
+                <br>
+                <%= captions[index] || '' %> 
+              </li>
             <% }) %>
           </ul>
         </li>
