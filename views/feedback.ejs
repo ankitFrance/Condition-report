@@ -27,49 +27,67 @@
 
   <h1 style="text-align: center;  margin-bottom: 60px;">Condition Report</h1>
 
+  <!--******************************************************************************************************-->
+
+  <% if (ReportAfterUpdate.submissionTimestamp || ReportAfterUpdate.Reporting_Information.Name || ReportAfterUpdate.Reporting_Information.Role) { %>
+    <p>
+      <% if (ReportAfterUpdate.submissionTimestamp) { %>
+        <strong>Time of submission:</strong> <%= ReportAfterUpdate.submissionTimestamp %><br>
+      <% } %>
+      <% if (ReportAfterUpdate.Reporting_Information.Name) { %>
+        <strong>Subitted by by:</strong> <%= ReportAfterUpdate.Reporting_Information.Name %><br>
+      <% } %>
+      <% if (ReportAfterUpdate.Reporting_Information.Role) { %>
+        <strong>Role of Reporter:</strong> <%= ReportAfterUpdate.Reporting_Information.Role %>
+      <% } %>
+    </p>
+    <% } %>
+
 
   <!--**********************************************REPORTING INFORMATION******************************************************-->
 
   <%
-let printedBasicInfo = false;
-let printedWorkingCondition = false;
-let printedAdditionalDetails = false;
+  let printedBasicInfo = false;
+  let printedWorkingCondition = false;
+  let printedAdditionalDetails = false;
 %>
 
 <% if (ReportAfterUpdate.Reporting_Information && Object.values(ReportAfterUpdate.Reporting_Information).some(value => value)) { %>
-<h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
-<ul style="list-style-type: none;">
-  <% Object.entries(ReportAfterUpdate.Reporting_Information).forEach(([key, value]) => { %>
-    <% if (value) { %>
-      <% if (['Name', 'Role', 'Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
-        <% if (!printedBasicInfo) { %>
-          <h4 style="text-decoration: underline; color: #03346F;" >Basic information</h4>
-         
-          <% printedBasicInfo = true; %>
+  <h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
+  <ul style="list-style-type: none;">
+    <% Object.entries(ReportAfterUpdate.Reporting_Information).forEach(([key, value]) => { %>
+      <% if (value && !['Name', 'Role'].includes(key)) { %>
+        <% if (['Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
+          <% if (!printedBasicInfo) { %>
+            <h4 style="text-decoration: underline; color: #03346F;" >Basic information</h4>
+           
+            <% printedBasicInfo = true; %>
+          <% } %>
+        <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Ruler', 'Microscope', 'Camera', 'Gloves', 'Clothing'].includes(key)) { %>
+          <% if (!printedWorkingCondition) { %>
+            <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
+           
+            <% printedWorkingCondition = true; %>
+          <% } %>
+        <% } else if (['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'].includes(key)) { %>
+          <% if (!printedAdditionalDetails) { %>
+            <h4 style="text-decoration: underline; color: #03346F;"> Additional details</h4>
+           
+            <% printedAdditionalDetails = true; %>
+          <% } %>
         <% } %>
-      <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Ruler', 'Microscope', 'Camera', 'Gloves', 'Clothing'].includes(key)) { %>
-        <% if (!printedWorkingCondition) { %>
-          <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
-         
-          <% printedWorkingCondition = true; %>
-        <% } %>
-      <% } else if (['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'].includes(key)) { %>
-        <% if (!printedAdditionalDetails) { %>
-          <h4 style="text-decoration: underline; color: #03346F;"> Additional details</h4>
-         
-          <% printedAdditionalDetails = true; %>
-        <% } %>
-      <% } %>
-      <li style="display: flex; flex-direction: column; align-items: center;">
-        <% const displayName = (key === 'Name') ? 'Name of Reporter' : (key === 'Role') ? 'Role of reporter' : (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
-        <li>
-          <strong><%= displayName %>:</strong> <%= value %>
+        <li style="display: flex; flex-direction: column; align-items: center;">
+          <% const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
+          <li>
+            <strong><%= displayName %>:</strong> <%= value %>
+          </li>
         </li>
-      </li>
-    <% } %>
-  <% }) %>
-</ul>
+      <% } %>
+    <% }) %>
+  </ul>
 <% } %>
+
+ 
 
 
 

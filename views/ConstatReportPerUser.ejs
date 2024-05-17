@@ -26,11 +26,25 @@
 
 
     <h1 style="text-align: center;  margin-bottom: 60px;">Condition Report</h1>
+<!--******************************************************************************************************-->
 
+    <% if (Constatdocument.submissionTimestamp || Constatdocument.Reporting_Information.Name || Constatdocument.Reporting_Information.Role) { %>
+      <p>
+        <% if (Constatdocument.submissionTimestamp) { %>
+          <strong>Time of submission:</strong> <%= Constatdocument.submissionTimestamp %><br>
+        <% } %>
+        <% if (Constatdocument.Reporting_Information.Name) { %>
+          <strong>Subitted by by:</strong> <%= Constatdocument.Reporting_Information.Name %><br>
+        <% } %>
+        <% if (Constatdocument.Reporting_Information.Role) { %>
+          <strong>Role of Reporter:</strong> <%= Constatdocument.Reporting_Information.Role %>
+        <% } %>
+      </p>
+      <% } %>
 
-    <!--**********************************************REPORTING INFORMATION******************************************************-->
+<!--**********************************************REPORTING INFORMATION******************************************************-->
 
-    <%
+<%
   let printedBasicInfo = false;
   let printedWorkingCondition = false;
   let printedAdditionalDetails = false;
@@ -40,8 +54,8 @@
   <h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
   <ul style="list-style-type: none;">
     <% Object.entries(Constatdocument.Reporting_Information).forEach(([key, value]) => { %>
-      <% if (value) { %>
-        <% if (['Name', 'Role', 'Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
+      <% if (value && !['Name', 'Role'].includes(key)) { %>
+        <% if (['Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
           <% if (!printedBasicInfo) { %>
             <h4 style="text-decoration: underline; color: #03346F;" >Basic information</h4>
            
@@ -61,7 +75,7 @@
           <% } %>
         <% } %>
         <li style="display: flex; flex-direction: column; align-items: center;">
-          <% const displayName = (key === 'Name') ? 'Name of Reporter' : (key === 'Role') ? 'Role of reporter' : (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
+          <% const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
           <li>
             <strong><%= displayName %>:</strong> <%= value %>
           </li>
@@ -70,7 +84,6 @@
     <% }) %>
   </ul>
 <% } %>
-
 
 
 
