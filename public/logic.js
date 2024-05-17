@@ -158,6 +158,51 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
 
 
 
+document.getElementById('buttonForAddTool').onclick = function () {
+
+  let tools =  document.getElementById('tools');
+  let option = document.createElement('option');
+  let textInput = document.getElementById('textfieldForAddTool'); 
+  option.value = textInput.value
+  option.text = textInput.value
+
+  tools.add(option)
+   
+  //textInput.value = '';
+
+  //
+  var toolName = document.getElementById('textfieldForAddTool').value;
+  if (toolName) {
+    var checkboxContainer = document.querySelector('.checkbox-containers');
+
+    // Create new checkbox div
+    var newCheckboxDiv = document.createElement('div');
+    newCheckboxDiv.classList.add('checkbox');
+
+    // Create new label
+    var newLabel = document.createElement('label');
+
+    // Create new checkbox input
+    var newCheckbox = document.createElement('input');
+    newCheckbox.type = 'checkbox';
+    newCheckbox.name = 'tools';
+    newCheckbox.value = toolName;
+
+    // Append checkbox to label
+    newLabel.appendChild(newCheckbox);
+    newLabel.appendChild(document.createTextNode(' ' + toolName));
+
+    // Append label to checkbox div
+    newCheckboxDiv.appendChild(newLabel);
+
+    // Append checkbox div to container
+    checkboxContainer.appendChild(newCheckboxDiv);
+
+    // Clear the input field
+    document.getElementById('textfieldForAddTool').value = '';
+}
+}
+
 
 
 

@@ -10,17 +10,13 @@ const ObjectId = mongoose.Types.ObjectId;
 /*************************************************************************************** *******************************/
 
 const storage = multer.diskStorage(
-
-  
+ 
   {
-    
     destination: function (req, file, cb) {
       let dpath = __dirname.slice(2, -7); 
-      let hpath =  path.join(dpath, 'public', 'uploads');
-      // hpath  - Users\Light work\Desktop\Constat d'etat\public\uploads
-      let ab =  cb(null, hpath);
-      
-      return ab;
+      let imgStorepath =  path.join(dpath, 'public', 'uploads');  // imgStorepath  - Users\Light work\Desktop\Constat d'etat\public\uploads
+      let imgStore =  cb(null, imgStorepath);
+      return imgStore;
     },
     }
   )
@@ -457,15 +453,12 @@ const moveFiles = (files , destination) => {
 
   files.forEach(file => {
     if (file) { // Check if file is defined
-       
     const oldPath = path.join(dpath,'public/uploads', file.filename);
-   
-    
     const mypath = path.join('public/uploads', mongoDBIDofConstatEtat);
-    const dbPatch = path.join('uploads', mongoDBIDofConstatEtat,file.originalname )
+    const dbPath = path.join('uploads', mongoDBIDofConstatEtat,file.originalname )
     const newPath = path.join(mypath, file.originalname);
     fs.renameSync(oldPath, newPath);
-    newPaths.push(dbPatch); // Push the new path to the array
+    newPaths.push(dbPath); // Push the new path to the array
     }
   });
 

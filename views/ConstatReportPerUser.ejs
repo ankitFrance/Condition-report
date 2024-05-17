@@ -150,10 +150,10 @@
           <strong>Images:</strong>
           <ul style="list-style-type: none;"> 
             <% value.forEach((filePath, index) => { %>
-              <li>
-                <img src="/<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
+              <li style="display: block; width: 300px; text-align: center;">
+                <img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
                 <br>
-                <%= captions[index] || '' %> 
+                <span><%= captions[index] || '' %></span>
               </li> 
             <% }) %>
           </ul>
@@ -229,11 +229,11 @@
           <strong>Images:</strong>
           <ul style="list-style-type: none;"> 
             <% value.forEach((filePath, index) => { %> 
-              <li>
-                <img src="/<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
+              <li style="display: block; width: 300px; text-align: center;">
+                <img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
                 <br>
-                <%= captions[index] || '' %> 
-              </li>
+                <span><%= captions[index] || '' %></span>
+              </li> 
             <% }) %>
           </ul>
         </li>
