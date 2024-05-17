@@ -123,7 +123,7 @@ let printedAdditionalDetails = false;
   <% let hasPhotoSection = false; %>
   <% let captions = ReportAfterUpdate.Object_description.captions || []; %> 
   <% Object.entries(ReportAfterUpdate.Object_description).forEach(([key, value]) => { %>
-    <% if (key === 'captions') { return; } %> 
+    <% if (key === 'captions' || key === 'originalNames') { return; } %> 
     <% if (Array.isArray(value) && value.length === 0) { %>
       <% return; %> 
     <% } %>
@@ -150,7 +150,7 @@ let printedAdditionalDetails = false;
           <% hasPhotoSection = true; %>
         <% } %>
         <li>
-          <strong>Images:</strong>
+        
           <ul style="list-style-type: none;"> 
             <% value.forEach((filePath, index) => { %>
               <li style="display: block; width: 300px; text-align: center;">
@@ -212,7 +212,7 @@ let printedAdditionalDetails = false;
   <% let hasPrintedPhotoSection = false; %>
   <% let captions = ReportAfterUpdate.Conditions_description.captions || []; %> 
   <% Object.entries(ReportAfterUpdate.Conditions_description).forEach(([key, value]) => { %>
-    <% if (key === 'captions') { return; } %> 
+    <% if (key === 'captions' || key === 'originalNames') { return; } %> 
     <% if (Array.isArray(value) && value.length === 0) { %>
       <% return; %> 
     <% } %>
@@ -229,7 +229,7 @@ let printedAdditionalDetails = false;
           <% hasPrintedPhotoSection = true; %>
         <% } %>
         <li>
-          <strong>Images:</strong>
+        
           <ul style="list-style-type: none;"> 
             <% value.forEach((filePath, index) => { %> 
               <li style="display: block; width: 300px; text-align: center;">

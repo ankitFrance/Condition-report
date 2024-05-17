@@ -48,7 +48,7 @@ var i18n = {
     Ownership: 'Ownership even if unknown',
     Protection: 'Protection information',
     Summary_of_its_importance: 'Summary of its importance',
-    Date_of_acqisation: 'Date of Acquisation', 
+    Date_of_acqisation: 'Date of Acquisition', 
     Date_of_creation: 'Date of Creation', 
 
 
