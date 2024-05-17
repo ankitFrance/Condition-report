@@ -142,10 +142,7 @@
           <textarea rows="5" cols="70"><%= value %></textarea>
         </div>
       <% } else if (key === 'filePaths') { %> 
-        <% if (!hasPhotoSection) { %>
-          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-          <% hasPhotoSection = true; %>
-        <% } %>
+       
         <li>
          
           <ul style="list-style-type: none;"> 
@@ -159,10 +156,7 @@
           </ul>
         </li>
       <% } else { %>
-        <% if (!hasPhotoSection) { %>
-          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-          <% hasPhotoSection = true; %>
-        <% } %>
+        
         <li>
           <strong><%= key %>:</strong> <%= value %>
         </li>
@@ -196,7 +190,6 @@
 
 <!--------------------- CONDITION DESCRIPTION---------------------------------------------------------------------------------------------->
 
-
 <% if (Constatdocument.Conditions_description && Object.values(Constatdocument.Conditions_description).some(value => {
   if (Array.isArray(value)) {
     return value.length > 0; 
@@ -221,10 +214,7 @@
           <textarea rows="5" cols="70"><%= value %></textarea>
         </li>
       <% } else if (key === 'filePaths') { %> 
-        <% if (!hasPrintedPhotoSection) { %>
-          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-          <% hasPrintedPhotoSection = true; %>
-        <% } %>
+       
         <li>
       
           <ul style="list-style-type: none;"> 
@@ -238,10 +228,7 @@
           </ul>
         </li>
       <% } else { %>
-        <% if (!hasPrintedPhotoSection) { %>
-          <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-          <% hasPrintedPhotoSection = true; %>
-        <% } %>
+        
         <li>
           <strong><%= key %>:</strong> <%= value %>
         </li>
@@ -250,9 +237,6 @@
   <% }) %>
 </ul>
 <% } %>
-
-
-
 
 
 <!--------------------- DIAGNOSTIC AND RECOMMENDATIONS---------------------------------------------------------------------------------------------->
