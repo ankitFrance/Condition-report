@@ -271,26 +271,18 @@ router.post('/feedback', uploadMiddleware.fields([
 ]), async(req, res)=>{
    
   const formData = req.body;
-  console.log('data is cominggggggggggg', formData)
+  console.log('data coming from request body........', formData)
   const captions = JSON.parse(formData.captions);
   const images = JSON.parse(formData.images);
   const originalNames = JSON.parse(formData.fileNames);
   const captions2 = JSON.parse(formData.captions2);
   const images2 = JSON.parse(formData.images2);
   const originalNames2 = JSON.parse(formData.fileNames2);
-  
-
-
-  
-
-
 
 
   const ReportForm = new Report({
 
- 
-
-    mongoIdStore: {
+  mongoIdStore: {
       GoogleUserMongoID : formData.mongoidGoogle,
       OrcidUserMongoID : formData.mongoidOrcid,
       NormalUserMongoID : formData.mongoidNormalUser
@@ -306,7 +298,6 @@ router.post('/feedback', uploadMiddleware.fields([
       Methods: formData.methods, 
       Purpose_of_condition_report: formData.purpose_of_condition_report,
       Name_of_client: formData.name_of_client,
-     
       Height: formData.height,
       Examination_center: formData.examination_center,
       Platform: formData.platform,
@@ -340,8 +331,6 @@ router.post('/feedback', uploadMiddleware.fields([
       Protection : formData.protection,
       Summary : formData.summary,
   
-     
-
     }, 
 
     Object_description : {
@@ -360,8 +349,6 @@ router.post('/feedback', uploadMiddleware.fields([
       Artist_installation_guide : formData.artist_installation_guide,
       Object_creation_description : formData.object_creation_description,
 
-  
-     
      } , 
 
     Object_environment : {
@@ -439,9 +426,6 @@ if (!fs.existsSync(folderPath)) {
 }
 
 
-
-
-
 // Move files to the newly created directory
 const moveFiles = (files , destination) => {
   const newPaths = []; // Array to store new paths
@@ -469,11 +453,8 @@ const newPaths1 = moveFiles(req.files['ImageFile'], folderPath);
 const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
 
 
-
-
-
-
 /********************************************************************************************* */
+
 
 const updatedReport = await Report.findByIdAndUpdate(savedReport._id, {
   $set: {
