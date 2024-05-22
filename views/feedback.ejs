@@ -25,23 +25,36 @@
 <div class="container" style="background-color: #ffffff;">
 
 
-  <h1 style="text-align: center;  margin-bottom: 60px;">Condition Report</h1>
+  <h1 style="text-align: center;  margin-bottom: 30px;">Condition Report</h1>
 
   <!--******************************************************************************************************-->
 
-  <% if (ReportAfterUpdate.submissionTimestamp || ReportAfterUpdate.Reporting_Information.Name || ReportAfterUpdate.Reporting_Information.Role) { %>
-    <p>
+  <% if (ReportAfterUpdate.submissionTimestamp || ReportAfterUpdate.Reporting_Information.Name || ReportAfterUpdate.Reporting_Information.Role || ReportAfterUpdate.Object_identification.Title ) { %>
+
+    <div style="border: 4px solid black; padding: 10px; text-align: center; margin-bottom: 50px;" >
+      <% if (ReportAfterUpdate.Object_identification.Title) { %>
+        <p>
+          <strong>Condition Report for:</strong> <%= ReportAfterUpdate.Object_identification.Title %>
+        </p>
+      <% } %>
       <% if (ReportAfterUpdate.submissionTimestamp) { %>
-        <strong>Time of submission:</strong> <%= ReportAfterUpdate.submissionTimestamp %><br>
+        <p>
+          <strong>Time of submission:</strong> <%= ReportAfterUpdate.submissionTimestamp %>
+        </p>
       <% } %>
       <% if (ReportAfterUpdate.Reporting_Information.Name) { %>
-        <strong>Subitted by by:</strong> <%= ReportAfterUpdate.Reporting_Information.Name %><br>
+        <p>
+          <strong>Submitted by:</strong> <%= ReportAfterUpdate.Reporting_Information.Name %>
+        </p>
       <% } %>
       <% if (ReportAfterUpdate.Reporting_Information.Role) { %>
-        <strong>Role of Reporter:</strong> <%= ReportAfterUpdate.Reporting_Information.Role %>
+        <p>
+          <strong>Role of Reporter:</strong> <%= ReportAfterUpdate.Reporting_Information.Role %>
+        </p>
       <% } %>
-    </p>
-    <% } %>
+    </div>
+
+  <% } %>
 
 
   <!--**********************************************REPORTING INFORMATION******************************************************-->
@@ -166,15 +179,15 @@
        
         <li>
         
-          <ul style="list-style-type: none;"> 
-            <% value.forEach((filePath, index) => { %>
-              <li style="display: block; width: 300px; text-align: center;">
-                <img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
-                <br>
-                <span><%= captions[index] || '' %></span>
-              </li> 
-            <% }) %>
+          <ul style="list-style-type: none; display: flex; flex-wrap: wrap; justify-content: center; padding: 0;">
+           <% value.forEach((filePath, index) => { %>
+            <li style="display: flex; flex-direction: column; align-items: center; width: 300px; margin: 10px;">
+            <img src="/<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
+            <span><%= captions[index] || '' %></span>
+            </li>
+           <% }) %>
           </ul>
+
         </li>
       <% } else { %>
        
@@ -239,15 +252,15 @@
        
         <li>
         
-          <ul style="list-style-type: none;"> 
-            <% value.forEach((filePath, index) => { %> 
-              <li style="display: block; width: 300px; text-align: center;">
-                <img src="<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
-                <br>
-                <span><%= captions[index] || '' %></span>
-              </li> 
-            <% }) %>
+          <ul style="list-style-type: none; display: flex; flex-wrap: wrap; justify-content: center; padding: 0;">
+           <% value.forEach((filePath, index) => { %>
+            <li style="display: flex; flex-direction: column; align-items: center; width: 300px; margin: 10px;">
+            <img src="/<%= filePath %>" alt="<%= filePath %>" height="300" width="300" />
+            <span><%= captions[index] || '' %></span>
+            </li>
+           <% }) %>
           </ul>
+          
         </li>
       <% } else { %>
        
