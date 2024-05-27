@@ -6,8 +6,6 @@ var i18n = {
     Role: 'Role',
     Institution: 'Institution', 
     Date_of_inspection: 'Date of Inspection', 
-    Tools: 'Tools', 
-    Methods: 'Methods', 
     Purpose_of_Condition_Report: 'Purpose of Condition Report',
     Name_of_Client: 'Name of Client',
     Height: 'Height',
@@ -17,11 +15,7 @@ var i18n = {
     Quantity: 'Quantity',
     Quality: 'Quality',
     Type: 'Type',
-    Ruler: 'Ruler',
-    Microscope: 'Microscope',
-    Camera: 'Camera',
-    Gloves: 'Gloves',
-    Clothing: 'Clothing',
+    
 
     Reliability_collected_dataLegend : 'Reliability of collected data',
     Cmnt_reliabilty : 'Comment on reliability of data', 
@@ -36,8 +30,6 @@ var i18n = {
     
 
     working_conditions: 'WORKING CONDTIONS UNDER WHICH REPORT IS CREATED ',
-    assets_used :'Assets Used:',
-    protection :'Protection:',
     Reliability_collected_dataLegend : 'Reliability of collected data',
 
     
@@ -124,8 +116,6 @@ var i18n = {
     Role: 'Fonction',
     Institution: 'Institution', 
     Date_of_inspection: "Date de l'inspection", 
-    Tools: 'Outils', 
-    Methods: 'Méthodes', 
     Purpose_of_Condition_Report: `Objectif du constat d'état`,
     Name_of_Client: 'Nom du client/commanditaire',
     Height: 'Hauteur',
@@ -135,11 +125,7 @@ var i18n = {
     Quantity: 'Quantité',
     Quality: 'Qualité',
     Type: 'Genre',
-    Ruler: 'Règle',
-    Microscope: 'Microscope',
-    Camera: 'Appareil photo',
-    Gloves: 'Gants',
-    Clothing: 'Vêtements',
+    
 
     Reliability_collected_dataLegend : 'Fiabilité des données collectées',
     Cmnt_reliabilty : 'Commentaire sur la fiabilité des données', 
@@ -153,8 +139,6 @@ var i18n = {
     Inaccessibility: `Partie(s) inaccessible(s)`,
 
     working_conditions: 'CONDITIONS DE TRAVAIL',
-    assets_used :'Actifs utilisés:',
-    protection :'Protection:',
     Reliability_collected_dataLegend : 'Fiabilité des données collectées',
 
 

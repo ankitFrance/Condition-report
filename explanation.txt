@@ -2,371 +2,855 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+ 
 </head>
 
-<body style="background-color: #E8E9EB;">
-  
+<body>
 
-  <div style="text-align: center; padding: 15px;">
-    <button class="btn btn-primary" onclick="printPage()">
-        <i class="fas fa-print"></i> Print
-    </button>
+
+
+
+
+  <div class="container">
+
+    <div class="form-row row">
+      <div class="col-md-2">
+        <label for="languageSelect">Select Language:</label>
+        <div class="input-group mb-3">
+          <select class="form-select" id="languageSelect" onchange="changeLanguage()">
+            <option value="en"> English </span></option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <form id="registrationForm" action="/feedback" method="post" enctype="multipart/form-data">
+
+      <!----Progress bar --->
+      <div class="progress" style="height: 25px;">
+        <div class="progress-bar progress-bar-striped bg-success" id="changeWidth" role="progressbar" style="width: 0%;"
+          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <!------->
+
+
+      <!---------------------------------------- FORM 1 ------------------------------------------>
+
+      <div id="hiddenDiv" style="display: none; visibility: hidden;">
+        <input style="display: none; visibility: hidden;" id="mongoidGoogle" type="text" name="mongoidGoogle">
+        <input style="display: none; visibility: hidden;" id="mongoidOrcid" type="text" name="mongoidOrcid">
+        <input style="display: none; visibility: hidden;" id="mongoidNormalUser" type="text" name="mongoidNormalUser">
+
+
+      </div>
+
+      <div class="step-form active" id="step1">
+        <h2 style="text-align: center; color: navy;" id="reporting_info_heading"> REPORTING INFORMATION </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-1">
+            <label for="inputState" id="nameretrived" class="col-form-label">Name</label>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="">
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="inputState" id="roleretrived" class="col-form-label">Role</label>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="role" name="role" placeholder="">
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="inputState" id="institutionretrieved" class="col-form-label">Institution</label>
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="institution" name="institution" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group row" style="padding: 5px 0;">
+          <label for="datepicker" id="date_of_inspection" class="col-md-2 col-form-label">Date of Inspection:</label>
+          <div class="col-md-2">
+            <input type="date" id="doi" name="doi" class="form-control">
+          </div>
+        </div>
+
+        <!------------------------------------------------------------------------------->
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-1">
+            <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="tools" class="form-control" name="tools">
+              <option value="" selected>Select value</option>
+              <option value="Tool1">Tool1</option>
+              <option value="Tool2">Tool2</option>
+          </select>
+          </div>
+
+          <select name="skills" multiple="" class="ui fluid dropdown">
+            <option value="">Skills</option>
+          <option value="angular">Angular</option>
+          <option value="css">CSS</option>
+          <option value="design">Graphic Design</option>
+          <option value="ember">Ember</option>
+          <option value="html">HTML</option>
+          <option value="ia">Information Architecture</option>
+          <option value="javascript">Javascript</option>
+          <option value="mech">Mechanical Engineering</option>
+          <option value="meteor">Meteor</option>
+          <option value="node">NodeJS</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="python">Python</option>
+          <option value="rails">Rails</option>
+          <option value="react">React</option>
+          <option value="repair">Kitchen Repair</option>
+          <option value="ruby">Ruby</option>
+          <option value="ui">UI Design</option>
+          <option value="ux">User Experience</option>
+          </select>
+         
+       
+          <div class="form-group col-md-1">
+            <button type="button" class="btn btn-primary" id="buttonForAddTool">Add</button>
+          </div>
+          
+          <!---->
+           
+          <!---->
+         
+        
+          <!------------------------------------------------------------------------------->
+
+          <div class="form-group col-md-1">
+            <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="methods" class="form-control" name="methods">
+              <option value="" selected>Select value</option>
+              <option value="Method1">Method1</option>
+              <option value="Method2">Method2</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="purpose_of_condition_report" rows="2" placeholder=""
+              name="purpose_of_condition_report"></textarea>
+          </div>
+
+          <div class="form-group col-md-1" style=" display: flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-microphone" onclick="record()"></i>
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group col-md-3" style="padding: 5px 0;">
+          <input type="text" class="form-control" id="name_of_client" placeholder="" name="name_of_client">
+        </div>
+
+
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed bg-info" id="working_conditions" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                aria-controls="collapseThree" style="padding: 13px;">
+                WORKING CONDITIONS UNDER WHICH REPORT IS CREATED
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <!---->
+                <div class="form-row row" style="padding: 10px 0 0 0;">
+
+                  <div style="display: flex; align-items: center; text-align: center; margin: 1px 0;">
+                    <hr style="flex: 1; border: none; height: 2px; background-color: #000000;">
+                    <span style="padding: 0 10px; color: purple;">Physical accessibility to the cultural heritage</span>
+                    <hr style="flex: 1; border: none; height: 2px; background-color: #000000;">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <!--  <label for="inputEmail4">Name</label>  -->
+                    <input type="text" class="form-control" id="height" placeholder="" name="height">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="examination_center" placeholder=""
+                      name="examination_center">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="platform" placeholder="" name="platform">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="behind_glass" placeholder="" name="behind_glass">
+                  </div>
+                </div>
+
+                <div class="form-row row" style="padding: 10px 0 0 0;">
+
+                  <div style="display: flex; align-items: center; text-align: center; margin: 1px 0;">
+                    <hr style="flex: 1; border: none; height: 2px; background-color: #000000;">
+                    <span style="padding: 0 10px; color: purple;">Sufficient and safe lighting:</span>
+                    <hr style="flex: 1; border: none; height: 2px; background-color: #000000;">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <!--  <label for="inputEmail4">Name</label>  -->
+                    <input type="text" class="form-control" id="quantity" placeholder="" name="quantity">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="quality" placeholder="" name="quality">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="type" placeholder="" name="type">
+                  </div>
+                </div>
+
+                <!--------->
+                <hr>
+               
+                <fieldset class="form-group" style="padding: 10px 0 0 0;">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="support" value="Sufficient Physical support" >
+                        <label class="form-check-label" for="gridRadios1" id="sufficient_support">
+                          Sufficient Physical support
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="support" value="Mounting for the object">
+                        <label class="form-check-label" for="gridRadios2" id="mounting_object">
+                          Mounting for the object
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!--------->
+                
+                <hr>
+                <fieldset class="form-group" style="padding: 10px 0 0 0;">
+                  <div class="row">
+                    <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">
+                      Assets Used :-</legend>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler"
+                          onchange="updateCheckboxValue(this, 'ruler')">
+                        <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="microscope" name="microscope"
+                          onchange="updateCheckboxValue(this, 'microscope')">
+                        <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="camera" name="camera"
+                          onchange="updateCheckboxValue(this, 'camera')">
+                        <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+
+                <fieldset class="form-group" style="padding: 10px 0 0 0;">
+                  <div class="row">
+                    <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">
+                      Protection :-</legend>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves"
+                          onchange="updateCheckboxValue(this, 'gloves')">
+                        <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing"
+                          onchange="updateCheckboxValue(this, 'clothing')">
+                        <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
+                      </div>
+                    </div>
+
+                  </div>
+                </fieldset>
+
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <fieldset class="form-group" style="padding: 10px 0 0 0;">
+          <div class="row">
+            <legend class="col-form-label col-md-3 pt-0" id="reliability_collect_data_label" style="font-weight: bold;">
+              Reliability of collected data :-</legend>
+            <div class="col-md-2">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="reliability_collected_data" value="Not Available">
+                <label class="form-check-label" for="gridRadios1" id="not_available">
+                  Not Available
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="reliability_collected_data" value="Incomplete">
+                <label class="form-check-label" for="gridRadios2" id="incomplete">
+                  Incomplete / Exhaustive
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="cmnt_reliabilty" name="cmnt_reliabilty" placeholder="Comment for reliabilty">
+        </div>
+
+
+        <div class="accordion" id="accordionExampl" style="padding: 10px 0 0 0;">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThre">
+              <button class="accordion-button collapsed bg-info" id="additional_details" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="false"
+                aria-controls="collapseThree" style="padding: 13px;">
+                ADDITIONAL DETAILS (OPTIONAL)
+              </button>
+            </h2>
+            <div id="collapseThre" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <!---->
+                <div class="form-row row" style="padding: 10px 0 0 0;">
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="person_present_during_inspection" placeholder="" name="person_present_during_inspection">
+                  </div>
+
+
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="contact_person_inspection" placeholder="" name="contact_person_inspection">
+                  </div>
+                </div>
+
+                <div class="form-row row" style="padding: 10px 0 0 0;">
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="duration_of_assessment" placeholder="" name="duration_of_assessment">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="inaccessibility" placeholder="" name="inaccessibility">
+                  </div>
+                </div>
+                <!---->
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+      </div>
+
+
+
+      <!---------------------------------------- FORM 2 ---------------------------------------->
+      <div class="step-form" id="step2">
+
+        <h2 style="text-align: center; color: navy;" id="obj_identification_heading"> OBJECT IDENTIFICATION </h2>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="col-md-2">
+            <label class="col-form-label" for="" id="identification_noLabel">Identification No.</label>
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <button type="button" class="btn btn-primary" id="FetchEROS">Fetch by EROS</button>
+          </div>
+
+          <div class="col-md-1">
+            <p class="">or</p>
+          </div>
+
+          <div class="form-group col-md-2">
+            <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch by Joconde</button>
+          </div>
+
+          <div class="alert alert-danger alert-dismissible fade show" id="errorAlert" style="display: none;" role="alert">
+            Invalid Identification no. Please Enter valid one
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+          <div class="alert alert-success alert-dismissible fade show" id="successAlert" style="display: none;" role="alert">
+             Data fetched successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+
+          <div class="col-md-2">
+            <label class="col-form-label" for="datepicker" id="doaLabel">Date of Acquisition:</label>
+          </div>
+
+          <div class="col-md-3">
+            <input type="date" id="date_of_acquisition" name="date_of_acquisition" class="form-control">
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+         
+
+          <div class="form-group col-md-2">
+            <label for="" id="" class="col-form-label">Title</label>
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="title" name="title" placeholder="">
+          </div>
+
+         
+
+        </div>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-2">
+            <label for="" id="" class="col-form-label">Author/Creator</label>
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="author" name="author" placeholder="">
+          </div>
+
+          
+        </div>
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="col-md-2">
+            <label class="col-form-label" for="datepicker" id="docLabel">Date of Creation:</label>
+          </div>
+
+          <div class="col-md-3">
+            <input type="date" id="date_of_creation" name="date_of_creation" class="form-control">
+          </div>
+
+        </div>
+
+
+
+
+
+        <hr>
+        <div class="form-row row">
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="ownership" name="ownership" placeholder="">
+          </div>
+
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="protection" name="protection" placeholder="">
+          </div>
+
+        </div>
+
+
+        <div class="form-group col-md-6" style="padding: 5px 0;">
+          <textarea class="form-control" id="summary" rows="2" name="summary" placeholder=""></textarea>
+        </div>
+
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+
+      </div>
+      <!-----------------------------------------FORM 3 ---------------------------------------------------->
+      <div class="step-form" id="step3">
+
+        <h2 style="text-align: center; color: navy;" id="obj_desc_heading"> OBJECT DESCRIPTION </h2>
+
+
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="material" name="material" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="structure" name="structure" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="surface" name="surface" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="history" name="history" placeholder="">
+          </div>
+
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="technique" id="technique" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="weight" id="weight" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="contituent_elements" id="contituent_elements" placeholder="">
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="no_of_items" id="no_of_items" placeholder="Number of items">
+          </div>
+
+          
+
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+
+          <div class="col-md-1">
+            <label class="col-form-label" for="" id="">Height</label>
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="heights" name="heights" placeholder="">
+          </div>
+
+
+          <div class="col-md-1">
+            <label class="col-form-label" for="" id="">Width</label>
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="width" name="width" placeholder="">
+          </div>
+
+          
+
+        </div>
+
+        <hr>
+        <div class="form-row row">
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="installation_notes" rows="2" name="installation_notes"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="artist_installation_guide" rows="2" name="artist_installation_guide"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group col-md-6" style="margin-top: 10px;">
+            <textarea class="form-control" id="object_creation_description" rows="2" name="object_creation_description"
+              placeholder=""></textarea>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <h6 id="normal_upload"> Upload photo/Video</h6>
+
+
+        <div class="form-row row ">
+          <div class="form-group col-md-6">
+            <input type="file" name="ImageFile" multiple class="form-control" id="inputGroupFile02"
+              onchange="displayUploadMessage()">
+          </div>
+
+          <div id="previewContainer" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+            <!--preview will come here -->
+          </div>
+
+
+        </div>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+
+      </div>
+
+      <!------------------------------------------ FORM 4 ------------------------------------------->
+
+      <div class="step-form" id="step4">
+
+        <h2 style="text-align: center; color: navy;" id="obj_env_heading"> OBJECT ENVIRONMENT </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="environment" name="environment" rows="4" placeholder=""></textarea>
+          </div>
+        </div>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""></textarea>
+          </div>
+        </div>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+      </div>
+
+      <!-------------------------------------- FORM 5---------------------------------------->
+      <div class="step-form" id="step5">
+
+        <h2 style="text-align: center; color: navy;" id="cond_desc_heading"> CONDITIONS DESCRIPTION (OBEJCT) </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
+          </div>
+        </div>
+
+        <hr>
+
+        <p id="Cc_label" style="padding: 5px 0; font-size: small; color: purple"> Please fill this if the condition of an item is known or suspected to have changed from an earlier or original state </p>
+
+        <div class="form-group col-md-6">
+          <textarea class="form-control" id="report_change" name="report_change" rows="4" placeholder=" "></textarea>
+        </div>
+
+        <hr>
+
+        <h6 id="damaged_upload" style="padding: 5px 0;"> Damaged Observed ?  Please upload photos</h6>
+
+        <div class="form-row row">
+          <div class="form-group col-md-6">
+            <input type="file" name="ImageFile2" multiple class="form-control" id="inputGroupFile04"
+              onchange="displayUploadMessage2()">
+          </div>
+
+          <div id="previewContainer1" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+            <!--preview will come here -->
+          </div>
+        </div>
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+          <button type="button" class="btn btn-success next">Next</button>
+        </div>
+
+      </div>
+
+
+      <!---------------------------------------- FORM 6--------------------------------------------->
+
+      <div class="step-form" id="step6">
+
+        <h2 style="text-align: center; color: navy;" id="diag_recc_heading"> DIAGNOSTIC AND RECOMMENDATIONS </h2>
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="descriptive_diagnosis" rows="4" name="descriptive_diagnosis"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="recommendations" rows="4" name="recommendations"
+              placeholder=""></textarea>
+          </div>
+        </div>
+
+        <hr>
+        <p style="font-size: small; color: purple;">
+          &nbsp;&nbsp;<i class="fas fa-info-circle"></i> <!-- Font Awesome circular info icon -->
+          (Optional) Fill only if information necessary for an immediate diagnosis is not available
+        </p>
+      
+
+        <div class="form-row row" style="padding: 5px 0;">
+          <div class="form-group col-md-6">
+            <textarea class="form-control" id="investigations" rows="4" name="investigations" placeholder=""></textarea>
+          </div>
+        </div>
+
+
+
+        <div style="padding: 10px 0 0 0;">
+          <button type="button" class="btn btn-secondary prev">Previous</button>
+
+          <button type="button" class="btn btn-primary" onclick="viewSummary('registrationForm')">Verify</button>
+        </div>
+
+      </div>
+      <!------------------------------------------------------------------------------------->
+      <!--MODAL-->
+
+      <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: black; color: white;">
+
+              <h5 class="modal-title" id="summaryModalLabel"><strong>VERIFICATION OF DETAILS ENTERED</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="summaryDiv"></div>
+              <!--DATA WILL BE APPENDED HERE-->
+
+
+            </div>
+
+            <div class="modal-footer">
+
+
+              <button type="button" class="btn btn-secondary" id="button_close" onclick="closeModal()"
+                data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-dark" style="float: right;">Submit</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--MODAL-->
+
+      <!------------------------------------------------------------------------------------->
+
+    </form>
+
   </div>
 
-<!--*****************************************************************************************************************************************-->
-   
-<div class="container" style="background-color: #ffffff;">
-
-
-  <h1 style="text-align: center;  margin-bottom: 60px;">Condition Report</h1>
-
-
-  <!--**********************************************REPORTING INFORMATION******************************************************-->
-
-  <%
-let printedBasicInfo = false;
-let printedWorkingCondition = false;
-let printedAdditionalDetails = false;
-%>
-
-<% if (ReportAfterUpdate.Reporting_Information && Object.values(ReportAfterUpdate.Reporting_Information).some(value => value)) { %>
-<h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
-<ul style="list-style-type: none;">
-  <% Object.entries(ReportAfterUpdate.Reporting_Information).forEach(([key, value]) => { %>
-    <% if (value) { %>
-      <% if (['Name', 'Role', 'Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
-        <% if (!printedBasicInfo) { %>
-          <h4 style="text-decoration: underline; color: #03346F;" >Basic information</h4>
-         
-          <% printedBasicInfo = true; %>
-        <% } %>
-      <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Ruler', 'Microscope', 'Camera', 'Gloves', 'Clothing'].includes(key)) { %>
-        <% if (!printedWorkingCondition) { %>
-          <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
-         
-          <% printedWorkingCondition = true; %>
-        <% } %>
-      <% } else if (['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'].includes(key)) { %>
-        <% if (!printedAdditionalDetails) { %>
-          <h4 style="text-decoration: underline; color: #03346F;"> Additional details</h4>
-         
-          <% printedAdditionalDetails = true; %>
-        <% } %>
-      <% } %>
-      <li style="display: flex; flex-direction: column; align-items: center;">
-        <% const displayName = (key === 'Name') ? 'Name of Reporter' : (key === 'Role') ? 'Role of reporter' : (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
-        <li>
-          <strong><%= displayName %>:</strong> <%= value %>
-        </li>
-      </li>
-    <% } %>
-  <% }) %>
-</ul>
-<% } %>
 
 
 
 
-<!--**********************************************OBJECT IDENTIFICATION******************************************************-->
+  <script>
+
+    // Get values from URL parameters
+    var parsedorcidName = '<%= parsedorcidName %>';
+    var parsedorcidEmploymentRoleTitle = '<%= parsedorcidEmploymentRoleTitle %>';
+    var parsedorcidEmploymentInstitution = '<%=parsedorcidEmploymentInstitution %>'
+    var parsedorcidEmploymentInstitution = '<%=parsedorcidEmploymentInstitution %>'
+    var parsedgoogleUsername = '<%=parsedgoogleUsername %>'
+    var parsednormalUserEmail = '<%=parsednormalUserEmail %>'
+    var parsedgoogleMongoDBid = '<%=parsedgoogleMongoDBid%>'
+    var parsedorcidMongoDBid = '<%=parsedorcidMongoDBid%>'
+    var parsedNormalUserMongoDBid = '<%=parsedNormalUserMongoDBid%>'
 
 
-<% if (ReportAfterUpdate.Object_identification && Object.values(ReportAfterUpdate.Object_identification).some(value => value)) { %>
-<h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT IDENTIFICATION</h2>
-<ul style="list-style-type: none;">
-  <% Object.entries(ReportAfterUpdate.Object_identification).forEach(([key, value]) => { %>
-    <% if (value && (key === 'Identification_no' || key === 'Date_of_acquisition' || key === 'Title' || key === 'Author' || key === 'Date_of_creation' || key === 'Ownership' || key === 'Protection' || (key === 'Summary' && value))) { %>
-      <li>
-        <% const displayName = (key === 'Identification_no') ? 'Identification number' : (key === 'Date_of_acquisition') ? 'Date of Acquisition' : (key === 'Title') ? 'Title' : (key === 'Author') ? 'Author' : (key === 'Date_of_creation') ? 'Date of Creation' : (key === 'Ownership') ? 'Ownership' : (key === 'Protection') ? 'Protection information' : 'Summary of its importance';   %>
-        <% if (key === 'Summary') { %>
-          <div style="text-align: center;">
-            <strong><%= displayName %>:</strong>
-            <br>
-            <textarea rows="5" cols="70"><%= value %></textarea>
-          </div>
-        <% } else { %>
-          <strong><%= displayName %>:</strong> <%= value %>
-        <% } %>
-      </li>
-    <% } %>
-  <% }) %>
-</ul>
-<% } %>
+    // Set values in the form fields
+    document.getElementById('mongoidGoogle').value = parsedgoogleMongoDBid;
+    document.getElementById('mongoidOrcid').value = parsedorcidMongoDBid;
+    document.getElementById('mongoidNormalUser').value = parsedNormalUserMongoDBid;
+
+    document.getElementById('name').value = parsedorcidName || parsedgoogleUsername || parsednormalUserEmail;
+    document.getElementById('role').value = parsedorcidEmploymentRoleTitle;
+    document.getElementById('institution').value = parsedorcidEmploymentInstitution;
 
 
+  </script>
 
 
+  <script src="language.js"></script>
+  <script src="logic.js"></script>
 
+  <script>
+$('.ui.dropdown')
+  .dropdown()
+;
+  </script>
 
-
-
-  
-
-<!--------------------- OBJECT DESCRIPTION---------------------------------------------------------------------------------------------->
-
-
-<% if (ReportAfterUpdate.Object_description && Object.values(ReportAfterUpdate.Object_description).some(value => {
-if (Array.isArray(value)) {
-  return value.length > 0; 
-} else {
-  return value !== undefined && value !== null && value !== '';
-}
-})) { %>
-<h2 style="border-bottom: 2px solid #000000; color: #000000;">OBJECT DESCRIPTION</h2>
-<ul style="list-style-type: none;">
-  <% let hasPhotoSection = false; %>
-<% Object.entries(ReportAfterUpdate.Object_description).forEach(([key, value]) => { %>
-  <% if (Array.isArray(value) && value.length === 0) { %>
-    <% return; %> 
-  <% } %>
-  <% if (value !== undefined && value !== null && value !== '') { %>
-    <% if (key === 'Material' || key === 'Structure' || key === 'Surface' || key === 'History' || key === 'Technique' || key === 'Weight' || key === 'Constituent_elements' || key === 'No_of_items' || key === 'Heights' || key === 'Width') { %>
-      <% const displayName = (key === 'Material') ? 'Material' : (key === 'Structure') ? 'Structure' : (key === 'Surface') ? 'Surface' : (key === 'History') ? 'History' : (key === 'Technique') ? 'Technique' : (key === 'Weight') ? 'Weight' : (key === 'Constituent_elements') ? 'Constituent elements' : (key === 'No_of_items') ? 'Number of items' : (key === 'Heights') ? 'Height' : (key === 'Width') ? 'Width' : ''; %>
-      <li>
-        <strong><%= displayName %>:</strong> <%= value %>
-      </li>
-    <% } else if (key === 'Installation_notes' || key === 'Artist_installation_guide' || key === 'Object_creation_description') { %>
-      <% const customNames = {
-        'Installation_notes': 'Installation Notes',
-        'Artist_installation_guide': 'Artist Installation Guide',
-        'Object_creation_description': 'Object Creation Description'
-      }; %>
-      <div style="text-align: center;">
-        <strong><%= customNames[key] %>:</strong>
-        <br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
-      </div>
-    <% } else { %>
-      <% if (!hasPhotoSection) { %>
-        <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-        <% hasPhotoSection = true; %>
-      <% } %>
-
-
-      <% if (key === 'filePaths') { %>
-  <li>
-  <strong><%= key %>:</strong> <img src="<%=value %>" alt="<%=value %>" height="300" width="300" />
-  </li>
-<% } else { %>
-  <li>
-    <strong><%= key %>:</strong> <%= value %>
-  </li>
-<% } %>
-
-
-    <% } %>
-  <% } %>
-<% }) %>
-</ul>
-<% } %>
-
-
-
-
-
-<!--------------------- OBJECT ENVIRONMENT---------------------------------------------------------------------------------------------->
-
-
-<% if (ReportAfterUpdate.Object_environment && Object.values(ReportAfterUpdate.Object_environment).some(value => value)) { %>
-<h2 style="border-bottom: 2px solid #03346F; color: black;">OBJECT ENVIRONMENT</h2>
-<ul style="list-style-type: none;">
-  <% Object.entries(ReportAfterUpdate.Object_environment).forEach(([key, value]) => { %>
-    <% if (value && (key === 'Environment' || key === 'Effect')) { %>
-      <li style="display: flex; flex-direction: column; align-items: center;">
-        <% const displayName = (key === 'Environment') ? 'Environment in which item is held' : 'Effect of Environment on object';  %>
-        <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
-      </li>
-    <% } %>
-  <% }) %>
-</ul>
-<% } %>
-
-
-
-<!--------------------- CONDITION DESCRIPTION---------------------------------------------------------------------------------------------->
-
-
-<% if (ReportAfterUpdate.Conditions_description && Object.values(ReportAfterUpdate.Conditions_description).some(value => {
-if (Array.isArray(value)) {
-  return value.length > 0; 
-} else {
-  return value !== undefined && value !== null && value !== '';
-}
-})) { %>
-<h2 style="border-bottom: 2px solid #000000; color: #000000;">CONDITION DESCRIPTION</h2>
-<ul style="list-style-type: none;">
-  <% let hasPrintedPhotoSection = false; %>
-<% Object.entries(ReportAfterUpdate.Conditions_description).forEach(([key, value]) => { %>
-  <% if (Array.isArray(value) && value.length === 0) { %>
-    <% return; %> 
-  <% } %>
-  <% if (value !== undefined && value !== null && value !== '') { %>
-    <% if (key === 'Info_observed' || key === 'Report_change') { %>
-      <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
-      <li style="display: flex; flex-direction: column; align-items: center;">
-        <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
-      </li>
-    <% } else { %>
-      <% if (!hasPrintedPhotoSection) { %>
-        <h4 style="text-decoration: underline; font-weight: bold; color: #03346F;">Photo section</h4>
-        <% hasPrintedPhotoSection = true; %>
-      <% } %>
-      <% if (key === 'filePaths') { %>
-  <li>
-  <strong><%= key %>:</strong> <img src="<%=value %>" alt="<%=value %>" height="300" width="300" />
-  </li>
-<% } else { %>
-  <li>
-    <strong><%= key %>:</strong> <%= value %>
-  </li>
-<% } %>
-    <% } %>
-  <% } %>
-<% }) %>
-</ul>
-<% } %>
-
-
-
-
-
-
-
-
-<!--------------------- DIAGNOSTIC AND RECOMMENDATIONS---------------------------------------------------------------------------------------------->
-
-
-
-
-
-<% if (ReportAfterUpdate.Diagnostic_and_recommendations && Object.values(ReportAfterUpdate.Diagnostic_and_recommendations).some(value => value)) { %>
-<h2 style="border-bottom: 2px solid #03346F; color: black;">DIAGNOSTIC AND RECOMMENDATIONS</h2>
-<ul style="list-style-type: none;">
-  <% Object.entries(ReportAfterUpdate.Diagnostic_and_recommendations).forEach(([key, value]) => { %>
-    <% if (value && (key === 'Descriptive_diagnosis' || key === 'Recommendations' || key === 'Investigations')) { %>
-      <li style="display: flex; flex-direction: column; align-items: center;">
-        <% const displayName = (key === 'Descriptive_diagnosis') ? 'Descriptive diagnosis of reason for detrioration / Other changes in condition' : (key === 'Recommendations') ? 'Recommendations for further care and/or conservation:' : 'Further scientific, historical, technical or other investigation or analysis'; %>
-        <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
-      </li>
-    <% } %>
-  <% }) %>
-</ul>
-<% } %>
-
-
-
-
-
-
-
-</div>
-<!--*****************************************************************************************************************************************-->
-   
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-   <script>
-   
-   function printPage() {
-        window.print();
-    }
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
  
-   </script>
-<script  src="logic.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
 
 </body>
+
 </html>
-
-<!-------------------------------------------------------------------------------------------------------------------------------> <div class="form-row row" style="padding: 5px 0;">
-        /*************************************************************************************** *******************************/
-
-const storage = multer.diskStorage(
-
-  
-  {
-    
-    destination: function (req, file, cb) {
-      let dpath = __dirname.slice(2, -7); 
-      let hpath =  path.join(dpath, 'public', 'uploads');
-      // hpath  - Users\Light work\Desktop\Constat d'etat\public\uploads
-      let ab =  cb(null, hpath);
-      
-      return ab;
-    },
-    }
-  )
-  
-const uploadMiddleware = multer({ storage, limits: {   //middleware
-  fieldNameSize: 100, 
-  fieldSize: 25 * 1024 * 1024           
-} })                            
-
-/********************************************************************************************************************** */
-
-
-/************************************FILE AND FOLDER SAVING ****************************** */
-
-// Create directory if it doesn't exist
-let dpath = __dirname.slice(0, -7);    // this is to remove last 7  char in dirname which  is routes/
-// dpath - C:\Users\Light work\Desktop\Constat d'etat
-const folderPath = path.join(dpath, 'public', 'uploads', mongoDBIDofConstatEtat);
-if (!fs.existsSync(folderPath)) {
-  fs.mkdirSync(folderPath);
-  console.log('this is tetsting', __dirname);
-}
-
-
-
-
-
-// Move files to the newly created directory
-const moveFiles = (files , destination) => {
-  const newPaths = []; // Array to store new paths
-
-  if (!Array.isArray(files)) {     // to handle case when only one fileUpload field is uploaded , not another
-    files = [files];
-  }
-
-
-  files.forEach(file => {
-    if (file) { // Check if file is defined
-       
-    const oldPath = path.join(dpath,'public/uploads', file.filename);
-   
-    
-    const mypath = path.join('public/uploads', mongoDBIDofConstatEtat);
-    const dbPatch = path.join('uploads', mongoDBIDofConstatEtat,file.originalname )
-    const newPath = path.join(mypath, file.originalname);
-    fs.renameSync(oldPath, newPath);
-    newPaths.push(dbPatch); // Push the new path to the array
-    }
-  });
-
-  return newPaths; // Return the array of new paths
-};
-
-const newPaths1 = moveFiles(req.files['ImageFile'], folderPath);
-const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
-
-
-
-
-
-
-/********************************************************************************************* */

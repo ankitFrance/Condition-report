@@ -76,7 +76,7 @@
            
             <% printedBasicInfo = true; %>
           <% } %>
-        <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Ruler', 'Microscope', 'Camera', 'Gloves', 'Clothing'].includes(key)) { %>
+        <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Assets', 'Protection_Used'].includes(key)) { %>
           <% if (!printedWorkingCondition) { %>
             <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
            
@@ -90,7 +90,7 @@
           <% } %>
         <% } %>
         <li style="display: flex; flex-direction: column; align-items: center;">
-          <% const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Ruler') ? 'Ruler' : (key === 'Microscope') ? 'Microscope' : (key === 'Camera') ? 'Camera' : (key === 'Gloves') ? 'Gloves' : (key === 'Clothing') ? 'Clothing' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
+          <% const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support'  : (key === 'Assets') ? 'Assets Used' : (key === 'Protection_Used') ? 'Protection Used'  : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
           <li>
             <strong><%= displayName %>:</strong> <%= value %>
           </li>
@@ -119,7 +119,7 @@
           <div style="text-align: center;">
             <strong><%= displayName %>:</strong>
             <br>
-            <textarea rows="5" cols="70"><%= value %></textarea>
+            <textarea rows="5" cols="70" style="border: none;" style="border: none;"><%= value %></textarea>
           </div>
         <% } else { %>
           <strong><%= displayName %>:</strong> <%= value %>
@@ -173,7 +173,7 @@
         <div style="text-align: center;">
           <strong><%= customNames[key] %>:</strong>
           <br>
-          <textarea rows="5" cols="70"><%= value %></textarea>
+          <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
         </div>
       <% } else if (key === 'filePaths') { %> 
        
@@ -213,7 +213,7 @@
       <li style="display: flex; flex-direction: column; align-items: center;">
         <% const displayName = (key === 'Environment') ? 'Environment in which item is held' : 'Effect of Environment on object';  %>
         <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
+        <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
       </li>
     <% } %>
   <% }) %>
@@ -246,7 +246,7 @@
         <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
         <li style="display: flex; flex-direction: column; align-items: center;">
           <strong><%= displayName %>:</strong><br>
-          <textarea rows="5" cols="70"><%= value %></textarea>
+          <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
         </li>
       <% } else if (key === 'filePaths') { %> 
        
@@ -294,7 +294,7 @@
       <li style="display: flex; flex-direction: column; align-items: center;">
         <% const displayName = (key === 'Descriptive_diagnosis') ? 'Descriptive diagnosis of reason for detrioration / Other changes in condition' : (key === 'Recommendations') ? 'Recommendations for further care and/or conservation:' : 'Further scientific, historical, technical or other investigation or analysis'; %>
         <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70"><%= value %></textarea>
+        <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
       </li>
     <% } %>
   <% }) %>

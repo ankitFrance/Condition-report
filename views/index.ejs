@@ -13,9 +13,15 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+ 
 </head>
 
 <body>
@@ -95,36 +101,54 @@
         <!------------------------------------------------------------------------------->
 
         <div class="form-row row" style="padding: 5px 0;">
-          <div class="form-group col-md-1">
-            <label for="inputState" id="toolslabel" class="col-form-label">Tools</label>
-          </div>
-          <div class="form-group col-md-2">
-            <select id="tools" class="form-control" name="tools">
-              <option value="" selected>Select value</option>
-              <option value="Tool1">Tool1</option>
-              <option value="Tool2">Tool2</option>
-          </select>
-          </div>
          
-       
+          <div class="form-group col-md-2">
+
+            <select name="tools" multiple="" class="ui fluid dropdown" id="tools">
+              <option value="">Select Tools</option>
+              <option value="Tool 1">Tool 1</option>
+              <option value="Tool 2">Tool 2</option>
+              <option value="Tool 3">Tool 3</option>
+              <option value="Tool 4">Tool 4</option>
+              <option value="Tool 5">Tool 5</option>
+            </select>
+           
+          </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="exampleInputText" placeholder="Enter new tool">
+          </div>
+        
           <div class="form-group col-md-1">
             <button type="button" class="btn btn-primary" id="buttonForAddTool">Add</button>
           </div>
         
-          <!------------------------------------------------------------------------------->
-
-          <div class="form-group col-md-1">
-            <label for="inputState" id="methodslabel" class="col-form-label">Methods</label>
-          </div>
+          
+         
           <div class="form-group col-md-2">
-            <select id="methods" class="form-control" name="methods">
-              <option value="" selected>Select value</option>
-              <option value="Method1">Method1</option>
-              <option value="Method2">Method2</option>
+
+            <select name="methods" multiple="" class="ui fluid dropdown" id="methods">
+              <option value="">Select Methods</option>
+              <option value="Method 1">Method 1</option>
+              <option value="Method 2">Method 2</option>
+              <option value="Method 3">Method 3</option>
+              <option value="Method 4">Method 4</option>
+              <option value="Method 5">Method 5</option>
             </select>
+            
           </div>
+
+          <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="exampleInputText" placeholder="Enter new method">
+          </div>
+        
+          <div class="form-group col-md-1">
+            <button type="button" class="btn btn-primary" id="buttonForAddMethod">Add</button>
+          </div>
+        
         </div>
 
+        <!------------------------------------------------------------------------------->
 
         <div class="form-row row" style="padding: 5px 0;">
 
@@ -232,58 +256,55 @@
                 <!--------->
                 
                 <hr>
-                <fieldset class="form-group" style="padding: 10px 0 0 0;">
-                  <div class="row">
-                    <legend class="col-form-label col-md-2 pt-0" id="assets_used_legend" style="font-weight: bold;">
-                      Assets Used :-</legend>
-                    <div class="col-md-2">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="ruler" name="ruler"
-                          onchange="updateCheckboxValue(this, 'ruler')">
-                        <label class="form-check-label" for="flexCheckDefault" id="rulerLabel">Ruler</label>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="microscope" name="microscope"
-                          onchange="updateCheckboxValue(this, 'microscope')">
-                        <label class="form-check-label" for="flexCheckChecked" id="microscopeLabel">Microscope</label>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="camera" name="camera"
-                          onchange="updateCheckboxValue(this, 'camera')">
-                        <label class="form-check-label" for="flexCheckChecked2" id="cameraLabel">Camera</label>
-                      </div>
-                    </div>
+                <!-----new  values to be inserted here---->
+                
+                <div class="form-row row" style="padding: 5px 0;">
+         
+                  <div class="form-group col-md-2">
+        
+                    <select name="assets" multiple="" class="ui fluid dropdown" id="assets">
+                      <option value="">Assets used</option>
+                      <option value="Ruler">Ruler </option>
+                      <option value="Microscope">Microscope</option>
+                      <option value="Camera">Camera</option>
+                    </select>
+                   
                   </div>
-                </fieldset>
-
-
-                <fieldset class="form-group" style="padding: 10px 0 0 0;">
-                  <div class="row">
-                    <legend class="col-form-label col-md-2 pt-0" id="protection_Legend" style="font-weight: bold;">
-                      Protection :-</legend>
-                    <div class="col-md-2">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="gloves" name="gloves"
-                          onchange="updateCheckboxValue(this, 'gloves')">
-                        <label class="form-check-label" for="flexCheckDefault" id="glovesLabel">Gloves</label>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="clothing" name="clothing"
-                          onchange="updateCheckboxValue(this, 'clothing')">
-                        <label class="form-check-label" for="flexCheckChecked" id="clothingLabel">Clothing</label>
-                      </div>
-                    </div>
-
+        
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="exampleInputText" placeholder="Enter new asset">
                   </div>
-                </fieldset>
+                
+                  <div class="form-group col-md-1">
+                    <button type="button" class="btn btn-primary" id="buttonForAddAsset">Add</button>
+                  </div>
+                
+                  
+                 
+                  <div class="form-group col-md-2">
+        
+                    <select name="protectionUsed" multiple="" class="ui fluid dropdown" id="protectionUsed">
+                      <option value="">Select Protection</option>
+                      <option value="Gloves">Gloves</option>
+                      <option value="Clothing">Clothing</option>
+                    </select>
+                    
+                  </div>
+        
+                  <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="exampleInputText" placeholder="Enter new protection">
+                  </div>
+                
+                  <div class="form-group col-md-1">
+                    <button type="button" class="btn btn-primary" id="buttonForAddProtection">Add</button>
+                  </div>
+                
+                </div>
+        
 
-                <!---->
+           
+
+                 <!-----end of new  values to be inserted here---->
               </div>
             </div>
           </div>
@@ -798,8 +819,9 @@
   <script src="logic.js"></script>
 
   <script>
-
- 
+$('.ui.dropdown')
+  .dropdown()
+;
   </script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -28,10 +28,10 @@ const reportSchema = new mongoose.Schema({
             type: Date
         }, 
         Tools: {
-            type: String
+            type: [String]
         }, 
         Methods: {
-            type: String
+            type: [String]
         }, 
         Purpose_of_condition_report : {
             type: String
@@ -65,25 +65,13 @@ const reportSchema = new mongoose.Schema({
         Support:{
             type: String
         }, 
-        Ruler:{
-            type: String, 
-            
+        Assets:{
+            type: [String]
         }, 
-        Microscope:{
-            type: String, 
-           
+        Protection_Used:{
+            type: [String]
         }, 
-        Camera:{
-            type: String,
-            
-        }, 
-        Gloves:{
-            type: String,
-            
-        }, 
-        Clothing:{
-            type: String,
-        }, 
+      
 
         Reliability_collected_data:{
             type: String,
@@ -243,7 +231,7 @@ const reportSchema = new mongoose.Schema({
 
     submissionTimestamp: {
         type: Date,
-        default: Date.now // Set default value to current date and time
+        default: Date.now 
     },
 
    

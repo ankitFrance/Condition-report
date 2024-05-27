@@ -714,8 +714,14 @@ if (formId === 'registrationForm') {
    doii = document.getElementById('doii').value;
   // Do something with the doii variable for update form
 }
-const tools = document.getElementById('tools').value;
-const methods = document.getElementById('methods').value;
+const selectElementforTools = document.getElementById('tools');
+const selectedOptionsForTools = Array.from(selectElementforTools.selectedOptions);
+const tools = selectedOptionsForTools.map(option => option.value).join(', ');
+
+const selectElementforMethod = document.getElementById('methods');
+const selectedOptionsForMethod = Array.from(selectElementforMethod.selectedOptions);
+const methods = selectedOptionsForMethod.map(option => option.value).join(', ');
+
 const purpose_of_condition_report = document.getElementById('purpose_of_condition_report').value;
 const name_of_client = document.getElementById('name_of_client').value;
 const height = document.getElementById('height').value;
@@ -725,11 +731,15 @@ const behind_glass = document.getElementById('behind_glass').value;
 const quantity = document.getElementById('quantity').value;
 const quality = document.getElementById('quality').value;
 const type = document.getElementById('type').value;
-const ruler = document.getElementById('ruler').value;
-const microscope = document.getElementById('microscope').value;
-const camera = document.getElementById('camera').value;
-const gloves = document.getElementById('gloves').value;
-const clothing = document.getElementById('clothing').value;
+
+const selectElementforAssets = document.getElementById('assets');
+const selectedOptionsForAssets = Array.from(selectElementforAssets.selectedOptions);
+const assets = selectedOptionsForAssets.map(option => option.value).join(', ');
+
+const selectElementforProtection = document.getElementById('protectionUsed');
+const selectedOptionsForProtection = Array.from(selectElementforProtection.selectedOptions);
+const protectionUsed = selectedOptionsForProtection.map(option => option.value).join(', ');
+
 const reliability_collected_data = document.querySelector('input[name="reliability_collected_data"]:checked')?.value || '';
 const support = document.querySelector('input[name="support"]:checked')?.value || '';
 const cmnt_reliabilty = document.getElementById('cmnt_reliabilty').value;
@@ -815,11 +825,9 @@ summaryText += `
 <p><strong> Quantity:</strong> ${quantity} </p>
 <p><strong> Quality:</strong> ${quality} </p>
 <p><strong> Type:</strong> ${type} </p>
-<p><strong> Ruler ?:</strong> ${ruler} </p>
-<p><strong> Microscope ?:</strong> ${microscope} </p>
-<p><strong> Camera ?:</strong> ${camera} </p>
-<p><strong> Gloves ?:</strong> ${gloves} </p>
-<p><strong> Clothing ?:</strong> ${clothing} </p>
+<p><strong> Assets used:</strong> ${assets} </p>
+<p><strong> Protection used:</strong> ${protectionUsed} </p>
+
 <p><strong> Reliability of collected data ?:</strong> ${reliability_collected_data} </p>
 <p><strong> Support ?:</strong> ${support} </p>
 <p><strong> Comment on reliability of data:</strong> ${cmnt_reliabilty} </p>
@@ -967,8 +975,6 @@ function changeLanguage() {
   //***************************************** FOR SLIDE 1 *****************************************************
 
   document.getElementById('date_of_inspection').innerText = i18n[selectedLanguage].Date_of_inspection;
-  document.getElementById('toolslabel').innerText = i18n[selectedLanguage].Tools;
-  document.getElementById('methodslabel').innerText = i18n[selectedLanguage].Methods;
   document.getElementById('purpose_of_condition_report').placeholder = i18n[selectedLanguage].Purpose_of_Condition_Report;
   document.getElementById('name_of_client').placeholder = i18n[selectedLanguage].Name_of_Client;
   document.getElementById('height').placeholder = i18n[selectedLanguage].Height;
@@ -978,16 +984,11 @@ function changeLanguage() {
   document.getElementById('quantity').placeholder = i18n[selectedLanguage].Quantity;
   document.getElementById('quality').placeholder = i18n[selectedLanguage].Quality;
   document.getElementById('type').placeholder = i18n[selectedLanguage].Type;
-  document.getElementById('rulerLabel').innerText = i18n[selectedLanguage].Ruler;
-  document.getElementById('microscopeLabel').innerText = i18n[selectedLanguage].Microscope;
-  document.getElementById('cameraLabel').innerText = i18n[selectedLanguage].Camera;
-  document.getElementById('glovesLabel').innerText = i18n[selectedLanguage].Gloves;
-  document.getElementById('clothingLabel').innerText = i18n[selectedLanguage].Clothing;
+  
   document.getElementById('person_present_during_inspection').placeholder = i18n[selectedLanguage].Person_Present_during_inspection;
   document.getElementById('working_conditions').innerText = i18n[selectedLanguage].working_conditions;
   document.getElementById('reporting_info_heading').innerText = i18n[selectedLanguage].heading_Reporting_info;
-  document.getElementById('assets_used_legend').innerText = i18n[selectedLanguage].assets_used;
-  document.getElementById('protection_Legend').innerText = i18n[selectedLanguage].protection;
+  
   
   document.getElementById('reliability_collect_data_label').innerText = i18n[selectedLanguage].Reliability_collected_dataLegend;
   document.getElementById('not_available').innerText = i18n[selectedLanguage].Not_available;
@@ -1141,12 +1142,3 @@ document.getElementById('doi').value = getTodayDate();
 
 
 //*********************************************************************************************************************************  function updateCheckboxValue(checkbox, idFetch) {
-  function updateCheckboxValue(checkbox, idFetch) {
-    var checkboxValueField = document.getElementById(idFetch);
-    if (checkbox.checked) {
-        checkboxValueField.value = "Yes";
-    } 
-    else {
-        checkboxValueField.value = ""; 
-    }
-}
