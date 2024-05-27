@@ -57,6 +57,7 @@
 
 <!--**********************************************REPORTING INFORMATION******************************************************-->
 
+
 <%
   let printedBasicInfo = false;
   let printedWorkingCondition = false;
@@ -66,37 +67,57 @@
 <% if (Constatdocument.Reporting_Information && Object.values(Constatdocument.Reporting_Information).some(value => value)) { %>
   <h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
   <ul style="list-style-type: none;">
-    <% Object.entries(Constatdocument.Reporting_Information).forEach(([key, value]) => { %>
-      <% if (value && !['Name', 'Role'].includes(key)) { %>
-        <% if (['Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'].includes(key)) { %>
-          <% if (!printedBasicInfo) { %>
-            <h4 style="text-decoration: underline; color: #03346F;" >Basic information</h4>
-           
-            <% printedBasicInfo = true; %>
-          <% } %>
-          <% } else if (['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Assets', 'Protection_Used'].includes(key)) { %>
-          <% if (!printedWorkingCondition) { %>
-            <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
-           
-            <% printedWorkingCondition = true; %>
-          <% } %>
-        <% } else if (['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'].includes(key)) { %>
-          <% if (!printedAdditionalDetails) { %>
-            <h4 style="text-decoration: underline; color: #03346F;"> Additional details</h4>
-           
-            <% printedAdditionalDetails = true; %>
-          <% } %>
-        <% } %>
-        <li style="display: flex; flex-direction: column; align-items: center;">
-          <% const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' :   (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support'  : (key === 'Assets') ? 'Assets Used' : (key === 'Protection_Used') ? 'Protection Used'  : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' :  'Inaccessibility of parts of Asset';   %>
-          <li>
-            <strong><%= displayName %>:</strong> <%= value %>
-          </li>
+    <% 
+      const basicInfoFields = ['Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'];
+      const workingConditionFields = ['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Assets', 'Protection_Used'];
+      const additionalDetailsFields = ['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'];
+
+      const hasBasicInfo = basicInfoFields.some(key => Constatdocument.Reporting_Information[key] && (!Array.isArray(Constatdocument.Reporting_Information[key]) || Constatdocument.Reporting_Information[key].length > 0));
+      const hasWorkingCondition = workingConditionFields.some(key => Constatdocument.Reporting_Information[key] && (!Array.isArray(Constatdocument.Reporting_Information[key]) || Constatdocument.Reporting_Information[key].length > 0));
+      const hasAdditionalDetails = additionalDetailsFields.some(key => Constatdocument.Reporting_Information[key] && (!Array.isArray(Constatdocument.Reporting_Information[key]) || Constatdocument.Reporting_Information[key].length > 0));
+    %>
+
+    <% if (hasBasicInfo) { %>
+      <h4 style="text-decoration: underline; color: #03346F;">Basic information</h4>
+      <% basicInfoFields.forEach(key => { 
+        const value = Constatdocument.Reporting_Information[key];
+        if (value && (!Array.isArray(value) || value.length > 0)) { 
+          const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : '';
+      %>
+        <li>
+          <strong><%= displayName %>:</strong> <%= Array.isArray(value) ? value.join(', ') : value %>
         </li>
-      <% } %>
-    <% }) %>
+      <% } }) %>
+    <% } %>
+
+    <% if (hasWorkingCondition) { %>
+      <h4 style="text-decoration: underline; color: #03346F;">Working condition under which report created</h4>
+      <% workingConditionFields.forEach(key => { 
+        const value = Constatdocument.Reporting_Information[key];
+        if (value && (!Array.isArray(value) || value.length > 0)) {
+          const displayName = (key === 'Height') ? 'Height' : (key === 'Examination_center') ? 'Examination distance' : (key === 'Platform') ? 'Platform' : (key === 'Behind_glass') ? 'Behind mirror' : (key === 'Quantity') ? 'Quantity' : (key === 'Quality') ? 'Quality' : (key === 'Type') ? 'Type' : (key === 'Support') ? 'Support' : (key === 'Assets') ? 'Assets Used' : (key === 'Protection_Used') ? 'Protection Used' : '';
+      %>
+        <li>
+          <strong><%= displayName %>:</strong> <%= Array.isArray(value) ? value.join(', ') : value %>
+        </li>
+      <% } }) %>
+    <% } %>
+
+    <% if (hasAdditionalDetails) { %>
+      <h4 style="text-decoration: underline; color: #03346F;">Additional details</h4>
+      <% additionalDetailsFields.forEach(key => { 
+        const value = Constatdocument.Reporting_Information[key];
+        if (value && (!Array.isArray(value) || value.length > 0)) {
+          const displayName = (key === 'Person_present_during_inspection') ? 'Person(s) present during the inspection' : (key === 'Contact_person_inspection') ? 'Contact persons for the inspection' : (key === 'Duration_of_assessment') ? 'Time used to complete the survey' : (key === 'Inaccessibility') ? 'Inaccessibility of parts of Asset' : '';
+      %>
+        <li>
+          <strong><%= displayName %>:</strong> <%= Array.isArray(value) ? value.join(', ') : value %>
+        </li>
+      <% } }) %>
+    <% } %>
   </ul>
 <% } %>
+
 
 
 
