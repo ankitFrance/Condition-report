@@ -29,7 +29,7 @@
 
   <!--******************************************************************************************************-->
 
-  <% if (ReportAfterUpdate.submissionTimestamp || ReportAfterUpdate.Reporting_Information.Name || ReportAfterUpdate.Reporting_Information.Role || ReportAfterUpdate.Object_identification.Title ) { %>
+  <% if (ReportAfterUpdate.Reporting_Information.Date_of_inspection || ReportAfterUpdate.Reporting_Information.Name || ReportAfterUpdate.Reporting_Information.Role || ReportAfterUpdate.Object_identification.Title ) { %>
 
     <div style="border: 4px solid black; padding: 10px; text-align: center; margin-bottom: 50px;" >
       <% if (ReportAfterUpdate.Object_identification.Title) { %>
@@ -37,9 +37,9 @@
           <strong>Condition Report for:</strong> <%= ReportAfterUpdate.Object_identification.Title %>
         </p>
       <% } %>
-      <% if (ReportAfterUpdate.submissionTimestamp) { %>
+      <% if (ReportAfterUpdate.Reporting_Information.Date_of_inspection) { %>
         <p>
-          <strong>Time of submission:</strong> <%= ReportAfterUpdate.submissionTimestamp %>
+          <strong>Date of inspection:</strong> <%= ReportAfterUpdate.Reporting_Information.Date_of_inspection %>
         </p>
       <% } %>
       <% if (ReportAfterUpdate.Reporting_Information.Name) { %>
@@ -72,7 +72,7 @@
   <h2 style="border-bottom: 2px solid #03346F; color: black;">REPORTING INFORMATION</h2>
   <ul style="list-style-type: none;">
     <% 
-      const basicInfoFields = ['Institution', 'Date_of_inspection', 'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'];
+      const basicInfoFields = ['Institution',  'Tools', 'Methods', 'Purpose_of_condition_report', 'Name_of_client', 'Reliability_collected_data', 'Cmnt_reliabilty'];
       const workingConditionFields = ['Height', 'Examination_center', 'Platform', 'Behind_glass', 'Quantity', 'Quality', 'Type', 'Support', 'Assets', 'Protection_Used'];
       const additionalDetailsFields = ['Person_present_during_inspection', 'Contact_person_inspection', 'Duration_of_assessment', 'Inaccessibility'];
 
@@ -86,7 +86,7 @@
       <% basicInfoFields.forEach(key => { 
         const value = ReportAfterUpdate.Reporting_Information[key];
         if (value && (!Array.isArray(value) || value.length > 0)) { 
-          const displayName = (key === 'Institution') ? 'Institution' : (key === 'Date_of_inspection') ? 'Date of inspection' : (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : '';
+          const displayName = (key === 'Institution') ? 'Institution' :  (key === 'Tools') ? 'Tools used' : (key === 'Methods') ? 'Methods used' : (key === 'Purpose_of_condition_report') ? 'Purpose of condition report' : (key === 'Name_of_client') ? 'Name of client' : (key === 'Reliability_collected_data') ? 'Reliability of collected data' : (key === 'Cmnt_reliabilty') ? 'Comment on reliability' : '';
       %>
         <li>
           <strong><%= displayName %>:</strong> <%= Array.isArray(value) ? value.join(', ') : value %>
@@ -322,7 +322,11 @@
 
 
 
-
+<!---------------------------------------------------------------------------------->
+<% if (ReportAfterUpdate.submissionTimestamp) { %>
+  <p style="text-align: right;">Time of Submission: <%= ReportAfterUpdate.submissionTimestamp %></p>
+<% } %>
+<!----------------------------------------------------------------------------------->
 
 
 
