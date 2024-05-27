@@ -108,11 +108,19 @@
 
               <select name="tools" multiple="" class="ui fluid dropdown" id="tools">
                 <option value="">Select Tools</option>
-                <option value="Tool 1" <%= report.Reporting_Information.Tools.includes('Tool 1') ? 'selected' : '' %>>Tool 1</option>
-                <option value="Tool 2" <%= report.Reporting_Information.Tools.includes('Tool 2') ? 'selected' : '' %>>Tool 2</option>
-                <option value="Tool 3" <%= report.Reporting_Information.Tools.includes('Tool 3') ? 'selected' : '' %>>Tool 3</option>
-                <option value="Tool 4" <%= report.Reporting_Information.Tools.includes('Tool 4') ? 'selected' : '' %>>Tool 4</option>
-                <option value="Tool 5" <%= report.Reporting_Information.Tools.includes('Tool 5') ? 'selected' : '' %>>Tool 5</option>
+                <% 
+                    // Define the known tools
+                    const knownTools = ['Tool 1', 'Tool 2', 'Tool 3', 'Tool 4', 'Tool 5'];
+                    const usedTools = report.Reporting_Information.Tools;
+            
+                    // Combine known tools and used tools, then filter out duplicates
+                    const allTools = [...new Set([...knownTools, ...usedTools])];
+            
+                    // Iterate over all unique tools and create options
+                    allTools.forEach(tool => {
+                %>
+                    <option value="<%= tool %>" <%= usedTools.includes(tool) ? 'selected' : '' %>><%= tool %></option>
+                <% }); %>
               </select>
               
              
@@ -130,11 +138,19 @@
 
               <select name="methods" multiple="" class="ui fluid dropdown" id="methods">
                 <option value="">Select Methods</option>
-                <option value="Method 1" <%= report.Reporting_Information.Methods.includes('Method 1') ? 'selected' : '' %>>Method 1</option>
-                <option value="Method 2" <%= report.Reporting_Information.Methods.includes('Method 2') ? 'selected' : '' %>>Method 2</option>
-                <option value="Method 3" <%= report.Reporting_Information.Methods.includes('Method 3') ? 'selected' : '' %>>Method 3</option>
-                <option value="Method 4" <%= report.Reporting_Information.Methods.includes('Method 4') ? 'selected' : '' %>>Method 4</option>
-                <option value="Method 5" <%= report.Reporting_Information.Methods.includes('Method 5') ? 'selected' : '' %>>Method 5</option>
+                <% 
+                    // Define the known methods
+                    const knownMethods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5'];
+                    const usedMethods = report.Reporting_Information.Methods;
+            
+                    // Combine known methods and used methods, then filter out duplicates
+                    const allMethods = [...new Set([...knownMethods, ...usedMethods])];
+            
+                    // Iterate over all unique methods and create options
+                    allMethods.forEach(method => {
+                %>
+                    <option value="<%= method %>" <%= usedMethods.includes(method) ? 'selected' : '' %>><%= method %></option>
+                <% }); %>
               </select>
               
             </div>
@@ -259,10 +275,21 @@
 
             <select name="assets" multiple="" class="ui fluid dropdown" id="assets">
               <option value="">Assets used</option>
-              <option value="Ruler" <%= report.Reporting_Information.Assets.includes('Ruler') ? 'selected' : '' %>>Ruler</option>
-              <option value="Microscope" <%= report.Reporting_Information.Assets.includes('Microscope') ? 'selected' : '' %>>Microscope</option>
-              <option value="Camera" <%= report.Reporting_Information.Assets.includes('Camera') ? 'selected' : '' %>>Camera</option>
+              <% 
+                  // Define the known assets
+                  const knownAssets = ['Ruler', 'Microscope', 'Camera'];
+                  const usedAssets = report.Reporting_Information.Assets;
+          
+                  // Combine known assets and used assets, then filter out duplicates
+                  const allAssets = [...new Set([...knownAssets, ...usedAssets])];
+          
+                  // Iterate over all unique assets and create options
+                  allAssets.forEach(asset => {
+              %>
+                  <option value="<%= asset %>" <%= usedAssets.includes(asset) ? 'selected' : '' %>><%= asset %></option>
+              <% }); %>
             </select>
+          
            
           </div>
 
@@ -278,10 +305,22 @@
          
           <div class="form-group col-md-2">
 
+
             <select name="protectionUsed" multiple="" class="ui fluid dropdown" id="protectionUsed">
               <option value="">Select Protection</option>
-              <option value="Gloves" <%= report.Reporting_Information.Protection_Used.includes('Gloves') ? 'selected' : '' %>>Gloves</option>
-              <option value="Clothing" <%= report.Reporting_Information.Protection_Used.includes('Clothing') ? 'selected' : '' %>>Clothing</option>
+              <% 
+                  // Define the known prot
+                  const knownProt = ['Gloves', 'Clothing'];
+                  const usedProt = report.Reporting_Information.Protection_Used;
+          
+                  // Combine known prot and used prot, then filter out duplicates
+                  const allProt = [...new Set([...knownProt, ...usedProt])];
+          
+                  // Iterate over all unique prot and create options
+                  allProt.forEach(Prot => {
+              %>
+                  <option value="<%= Prot %>" <%= usedProt.includes(Prot) ? 'selected' : '' %>><%= Prot %></option>
+              <% }); %>
             </select>
             
           </div>
