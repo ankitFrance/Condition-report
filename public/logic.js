@@ -154,57 +154,56 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
 
 
 
-//**********************************************************************************************************************************
+//************************************************Add options from text box*************************************************************************************** */
+
+document.getElementById('buttonForAddTool').addEventListener('click', function() {
+  var newTool = document.getElementById('exampleInputTextTool').value;
+  if (newTool) {
+    var select = document.getElementById('tools');
+    var option = document.createElement('option');
+    option.value = newTool;
+    option.text = newTool;
+    select.add(option);
+    document.getElementById('exampleInputTextTool').value = ''; 
+  }
+});
+
+document.getElementById('buttonForAddMethod').addEventListener('click', function() {
+  var newMethod = document.getElementById('exampleInputTextMethod').value;
+  if (newMethod) {
+    var select = document.getElementById('methods');
+    var option = document.createElement('option');
+    option.value = newMethod;
+    option.text = newMethod;
+    select.add(option);
+    document.getElementById('exampleInputTextMethod').value = ''; 
+  }
+});
+
+document.getElementById('buttonForAddAsset').addEventListener('click', function() {
+  var newAsset = document.getElementById('exampleInputTextAsset').value;
+  if (newAsset) {
+    var select = document.getElementById('assets');
+    var option = document.createElement('option');
+    option.value = newAsset;
+    option.text = newAsset;
+    select.add(option);
+    document.getElementById('exampleInputTextAsset').value = ''; 
+  }
+});
 
 
-
-document.getElementById('buttonForAddTool').onclick = function () {
-
-  let tools =  document.getElementById('tools');
-  let option = document.createElement('option');
-  let textInput = document.getElementById('textfieldForAddTool'); 
-  option.value = textInput.value
-  option.text = textInput.value
-
-  tools.add(option)
-   
-  //textInput.value = '';
-
-  //
-  var toolName = document.getElementById('textfieldForAddTool').value;
-  if (toolName) {
-    var checkboxContainer = document.querySelector('.checkbox-containers');
-
-    // Create new checkbox div
-    var newCheckboxDiv = document.createElement('div');
-    newCheckboxDiv.classList.add('checkbox');
-
-    // Create new label
-    var newLabel = document.createElement('label');
-
-    // Create new checkbox input
-    var newCheckbox = document.createElement('input');
-    newCheckbox.type = 'checkbox';
-    newCheckbox.name = 'tools';
-    newCheckbox.value = toolName;
-
-    // Append checkbox to label
-    newLabel.appendChild(newCheckbox);
-    newLabel.appendChild(document.createTextNode(' ' + toolName));
-
-    // Append label to checkbox div
-    newCheckboxDiv.appendChild(newLabel);
-
-    // Append checkbox div to container
-    checkboxContainer.appendChild(newCheckboxDiv);
-
-    // Clear the input field
-    document.getElementById('textfieldForAddTool').value = '';
-}
-}
-
-
-
+document.getElementById('buttonForAddProtection').addEventListener('click', function() {
+  var newProt = document.getElementById('exampleInputTextProt').value;
+  if (newProt) {
+    var select = document.getElementById('protectionUsed');
+    var option = document.createElement('option');
+    option.value = newProt;
+    option.text = newProt;
+    select.add(option);
+    document.getElementById('exampleInputTextProt').value = ''; 
+  }
+});
 
 
 //**************************************************************************************************************************************** */
