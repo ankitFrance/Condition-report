@@ -138,7 +138,7 @@
           <div style="text-align: center;">
             <strong><%= displayName %>:</strong>
             <br>
-            <textarea rows="5" cols="70" style="border: none;" style="border: none;"><%= value %></textarea>
+            <p><%= value %></p>
           </div>
         <% } else { %>
           <strong><%= displayName %>:</strong> <%= value %>
@@ -192,7 +192,7 @@
         <div style="text-align: center;">
           <strong><%= customNames[key] %>:</strong>
           <br>
-          <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
+          <p><%= value %></p>
         </div>
       <% } else if (key === 'filePaths') { %> 
        
@@ -232,7 +232,7 @@
       <li style="display: flex; flex-direction: column; align-items: center;">
         <% const displayName = (key === 'Environment') ? 'Environment in which item is held' : 'Effect of Environment on object';  %>
         <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
+        <p><%= value %></p>
       </li>
     <% } %>
   <% }) %>
@@ -265,7 +265,7 @@
         <% const displayName = (key === 'Info_observed') ? 'Information observed concerning current state of item ' : 'Please report the change (repair, treatment)'; %>
         <li style="display: flex; flex-direction: column; align-items: center;">
           <strong><%= displayName %>:</strong><br>
-          <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
+          <p><%= value %></p>
         </li>
       <% } else if (key === 'filePaths') { %> 
        
@@ -313,7 +313,7 @@
       <li style="display: flex; flex-direction: column; align-items: center;">
         <% const displayName = (key === 'Descriptive_diagnosis') ? 'Descriptive diagnosis of reason for detrioration / Other changes in condition' : (key === 'Recommendations') ? 'Recommendations for further care and/or conservation:' : 'Further scientific, historical, technical or other investigation or analysis'; %>
         <strong><%= displayName %>:</strong><br>
-        <textarea rows="5" cols="70" style="border: none;"><%= value %></textarea>
+        <p><%= value %></p>
       </li>
     <% } %>
   <% }) %>

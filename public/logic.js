@@ -69,30 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
-
-
-
-//**************************************************************************************************************************************** */
-
-
-
+//******************************************************* FETCH FROM EROS ************************************************************************ */
 
 
 document.getElementById('FetchEROS').addEventListener('click', function() {
 
   var identificationNumber = document.getElementById('identification_no').value;
 
-
-  //var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2r[…]re=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
   var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/notices-d-oeuvres-du-c2rmf/records?where=numero_de_reference_c2rmf%20like%20%22' + encodeURIComponent(identificationNumber) + '%22';
   var artiste = document.getElementById('author');
   var titre_ou_designation = document.getElementById('title');
   var hauteur_ou_diametre_mm = document.getElementById('heights');
   var largeur_ou_diametre_mm= document.getElementById('width');
+  var date_of_acq = document.getElementById('date_of_acquisition')
 
   fetch(apiUrl)
       .then(response => response.json())
@@ -111,6 +100,12 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
 
         
           largeur_ou_diametre_mm.value = data.results[0].largeur_ou_diametre_mm;
+
+
+          var year = data.results[0].date_d_acquisition;
+          var formattedDate =  year + "-01-01";
+          console.log(formattedDate)
+          date_of_acq.value = formattedDate;
 
           document.getElementById('successAlert').style.display = 'block';
           
@@ -136,21 +131,14 @@ document.getElementById('FetchEROS').addEventListener('click', function() {
 
          
           largeur_ou_diametre_mm.value = '';
+
+          date_of_acq.value = '';
           
           setTimeout(function() {
             document.getElementById('errorAlert').style.display = 'none';
           }, 2000);
       });
 });
-
-
-
-
-
-
-
-
-
 
 
 
@@ -206,9 +194,7 @@ document.getElementById('buttonForAddProtection').addEventListener('click', func
 });
 
 
-//**************************************************************************************************************************************** */
-
-
+//********************************************************** FETCH FROM JOCONDE *********************************************************************** */
 
 
 
@@ -216,13 +202,12 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
 
   var identificationNumber = document.getElementById('identification_no').value;
 
-
-  
   var apiUrl = 'https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/base-joconde-extrait/records?select=*&where=reference%20like%20%22'+ encodeURIComponent(identificationNumber) +'%22';
   var artiste = document.getElementById('author');
   var titre_ou_designation = document.getElementById('title');
   var Hauteur = document.getElementById('heights');
   var Largeur = document.getElementById('width');
+  var date_of_crea = document.getElementById('date_of_creation')
 
   fetch(apiUrl)
       .then(response => response.json())
@@ -246,14 +231,15 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
           var LargeurValue = mesureStringforLargeur.split(';')[1].trim().split(' ')[1]; // "34"
           Largeur.value = LargeurValue; 
 
+          date_of_crea.value = data.results[0].date_creation;
+
+
           document.getElementById('successAlert').style.display = 'block';
           
           setTimeout(function() {
             document.getElementById('successAlert').style.display = 'none';
           }, 2000);
-         
-
-          
+            
 
       })
       .catch(error => {
@@ -272,6 +258,8 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
          
           Largeur.value = ''; 
 
+          date_of_crea.value = '';
+
 
           
           setTimeout(function() {
@@ -281,15 +269,6 @@ document.getElementById('FetchJOCONDE').addEventListener('click', function() {
 
       });
 });
-
-
-
-
-
-
-
-
-
 
 
 
@@ -938,14 +917,6 @@ summaryModal.show();
 
 
 
-
-
-
-
-
-
-
-
 //******************************************************************************** 
 
 function closeModal() {
@@ -954,14 +925,6 @@ $('#summaryModal').modal('hide');
 }
 
 //******************************************************************************** 
-
-
-
-
-
-
-
-
 
 
 
@@ -1114,13 +1077,6 @@ function record(){
 }
 
 //*********************************************************************************************************************************
-
-
-
-
-
-
-
 
 
 
