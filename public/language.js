@@ -6,8 +6,15 @@ var i18n = {
     Role: 'Role',
     Institution: 'Institution', 
     Date_of_inspection: 'Date of Inspection', 
+    Select_tools : 'Select Tools', 
+    Enter_new_tool : 'Enter new tool', 
+    Select_Methods : 'Select Methods', 
+    Enter_new_method : 'Enter new method', 
     Purpose_of_Condition_Report: 'Purpose of Condition Report',
     Name_of_Client: 'Name of Client',
+    working_conditions: 'WORKING CONDTIONS UNDER WHICH REPORT IS CREATED ',
+    sub_heading1_physical : 'Physical accessibility to the cultural heritage', 
+    sub_heading2_light : 'Sufficient and safe lighting',
     Height: 'Height',
     Examination_Center: 'Examination Distance',
     Platform: 'Structural framework (Scaffolding, Work Platform, etc.)',
@@ -15,13 +22,16 @@ var i18n = {
     Quantity: 'Quantity',
     Quality: 'Quality',
     Type: 'Type',
-    
-
+    Sufficient_physical_support : 'Sufficient physical support',
+    Mounting_object : 'Mounting for the object',
+    Assets_used : 'Assets used',
+    Protection_used : 'Protection used', 
+    Enter_new_asset : 'Enter new asset',
+    Enter_new_protection : 'Enter new protection',
     Reliability_collected_dataLegend : 'Reliability of collected data',
-    Cmnt_reliabilty : 'Comment on reliability of data', 
     Not_available : 'Not Available',
     Incomplete : 'Incomplete/Exhaustive', 
-
+    Cmnt_reliabilty : 'Comment on reliability of data', 
     Additional_details: 'ADDITIONAL DETAILS (OPTIONAL)',
     Person_present_during_inspection: 'Person(s) present during the inspection',
     Contact_person_inspection : 'Contact persons for the inspection',
@@ -29,12 +39,11 @@ var i18n = {
     Inaccessibility: 'Inaccessibility of parts of Asset',
     
 
-    working_conditions: 'WORKING CONDTIONS UNDER WHICH REPORT IS CREATED ',
-    Reliability_collected_dataLegend : 'Reliability of collected data',
-
     
     Identification_noLabel : 'Identification Number',
     Identification_Number: 'Identification Number',
+    Fetch_eros : 'Fetch from EROS', 
+    Fetch_Joconde : 'Fetch from JOconde',
     Title: 'Title',
     Author: 'Author/Creator',
     Ownership: 'Ownership even if unknown',
@@ -52,13 +61,13 @@ var i18n = {
     Technique: 'Technique(s)',
     Weight: 'Weight',
     Constituent_Elements: 'Constituent Elements',
+    Number_of_items : 'Number of items',
     Heights: 'Height',
     Width: 'Width',
     Installation_Notes: 'Installation Notes',
     Artist_installation_guide: 'Artist installation guide',
     Oc_description: 'Object creation description',
    
-
 
 
     Env: 'Environment in which item is held',
@@ -72,6 +81,7 @@ var i18n = {
 
     Diagnosis: 'Descriptive diagnosis of reason for detrioration / Other changes in condition',
     Recommendations: 'Recommendations for further care and/or conservation:',
+    optional_info_diagnostic : '(Optional) Fill only if information necessary for an immediate diagnosis is not available',
     Further_study: 'Further scientific, historical, technical or other investigation or analysis',
 
 
@@ -82,7 +92,6 @@ var i18n = {
     heading_Object_env: 'OBJECT ENVIRONMENT',
     heading_Cond_desc: 'CONDITIONS DESCRIPTION (OBJECT)',
     heading_diag_rec: 'DIAGNOSTIC AND RECOMMENDATIONS',
-
 
 
     buttonNext: 'Next',
@@ -97,18 +106,6 @@ var i18n = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   
 
   fr: {
@@ -116,8 +113,15 @@ var i18n = {
     Role: 'Fonction',
     Institution: 'Institution', 
     Date_of_inspection: "Date de l'inspection", 
+    Select_tools : 'Sélectionnez les outils', 
+    Enter_new_tool : 'Entrez un nouvel outil', 
+    Select_Methods : 'Sélectionnez les méthodes', 
+    Enter_new_method : 'Entrez une nouvelle méthode', 
     Purpose_of_Condition_Report: `Objectif du constat d'état`,
     Name_of_Client: 'Nom du client/commanditaire',
+    working_conditions: 'CONDITIONS DE TRAVAIL',
+    sub_heading1_physical : 'Accessibilité physique au patrimoine culturel', 
+    sub_heading2_light : 'Un éclairage suffisant et sécuritaire',
     Height: 'Hauteur',
     Examination_Center: `Distance d'examen`,
     Platform: 'Structure portante (échafaudage, nacelle, etc.)',
@@ -125,28 +129,29 @@ var i18n = {
     Quantity: 'Quantité',
     Quality: 'Qualité',
     Type: 'Genre',
-    
-
+    Sufficient_physical_support : 'Un soutien physique suffisant',
+    Mounting_object : `Montage pour l'objet`,
+    Assets_used : 'Actifs utilisés',
+    Protection_used : 'Protection utilisée', 
+    Enter_new_asset : 'Entrez un nouvel actif',
+    Enter_new_protection : 'Entrez une nouvelle protection',
     Reliability_collected_dataLegend : 'Fiabilité des données collectées',
-    Cmnt_reliabilty : 'Commentaire sur la fiabilité des données', 
     Not_available : 'Pas disponible',
     Incomplete : 'Incomplet/exhaustif', 
-
+    Cmnt_reliabilty : 'Commentaire sur la fiabilité des données', 
     Additional_details: 'PRÉCISION SUPPLÉMENTAIRE (OPTIONNNEL)',
     Person_present_during_inspection: `Personne(s) présente(s) lors de l'inspection`,
     Contact_person_inspection : `Personnes de contact pour l'inspection`,
     Duration_of_assessment : `Durée de l'évaluation`,
     Inaccessibility: `Partie(s) inaccessible(s)`,
 
-    working_conditions: 'CONDITIONS DE TRAVAIL',
-    Reliability_collected_dataLegend : 'Fiabilité des données collectées',
-
-
-
-
+    
+  
 
     Identification_noLabel : `Numéro d'identification`,
     Identification_Number: `Numéro d'identification`,
+    Fetch_eros : 'Récupérer depuis EROS', 
+    Fetch_Joconde : 'Récupérer depuis JOconde',
     Title: 'Titre',
     Author: 'Auteur/Créateur',
     Ownership: 'Propriété même si inconnu',
@@ -164,14 +169,13 @@ var i18n = {
     Technique: 'Technique(s)',
     Weight: 'Poids',
     Constituent_Elements: 'Éléments constitutifs',
+    Number_of_items : `Nombre d'objets`,
     Heights: 'Hauteur',
     Width: 'Largeur',
     Installation_Notes: `Notes d'installation`,
     Artist_installation_guide: `Guide d'installation de l'artiste`,
     Oc_description: `Description de la création de l'objet`,
   
-
-
 
 
     Env: `Environnement dans lequel le bien est conservé`,
@@ -184,6 +188,7 @@ var i18n = {
 
     Diagnosis: `Diagnostic descriptif de la raison de la détérioration / Autres changements d'état`,
     Recommendations: `Recommandations pour des soins et/ou une conservation ultérieurs`,
+    optional_info_diagnostic : '(Facultatif) À remplir uniquement si les informations nécessaires à un diagnostic immédiat ne sont pas disponibles',
     Further_study: `Autres investigations ou analyses scientifiques, historiques, techniques ou autres`,
 
 
@@ -199,7 +204,6 @@ var i18n = {
 
     buttonNext: 'Suivant',
     buttonPrevious: 'Précédent', 
-
 
 
 

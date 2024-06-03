@@ -935,6 +935,9 @@ function changeLanguage() {
   const selectedLanguage = document.getElementById('languageSelect').value;
 
   //***************************************** FOR SLIDE 1 *****************************************************
+  document.getElementById('nameretrived').innerText = i18n[selectedLanguage].Name;
+  document.getElementById('roleretrived').innerText = i18n[selectedLanguage].Role;
+  document.getElementById('institutionretrieved').innerText = i18n[selectedLanguage].Institution;
 
   document.getElementById('date_of_inspection').innerText = i18n[selectedLanguage].Date_of_inspection;
   document.getElementById('purpose_of_condition_report').placeholder = i18n[selectedLanguage].Purpose_of_Condition_Report;
@@ -963,11 +966,23 @@ function changeLanguage() {
   document.getElementById('duration_of_assessment').placeholder = i18n[selectedLanguage].Duration_of_assessment;
   document.getElementById('inaccessibility').placeholder = i18n[selectedLanguage].Inaccessibility;
 
+ 
+  document.getElementById('exampleInputTextTool').placeholder = i18n[selectedLanguage].Enter_new_tool;
+  document.getElementById('exampleInputTextMethod').placeholder = i18n[selectedLanguage].Enter_new_method;
+  document.getElementById('exampleInputTextAsset').placeholder = i18n[selectedLanguage].Enter_new_asset;
+  document.getElementById('exampleInputTextProt').placeholder = i18n[selectedLanguage].Enter_new_protection;
+  document.getElementById('spanPhysical').innerText = i18n[selectedLanguage].sub_heading1_physical;
+  document.getElementById('spanLight').innerText = i18n[selectedLanguage].sub_heading2_light;
+  document.getElementById('sufficient_support').innerText = i18n[selectedLanguage].Sufficient_physical_support;
+  document.getElementById('mounting_object').innerText = i18n[selectedLanguage].Mounting_object;
+
    //***************************************** FOR SLIDE 2 *****************************************************
 
   document.getElementById('identification_no').placeholder = i18n[selectedLanguage].Identification_Number;
   document.getElementById('doaLabel').innerText = i18n[selectedLanguage].Date_of_acqisation; //
   document.getElementById('identification_noLabel').innerText = i18n[selectedLanguage].Identification_noLabel; //
+  document.getElementById('FetchEROS').innerText = i18n[selectedLanguage].Fetch_eros; //
+  document.getElementById('FetchJOCONDE').innerText = i18n[selectedLanguage].Fetch_Joconde; //
   document.getElementById('title').placeholder = i18n[selectedLanguage].Title;
   document.getElementById('author').placeholder = i18n[selectedLanguage].Author;
   document.getElementById('docLabel').innerText = i18n[selectedLanguage].Date_of_creation; //
@@ -985,6 +1000,8 @@ function changeLanguage() {
   document.getElementById('technique').placeholder = i18n[selectedLanguage].Technique;
   document.getElementById('weight').placeholder = i18n[selectedLanguage].Weight;
   document.getElementById('contituent_elements').placeholder = i18n[selectedLanguage].Constituent_Elements;
+  document.getElementById('no_of_items').placeholder = i18n[selectedLanguage].Number_of_items;
+  
   document.getElementById('heights').placeholder = i18n[selectedLanguage].Heights;
   document.getElementById('width').placeholder = i18n[selectedLanguage].Width;
   document.getElementById('installation_notes').placeholder = i18n[selectedLanguage].Installation_Notes;
@@ -1016,6 +1033,9 @@ function changeLanguage() {
   document.getElementById('recommendations').placeholder = i18n[selectedLanguage].Recommendations; 
   document.getElementById('investigations').placeholder = i18n[selectedLanguage].Further_study; 
   document.getElementById('diag_recc_heading').innerText = i18n[selectedLanguage].heading_diag_rec; 
+  document.getElementById('optionalInfo').innerText = i18n[selectedLanguage].optional_info_diagnostic; 
+  
+
 
 
    //***************************************** BUTTONS  *****************************************************
