@@ -406,17 +406,20 @@
             <input type="text" class="form-control" id="identification_no" name="identification_no" placeholder="">
           </div>
 
-          <div class="form-group col-md-2">
-            <button type="button" class="btn btn-primary" id="FetchEROS">Fetch by EROS</button>
+          <!---Card for fetch eros and JOconde-->
+
+          <div class="card">
+           
+            <div class="card-body">
+              <h5 class="card-title">Fetch data using identification number. Thanks to EROS and JOconde</h5>
+              <div class="ui purple button" id="FetchEROS" >Fetch from EROS</div>
+              <div class="ui purple button" id="FetchJOCONDE">Fetch from JOconde</div>
+            </div>
           </div>
 
-          <div class="col-md-1">
-            <p class="">or</p>
-          </div>
+         
 
-          <div class="form-group col-md-2">
-            <button type="button" class="btn btn-primary" id="FetchJOCONDE">Fetch by Joconde</button>
-          </div>
+           <!----------------------------------->
 
           <div class="alert alert-danger alert-dismissible fade show" id="errorAlert" style="display: none;" role="alert">
             Invalid Identification no. Please Enter valid one

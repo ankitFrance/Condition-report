@@ -288,7 +288,7 @@ let uploadedFiles = []; // Define an array to store uploaded files with their ca
 function displayUploadMessage() {
 
 let filesUploaded = document.getElementById('inputGroupFile02').files;
-console.log(filesUploaded)
+console.log('files uploaded are', filesUploaded)
 const previewContainer = document.getElementById('previewContainer');
 
 
@@ -350,6 +350,7 @@ for (let i = 0; i < filesUploaded.length; i++) {
       caption: '',
       fileName: file.name
     });
+    console.log('uploadedDiles are', uploadedFiles)
 
     };
     reader.readAsDataURL(file);
@@ -579,6 +580,8 @@ uploadedFiles.forEach(upload => {
   captions.push(upload.caption);
   fileNames.push(upload.fileName);
 });
+
+
 
 const form = document.getElementById(formId);
 console.log(form)
