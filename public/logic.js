@@ -567,13 +567,19 @@ for (let i = 0; i < filesUploaded2.length; i++) {
 
 
 //*********************************************************************************************************************************************
+let images = [];
+let captions = [];
+let fileNames = [];
+let images2 = [];
+let captions2 = [];
+let fileNames2 = [];
 
 function viewSummary(formId) {
 
 //***********FOR UPLOADING (First) **************
-let images = [];
-let captions = [];
-let fileNames = [];
+images = [];
+captions = [];
+fileNames = [];
 
 uploadedFiles.forEach(upload => {
   images.push(upload.image);
@@ -592,6 +598,7 @@ captionsInput.style.display = 'none';
 captionsInput.style.visibility = 'hidden';
 captionsInput.name = 'captions';
 captionsInput.value = JSON.stringify(captions);
+console.log('captions iNput' , captionsInput)
 form.appendChild(captionsInput);
 
 const imagesInput = document.createElement('input');
@@ -631,9 +638,9 @@ for (let i = 0; i < images.length; i++) {
 
 
 //***********FOR UPLOADING (Second) **************
-let images2 = [];
-let captions2 = [];
-let fileNames2 = [];
+images2 = [];
+captions2 = [];
+fileNames2 = [];
 
 uploadedFiles2.forEach(upload => {
   images2.push(upload.image);
@@ -924,6 +931,19 @@ summaryModal.show();
 
 function closeModal() {
 $('#summaryModal').modal('hide');
+
+const form = document.getElementById('registrationForm') || document.getElementById('UpdateForm');
+if (form) {
+  document.getElementById('summaryDiv').innerHTML = '';
+  const inputNames = ['captions', 'captions2', 'fileNames', 'fileNames2', 'images', 'images2'];
+        inputNames.forEach(name => {
+            const input = form.querySelector(`input[name="${name}"]`);
+            if (input) {
+                input.remove();
+            }
+        });
+}
+
 
 }
 
