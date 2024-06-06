@@ -681,4 +681,4 @@
           <div class="form-group col-md-6">
             <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
           </div>
-        </div>
+        </
