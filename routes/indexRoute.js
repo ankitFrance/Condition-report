@@ -112,7 +112,15 @@ router.get('/', (req, res) => {
 
   try {
     const reportId = req.params.id;
+    
     const updatedData = req.body; 
+
+    const captions = JSON.parse(updatedData.captions);
+    const captions2 = JSON.parse(updatedData.captions2);
+    const originalNames = JSON.parse(updatedData.fileNames);
+    const originalNames2 = JSON.parse(updatedData.fileNames2);
+
+   
     console.log('updateddddddd', updatedData)
   
     const updateObject = {
@@ -174,6 +182,8 @@ router.get('/', (req, res) => {
          Installation_notes : updatedData.installation_notes,
          Artist_installation_guide : updatedData.artist_installation_guide,
          Object_creation_description : updatedData.object_creation_description,
+         captions : captions,
+         originalNames:  originalNames
       },
 
       Object_environment : {
@@ -187,6 +197,8 @@ router.get('/', (req, res) => {
 
         Info_observed : updatedData.info_observed,
         Report_change : updatedData.report_change,
+        captions : captions2,
+        originalNames:  originalNames2
        
       },
 
@@ -201,8 +213,62 @@ router.get('/', (req, res) => {
 
     };
 
-
+   
     const updatedReport = await Report.findByIdAndUpdate(reportId, updateObject, { new: true });
+// testing ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+/************************************FILE AND FOLDER SAVING ****************************** */
+
+
+let dpath = __dirname.slice(0, -7);    
+
+const folderPath = path.join(dpath, 'public', 'uploads', reportId);
+if (!fs.existsSync(folderPath)) {
+  fs.mkdirSync(folderPath);
+  console.log('this is tetsting', __dirname);
+}
+
+
+const moveFiles = (files , destination) => {
+  const newPaths = []; 
+
+  if (!Array.isArray(files)) {     
+    files = [files];
+  }
+
+
+  files.forEach(file => {
+    if (file) { 
+    const oldPath = path.join(dpath,'public/uploads', file.filename);
+    const mypath = path.join('public/uploads', reportId);
+    const dbPath = path.join('uploads', reportId,file.originalname )
+    const newPath = path.join(mypath, file.originalname);
+    fs.renameSync(oldPath, newPath);
+    newPaths.push(dbPath); 
+    }
+  });
+
+  return newPaths; 
+};
+
+const newPaths1 = moveFiles(req.files['ImageFile'], folderPath);
+const newPaths2 = moveFiles(req.files['ImageFile2'], folderPath);
+
+
+/********************************Set values and update ************************************************************ */
+
+const updatedReportWithPaths = await Report.findByIdAndUpdate(reportId, {
+  $set: {
+    "Object_description.filePaths": newPaths1,
+    "Conditions_description.filePaths": newPaths2,
+  },
+}, { new: true });
+
+/******************************************************************************************************************* */
+
+
+/********************************************************************************************* */
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if (!updatedReport) {
       return res.status(404).json({ error: 'Report not found' });
@@ -222,6 +288,10 @@ router.get('/', (req, res) => {
 
  /************************************************************************************************************************************************/
   
+
+
+
+
 
  router.get('/report/:id', async (req, res) => {
 
@@ -255,11 +325,6 @@ router.get('/', (req, res) => {
 
 
 
-
-
-
-
-
 /************************************************************************************************************************************ */
 
 router.post('/feedback', uploadMiddleware.fields([
@@ -270,10 +335,10 @@ router.post('/feedback', uploadMiddleware.fields([
   const formData = req.body;
   console.log('data coming from request body........', formData)
   const captions = JSON.parse(formData.captions);
-  const images = JSON.parse(formData.images);
+  //const images = JSON.parse(formData.images);
   const originalNames = JSON.parse(formData.fileNames);
   const captions2 = JSON.parse(formData.captions2);
-  const images2 = JSON.parse(formData.images2);
+  //const images2 = JSON.parse(formData.images2);
   const originalNames2 = JSON.parse(formData.fileNames2);
 
 
@@ -387,15 +452,6 @@ router.post('/feedback', uploadMiddleware.fields([
   /******To collect captions from hidden field made inside viewSummary2() function  and store them in database  */
 
   ReportForm.Conditions_description.captions = captions2;
-
-  
-/******To collect images src from hidden field made inside viewSummary() function  and store them in database  */
-
-  //ReportForm.Object_description.images = images;
-
-/******To collect images src from hidden field made inside viewSummary2() function  and store them in database  */
-
-  //ReportForm.Conditions_description.images = images2;
 
 
 

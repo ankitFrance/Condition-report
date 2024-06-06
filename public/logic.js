@@ -350,7 +350,7 @@ for (let i = 0; i < filesUploaded.length; i++) {
       caption: '',
       fileName: file.name
     });
-    console.log('uploadedDiles are', uploadedFiles)
+    console.log('uploaded Files are', uploadedFiles)
 
     };
     reader.readAsDataURL(file);
