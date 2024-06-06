@@ -664,21 +664,3 @@
           <div class="form-group col-md-6">
             <textarea class="form-control" id="effect" name="effect" rows="4" placeholder=""></textarea>
           </div>
-        </div>
-
-        <div style="padding: 10px 0 0 0;">
-          <button type="button" class="btn btn-secondary prev">Previous</button>
-          <button type="button" class="btn btn-success next">Next</button>
-        </div>
-      </div>
-
-      <!-------------------------------------- FORM 5---------------------------------------->
-      <div class="step-form" id="step5">
-
-        <h2 style="text-align: center; color: navy;" id="cond_desc_heading"> CONDITIONS DESCRIPTION (OBEJCT) </h2>
-
-        <div class="form-row row" style="padding: 5px 0;">
-          <div class="form-group col-md-6">
-            <textarea class="form-control" id="info_observed" name="info_observed" rows="4" placeholder=" "></textarea>
-          </div>
-        </
